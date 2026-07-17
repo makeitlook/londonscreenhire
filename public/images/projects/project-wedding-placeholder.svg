@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0c0810"/>
+  <!-- Venue ceiling / drapes -->
+  <path d="M0,0 L800,0 L800,120 Q700,80 600,110 Q500,80 400,100 Q300,75 200,105 Q100,78 0,110 Z" fill="#100d1a"/>
+  <!-- Fairy light strings -->
+  <path d="M0,60 Q200,90 400,70 Q600,90 800,65" stroke="#fff8e0" stroke-width="0.8" fill="none" opacity="0.3"/>
+  <path d="M0,80 Q200,110 400,90 Q600,110 800,85" stroke="#fff8e0" stroke-width="0.8" fill="none" opacity="0.2"/>
+  <!-- Fairy lights dots -->
+  <circle cx="80" cy="65" r="2" fill="#fff8c0" opacity="0.8"/>
+  <circle cx="200" cy="75" r="2" fill="#fff8c0" opacity="0.7"/>
+  <circle cx="320" cy="68" r="2" fill="#fff8c0" opacity="0.9"/>
+  <circle cx="480" cy="72" r="2" fill="#fff8c0" opacity="0.8"/>
+  <circle cx="620" cy="66" r="2" fill="#fff8c0" opacity="0.7"/>
+  <circle cx="730" cy="72" r="2" fill="#fff8c0" opacity="0.8"/>
+  <!-- LED backdrop screen -->
+  <rect x="120" y="100" width="560" height="260" rx="6" fill="#120d1e"/>
+  <rect x="128" y="108" width="544" height="244" rx="4" fill="url(#wedding-screen)"/>
+  <!-- Floral arch overlay (abstract shapes) -->
+  <ellipse cx="130" cy="230" rx="60" ry="90" fill="#1a0e28" opacity="0.7"/>
+  <ellipse cx="670" cy="230" rx="60" ry="90" fill="#1a0e28" opacity="0.7"/>
+  <!-- Sweetheart table -->
+  <rect x="260" y="370" width="280" height="30" rx="3" fill="#140e22"/>
+  <rect x="280" y="398" width="240" height="12" rx="2" fill="#1c1430"/>
+  <!-- Table cloth glow -->
+  <ellipse cx="400" cy="402" rx="130" ry="12" fill="#d060a0" opacity="0.12"/>
+  <!-- Warm pink floor glow -->
+  <ellipse cx="400" cy="470" rx="280" ry="35" fill="#c050a0" opacity="0.15"/>
+  <!-- Soft downlights -->
+  <polygon points="300,108 240,430 360,430" fill="#e080c0" opacity="0.04"/>
+  <polygon points="500,108 440,430 560,430" fill="#e080c0" opacity="0.04"/>
+  <defs>
+    <linearGradient id="wedding-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2a0840"/>
+      <stop offset="30%" stop-color="#8020a0"/>
+      <stop offset="55%" stop-color="#d060c0"/>
+      <stop offset="80%" stop-color="#6010a0"/>
+      <stop offset="100%" stop-color="#200840"/>
+    </linearGradient>
+  </defs>
+</svg>

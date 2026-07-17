@@ -1,36 +1,39 @@
-// app/layout.tsx
+import type { Metadata } from "next";
+import { Barlow_Condensed, Inter } from "next/font/google";
+import ConsentManager from "@/components/shared/consent-manager";
 import "./globals.css";
-import { Metadata } from "next";
-import ClientLayout from "./client-layout";
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-barlow-condensed",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Your Site Name",
-    template: "%s | Your Site Name",
+    default: "London Screen Hire",
+    template: "%s | London Screen Hire",
   },
-  description: "A modern, SEO-ready Next.js template with theme support.",
-  keywords: ["Next.js", "Template", "SEO", "Dark mode", "Design System"],
-  metadataBase: new URL("https://yoursite.com"), // Replace with your actual domain
+  description:
+    "Professional LED and projection screen hire in London. Quote requests welcome.",
+  keywords: ["screen hire", "LED screen", "London", "AV hire", "event screens"],
+  metadataBase: new URL("https://londonscreenhire.com"),
   openGraph: {
-    title: "Your Site Name",
-    description: "A modern, SEO-ready Next.js template with theme support.",
-    url: "https://yoursite.com",
-    siteName: "Your Site Name",
-    images: [
-      {
-        url: "/images/og-image.jpg", // Replace with your Open Graph image
-        width: 1200,
-        height: 630,
-      },
-    ],
+    title: "London Screen Hire",
+    description:
+      "Professional LED and projection screen hire in London. Quote requests welcome.",
+    url: "https://londonscreenhire.com",
+    siteName: "London Screen Hire",
     locale: "en_GB",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Your Site Name",
-    description: "A modern, SEO-ready Next.js template with theme support.",
-    images: ["/images/og-image.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
       rel: "icon",
       type: "image/png",
       sizes: "192x192",
-      url: "/android-chrome-192x192.png",
+      url: "/images/android-chrome-192x192.png",
     },
   },
 };
@@ -51,9 +54,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body>
-        <ClientLayout>{children}</ClientLayout>
+    <html
+      lang="en-GB"
+      className={`${barlowCondensed.variable} ${inter.variable}`}
+    >
+      <body className="font-body">
+        {children}
+        <ConsentManager />
       </body>
     </html>
   );

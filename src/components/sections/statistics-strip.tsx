@@ -1,0 +1,83 @@
+import { statistics } from "@/data/statistics";
+
+/**
+ * StatisticsStrip — server component.
+ *
+ * Full-width bright-blue band that attaches directly beneath the dark
+ * Why Choose Us section with no gap or separator.
+ *
+ * Layout:
+ *   Mobile  (<sm):  2-col × 2-row grid
+ *   Tablet (sm–lg): 2-col × 2-row grid (wider cells)
+ *   Desktop (lg+):  4-col × 1-row
+ *
+ * Dividers: right-border on non-last column cells; bottom-border on
+ * top-row mobile/tablet cells. All borders use white/20 transparency.
+ * No outer border.
+ */
+
+/**
+ * Per-item border classes.
+ *
+ * 4 items, 3 layouts:
+ *   Mobile / tablet 2×2:
+ *     [0] right + bottom  [1] bottom
+ *     [2] right           [3] —
+ *   Desktop 4×1:
+ *     [0] right  [1] right  [2] right  [3] —
+ */
+const BORDERS = [
+  "border-r border-b lg:border-b-0 border-white/20",
+  "border-b lg:border-b-0 lg:border-r border-white/20",
+  "border-r lg:border-r border-white/20",
+  "",
+] as const;
+
+export default function StatisticsStrip() {
+  return (
+    <section
+      id="stats"
+      aria-label="London Screen Hire statistics"
+      className="bg-lsh-blue scroll-mt-[68px] xl:scroll-mt-[78px]"
+    >
+      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+        <ul
+          className="grid grid-cols-2 lg:grid-cols-4 list-none m-0 p-0"
+          role="list"
+        >
+          {statistics.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <li
+                key={stat.label}
+                className={`flex items-center justify-center gap-3 sm:gap-4 py-8 sm:py-9 lg:py-10 ${BORDERS[index]}`}
+              >
+                {/* Icon */}
+                <Icon
+                  size={30}
+                  strokeWidth={1.4}
+                  className="text-white/80 shrink-0 hidden sm:block lg:block"
+                  aria-hidden="true"
+                />
+                {/* Value + label stack */}
+                <div className="flex flex-col items-center sm:items-start">
+                  <span
+                    className="font-heading font-bold text-white leading-none"
+                    style={{
+                      fontSize: "clamp(1.75rem, calc(2vw + 1rem), 2.625rem)",
+                    }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span className="mt-1 text-[0.6875rem] sm:text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-white/80">
+                    {stat.label}
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}

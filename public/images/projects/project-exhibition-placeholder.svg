@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#080c10"/>
+  <!-- Exhibition hall ceiling -->
+  <rect x="0" y="0" width="800" height="80" fill="#0a0e14"/>
+  <!-- Ceiling track lights -->
+  <rect x="0" y="30" width="800" height="6" fill="#121820"/>
+  <circle cx="120" cy="33" r="5" fill="#00c0ff" opacity="0.8"/>
+  <circle cx="280" cy="33" r="5" fill="#00a0e0" opacity="0.8"/>
+  <circle cx="440" cy="33" r="5" fill="#00c0ff" opacity="0.9"/>
+  <circle cx="600" cy="33" r="5" fill="#00a0e0" opacity="0.8"/>
+  <circle cx="720" cy="33" r="5" fill="#00c0ff" opacity="0.7"/>
+  <!-- Stand back wall -->
+  <rect x="80" y="70" width="640" height="310" rx="4" fill="#0d1218"/>
+  <!-- LED panels on stand (curved/modular look) -->
+  <rect x="90" y="78" width="300" height="180" rx="3" fill="url(#exhibit-screen-l)"/>
+  <rect x="400" y="78" width="310" height="180" rx="3" fill="url(#exhibit-screen-r)"/>
+  <!-- Panel seam -->
+  <rect x="392" y="78" width="8" height="180" fill="#080c10"/>
+  <!-- Stand counter -->
+  <rect x="160" y="350" width="480" height="60" rx="4" fill="#101820"/>
+  <rect x="160" y="350" width="480" height="8" rx="2" fill="#182438"/>
+  <!-- Cyan accent lighting strips on counter -->
+  <rect x="162" y="356" width="476" height="2" rx="1" fill="#00d0ff" opacity="0.6"/>
+  <!-- Floor reflection -->
+  <ellipse cx="400" cy="460" rx="320" ry="40" fill="#004060" opacity="0.2"/>
+  <!-- Ceiling beam down -->
+  <polygon points="440,36 380,380 500,380" fill="#00a0ff" opacity="0.04"/>
+  <polygon points="120,36 80,400 170,400" fill="#0080d0" opacity="0.05"/>
+  <polygon points="720,36 680,400 760,400" fill="#0080d0" opacity="0.05"/>
+  <defs>
+    <linearGradient id="exhibit-screen-l" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#002840"/>
+      <stop offset="50%" stop-color="#0070c0"/>
+      <stop offset="100%" stop-color="#003060"/>
+    </linearGradient>
+    <linearGradient id="exhibit-screen-r" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#003060"/>
+      <stop offset="50%" stop-color="#00a0d0"/>
+      <stop offset="100%" stop-color="#002040"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#0e0a18"/>
+  <!-- Stage floor reflection -->
+  <ellipse cx="400" cy="460" rx="400" ry="55" fill="#0a0814"/>
+  <!-- Wide LED screen -->
+  <rect x="60" y="50" width="680" height="300" rx="4" fill="#120d20"/>
+  <!-- Amber/gold LED display -->
+  <rect x="70" y="58" width="660" height="284" rx="2" fill="url(#awards-screen)"/>
+  <!-- Curtain left -->
+  <path d="M0,0 Q60,250 20,500 L0,500 Z" fill="#0d0a18"/>
+  <path d="M0,0 Q80,240 40,500 L0,500 Z" fill="#130f22" opacity="0.6"/>
+  <!-- Curtain right -->
+  <path d="M800,0 Q740,250 780,500 L800,500 Z" fill="#0d0a18"/>
+  <path d="M800,0 Q720,240 760,500 L800,500 Z" fill="#130f22" opacity="0.6"/>
+  <!-- Stage platform -->
+  <rect x="100" y="360" width="600" height="30" rx="2" fill="#1a1428"/>
+  <rect x="100" y="388" width="600" height="8" rx="1" fill="#221a34" opacity="0.5"/>
+  <!-- Gold spotlight beams -->
+  <polygon points="180,0 120,430 240,430" fill="#c07800" opacity="0.06"/>
+  <polygon points="400,0 350,430 450,430" fill="#d08000" opacity="0.07"/>
+  <polygon points="620,0 560,430 680,430" fill="#c07800" opacity="0.06"/>
+  <!-- Spotlight sources -->
+  <circle cx="180" cy="8" r="8" fill="#e09020" opacity="0.9"/>
+  <circle cx="400" cy="4" r="10" fill="#f0a030" opacity="0.9"/>
+  <circle cx="620" cy="8" r="8" fill="#e09020" opacity="0.9"/>
+  <!-- Floor glow -->
+  <ellipse cx="400" cy="445" rx="250" ry="28" fill="#6030a0" opacity="0.25"/>
+  <defs>
+    <linearGradient id="awards-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d1a00"/>
+      <stop offset="30%" stop-color="#a04800"/>
+      <stop offset="60%" stop-color="#c06000"/>
+      <stop offset="100%" stop-color="#3d1a00"/>
+    </linearGradient>
+  </defs>
+</svg>
