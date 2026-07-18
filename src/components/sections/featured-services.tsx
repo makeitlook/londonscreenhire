@@ -1,4 +1,5 @@
 import { featuredServices } from "@/data/featured-services";
+import { FadeIn } from "@/components/shared/fade-in";
 
 /**
  * Separator classes for 6 items across three grid states.
@@ -40,37 +41,39 @@ export default function FeaturedServices() {
       className="bg-lsh-dark py-0 scroll-mt-[68px] xl:scroll-mt-[78px]"
     >
       <div className="w-full px-4 sm:px-6 md:px-8 xl:px-12">
-        <div className="bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] overflow-hidden">
-          <ul
-            className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 list-none m-0 p-0"
-            role="list"
-          >
-            {featuredServices.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <li
-                  key={service.title}
-                  className={`flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 py-5 px-3 sm:py-7 sm:px-5 xl:py-9 border-[var(--lsh-border-dark)] transition-colors duration-200 hover:bg-lsh-charcoal-light ${ITEM_BORDERS[index]}`}
-                >
-                  <Icon
-                    size={26}
-                    strokeWidth={1.4}
-                    className="text-lsh-blue shrink-0"
-                    aria-hidden="true"
-                  />
-                  <div>
-                    <h3 className="font-heading font-bold uppercase tracking-wide text-lsh-white text-[0.9375rem] xl:text-[1rem] leading-snug mb-1">
-                      {service.title}
-                    </h3>
-                    <p className="text-[0.75rem] sm:text-[0.8125rem] leading-[1.45] sm:leading-[1.6] text-lsh-grey-400">
-                      {service.description}
-                    </p>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <FadeIn>
+          <div className="bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] overflow-hidden">
+            <ul
+              className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-6 list-none m-0 p-0"
+              role="list"
+            >
+              {featuredServices.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <li
+                    key={service.title}
+                    className={`flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 py-5 px-3 sm:py-7 sm:px-5 xl:py-9 border-[var(--lsh-border-dark)] transition-colors duration-200 hover:bg-lsh-charcoal-light ${ITEM_BORDERS[index]}`}
+                  >
+                    <Icon
+                      size={26}
+                      strokeWidth={1.4}
+                      className="text-lsh-blue shrink-0"
+                      aria-hidden="true"
+                    />
+                    <div>
+                      <h3 className="font-heading font-bold uppercase tracking-wide text-lsh-white text-[0.9375rem] xl:text-[1rem] leading-snug mb-1">
+                        {service.title}
+                      </h3>
+                      <p className="text-[0.75rem] sm:text-[0.8125rem] leading-[1.5] sm:leading-[1.6] text-lsh-grey-400">
+                        {service.description}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

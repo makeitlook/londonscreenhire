@@ -1,4 +1,5 @@
 import SiteHeader from "@/components/layout/site-header";
+import BackToTop from "@/components/shared/back-to-top";
 import SiteFooter from "@/components/layout/site-footer";
 import HeroSection from "@/components/sections/hero-section";
 import FeaturedServices from "@/components/sections/featured-services";
@@ -74,7 +75,7 @@ export default function Home() {
            * lg:  -72px  1024px+
            * xl:  -80px  1280px+
            */}
-          <div className="relative z-10 -mt-5 sm:-mt-8 md:-mt-12 lg:-mt-[72px] xl:-mt-20 pb-8 md:pb-12 xl:pb-16">
+          <div className="relative z-10 -mt-5 sm:-mt-8 md:-mt-12 lg:-mt-[72px] xl:-mt-20 pb-5 md:pb-8 xl:pb-10">
             <FeaturedServices />
           </div>
         </div>
@@ -95,6 +96,7 @@ export default function Home() {
         <ContactSection />
       </main>
       <SiteFooter />
+      <BackToTop />
     </>
   );
 }

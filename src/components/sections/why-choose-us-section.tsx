@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { benefits } from "@/data/benefits";
+import { FadeIn } from "@/components/shared/fade-in";
 
 /**
  * WhyChooseUsSection — server component.
@@ -33,7 +34,7 @@ export default function WhyChooseUsSection() {
          */}
         <div className="flex flex-col xl:flex-row xl:items-center xl:gap-14">
           {/* ── Left content block ── */}
-          <div className="xl:w-[36%] xl:shrink-0 mb-8 md:mb-10 xl:mb-0">
+          <FadeIn className="xl:w-[36%] xl:shrink-0 mb-8 md:mb-10 xl:mb-0">
             {/* Eyebrow */}
             <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               Why Choose Us
@@ -72,7 +73,7 @@ export default function WhyChooseUsSection() {
               Get a Quote
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
-          </div>
+          </FadeIn>
 
           {/* ── Benefit card grid ── */}
           {/*
@@ -84,35 +85,34 @@ export default function WhyChooseUsSection() {
            *   xl  (1280px+):  3-col (right side of desktop split)
            * Gap: 2 (8px) — panel feel, not loose cards
            */}
-          <ul
-            className="grid grid-cols-2 lg:grid-cols-3 gap-2 xl:flex-1"
-            role="list"
-          >
-            {benefits.map((benefit) => {
-              const Icon = benefit.icon;
-              return (
-                <li key={benefit.title} className="min-w-0">
-                  <article
-                    className="flex flex-col items-center text-center h-full bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] transition-colors duration-200 hover:bg-lsh-charcoal-light hover:border-white/20
+          <FadeIn className="xl:flex-1" delay={0.12}>
+            <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2" role="list">
+              {benefits.map((benefit) => {
+                const Icon = benefit.icon;
+                return (
+                  <li key={benefit.title} className="min-w-0">
+                    <article
+                      className="flex flex-col items-center text-center h-full bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] transition-colors duration-200 hover:bg-lsh-charcoal-light hover:border-white/20
                     p-[18px] sm:p-5 xl:p-6"
-                  >
-                    <Icon
-                      size={28}
-                      strokeWidth={1.4}
-                      className="text-lsh-blue mb-2.5 shrink-0 sm:mb-3"
-                      aria-hidden="true"
-                    />
-                    <h3 className="font-heading font-bold uppercase tracking-wide text-white text-[0.8125rem] sm:text-[0.875rem] xl:text-[0.9375rem] leading-snug mb-1.5">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-[0.72rem] sm:text-[0.775rem] xl:text-[0.8125rem] leading-[1.45] text-lsh-grey-300">
-                      {benefit.description}
-                    </p>
-                  </article>
-                </li>
-              );
-            })}
-          </ul>
+                    >
+                      <Icon
+                        size={28}
+                        strokeWidth={1.4}
+                        className="text-lsh-blue mb-2.5 shrink-0 sm:mb-3"
+                        aria-hidden="true"
+                      />
+                      <h3 className="font-heading font-bold uppercase tracking-wide text-white text-[0.8125rem] sm:text-[0.875rem] xl:text-[0.9375rem] leading-snug mb-1.5">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-[0.75rem] sm:text-[0.8125rem] xl:text-[0.875rem] leading-[1.5] text-lsh-grey-300">
+                        {benefit.description}
+                      </p>
+                    </article>
+                  </li>
+                );
+              })}
+            </ul>
+          </FadeIn>
         </div>
       </div>
     </section>

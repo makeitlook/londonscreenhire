@@ -1,6 +1,7 @@
 import { Phone, Mail, MessageCircle, type LucideProps } from "lucide-react";
 import QuoteForm from "./quote-form";
 import { contact, type ContactItem } from "@/data/contact";
+import { FadeIn } from "@/components/shared/fade-in";
 
 /**
  * ContactSection — server component outer shell.
@@ -64,7 +65,7 @@ export default function ContactSection() {
       <div className="px-4 sm:px-6 md:px-8 xl:px-12">
         <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-20">
           {/* ── Left: contact content ── */}
-          <div className="lg:w-[42%] lg:shrink-0 mb-10 lg:mb-0">
+          <FadeIn className="lg:w-[42%] lg:shrink-0 mb-10 lg:mb-0">
             {/* Eyebrow */}
             <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               Get in Touch
@@ -94,12 +95,12 @@ export default function ContactSection() {
                 <ContactRow key={item.icon} item={item} />
               ))}
             </ul>
-          </div>
+          </FadeIn>
 
           {/* ── Right: quote form ── */}
-          <div className="flex-1 bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] rounded-[4px] p-6 md:p-8">
+          <FadeIn className="flex-1 bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] rounded-[4px] p-6 md:p-8" delay={0.12}>
             <QuoteForm />
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

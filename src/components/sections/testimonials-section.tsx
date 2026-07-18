@@ -1,5 +1,6 @@
 import { Quote } from "lucide-react";
 import { testimonials } from "@/data/testimonials";
+import { FadeIn } from "@/components/shared/fade-in";
 
 /**
  * TestimonialsSection — server component.
@@ -26,25 +27,27 @@ export default function TestimonialsSection() {
     >
       <div className="px-4 sm:px-6 md:px-8 xl:px-12">
         {/* ── Heading block ── */}
-        <div className="flex flex-col items-center mb-10 md:mb-12">
-          <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-            What Our Clients Say
-          </p>
-          <h2
-            id="testimonials-heading"
-            className="font-heading font-bold uppercase leading-[0.9] tracking-[-0.01em] text-lsh-dark text-center mb-2.5"
-            style={{
-              fontSize: "clamp(2.125rem, calc(2.5vw + 1.125rem), 3.25rem)",
-            }}
-          >
-            Trusted by Clients Across the UK
-          </h2>
-          <span
-            className="block bg-lsh-blue rounded-sm"
-            style={{ width: "40px", height: "2px" }}
-            aria-hidden="true"
-          />
-        </div>
+        <FadeIn>
+          <div className="flex flex-col items-center mb-8 md:mb-10">
+            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+              What Our Clients Say
+            </p>
+            <h2
+              id="testimonials-heading"
+              className="font-heading font-bold uppercase leading-[0.9] tracking-[-0.01em] text-lsh-dark text-center mb-2.5"
+              style={{
+                fontSize: "clamp(2.125rem, calc(2.5vw + 1.125rem), 3.25rem)",
+              }}
+            >
+              Trusted by Clients Across the UK
+            </h2>
+            <span
+              className="block bg-lsh-blue rounded-sm"
+              style={{ width: "40px", height: "2px" }}
+              aria-hidden="true"
+            />
+          </div>
+        </FadeIn>
 
         {/* ── Mobile scroll row (< sm) ── */}
         <div className="sm:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -69,11 +72,13 @@ export default function TestimonialsSection() {
          * sm–lg: 2-col; third card sits in col-1 of row 2.
          * lg+:   3-col single row.
          */}
-        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {testimonials.map((t) => (
-            <TestimonialCard key={t.name} testimonial={t} />
-          ))}
-        </div>
+        <FadeIn delay={0.1}>
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {testimonials.map((t) => (
+              <TestimonialCard key={t.name} testimonial={t} />
+            ))}
+          </div>
+        </FadeIn>
 
         {/*
          * Pagination dots — decorative scroll cue, mobile only.

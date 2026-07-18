@@ -38,7 +38,6 @@ export default function HeroSection() {
           fill
           className="object-cover object-[60%_50%] md:object-[70%_50%]"
           priority
-          unoptimized
           sizes="100vw"
         />
 
