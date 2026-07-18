@@ -23,7 +23,7 @@ export type SocialLink = {
 export const quickLinks: FooterLink[] = [
   { label: "Home", href: "/#home" },
   { label: "Services", href: "/#services" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Events", href: "/#projects" },
   { label: "About", href: "/#about" },
   { label: "Testimonials", href: "/#testimonials" },
   { label: "Get a Quote", href: "/#quote" },

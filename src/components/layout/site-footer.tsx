@@ -43,11 +43,31 @@ export default function SiteFooter() {
 
   return (
     <footer
-      className="bg-lsh-black border-t border-[var(--lsh-border-dark)]"
+      className="relative bg-lsh-black border-t border-[var(--lsh-border-dark)] overflow-hidden"
       aria-label="Site footer"
     >
+      {/* ── Background image + overlay ───────────────────────────────────── */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url(/images/footer/footer.png)",
+          backgroundSize: "cover",
+          backgroundPosition: "right center",
+          backgroundRepeat: "no-repeat",
+        }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, #05070a 0%, rgba(5,7,10,0.96) 25%, rgba(5,7,10,0.80) 50%, rgba(5,7,10,0.40) 75%, rgba(5,7,10,0.15) 100%)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* ── Main grid ────────────────────────────────────────────────────── */}
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12 pt-14 pb-12 md:pt-16 md:pb-14">
+      <div className="relative z-10 px-4 sm:px-6 md:px-8 xl:px-12 pt-14 pb-12 md:pt-16 md:pb-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.75fr_1fr_1fr_1.5fr] gap-10 sm:gap-x-8 sm:gap-y-10 lg:gap-8">
           {/* Col 1 — Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -155,7 +175,7 @@ export default function SiteFooter() {
       </div>
 
       {/* ── Copyright bar ────────────────────────────────────────────────── */}
-      <div className="border-t border-[var(--lsh-border-dark)] px-4 sm:px-6 md:px-8 xl:px-12 py-4">
+      <div className="relative z-10 border-t border-[var(--lsh-border-dark)] px-4 sm:px-6 md:px-8 xl:px-12 py-4">
         <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.75rem] text-[var(--lsh-grey-500)]">
             {copyright}

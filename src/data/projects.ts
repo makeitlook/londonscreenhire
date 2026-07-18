@@ -7,33 +7,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "Corporate Conference",
+    title: "Corporate Conferences",
     location: "London",
-    image: "/images/projects/project-corporate-placeholder.svg",
-    alt: "Large LED screen display at a corporate conference in London",
+    image: "/images/projects/corporate.png",
+    alt: "LED screen hire for a corporate conference",
   },
   {
-    title: "Awards Ceremony",
+    title: "Awards Ceremonies",
     location: "Birmingham",
-    image: "/images/projects/project-awards-placeholder.svg",
-    alt: "LED screen and stage lighting at an awards ceremony in Birmingham",
+    image: "/images/projects/awards.png",
+    alt: "LED screen and stage production for an awards ceremony",
   },
   {
-    title: "Live Concert",
+    title: "Live Concerts",
     location: "Manchester",
-    image: "/images/projects/project-concert-placeholder.svg",
-    alt: "LED wall and stage production for a live concert in Manchester",
+    image: "/images/projects/concert.png",
+    alt: "LED wall and stage production for a live concert",
   },
   {
-    title: "Exhibition Stand",
+    title: "Exhibition Stands",
     location: "ExCeL London",
-    image: "/images/projects/project-exhibition-placeholder.svg",
-    alt: "LED display installation on an exhibition stand at ExCeL London",
+    image: "/images/projects/exhibition.png",
+    alt: "LED screen on an exhibition stand",
   },
   {
-    title: "Wedding Reception",
+    title: "Wedding Receptions",
     location: "London",
-    image: "/images/projects/project-wedding-placeholder.svg",
-    alt: "Ambient LED screen backdrop for a wedding reception in London",
+    image: "/images/projects/wedding.png",
+    alt: "LED screen backdrop for a wedding reception",
   },
 ];

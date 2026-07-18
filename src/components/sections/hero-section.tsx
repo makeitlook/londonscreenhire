@@ -33,7 +33,7 @@ export default function HeroSection() {
       {/* ── Background image ── */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/hero-placeholder.svg"
+          src="/images/hero/hero.png"
           alt=""
           fill
           className="object-cover object-[60%_50%] md:object-[70%_50%]"

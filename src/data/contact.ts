@@ -27,9 +27,9 @@ export interface ContactData {
 export const contact: ContactData = {
   phone: {
     label: "Phone",
-    display: "+44 20 1234 5678",
-    href: "tel:+442012345678",
-    ariaLabel: "Call us on +44 20 1234 5678",
+    display: "07946 098813",
+    href: "tel:+447946098813",
+    ariaLabel: "Call us on 07946 098813",
     icon: "phone",
   },
   email: {
@@ -39,14 +39,11 @@ export const contact: ContactData = {
     ariaLabel: "Email info@londonscreenhire.co.uk",
     icon: "mail",
   },
-  // whatsapp is disabled until a verified number is provided.
-  // Uncomment and update before enabling the WhatsApp row:
-  //
-  // whatsapp: {
-  //   label: "WhatsApp",
-  //   display: "Message us on WhatsApp",
-  //   href: "https://wa.me/44XXXXXXXXXX",
-  //   ariaLabel: "Message us on WhatsApp",
-  //   icon: "whatsapp",
-  // },
+  whatsapp: {
+    label: "WhatsApp",
+    display: "Message us on WhatsApp",
+    href: "https://wa.me/447946098813",
+    ariaLabel: "Message us on WhatsApp",
+    icon: "whatsapp",
+  },
 };

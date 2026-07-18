@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
+import WhatsAppFab from "@/components/shared/whatsapp-fab";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -60,6 +61,7 @@ export default function RootLayout({
     >
       <body className="font-body">
         {children}
+        <WhatsAppFab />
         <ConsentManager />
       </body>
     </html>

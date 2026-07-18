@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { benefits } from "@/data/benefits";
 
@@ -58,19 +59,19 @@ export default function WhyChooseUsSection() {
 
             {/* Supporting copy */}
             <p className="text-[0.9rem] leading-[1.65] text-lsh-grey-300 mb-6 max-w-[460px]">
-              With years of experience in the AV industry, we deliver
-              high-impact event solutions using professional equipment, careful
-              planning and reliable technical support.
+              We specialise in high-impact LED screen hire and AV production,
+              delivering professional results through careful planning, premium
+              equipment and dependable on-site support.
             </p>
 
-            {/* CTA — blue primary, arrow, consistent with hero */}
-            <a
-              href="#about"
+            {/* CTA — drives to the quote form */}
+            <Link
+              href="/#quote"
               className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
             >
-              About Us
+              Get a Quote
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
-            </a>
+            </Link>
           </div>
 
           {/* ── Benefit card grid ── */}
