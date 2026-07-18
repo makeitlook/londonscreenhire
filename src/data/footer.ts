@@ -44,7 +44,12 @@ export const serviceLinks: FooterLink[] = [
  */
 export const socialLinks: SocialLink[] = [
   { label: "Facebook", href: "", icon: "facebook", placeholder: true },
-  { label: "Instagram", href: "", icon: "instagram", placeholder: true },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/londonscreenhire",
+    icon: "instagram",
+    placeholder: false,
+  },
   { label: "YouTube", href: "", icon: "youtube", placeholder: true },
   { label: "LinkedIn", href: "", icon: "linkedin", placeholder: true },
 ];

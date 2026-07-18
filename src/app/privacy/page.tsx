@@ -10,6 +10,9 @@ import SiteFooter from "@/components/layout/site-footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  description:
+    "How London Screen Hire collects, uses and protects your personal data when you use our website or request a quote.",
+  robots: { index: false, follow: false },
 };
 
 // Heading and section helpers keep the page short and readable

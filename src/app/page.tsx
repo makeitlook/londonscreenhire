@@ -8,9 +8,59 @@ import StatisticsStrip from "@/components/sections/statistics-strip";
 import TestimonialsSection from "@/components/sections/testimonials-section";
 import ContactSection from "@/components/sections/contact-section";
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "London Screen Hire",
+  description:
+    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK.",
+  url: "https://londonscreenhire.co.uk",
+  telephone: "+447946098813",
+  email: "info@londonscreenhire.co.uk",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "London",
+    addressCountry: "GB",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "United Kingdom",
+  },
+  priceRange: "££",
+  image: "https://londonscreenhire.co.uk/images/hero/hero.png",
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Screen Hire Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "LED Screen Hire" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Projection Screen Hire" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "LED Wall Hire" },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: "Outdoor Screen Hire" },
+      },
+    ],
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema),
+        }}
+      />
       <SiteHeader />
       <main>
         {/* Hero + overlapping services panel share the same dark background */}

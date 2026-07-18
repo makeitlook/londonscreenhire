@@ -18,23 +18,58 @@ const inter = Inter({
   display: "swap",
 });
 
+const SITE_URL = "https://londonscreenhire.co.uk";
+const OG_DESCRIPTION =
+  "Professional LED screen and projection screen hire for events across London and the UK. Request a free quote today.";
+
 export const metadata: Metadata = {
   title: {
-    default: "London Screen Hire",
+    default: "London Screen Hire — LED & Projection Screen Hire",
     template: "%s | London Screen Hire",
   },
   description:
-    "Professional LED and projection screen hire in London. Quote requests welcome.",
-  keywords: ["screen hire", "LED screen", "London", "AV hire", "event screens"],
-  metadataBase: new URL("https://londonscreenhire.com"),
+    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK. Request a free quote today.",
+  keywords: [
+    "screen hire London",
+    "LED screen hire London",
+    "projection screen hire",
+    "AV hire London",
+    "event screens UK",
+    "conference screen hire",
+    "exhibition screen hire",
+    "LED wall hire",
+    "outdoor screen hire",
+  ],
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   openGraph: {
-    title: "London Screen Hire",
-    description:
-      "Professional LED and projection screen hire in London. Quote requests welcome.",
-    url: "https://londonscreenhire.com",
+    title: "London Screen Hire — LED & Projection Screen Hire",
+    description: OG_DESCRIPTION,
+    url: SITE_URL,
     siteName: "London Screen Hire",
     locale: "en_GB",
     type: "website",
+    images: [
+      {
+        url: "/images/hero/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "London Screen Hire — Professional LED and projection screen hire for events",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "London Screen Hire — LED & Projection Screen Hire",
+    description: OG_DESCRIPTION,
+    images: ["/images/hero/hero.png"],
   },
   icons: {
     icon: "/favicon.ico",

@@ -10,6 +10,9 @@ import SiteFooter from "@/components/layout/site-footer";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
+  description:
+    "Terms and conditions governing the hire of screens and AV equipment from London Screen Hire.",
+  robots: { index: false, follow: false },
 };
 
 function H2({ children }: { children: React.ReactNode }) {
@@ -53,15 +56,16 @@ export default function TermsPage() {
             <H2>Use of This Website</H2>
             <P>
               By accessing this website you agree to these terms. This website
-              is operated by London Screen Hire and is intended for informational
-              purposes and enquiry submissions only.
+              is operated by London Screen Hire and is intended for
+              informational purposes and enquiry submissions only.
             </P>
 
             <H2>Quote Requests</H2>
             <P>
-              Submitting a quote request through this website does not constitute
-              a confirmed booking or contract. All quotations are subject to
-              availability and agreement of specific terms at the time of booking.
+              Submitting a quote request through this website does not
+              constitute a confirmed booking or contract. All quotations are
+              subject to availability and agreement of specific terms at the
+              time of booking.
             </P>
 
             <H2>Service Availability</H2>
