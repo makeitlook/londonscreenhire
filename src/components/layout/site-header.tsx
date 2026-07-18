@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, Phone, MessageCircle } from "lucide-react";
 import SiteLogo from "@/components/shared/site-logo";
 import { contact } from "@/data/contact";
+import { socialLinks } from "@/data/footer";
 import {
   Sheet,
   SheetContent,
@@ -176,14 +177,58 @@ export default function SiteHeader() {
                   </div>
 
                   {/* Sheet footer CTA */}
-                  <div className="p-4 border-t border-[var(--lsh-border-dark)] shrink-0">
+                  <div className="p-4 border-t border-[var(--lsh-border-dark)] shrink-0 flex items-center gap-3">
                     <Link
                       href="/#quote"
                       onClick={() => setMenuOpen(false)}
-                      className="flex items-center justify-center w-full h-11 text-[0.9375rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200"
+                      className="flex-1 flex items-center justify-center h-11 text-[0.9375rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200"
                     >
                       Get a Quote
                     </Link>
+                    {socialLinks
+                      .filter(
+                        (s) =>
+                          s.icon === "instagram" && !s.placeholder && s.href,
+                      )
+                      .map((s) => (
+                        <a
+                          key={s.icon}
+                          href={s.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Follow us on Instagram — opens in a new tab"
+                          className="flex items-center justify-center h-11 w-11 shrink-0 rounded-[4px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
+                        >
+                          <svg
+                            viewBox="0 0 24 24"
+                            width="18"
+                            height="18"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.75"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            aria-hidden="true"
+                          >
+                            <rect
+                              x="2"
+                              y="2"
+                              width="20"
+                              height="20"
+                              rx="5"
+                              ry="5"
+                            />
+                            <circle cx="12" cy="12" r="4" />
+                            <circle
+                              cx="17.5"
+                              cy="6.5"
+                              r="0.5"
+                              fill="currentColor"
+                              stroke="none"
+                            />
+                          </svg>
+                        </a>
+                      ))}
                   </div>
                 </div>
               </SheetContent>
