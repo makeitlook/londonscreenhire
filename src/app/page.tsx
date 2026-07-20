@@ -17,7 +17,7 @@ const localBusinessSchema = {
     "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK.",
   url: "https://londonscreenhire.co.uk",
   telephone: "+447946098813",
-  email: "info@londonscreenhire.co.uk",
+  email: "info@londonscreenhire.com",
   address: {
     "@type": "PostalAddress",
     addressLocality: "London",

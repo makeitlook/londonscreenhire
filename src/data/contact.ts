@@ -34,9 +34,9 @@ export const contact: ContactData = {
   },
   email: {
     label: "Email",
-    display: "info@londonscreenhire.co.uk",
-    href: "mailto:info@londonscreenhire.co.uk",
-    ariaLabel: "Email info@londonscreenhire.co.uk",
+    display: "info@londonscreenhire.com",
+    href: "mailto:info@londonscreenhire.com",
+    ariaLabel: "Email info@londonscreenhire.com",
     icon: "mail",
   },
   whatsapp: {
