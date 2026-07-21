@@ -41,7 +41,7 @@ export default function FeaturedServices() {
       aria-label="Featured services"
       className="bg-lsh-dark py-0 scroll-mt-[68px] xl:scroll-mt-[78px]"
     >
-      <div className="w-full px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <FadeIn>
           <div className="bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] overflow-hidden">
             <ul

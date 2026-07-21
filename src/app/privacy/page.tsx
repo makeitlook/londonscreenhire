@@ -7,11 +7,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
     "How London Screen Hire collects, uses and protects your personal data when you use our website or request a quote.",
+  alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: false, follow: false },
 };
 
@@ -39,7 +41,7 @@ export default function PrivacyPage() {
         id="main-content"
         className="bg-lsh-dark min-h-screen pt-[68px] xl:pt-[78px]"
       >
-        <div className="px-4 sm:px-6 md:px-8 xl:px-12 py-16 md:py-20">
+        <div className="lsh-container py-16 md:py-20">
           <div className="max-w-3xl">
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               Legal

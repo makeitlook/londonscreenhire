@@ -41,7 +41,7 @@ export default function StatisticsStrip() {
       aria-label="London Screen Hire statistics"
       className="bg-lsh-blue scroll-mt-[68px] xl:scroll-mt-[78px]"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <FadeIn>
           <ul
             className="grid grid-cols-2 lg:grid-cols-4 list-none m-0 p-0"

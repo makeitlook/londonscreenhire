@@ -15,7 +15,7 @@ export default function ProjectsSection() {
       className="bg-lsh-off-white pt-12 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
       aria-labelledby="projects-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         {/* Heading block */}
         <FadeIn>
           <div className="flex flex-col items-center mb-6 md:mb-8 xl:mb-10">

@@ -56,7 +56,7 @@ export default function ConsentManager() {
           className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10"
           style={{ backgroundColor: "var(--lsh-charcoal)" }}
         >
-          <div className="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 xl:px-12 py-4 md:py-5 flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="lsh-container flex flex-col gap-4 py-4 sm:flex-row sm:items-center md:py-5">
             <p className="flex-1 text-[0.8125rem] leading-relaxed" style={{ color: "var(--lsh-grey-300)" }}>
               We use privacy-friendly, cookieless analytics to understand how
               visitors use our site. No personal data is stored or shared with

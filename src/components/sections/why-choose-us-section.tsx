@@ -24,7 +24,7 @@ export default function WhyChooseUsSection() {
       className="bg-lsh-dark pt-12 pb-12 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
       aria-labelledby="why-choose-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         {/*
          * Two-column split on xl+.
          * Left: xl:w-[36%], vertically centred against card grid.

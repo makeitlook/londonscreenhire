@@ -104,7 +104,7 @@ export default function HeroSection() {
          * This gives a more grounded, less floating feel at small viewports.
          * Reset to 0 at sm+ where the wider layout handles this naturally.
          */}
-        <div className="w-full px-4 sm:px-6 md:px-8 xl:px-12 mt-4 sm:mt-0">
+        <div className="lsh-container mt-4 sm:mt-0">
           <HeroContent />
         </div>
       </div>

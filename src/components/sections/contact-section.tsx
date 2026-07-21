@@ -62,7 +62,7 @@ export default function ContactSection() {
       className="bg-lsh-dark pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
       aria-labelledby="contact-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <div className="flex flex-col lg:flex-row lg:gap-16 xl:gap-20">
           {/* ── Left: contact content ── */}
           <FadeIn className="lg:w-[42%] lg:shrink-0 mb-10 lg:mb-0">

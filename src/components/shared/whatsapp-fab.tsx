@@ -11,11 +11,6 @@ export default function WhatsAppFab() {
 
   return (
     <div className="fixed bottom-6 right-5 sm:right-6 z-40 w-14 h-14">
-      {/* Pulse ring - CSS-only animation for visibility */}
-      <span
-        className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-20"
-        aria-hidden="true"
-      />
       <a
         href={contact.whatsapp.href}
         target="_blank"

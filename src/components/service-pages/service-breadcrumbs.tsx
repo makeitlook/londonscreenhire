@@ -31,7 +31,12 @@ export default function ServiceBreadcrumbs({
           <ChevronRight size={12} strokeWidth={1.5} />
         </li>
         <li>
-          <span className="text-lsh-grey-400">Services</span>
+          <Link
+            href="/#services"
+            className="text-lsh-grey-400 hover:text-lsh-grey-300 transition-colors duration-200"
+          >
+            Services
+          </Link>
         </li>
         <li aria-hidden="true">
           <ChevronRight size={12} strokeWidth={1.5} />

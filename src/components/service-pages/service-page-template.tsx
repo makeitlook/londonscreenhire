@@ -10,6 +10,7 @@ import ServiceFaqs from "@/components/service-pages/service-faqs";
 import RelatedServices from "@/components/service-pages/related-services";
 import ServiceQuoteCta from "@/components/service-pages/service-quote-cta";
 import type { ServicePage } from "@/data/services";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 interface ServicePageTemplateProps {
   service: ServicePage;
@@ -39,8 +40,56 @@ export default function ServicePageTemplate({
   service,
   relatedServices,
 }: ServicePageTemplateProps) {
+  const pageUrl = `${SITE_URL}/${service.slug}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/#services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: service.navLabel,
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${pageUrl}#service`,
+        name: service.navLabel,
+        description: service.metaDescription,
+        url: pageUrl,
+        image: `${SITE_URL}${service.heroImage}`,
+        provider: {
+          "@type": "LocalBusiness",
+          "@id": `${SITE_URL}/#business`,
+          name: SITE_NAME,
+          url: SITE_URL,
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <SiteHeader />
       <main id="main-content">
         <ServiceHero

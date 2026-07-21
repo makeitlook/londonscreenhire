@@ -27,7 +27,7 @@ export default function ServiceQuoteCta({
       className="bg-lsh-charcoal border-t border-[var(--lsh-border-dark)] overflow-hidden"
       aria-labelledby="service-cta-heading"
     >
-      <div className="flex flex-col xl:flex-row xl:min-h-[340px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col xl:min-h-[340px] xl:flex-row">
         {/* ── Left: content ── */}
         <div className="flex-1 flex items-center px-6 sm:px-8 xl:px-12 py-14 sm:py-16 xl:py-20">
           <div>
@@ -72,7 +72,7 @@ export default function ServiceQuoteCta({
             src={image}
             alt={imageAlt}
             fill
-            sizes="(max-width: 1279px) 100vw, 38vw"
+            sizes="(max-width: 1279px) 100vw, (max-width: 1440px) 38vw, 548px"
             className="object-cover"
           />
           <div className="absolute inset-0 bg-lsh-blue/15" aria-hidden="true" />

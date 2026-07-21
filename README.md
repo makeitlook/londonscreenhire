@@ -1,326 +1,140 @@
-# 🧰 makeitlook/template
+# London Screen Hire
 
-A modern, opinionated Next.js starter template featuring Tailwind CSS, TypeScript, and a suite of pre-configured components. Ideal for rapid development of marketing sites, portfolios, and small business websites.
+Production website for London Screen Hire, built as a lightweight static Next.js application. The site presents LED screen and event-production services, project photography, testimonials, contact information, and a Web3Forms quote enquiry flow.
 
-## ✨ Features
+## Technology
 
-- **Next.js 14** with App Router and TypeScript
-- **Tailwind CSS** with custom theme and utility classes
-- **Framer Motion** for smooth animations
-- **Dynamic Navigation** supporting single and multi-page layouts
-- **Theme Switching** with light/dark mode support
-- **SEO Optimized** with customizable metadata
-- **Responsive Design** out-of-the-box
-- **Pre-built Components**: Navbar, Footer, Loader, etc.
-- **Analytics Integration** with Vercel Analytics and Speed Insights
-- **Client Layout** with dynamic imports for performance optimization
+- Next.js App Router
+- React and TypeScript
+- Tailwind CSS
+- shadcn/ui primitives for accessible interactive controls
+- Lucide icons
+- Framer Motion for restrained section entrances
+- Web3Forms for quote submissions
+- Vercel Analytics and Speed Insights, loaded only after consent
 
-## 🚀 Getting Started
+The project uses `output: "export"`, so `npm run build` produces a static site in `out/`.
 
-### Prerequisites
+## Local development
 
-- Node.js ≥ 18
-- pnpm (recommended), npm, or yarn
+Requirements:
 
-### Installation
+- Node.js 18 or newer
+- npm
+
+Install dependencies and start the development server:
 
 ```bash
-git clone https://github.com/makeitlook/template your-project-name
-cd your-project-name
 npm install
 npm run dev
 ```
 
-Then open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000).
 
-### Using as a Template
+## Environment variables
 
-To create a new repository based on this template:
-
-1. Navigate to [makeitlook/template](https://github.com/makeitlook/template)
-2. Click on **Use this template**
-3. Select **Create a new repository**
-4. Clone your new repository and start developing!
-
-## 🧱 Project Structure
-
-```
-.
-├── app/                 # Next.js App Router pages
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Home page
-├── components/          # Reusable UI components
-│   ├── Navbar/          # Navigation components
-│   ├── Footer/          # Footer component
-│   ├── Loader/          # Loading spinner
-│   └── ThemeSwitcher/   # Theme toggle
-├── config/              # Configuration files
-│   └── navigation.ts    # Navigation items
-├── public/              # Static assets
-│   └── images/          # Image assets
-├── styles/              # Global styles
-│   └── globals.css      # Tailwind base styles
-├── utils/               # Utility functions
-│   └── ThemeProvider.tsx# Theme context provider
-└── ...
-```
-
-## ⚙️ Configuration
-
-### Metadata
-
-Customize your site's metadata in `app/metadata.ts`:
-
-```ts
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: {
-    default: "Your Site Name",
-    template: "%s | Your Site Name",
-  },
-  description: "A brief description of your site.",
-  keywords: ["keyword1", "keyword2", "keyword3"],
-  metadataBase: new URL("https://yourdomain.com"),
-  openGraph: {
-    title: "Your Site Name",
-    description: "A brief description of your site.",
-    url: "https://yourdomain.com",
-    siteName: "Your Site Name",
-    images: [
-      {
-        url: "/images/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Your Site Name",
-      },
-    ],
-    locale: "en_GB",
-    type: "website",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-    other: {
-      rel: "icon",
-      type: "image/png",
-      sizes: "192x192",
-      url: "/android-chrome-192x192.png",
-    },
-  },
-};
-```
-
-### Navigation
-
-Define your site's navigation structure in `config/navigation.ts`:
-
-```ts
-export const navigationItems = [
-  {
-    name: "Home",
-    sectionId: "home",
-    current: true,
-  },
-  {
-    name: "About",
-    sectionId: "about",
-  },
-  {
-    name: "Services",
-    sectionId: "services",
-  },
-  {
-    name: "Contact",
-    sectionId: "contact",
-  },
-];
-```
-
-### Theme Colors
-
-Customize your theme colors in `tailwind.config.js`:
-
-```js
-module.exports = {
-  theme: {
-    extend: {
-      colors: {
-        "elements-primary-main": "#1D4ED8",
-        "elements-secondary-main": "#9333EA",
-        "neutral-dimmed-heavy": "#1F2937",
-        // Add more custom colors as needed
-      },
-    },
-  },
-};
-```
-
-## 🧪 Testing Your Site
-
-To test single-page navigation:
-
-1. Set `navMode` to `"single"` in your navigation component.
-2. Ensure each section has a corresponding `id` matching the `sectionId` in your navigation items.
-3. Clicking on a navigation link should smoothly scroll to the respective section.
-
-## 🚀 Deploying to Vercel
-
-You can deploy this template instantly using [Vercel](https://vercel.com), the platform from the creators of Next.js.
-
-### 🔧 Steps to Deploy:
-
-1. **Push to GitHub**
-   If you haven’t already, push this project to your GitHub account:
-
-   ```bash
-   git init
-   git remote add origin https://github.com/yourusername/your-repo-name.git
-   git add .
-   git commit -m "Initial commit"
-   git push -u origin main
-   ```
-
-2. **Create a Vercel Account**
-   Visit [https://vercel.com](https://vercel.com) and sign up/log in using your GitHub account.
-
-3. **Import Your Project**
-
-   - Click “+ New Project”
-   - Select your GitHub repo
-   - Vercel will auto-detect this as a Next.js app
-
-4. **Set Environment Variables (if needed)**
-   If your project uses any `.env.local` values, you can configure them under **Settings > Environment Variables** in your Vercel dashboard.
-
-5. **Build the Project Locally (Optional but Recommended)**
-   Run the build locally to make sure everything compiles before deploying:
-
-   ```bash
-   npm install
-   npm run build
-   ```
-
-   This step helps catch issues like missing environment variables or build-time errors.
-
-6. **Deploy**
-   Hit **Deploy** — Vercel will handle the build and hosting for you. You’ll get a live URL like:
-
-   ```
-   https://your-project-name.vercel.app
-   ```
-
----
-
-### 🧪 Local Preview
-
-To test your production build locally:
+Create `.env.local` with the production or test Web3Forms access key:
 
 ```bash
+NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
+```
+
+The key is intentionally read through a `NEXT_PUBLIC_` variable because Web3Forms submissions are made directly from the browser. Do not hardcode it in source files.
+
+If the key is absent, the form remains visible but shows an accessible contact-by-phone-or-email fallback when submitted.
+
+## Commands
+
+```bash
+npm run dev        # Start the local development server
+npm run lint       # Run ESLint directly
+npm run typecheck  # Run TypeScript without emitting files
+npm run build      # Create the production static export
+npm run start      # Serve a Next.js production build where supported
+```
+
+Before handing off or deploying a change, run:
+
+```bash
+npm run lint
+npm run typecheck
 npm run build
-npm run start
 ```
 
-This simulates how your site will run on Vercel's production environment.
+## Project structure
 
----
-
-Let me know if you want this wrapped into the full `README.md` file too!
-
-## 🧰 Additional Tools
-
-- **Analytics**: Integrated with Vercel Analytics and Speed Insights.
-- **Loader**: Customizable loading spinner using `react-loader-spinner`.
-- **Theme Switching**: Toggle between light and dark modes seamlessly.
-
-## 🧠 Usage Examples
-
-### 🔍 SEO Component
-
-Easily define Open Graph/Twitter/metadata tags per page:
-
-```tsx
-import SEO from "@/components/SEO";
-
-export default function AboutPage() {
-  return (
-    <>
-      <SEO
-        title="About Us"
-        description="Learn more about our mission and team."
-        url="https://yourdomain.com/about"
-        image="/images/about-og.jpg"
-        keywords={["About", "Company", "Team"]}
-      />
-      <section className="py-10">
-        <h1 className="text-3xl font-bold">About Us</h1>
-      </section>
-    </>
-  );
-}
+```text
+src/
+  app/                  Routes, metadata, legal pages and global styles
+  components/
+    layout/             Shared header and footer
+    sections/           Homepage sections and quote form
+    service-pages/      Shared service-page template and sections
+    shared/             Reusable site-specific components
+    ui/                 shadcn/ui primitives
+  data/                 Typed site, service and marketing content
+  lib/                  Validation and shared site configuration
+public/images/          Repository-hosted production imagery
+docs/                   Design system and performance budget
 ```
 
----
+## Content management
 
-### 💡 IconWrapper
+Content is intentionally repository-based rather than CMS-driven:
 
-Use any `react-icons` with consistent sizing and theming:
+- Service content: `src/data/services.ts`
+- Projects: `src/data/projects.ts`
+- Testimonials: `src/data/testimonials.ts`
+- Statistics: `src/data/statistics.ts`
+- Contact details: `src/data/contact.ts`
+- Footer and social links: `src/data/footer.ts`
 
-```tsx
-import { FaGhost } from "react-icons/fa";
-import IconWrapper from "@/components/IconWrapper";
+Several data files contain explicit placeholder warnings. Unverified statistics, testimonials, service claims, contact details, coverage claims, and legal copy must be confirmed before launch.
 
-<IconWrapper icon={FaGhost} size={64} className="text-elements-primary-main" />;
-```
+## Images
 
----
+The static export does not provide runtime image optimisation. Compress every photograph before committing it:
 
-### 🧭 Configurable Navigation
+- Prefer AVIF or WebP.
+- Keep desktop hero images at or below 300KB.
+- Keep mobile hero crops at or below 180KB.
+- Keep cards and section images at or below 100KB.
+- Preserve the aspect ratio and focal point expected by the component.
+- Update file paths in the relevant data file when changing formats.
 
-Customise for multi-page or single-page apps:
+Only true hero images should use priority loading. Below-the-fold images should remain lazy-loaded.
 
-```tsx
-import ConfigurableNavigation from "@/components/Navbar/ConfigurableNavigation";
+See `docs/PERFORMANCE_BUDGET.md` for the complete asset and Core Web Vitals targets.
 
-<ConfigurableNavigation
-  navMode="single"
-  items={[
-    { name: "Home", sectionId: "home" },
-    { name: "About", sectionId: "about" },
-    { name: "Contact", sectionId: "contact" },
-  ]}
-  variant="glass"
-  logo={{
-    light: "/logo-light.png",
-    dark: "/logo-dark.png",
-  }}
-  cta={{ show: true, text: "Book Now", href: "/contact" }}
-/>;
-```
+## Design and accessibility
 
-> 🔄 Use `navMode="multi"` and `path` instead of `sectionId` for standard page routing.
+The approved mockup is the primary visual reference. Implementation decisions are documented in `docs/LONDON_SCREEN_HIRE_DESIGN_SYSTEM.md`.
 
----
+Core requirements include:
 
-### 🎬 AnimatedDiv
+- One page-level H1 and logical heading order
+- Keyboard-accessible navigation and form controls
+- Visible focus states and a skip link
+- Reduced-motion support
+- Descriptive alternative text
+- Responsive review at 375, 390, 768, 1024, 1280, 1440 and 1920 pixels
+- A shared 1440px maximum content frame while section backgrounds remain full width
 
-Fade-in on scroll:
+## Quote form
 
-```tsx
-import AnimatedDiv from "@/components/AnimatedDiv";
+The quote form uses native browser `fetch` to submit to Web3Forms. It includes client-side validation, a honeypot, field-level error associations, loading state, success confirmation, and a submission-level fallback.
 
-<AnimatedDiv delay={0.2}>
-  <h2 className="text-2xl font-semibold">Welcome to our site</h2>
-</AnimatedDiv>;
-```
+After changing the form or deployment configuration, perform a clearly labelled test submission on the deployed site and confirm receipt at the configured destination address.
 
----
+## Deployment
 
-## 📄 License
+`npm run build` generates the static export in `out/`. Deploy that directory to the configured static host.
 
-This project is licensed under the [MIT License](LICENSE).
+Before production deployment:
 
-Created by Make It Look
-
----
+1. Confirm `SITE_URL` in `src/lib/site.ts`.
+2. Confirm the Web3Forms access key in the hosting environment.
+3. Replace or approve all content marked as placeholder.
+4. Obtain professional approval for privacy and terms content.
+5. Compress production imagery.
+6. Verify the quote form, navigation, canonical URLs, sitemap, and social metadata on the deployed domain.

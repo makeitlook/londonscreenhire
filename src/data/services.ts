@@ -114,9 +114,9 @@ export const services: ServicePage[] = [
     ],
     heroImage: "/images/services/ledscreen.png",
     heroAlt: "Large LED video wall installed at a London event",
-    showcaseImage: "/images/cta/led-panel-installation-detail.jpg",
+    showcaseImage: "/images/cta/LED Panel Installation Detail.webp",
     showcaseAlt: "Technician fitting a modular LED display panel",
-    ctaImage: "/images/cta/led-screen-control-desk.jpg",
+    ctaImage: "/images/cta/LED Screen Control Desk.webp",
     ctaImageAlt: "LED screen control desk facing a large event display",
     ctaHeading: "Request a Free LED Screen Quote",
     benefits: [
@@ -246,7 +246,7 @@ export const services: ServicePage[] = [
       "outdoor-led-screen-hire",
       "corporate-av-hire",
     ],
-    metaTitle: "LED Screen Hire London | Video Wall & LED Display Rental",
+    metaTitle: "LED Screen & Video Wall Hire London",
     metaDescription:
       "Professional LED screen and video wall hire in London. Modular indoor and outdoor LED displays for corporate events, weddings, exhibitions and live events. Get a free quote.",
     placeholder: true,
@@ -268,9 +268,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/indoorled.png",
     heroAlt: "Indoor LED screen installed at a conference venue in London",
-    showcaseImage: "/images/cta/led-wall-installation-crew.jpg",
+    showcaseImage: "/images/cta/LED Wall Installation Crew.webp",
     showcaseAlt: "Technical crew assembling a large indoor LED wall",
-    ctaImage: "/images/cta/live-event-led-stage.jpg",
+    ctaImage: "/images/cta/Live Event LED Stage.webp",
     ctaImageAlt: "Indoor event stage with a large LED screen and production lighting",
     ctaHeading: "Plan Your Indoor Screen Setup",
     benefits: [
@@ -387,7 +387,7 @@ export const services: ServicePage[] = [
       "wedding-led-screen-hire",
       "exhibition-led-screen-hire",
     ],
-    metaTitle: "Indoor LED Screen Hire London | Conference & Event Displays",
+    metaTitle: "Indoor LED Screen Hire London",
     metaDescription:
       "High-resolution indoor LED screen hire in London for conferences, award ceremonies, weddings and exhibitions. Professional installation and on-site technical support.",
     placeholder: true,
@@ -409,9 +409,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/outdoorscreen.png",
     heroAlt: "Outdoor LED screen at a London festival or public event",
-    showcaseImage: "/images/cta/large-led-wall-installation.jpg",
+    showcaseImage: "/images/cta/Large LED Wall Installation.webp",
     showcaseAlt: "Event crew installing a large-format LED wall",
-    ctaImage: "/images/cta/led-wall-installation-crew.jpg",
+    ctaImage: "/images/cta/LED Wall Installation Crew.webp",
     ctaImageAlt: "Crew building a modular LED wall for a large event",
     ctaHeading: "Request an Outdoor Screen Quote",
     benefits: [
@@ -530,7 +530,7 @@ export const services: ServicePage[] = [
       },
     ],
     relatedSlugs: ["stage-hire", "lighting-hire", "led-screen-hire-london"],
-    metaTitle: "Outdoor LED Screen Hire London | Festival & Event Displays",
+    metaTitle: "Outdoor LED Screen Hire London",
     metaDescription:
       "High-brightness outdoor LED screen hire in London for festivals, sporting events and public screenings. Site survey, installation and technical support included.",
     placeholder: true,
@@ -552,9 +552,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/wedding.png",
     heroAlt: "LED screen backdrop at a wedding reception venue in London",
-    showcaseImage: "/images/cta/wedding-led-wall-installation.jpg",
+    showcaseImage: "/images/cta/Wedding LED Wall Installation.webp",
     showcaseAlt: "Technical crew completing an LED wall installation at a wedding venue",
-    ctaImage: "/images/cta/wedding-led-wall.jpg",
+    ctaImage: "/images/cta/Wedding LED Wall.webp",
     ctaImageAlt: "Elegant wedding reception with a large LED wall backdrop",
     ctaHeading: "Get a Wedding Screen Quote",
     benefits: [
@@ -670,8 +670,7 @@ export const services: ServicePage[] = [
       "indoor-led-screen-hire",
       "corporate-av-hire",
     ],
-    metaTitle:
-      "Wedding LED Screen Hire London | Backdrop & Camera Feed Displays",
+    metaTitle: "Wedding LED Screen Hire London",
     metaDescription:
       "Wedding LED screen hire in London. Stage backdrops, live camera feeds and photo or video presentations for wedding receptions and ceremonies. Enquire today.",
     placeholder: true,
@@ -694,9 +693,9 @@ export const services: ServicePage[] = [
     heroImage: "/images/services/conference.png",
     heroAlt:
       "LED screen displaying conference presentation content at a London venue",
-    showcaseImage: "/images/cta/conference-led-wall-production.jpg",
+    showcaseImage: "/images/cta/Conference Led Wall Production.webp",
     showcaseAlt: "Conference stage with LED wall and production control position",
-    ctaImage: "/images/cta/corporate-conference-led-wall.jpg",
+    ctaImage: "/images/cta/Corporate Conference LED Wall.webp",
     ctaImageAlt: "Corporate conference audience facing a panoramic LED presentation wall",
     ctaHeading: "Book a Conference Screen Package",
     benefits: [
@@ -809,7 +808,7 @@ export const services: ServicePage[] = [
       },
     ],
     relatedSlugs: ["corporate-av-hire", "indoor-led-screen-hire", "stage-hire"],
-    metaTitle: "Conference LED Screen Hire London | Presentation Display Hire",
+    metaTitle: "Conference LED Screen Hire London",
     metaDescription:
       "Conference LED screen hire in London. Presentation screens, camera feeds and hybrid event display solutions for conferences, seminars and corporate events.",
     placeholder: true,
@@ -831,9 +830,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/exhibition.png",
     heroAlt: "LED video wall display at a London exhibition stand",
-    showcaseImage: "/images/cta/led-panel-installation-detail.jpg",
+    showcaseImage: "/images/cta/LED Panel Installation Detail.webp",
     showcaseAlt: "Close-up of a technician installing a modular LED panel",
-    ctaImage: "/images/cta/large-led-wall-installation.jpg",
+    ctaImage: "/images/cta/Large LED Wall Installation.webp",
     ctaImageAlt: "Large LED wall being installed by an event production crew",
     ctaHeading: "Request an Exhibition Screen Quote",
     benefits: [
@@ -949,8 +948,7 @@ export const services: ServicePage[] = [
       "indoor-led-screen-hire",
       "led-screen-hire-london",
     ],
-    metaTitle:
-      "Exhibition LED Screen Hire London | Video Wall & Stand Displays",
+    metaTitle: "Exhibition LED Screen Hire London",
     metaDescription:
       "Exhibition LED screen hire in London. Seamless video walls and modular display screens for exhibition stands, product launches and brand activations.",
     placeholder: true,
@@ -976,9 +974,9 @@ export const services: ServicePage[] = [
     heroImage: "/images/services/stage.png",
     heroAlt:
       "Corporate AV setup with LED screens, audio and lighting at a London event",
-    showcaseImage: "/images/cta/live-audio-engineer.jpg",
+    showcaseImage: "/images/cta/Live Audio Engineer.webp",
     showcaseAlt: "Audio engineer operating a digital mixing console at a live event",
-    ctaImage: "/images/cta/corporate-led-stage.jpg",
+    ctaImage: "/images/cta/Corporate Led Stage.webp",
     ctaImageAlt: "Corporate event stage with a wide LED presentation wall",
     ctaHeading: "Get a Corporate AV Quote",
     benefits: [
@@ -1097,7 +1095,7 @@ export const services: ServicePage[] = [
       },
     ],
     relatedSlugs: ["conference-led-screen-hire", "stage-hire", "lighting-hire"],
-    metaTitle: "Corporate AV Hire London | Event Production & AV Equipment",
+    metaTitle: "Corporate AV Hire London",
     metaDescription:
       "Corporate AV hire in London. LED screens, audio, lighting and staging packages for conferences, awards ceremonies, product launches and hybrid events.",
     placeholder: true,
@@ -1119,9 +1117,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/av.png",
     heroAlt: "Professional stage setup at a London indoor event venue",
-    showcaseImage: "/images/cta/event-stage-led-wall.jpg",
+    showcaseImage: "/images/cta/Event Stage LED Wall.webp",
     showcaseAlt: "Professional event stage with LED wall, truss and lighting",
-    ctaImage: "/images/cta/live-event-led-stage.jpg",
+    ctaImage: "/images/cta/Live Event LED Stage.webp",
     ctaImageAlt: "Large live-event stage with LED screen and production lighting",
     ctaHeading: "Get a Stage Hire Quote",
     benefits: [
@@ -1241,7 +1239,7 @@ export const services: ServicePage[] = [
       "led-screen-hire-london",
       "corporate-av-hire",
     ],
-    metaTitle: "Stage Hire London | Indoor & Outdoor Event Staging",
+    metaTitle: "Stage Hire London",
     metaDescription:
       "Professional stage hire in London for conferences, awards, live events and outdoor occasions. Truss, risers and integrated screen and lighting packages.",
     placeholder: true,
@@ -1263,9 +1261,9 @@ export const services: ServicePage[] = [
     secondaryKeywords: [],
     heroImage: "/images/services/lighting.png",
     heroAlt: "Professional stage lighting at a London corporate or live event",
-    showcaseImage: "/images/cta/stage-lighting-fixture.jpg",
+    showcaseImage: "/images/cta/Stage Lighting Fixture.webp",
     showcaseAlt: "Moving-head stage lights mounted on an event truss",
-    ctaImage: "/images/cta/event-stage-led-wall.jpg",
+    ctaImage: "/images/cta/Event Stage LED Wall.webp",
     ctaImageAlt: "Event stage illuminated with blue production lighting",
     ctaHeading: "Enquire About Lighting Hire",
     benefits: [
@@ -1385,7 +1383,7 @@ export const services: ServicePage[] = [
       "wedding-led-screen-hire",
       "corporate-av-hire",
     ],
-    metaTitle: "Lighting Hire London | Stage, Wedding & Event Lighting",
+    metaTitle: "Lighting Hire London",
     metaDescription:
       "Professional lighting hire in London for stage shows, corporate events, weddings and exhibitions. Moving heads, wash lighting and full technical operation.",
     placeholder: true,

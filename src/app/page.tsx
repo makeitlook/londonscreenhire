@@ -8,16 +8,25 @@ import WhyChooseUsSection from "@/components/sections/why-choose-us-section";
 import StatisticsStrip from "@/components/sections/statistics-strip";
 import TestimonialsSection from "@/components/sections/testimonials-section";
 import ContactSection from "@/components/sections/contact-section";
+import { contact } from "@/data/contact";
+import { socialLinks } from "@/data/footer";
+import { services } from "@/data/services";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
+
+const verifiedSocialProfiles = socialLinks
+  .filter((link) => !link.placeholder && link.href)
+  .map((link) => link.href);
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "London Screen Hire",
+  "@id": `${SITE_URL}/#business`,
+  name: SITE_NAME,
   description:
     "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK.",
-  url: "https://londonscreenhire.co.uk",
-  telephone: "+447946098813",
-  email: "info@londonscreenhire.com",
+  url: SITE_URL,
+  telephone: contact.phone.href.replace("tel:", ""),
+  email: contact.email.display,
   address: {
     "@type": "PostalAddress",
     addressLocality: "London",
@@ -28,28 +37,24 @@ const localBusinessSchema = {
     name: "United Kingdom",
   },
   priceRange: "££",
-  image: "https://londonscreenhire.co.uk/images/hero/hero.png",
+  image: `${SITE_URL}/images/hero/hero.png`,
+  sameAs: verifiedSocialProfiles,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Screen Hire Services",
-    itemListElement: [
-      {
+    itemListElement: services.map((service) => {
+      const serviceUrl = `${SITE_URL}/${service.slug}`;
+
+      return {
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "LED Screen Hire" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Projection Screen Hire" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "LED Wall Hire" },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: "Outdoor Screen Hire" },
-      },
-    ],
+        url: serviceUrl,
+        itemOffered: {
+          "@type": "Service",
+          name: service.navLabel,
+          url: serviceUrl,
+        },
+      };
+    }),
   },
 };
 
@@ -63,7 +68,7 @@ export default function Home() {
         }}
       />
       <SiteHeader />
-      <main>
+      <main id="main-content">
         {/* Hero + overlapping services panel share the same dark background */}
         <div className="relative bg-lsh-dark">
           <HeroSection />

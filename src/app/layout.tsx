@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
-import { SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -29,17 +29,6 @@ export const metadata: Metadata = {
   },
   description:
     "Professional LED screen hire and AV production for corporate events, conferences, exhibitions, weddings and live events across London and the UK. Request a free quote today.",
-  keywords: [
-    "LED screen hire London",
-    "video wall hire London",
-    "LED screen rental London",
-    "AV hire London",
-    "event production London",
-    "conference screen hire",
-    "exhibition screen hire",
-    "LED wall hire",
-    "outdoor screen hire",
-  ],
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,
@@ -47,20 +36,24 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     title: "London Screen Hire | LED & Projection Screen Hire",
     description: OG_DESCRIPTION,
     url: SITE_URL,
-    siteName: "London Screen Hire",
+    siteName: SITE_NAME,
     locale: "en_GB",
     type: "website",
     images: [
       {
         url: "/images/hero/hero.png",
-        width: 1200,
-        height: 630,
         alt: "London Screen Hire, professional LED and projection screen hire for events",
       },
     ],
@@ -73,8 +66,8 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/images/favicon-16x16.png",
+    apple: "/images/apple-touch-icon.png",
     other: {
       rel: "icon",
       type: "image/png",

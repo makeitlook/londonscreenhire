@@ -30,9 +30,8 @@ export default function ServiceHero({
 }: ServiceHeroProps) {
   return (
     <section
-      className="relative bg-lsh-dark overflow-hidden"
+      className="relative min-h-0 overflow-hidden bg-lsh-dark sm:min-h-[clamp(480px,60vh,640px)]"
       aria-label="Service overview"
-      style={{ minHeight: "clamp(480px, 60vh, 640px)" }}
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -65,7 +64,7 @@ export default function ServiceHero({
       </div>
 
       {/* Content - constrained left column */}
-      <div className="relative z-10 flex items-center px-4 sm:px-6 md:px-8 xl:px-12 pt-[108px] sm:pt-[128px] xl:pt-[148px] pb-16 sm:pb-20 xl:pb-24">
+      <div className="lsh-container relative z-10 flex items-center pb-12 pt-[100px] sm:pb-20 sm:pt-[128px] xl:pb-24 xl:pt-[148px]">
         <div className="w-full sm:max-w-[72%] md:max-w-[58%] xl:max-w-[46%]">
           {/* Breadcrumbs */}
           <div className="mb-5">
@@ -79,14 +78,14 @@ export default function ServiceHero({
 
           {/* H1 */}
           <h1
-            className="font-heading font-bold uppercase text-white leading-[0.88] tracking-[-0.02em] mb-5"
+            className="mb-4 font-heading font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white sm:mb-5"
             style={{ fontSize: "clamp(2.25rem, calc(4.2vw + 1rem), 4.5rem)" }}
           >
             {h1}
           </h1>
 
           {/* Short intro */}
-          <p className="text-[0.9375rem] sm:text-[1rem] leading-[1.65] text-lsh-grey-300 mb-8 max-w-[440px]">
+          <p className="mb-7 max-w-[440px] text-[0.9375rem] leading-[1.65] text-lsh-grey-300 sm:mb-8 sm:text-[1rem]">
             {shortIntro}
           </p>
 

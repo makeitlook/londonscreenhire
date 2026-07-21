@@ -24,26 +24,26 @@ export default function ServiceIntro({
       className="bg-lsh-off-white py-14 sm:py-16 xl:py-20"
       aria-labelledby="service-process-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
-        <div className="flex flex-col xl:flex-row xl:gap-20 xl:items-start">
+      <div className="lsh-container">
+        <div className="grid grid-cols-1 items-start gap-y-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-x-14 xl:gap-x-20">
           {/* ── Left: intro copy ── */}
-          <div className="xl:w-[42%] xl:shrink-0 mb-12 xl:mb-0">
+          <div>
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               About This Service
             </p>
-            <p className="text-[0.9375rem] leading-[1.75] text-lsh-grey-700">
+            <p className="max-w-[600px] text-[0.9375rem] leading-[1.75] text-lsh-grey-700">
               {fullIntro}
             </p>
           </div>
 
           {/* ── Right: connected process timeline ── */}
           <div className="xl:flex-1">
-            <p
+            <h2
               id="service-process-heading"
-              className="mb-6 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue"
+              className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue"
             >
               How It Works
-            </p>
+            </h2>
 
             <ol className="relative list-none m-0 p-0 space-y-0">
               {/* Vertical connecting line - hidden on last item via clip */}
@@ -55,7 +55,7 @@ export default function ServiceIntro({
               {processSteps.map((step) => (
                 <li
                   key={step.step}
-                  className="relative flex gap-5 pb-6 last:pb-0"
+                  className="relative flex gap-4 pb-5 last:pb-0 sm:gap-5 sm:pb-6"
                 >
                   {/* Step number bubble */}
                   <span

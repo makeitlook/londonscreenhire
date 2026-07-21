@@ -23,7 +23,7 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
       className="bg-lsh-off-white py-14 sm:py-16 xl:py-20"
       aria-labelledby="service-uses-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
           Suitable For
         </p>

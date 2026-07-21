@@ -96,6 +96,34 @@
   }
 }
 
+@layer components {
+  /* Shared content frame: full-bleed section backgrounds, capped inner content. */
+  .lsh-container {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .lsh-container {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .lsh-container {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .lsh-container {
+    padding-inline: 3rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -140,7 +140,7 @@ export default function SiteFooter() {
       />
 
       {/* ── Main grid ────────────────────────────────────────────────────── */}
-      <div className="relative z-10 px-4 sm:px-6 md:px-8 xl:px-12 pt-14 pb-12 md:pt-16 md:pb-14">
+      <div className="lsh-container relative z-10 pb-12 pt-14 md:pb-14 md:pt-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.75fr_1fr_1fr_1.5fr] gap-10 sm:gap-x-8 sm:gap-y-10 lg:gap-8">
           {/* Col 1 - Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
@@ -251,8 +251,8 @@ export default function SiteFooter() {
       </div>
 
       {/* ── Copyright bar ────────────────────────────────────────────────── */}
-      <div className="relative z-10 border-t border-[var(--lsh-border-dark)] px-4 sm:px-6 md:px-8 xl:px-12 py-4">
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+      <div className="relative z-10 border-t border-[var(--lsh-border-dark)]">
+        <div className="lsh-container flex flex-col gap-2.5 py-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[0.75rem] text-[var(--lsh-grey-500)]">
             {copyright}
           </p>

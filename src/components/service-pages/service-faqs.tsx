@@ -1,3 +1,4 @@
+import { Phone } from "lucide-react";
 import { contact } from "@/data/contact";
 
 interface ServiceFaq {
@@ -21,7 +22,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
       className="bg-lsh-dark py-14 sm:py-16 xl:py-20"
       aria-labelledby="service-faqs-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <div className="flex flex-col xl:flex-row xl:gap-16 xl:items-start">
           {/* ── Left: heading + contact ── */}
           <div className="xl:w-[32%] xl:shrink-0 mb-10 xl:mb-0 xl:sticky xl:top-28">
@@ -42,9 +43,10 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
             <a
               href={contact.phone.href}
               aria-label={contact.phone.ariaLabel}
-              className="text-[0.875rem] font-semibold text-lsh-blue hover:text-white transition-colors duration-200"
+              className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-[4px] bg-lsh-blue px-6 text-[0.8125rem] font-semibold text-white transition-colors duration-200 hover:bg-lsh-blue-hover active:bg-lsh-blue-dark sm:w-auto focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2"
             >
-              {contact.phone.display}
+              <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
+              Call {contact.phone.display}
             </a>
           </div>
 
@@ -55,7 +57,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
                 key={index}
                 className="group bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none text-white hover:bg-lsh-charcoal-light transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-[-2px]">
+                <summary className="flex items-center justify-between gap-4 px-5 py-4 sm:px-6 cursor-pointer list-none select-none text-white hover:bg-lsh-charcoal-light transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-[-2px]">
                   <span className="font-heading font-semibold uppercase tracking-wide text-[0.9375rem] leading-snug">
                     {faq.question}
                   </span>
@@ -73,7 +75,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
                     <path d="M3 6l5 5 5-5" />
                   </svg>
                 </summary>
-                <div className="px-5 pb-5 pt-1 border-t border-[var(--lsh-border-dark)]">
+                <div className="border-t border-[var(--lsh-border-dark)] px-5 py-5 sm:px-6">
                   <p className="text-[0.9rem] leading-[1.7] text-lsh-grey-300">
                     {faq.answer}
                   </p>

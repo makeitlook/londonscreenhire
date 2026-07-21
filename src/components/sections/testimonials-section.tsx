@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       className="bg-lsh-off-white pt-14 pb-10 sm:pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
       aria-labelledby="testimonials-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         {/* ── Heading block ── */}
         <FadeIn>
           <div className="flex flex-col items-center mb-8 md:mb-10">

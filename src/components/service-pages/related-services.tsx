@@ -75,7 +75,7 @@ export default function RelatedServices({ services }: RelatedServicesProps) {
       className="bg-lsh-off-white py-14 sm:py-16 xl:py-20"
       aria-labelledby="related-services-heading"
     >
-      <div className="px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
           Also From London Screen Hire
         </p>

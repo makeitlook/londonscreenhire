@@ -5,6 +5,9 @@ import SiteFooter from "@/components/layout/site-footer";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
+  description: "The requested page could not be found.",
+  alternates: { canonical: null },
+  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {

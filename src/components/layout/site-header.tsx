@@ -28,6 +28,7 @@ export default function SiteHeader() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const servicesRef = useRef<HTMLDivElement>(null);
+  const servicesButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 24);
@@ -50,14 +51,44 @@ export default function SiteHeader() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+  useEffect(() => {
+    if (!servicesOpen) return;
+
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setServicesOpen(false);
+        servicesButtonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [servicesOpen]);
+
+  const openServicesAndFocusFirstLink = () => {
+    setServicesOpen(true);
+    requestAnimationFrame(() => {
+      servicesRef.current
+        ?.querySelector<HTMLAnchorElement>("[data-service-link]")
+        ?.focus();
+    });
+  };
+
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-lsh-dark border-b border-[var(--lsh-border-dark)]"
-          : "bg-lsh-dark/95 border-b border-transparent"
-      }`}
-    >
+    <>
+      <a
+        href="#main-content"
+        className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-[3px] bg-lsh-blue px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+      >
+        Skip to main content
+      </a>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-lsh-dark border-b border-[var(--lsh-border-dark)]"
+            : "bg-lsh-dark/95 border-b border-transparent"
+        }`}
+      >
       {/*
        * Padding system - consistent across header / hero / services:
        *   320–639px  → 16px  (px-4)
@@ -65,7 +96,7 @@ export default function SiteHeader() {
        *   768–1279px → 32px  (md:px-8)
        *   1280px+    → 48px  (xl:px-12)
        */}
-      <div className="w-full px-4 sm:px-6 md:px-8 xl:px-12">
+      <div className="lsh-container">
         {/*
          * Three-column grid keeps the nav truly centred regardless of
          * logo / CTA width differences.
@@ -95,13 +126,25 @@ export default function SiteHeader() {
             </Link>
 
             {/* Services dropdown */}
-            <div className="relative" ref={servicesRef}>
+            <div
+              className="relative"
+              ref={servicesRef}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setServicesOpen(false);
+                }
+              }}
+            >
               <button
+                ref={servicesButtonRef}
                 aria-expanded={servicesOpen}
-                aria-haspopup="true"
+                aria-controls="desktop-services-navigation"
                 onClick={() => setServicesOpen((v) => !v)}
                 onKeyDown={(e) => {
-                  if (e.key === "Escape") setServicesOpen(false);
+                  if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    openServicesAndFocusFirstLink();
+                  }
                 }}
                 className="flex items-center gap-1 text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2 rounded-[2px]"
               >
@@ -116,7 +159,7 @@ export default function SiteHeader() {
 
               {servicesOpen && (
                 <div
-                  role="menu"
+                  id="desktop-services-navigation"
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
                 >
                   <div className="grid grid-cols-2 gap-x-6">
@@ -140,7 +183,7 @@ export default function SiteHeader() {
                           <Link
                             key={service.slug}
                             href={`/${service.slug}`}
-                            role="menuitem"
+                            data-service-link
                             onClick={() => setServicesOpen(false)}
                             className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
                           >
@@ -168,7 +211,7 @@ export default function SiteHeader() {
                           <Link
                             key={service.slug}
                             href={`/${service.slug}`}
-                            role="menuitem"
+                            data-service-link
                             onClick={() => setServicesOpen(false)}
                             className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
                           >
@@ -439,6 +482,7 @@ export default function SiteHeader() {
           </div>
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }

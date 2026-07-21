@@ -7,11 +7,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
     "Terms and conditions governing the hire of screens and AV equipment from London Screen Hire.",
+  alternates: { canonical: `${SITE_URL}/terms` },
   robots: { index: false, follow: false },
 };
 
@@ -38,7 +40,7 @@ export default function TermsPage() {
         id="main-content"
         className="bg-lsh-dark min-h-screen pt-[68px] xl:pt-[78px]"
       >
-        <div className="px-4 sm:px-6 md:px-8 xl:px-12 py-16 md:py-20">
+        <div className="lsh-container py-16 md:py-20">
           <div className="max-w-3xl">
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               Legal

@@ -29,7 +29,7 @@ export default function ServiceShowcase({
       className="bg-lsh-charcoal overflow-hidden"
       aria-labelledby="service-showcase-heading"
     >
-      <div className="flex flex-col xl:flex-row xl:min-h-[420px]">
+      <div className="mx-auto flex max-w-[1440px] flex-col xl:min-h-[420px] xl:flex-row">
 
         {/* ── Image panel ── */}
         <div className="relative w-full xl:w-[55%] aspect-[16/9] xl:aspect-auto">
@@ -37,7 +37,7 @@ export default function ServiceShowcase({
             src={image}
             alt={imageAlt}
             fill
-            sizes="(max-width: 1280px) 100vw, 55vw"
+            sizes="(max-width: 1279px) 100vw, (max-width: 1440px) 55vw, 792px"
             className="object-cover object-center opacity-80"
           />
           {/* Subtle right-edge fade into text panel on desktop */}
