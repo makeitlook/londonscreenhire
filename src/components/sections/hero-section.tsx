@@ -34,7 +34,7 @@ export default function HeroSection() {
       <div className="absolute inset-0">
         <Image
           src="/images/hero/hero.png"
-          alt=""
+          alt="Large LED video wall at a professionally produced live event"
           fill
           className="object-cover object-[60%_50%] md:object-[70%_50%]"
           priority

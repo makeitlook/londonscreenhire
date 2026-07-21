@@ -24,11 +24,11 @@ const OG_DESCRIPTION =
 
 export const metadata: Metadata = {
   title: {
-    default: "LED Screen Hire London | London Screen Hire",
+    default: "LED Screen Hire & Event AV Production | London",
     template: "%s | London Screen Hire",
   },
   description:
-    "Professional LED screen hire and AV production for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement. Request a free quote today.",
+    "LED screen hire and AV production for corporate events, conferences, exhibitions and weddings across London. Get a tailored quote.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,

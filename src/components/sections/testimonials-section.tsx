@@ -49,34 +49,20 @@ export default function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        {/* ── Mobile scroll row (< sm) ── */}
-        <div className="sm:hidden -mx-4 px-4 overflow-x-auto pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <div
-            className="flex gap-4 snap-x snap-mandatory pr-4"
-            style={{ width: "max-content" }}
-          >
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="snap-start shrink-0"
-                style={{ width: "86vw" }}
-              >
-                <TestimonialCard testimonial={t} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Tablet + desktop grid ── */}
-        {/*
-         * sm–lg: 2-col; third card sits in col-1 of row 2.
-         * lg+:   3-col single row.
-         */}
+        {/* A single list becomes a snap row on mobile and a grid at sm+ so
+         * testimonial copy is not duplicated in the rendered document. */}
         <FadeIn>
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {testimonials.map((t) => (
-              <TestimonialCard key={t.name} testimonial={t} />
-            ))}
+          <div className="-mx-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0">
+            <ul className="flex w-max snap-x snap-mandatory gap-4 pr-4 sm:grid sm:w-auto sm:grid-cols-2 sm:gap-5 sm:pr-0 lg:grid-cols-3">
+              {testimonials.map((t) => (
+                <li
+                  key={t.name}
+                  className="w-[86vw] shrink-0 snap-start sm:w-auto"
+                >
+                  <TestimonialCard testimonial={t} />
+                </li>
+              ))}
+            </ul>
           </div>
         </FadeIn>
 

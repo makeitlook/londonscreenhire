@@ -41,51 +41,24 @@ export default function ProjectsSection() {
           </div>
         </FadeIn>
 
-        {/*
-         * Mobile scroll row (< sm / 640px)
-         * -mx-4 + px-4 breaks out of the section padding so the row edge
-         * sits flush with the viewport while keeping the first card indented.
-         * pr-4 on the inner ul gives breathing room after the last card.
-         * Card width: 78vw - shows one full card + deliberate sliver of next.
-         */}
+        {/* One list changes from a mobile snap row to the desktop grid. Keeping
+         * one DOM copy avoids duplicate headings and image content for crawlers. */}
         <FadeIn>
-          <div className="sm:hidden -mx-4 px-4 overflow-x-auto pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="-mx-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0">
             <ul
-              className="flex gap-3 snap-x snap-mandatory pr-4"
-              style={{ width: "max-content" }}
+              className="flex w-max snap-x snap-mandatory gap-3 pr-4 sm:grid sm:w-auto sm:grid-cols-2 sm:gap-4 sm:pr-0 md:grid-cols-3 xl:grid-cols-5"
               role="list"
             >
               {projects.map((project) => (
                 <li
                   key={project.title}
-                  className="snap-start shrink-0"
-                  style={{ width: "78vw" }}
+                  className="w-[78vw] shrink-0 snap-start sm:w-auto"
                 >
                   <ProjectCard project={project} />
                 </li>
               ))}
             </ul>
           </div>
-        </FadeIn>
-
-        {/*
-         * Tablet and desktop grid
-         * 640–899px:  2-col
-         * 900–1279px: 3-col  (uses md: breakpoint at 768px; 900 handled by gap/natural sizing)
-         * 1280px+:    5-col
-         * Gap: 16px desktop for compact density matching mockup
-         */}
-        <FadeIn>
-          <ul
-            className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"
-            role="list"
-          >
-            {projects.map((project) => (
-              <li key={project.title}>
-                <ProjectCard project={project} />
-              </li>
-            ))}
-          </ul>
         </FadeIn>
       </div>
     </section>
