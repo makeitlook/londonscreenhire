@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 /**
- * HeroContent — client component isolated to contain Framer Motion.
+ * HeroContent - client component isolated to contain Framer Motion.
  * Keeps the parent HeroSection as a server component.
  *
  * Typography scale:
@@ -32,11 +32,11 @@ export default function HeroContent() {
   return (
     <div className="flex flex-col items-start w-full sm:max-w-[80%] md:max-w-[58%] xl:max-w-[46%]">
       {/*
-       * Eyebrow — two responsive spans, one for mobile/tablet, one for desktop.
+       * Eyebrow - two responsive spans, one for mobile/tablet, one for desktop.
        * display:none removes the inactive span from the accessibility tree,
        * so screen readers only announce the visible version.
        *
-       * Mobile/tablet (< sm): shorter — fits on one line at 320px+
+       * Mobile/tablet (< sm): shorter - fits on one line at 320px+
        * Desktop (sm+): full version
        */}
       <motion.p
@@ -54,7 +54,7 @@ export default function HeroContent() {
       </motion.p>
 
       {/*
-       * H1 — calibrated clamp targeting:
+       * H1 - calibrated clamp targeting:
        *   320px → 38px  (clamp floor)
        *   360px → ~40px
        *   390px → ~42px
@@ -87,8 +87,8 @@ export default function HeroContent() {
         </p>
 
         {/*
-         * Mobile (< sm): stacked, full-width — 50px height, 12px gap
-         * sm+: inline row — 46px height, gap auto
+         * Mobile (< sm): stacked, full-width - 50px height, 12px gap
+         * sm+: inline row - 46px height, gap auto
          */}
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 /**
- * Calendar — dark-themed DayPicker for the LSH quote form.
+ * Calendar - dark-themed DayPicker for the LSH quote form.
  * Uses react-day-picker v8 classNames API.
  */
 export function Calendar({

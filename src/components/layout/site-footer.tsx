@@ -142,9 +142,9 @@ export default function SiteFooter() {
       {/* ── Main grid ────────────────────────────────────────────────────── */}
       <div className="relative z-10 px-4 sm:px-6 md:px-8 xl:px-12 pt-14 pb-12 md:pt-16 md:pb-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.75fr_1fr_1fr_1.5fr] gap-10 sm:gap-x-8 sm:gap-y-10 lg:gap-8">
-          {/* Col 1 — Brand */}
+          {/* Col 1 - Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" aria-label="London Screen Hire — return to homepage">
+            <Link href="/" aria-label="London Screen Hire, return to homepage">
               <SiteLogo />
             </Link>
             <p className="mt-5 text-[0.875rem] text-[var(--lsh-grey-400)] leading-relaxed max-w-[300px] lg:max-w-none">
@@ -152,7 +152,7 @@ export default function SiteFooter() {
             </p>
           </div>
 
-          {/* Col 2 — Quick Links */}
+          {/* Col 2 - Quick Links */}
           <div>
             <p className={colLabel}>Quick Links</p>
             <nav aria-label="Footer quick links">
@@ -168,7 +168,7 @@ export default function SiteFooter() {
             </nav>
           </div>
 
-          {/* Col 3 — Services */}
+          {/* Col 3 - Services */}
           <div>
             <p className={colLabel}>Services</p>
             <nav aria-label="Footer services">
@@ -184,7 +184,7 @@ export default function SiteFooter() {
             </nav>
           </div>
 
-          {/* Col 4 — Contact */}
+          {/* Col 4 - Contact */}
           <div>
             <p className={colLabel}>Contact</p>
             <address className="not-italic mt-4">
@@ -223,7 +223,7 @@ export default function SiteFooter() {
               </ul>
             </address>
 
-            {/* Social — only rendered when verified URLs exist */}
+            {/* Social - only rendered when verified URLs exist */}
             {activeSocial.length > 0 && (
               <div className="mt-6">
                 <p className={colLabel}>Follow Us</p>
@@ -236,7 +236,7 @@ export default function SiteFooter() {
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${s.label} — opens in a new tab`}
+                        aria-label={`${s.label}, opens in a new tab`}
                         className="inline-flex items-center justify-center w-9 h-9 rounded-[3px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
                       >
                         {Icon && <Icon />}

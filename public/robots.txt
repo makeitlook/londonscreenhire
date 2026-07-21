@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://londonscreenhire.co.uk/sitemap.xml

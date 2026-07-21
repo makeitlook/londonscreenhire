@@ -1,5 +1,5 @@
 /**
- * Terms and Conditions page — placeholder content.
+ * Terms and Conditions page - placeholder content.
  * ⚠️  All legal content below is a placeholder and must be reviewed and
  *     approved by a qualified professional before launch.
  */

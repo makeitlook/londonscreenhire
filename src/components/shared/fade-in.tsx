@@ -10,11 +10,11 @@ interface FadeInProps {
 }
 
 /**
- * FadeIn — scroll-triggered fade-up wrapper.
+ * FadeIn - scroll-triggered fade-up wrapper.
  *
  * Fires once when the element enters the viewport.
  * Respects prefers-reduced-motion via useReducedMotion().
- * Renders as a <div> — pass className to preserve flex/grid child behaviour.
+ * Renders as a <div> - pass className to preserve flex/grid child behaviour.
  */
 export function FadeIn({ children, className, delay = 0 }: FadeInProps) {
   const reduce = useReducedMotion();

@@ -4,7 +4,7 @@ export interface Testimonial {
   role: string;
   initial: string;
   /**
-   * IMPORTANT — placeholder: true means this testimonial has NOT been
+   * IMPORTANT - placeholder: true means this testimonial has NOT been
    * verified or supplied by the client. All three entries below must be
    * replaced with real, confirmed client reviews before launch.
    */

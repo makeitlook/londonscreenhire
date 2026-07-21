@@ -2,7 +2,7 @@ import { statistics } from "@/data/statistics";
 import { FadeIn } from "@/components/shared/fade-in";
 
 /**
- * StatisticsStrip — server component.
+ * StatisticsStrip - server component.
  *
  * Full-width bright-blue band that attaches directly beneath the dark
  * Why Choose Us section with no gap or separator.
@@ -23,9 +23,9 @@ import { FadeIn } from "@/components/shared/fade-in";
  * 4 items, 3 layouts:
  *   Mobile / tablet 2×2:
  *     [0] right + bottom  [1] bottom
- *     [2] right           [3] —
+ *     [2] right           [3] -
  *   Desktop 4×1:
- *     [0] right  [1] right  [2] right  [3] —
+ *     [0] right  [1] right  [2] right  [3] -
  */
 const BORDERS = [
   "border-r border-b lg:border-b-0 border-white/20",

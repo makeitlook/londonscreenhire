@@ -92,7 +92,7 @@ export default function QuoteForm() {
     const formEl = e.currentTarget;
     const raw = new FormData(formEl);
 
-    // Honeypot — silently swallow bot submissions
+    // Honeypot - silently swallow bot submissions
     if (raw.get("botcheck")) {
       setFormState("success");
       return;
@@ -146,7 +146,7 @@ export default function QuoteForm() {
 
     const payload = new FormData();
     payload.set("access_key", accessKey);
-    payload.set("subject", "New Quote Request — London Screen Hire");
+    payload.set("subject", "New Quote Request | London Screen Hire");
     payload.set("from_name", "London Screen Hire Website");
     payload.set("Full Name", fields.name.trim());
     payload.set("Email Address", fields.email.trim());
@@ -216,7 +216,7 @@ export default function QuoteForm() {
   // ── Form ─────────────────────────────────────────────────────────────────────
   return (
     <form onSubmit={handleSubmit} noValidate aria-label="Request a quote">
-      {/* Honeypot — invisible to real users */}
+      {/* Honeypot - invisible to real users */}
       <input
         type="checkbox"
         name="botcheck"
@@ -376,7 +376,7 @@ export default function QuoteForm() {
           <FError id={`${id}-venue-e`}>{errors.venue}</FError>
         </div>
 
-        {/* Screen Size — full width */}
+        {/* Screen Size - full width */}
         <div className="sm:col-span-2">
           <FLabel required>Screen Size Required</FLabel>
           <Select value={screenSize} onValueChange={setScreenSize}>
@@ -389,7 +389,7 @@ export default function QuoteForm() {
             </SelectTrigger>
             <SelectContent>
               {[
-                ["Not Sure", "Not Sure — We Can Advise"],
+                ["Not Sure", "Not Sure, We Can Advise"],
                 ["Small Screen", "Small Screen"],
                 ["Medium Screen", "Medium Screen"],
                 ["Large Screen", "Large Screen"],
@@ -405,7 +405,7 @@ export default function QuoteForm() {
           <FError id={`${id}-ss-e`}>{errors.screenSize}</FError>
         </div>
 
-        {/* Message — full width */}
+        {/* Message - full width */}
         <div className="sm:col-span-2">
           <FLabel htmlFor={`${id}-msg`} required>
             Event Details and Requirements
@@ -427,7 +427,7 @@ export default function QuoteForm() {
           <FError id={`${id}-msg-e`}>{errors.message}</FError>
         </div>
 
-        {/* Consent — full width */}
+        {/* Consent - full width */}
         <div className="sm:col-span-2 flex flex-col gap-1">
           <div className="flex items-start gap-3">
             <Checkbox
@@ -457,7 +457,7 @@ export default function QuoteForm() {
           </p>
         </div>
 
-        {/* Inline submit error — full width */}
+        {/* Inline submit error - full width */}
         {submitError && (
           <div
             ref={submitErrorRef}
@@ -476,7 +476,7 @@ export default function QuoteForm() {
           </div>
         )}
 
-        {/* Submit — full width */}
+        {/* Submit - full width */}
         <div className="sm:col-span-2 pt-1">
           <button
             type="submit"

@@ -31,7 +31,7 @@
     --lsh-border-dark: rgba(255, 255, 255, 0.16);
     --lsh-border-light: rgba(5, 7, 10, 0.14);
 
-    /* ── shadcn variables — LSH-mapped ── */
+    /* ── shadcn variables - LSH-mapped ── */
     --background: 220 33% 3%;
     --foreground: 0 0% 98%;
     --card: 220 18% 10%;
@@ -73,7 +73,7 @@
     border-radius: 2px;
   }
 
-  /* ── Autofill override — keep form inputs dark in Chromium and Safari ── */
+  /* ── Autofill override - keep form inputs dark in Chromium and Safari ── */
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
@@ -84,7 +84,7 @@
     /* Prevent the browser from overriding text colour */
     -webkit-text-fill-color: #ffffff !important;
     caret-color: #ffffff;
-    /* Retain the existing border; do not set border here — let component classes control it */
+    /* Retain the existing border; do not set border here - let component classes control it */
     transition: background-color 9999s ease-in-out 0s;
   }
 

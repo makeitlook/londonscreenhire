@@ -7,7 +7,7 @@ export default function ProjectsSection() {
     <section
       id="projects"
       /*
-       * Vertical padding — compact, image-led character
+       * Vertical padding - compact, image-led character
        * Mobile:  pt-12 pb-14  (48px / 56px)
        * md:      pt-16 pb-16  (64px / 64px)
        * xl:      pt-20 pb-20  (80px / 80px)
@@ -46,7 +46,7 @@ export default function ProjectsSection() {
          * -mx-4 + px-4 breaks out of the section padding so the row edge
          * sits flush with the viewport while keeping the first card indented.
          * pr-4 on the inner ul gives breathing room after the last card.
-         * Card width: 78vw — shows one full card + deliberate sliver of next.
+         * Card width: 78vw - shows one full card + deliberate sliver of next.
          */}
         <FadeIn delay={0.1}>
           <div className="sm:hidden -mx-4 px-4 overflow-x-auto pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   return (
     <article>
-      {/* Image — 3:2 landscape ratio, wider and lighter than 4:3 */}
+      {/* Image - 3:2 landscape ratio, wider and lighter than 4:3 */}
       <div className="relative overflow-hidden rounded-[3px] aspect-[3/2]">
         <Image
           src={project.image}

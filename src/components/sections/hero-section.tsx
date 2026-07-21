@@ -2,15 +2,15 @@ import Image from "next/image";
 import HeroContent from "./hero-content";
 
 /**
- * HeroSection — server component.
+ * HeroSection - server component.
  *
  * Height: clamp(560px, 72vw, 660px)
- *   560px floor  — covers all mobile sizes without clipping content
- *   72vw midpoint — scales naturally through tablet
- *   660px ceiling — desktop cap keeps it compact and crisp
+ *   560px floor  - covers all mobile sizes without clipping content
+ *   72vw midpoint - scales naturally through tablet
+ *   660px ceiling - desktop cap keeps it compact and crisp
  *
  * Padding: matches the site-wide system (px-4 / sm:px-6 / md:px-8 / xl:px-12).
- * Header offset: 68px mobile, 78px xl — matches header heights exactly.
+ * Header offset: 68px mobile, 78px xl - matches header heights exactly.
  *
  * Overlay strategy:
  *   Left-heavy dark gradient  → text zone always readable
@@ -18,8 +18,8 @@ import HeroContent from "./hero-content";
  *   Flat dark tint            → reduces blown-out brightness
  *
  * Image focal point:
- *   Mobile  → object-[60%_50%] — more of the screen graphic visible
- *   Desktop → object-[70%_50%] — right-side LED screen prominent
+ *   Mobile  → object-[60%_50%] - more of the screen graphic visible
+ *   Desktop → object-[70%_50%] - right-side LED screen prominent
  *   (Replace with client photography and tune object-position per image.)
  */
 export default function HeroSection() {
@@ -57,7 +57,7 @@ export default function HeroSection() {
 
         {/*
          * Tablet / desktop overlay (md+):
-         * Lighter — image contributes more to the composition.
+         * Lighter - image contributes more to the composition.
          */}
         <div
           className="absolute inset-0 hidden md:block"
@@ -83,7 +83,7 @@ export default function HeroSection() {
           aria-hidden="true"
         />
 
-        {/* Bottom-up gradient — blends into the dark services panel below (all sizes) */}
+        {/* Bottom-up gradient - blends into the dark services panel below (all sizes) */}
         <div
           className="absolute inset-x-0 bottom-0 h-32"
           style={{
@@ -93,11 +93,11 @@ export default function HeroSection() {
           aria-hidden="true"
         />
 
-        {/* Thin global dark tint — prevents the image looking washed out */}
+        {/* Thin global dark tint - prevents the image looking washed out */}
         <div className="absolute inset-0 bg-lsh-dark/15" aria-hidden="true" />
       </div>
 
-      {/* ── Content — vertically centred within the non-header space ── */}
+      {/* ── Content - vertically centred within the non-header space ── */}
       <div className="relative z-10 flex flex-col justify-center flex-1 pt-[68px] xl:pt-[78px]">
         {/*
          * mt-4 on mobile shifts the visual centre ~16px lower than true centre.

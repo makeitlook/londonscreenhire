@@ -3,7 +3,7 @@ import { testimonials } from "@/data/testimonials";
 import { FadeIn } from "@/components/shared/fade-in";
 
 /**
- * TestimonialsSection — server component.
+ * TestimonialsSection - server component.
  *
  * Off-white section attaching directly beneath the blue statistics strip.
  * Desktop (lg+):  3-col grid, one row.
@@ -17,8 +17,8 @@ export default function TestimonialsSection() {
       id="testimonials"
       /*
        * Bottom padding:
-       *   Mobile (<sm): pb-10 — space for dots beneath scroll row
-       *   sm+:          pb-14 — dots hidden, slightly tighter
+       *   Mobile (<sm): pb-10 - space for dots beneath scroll row
+       *   sm+:          pb-14 - dots hidden, slightly tighter
        *   md+:          pb-16
        *   xl+:          pb-20
        */
@@ -81,7 +81,7 @@ export default function TestimonialsSection() {
         </FadeIn>
 
         {/*
-         * Pagination dots — decorative scroll cue, mobile only.
+         * Pagination dots - decorative scroll cue, mobile only.
          * Visible:  < sm (640px) where horizontal scroll is active.
          * Hidden:   sm+ where all three cards are visible in the grid.
          */}
@@ -113,7 +113,7 @@ function TestimonialCard({
         aria-hidden="true"
       />
 
-      {/* Quote body — grows to push identity block down */}
+      {/* Quote body - grows to push identity block down */}
       <p className="flex-1 text-[0.9rem] leading-[1.7] text-lsh-grey-700 mb-6">
         {testimonial.quote}
       </p>

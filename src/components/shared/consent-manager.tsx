@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ConsentManager — GDPR analytics consent.
+ * ConsentManager - GDPR analytics consent.
  *
  * Reads the visitor's stored preference from localStorage and:
  *  - Renders nothing until hydration is complete (avoids SSR mismatch).
@@ -9,7 +9,7 @@
  *  - Loads Vercel Analytics and Speed Insights only when consent is "accepted".
  *
  * Preference is stored under the key "lsh-analytics-consent" in localStorage
- * (not a cookie — no cookie banner paradox).
+ * (not a cookie - no cookie banner paradox).
  */
 
 import { useEffect, useState } from "react";
@@ -35,7 +35,7 @@ export default function ConsentManager() {
     setConsent(value);
   };
 
-  // Do not render anything until client has hydrated — prevents SSR mismatch.
+  // Do not render anything until client has hydrated - prevents SSR mismatch.
   if (!hydrated) return null;
 
   return (

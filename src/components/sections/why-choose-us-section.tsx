@@ -4,10 +4,10 @@ import { benefits } from "@/data/benefits";
 import { FadeIn } from "@/components/shared/fade-in";
 
 /**
- * WhyChooseUsSection — server component.
+ * WhyChooseUsSection - server component.
  *
  * Dark navy section immediately after the off-white Projects section.
- * Desktop (xl+): two-column flex — left content (~36%) + right 3×2 card grid.
+ * Desktop (xl+): two-column flex - left content (~36%) + right 3×2 card grid.
  * Tablet (md–xl): left content full-width above, cards below in 2-col (md) / 3-col (lg).
  * Mobile (<md): stacked; cards 2-col from base (≥340px), 1-col only at very narrow (< xs).
  */
@@ -16,7 +16,7 @@ export default function WhyChooseUsSection() {
     <section
       id="about"
       /*
-       * Vertical padding — compact, matching mockup density.
+       * Vertical padding - compact, matching mockup density.
        * Mobile:  pt-12 pb-12  (48px)
        * md:      pt-16 pb-16  (64px)
        * xl:      pt-20 pb-20  (80px)
@@ -65,7 +65,7 @@ export default function WhyChooseUsSection() {
               equipment and dependable on-site support.
             </p>
 
-            {/* CTA — drives to the quote form */}
+            {/* CTA - drives to the quote form */}
             <Link
               href="/#quote"
               className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
@@ -83,7 +83,7 @@ export default function WhyChooseUsSection() {
            *   md  (768px+):   2-col
            *   lg  (1024px+):  3-col
            *   xl  (1280px+):  3-col (right side of desktop split)
-           * Gap: 2 (8px) — panel feel, not loose cards
+           * Gap: 2 (8px) - panel feel, not loose cards
            */}
           <FadeIn className="xl:flex-1" delay={0.12}>
             <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2" role="list">

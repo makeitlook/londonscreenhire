@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Menu, Phone, MessageCircle } from "lucide-react";
+import { Menu, Phone, MessageCircle, ChevronDown } from "lucide-react";
 import SiteLogo from "@/components/shared/site-logo";
 import { contact } from "@/data/contact";
 import { socialLinks } from "@/data/footer";
+import { services } from "@/data/services";
 import {
   Sheet,
   SheetContent,
@@ -13,24 +14,40 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
+/** Desktop top-level items (Home and Services handled separately) */
 const NAV_ITEMS = [
-  { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
-  { label: "Screens", href: "/#services" },
-  { label: "Events", href: "/#projects" },
+  { label: "Projects", href: "/#projects" },
   { label: "About", href: "/#about" },
+  { label: "Testimonials", href: "/#testimonials" },
   { label: "Contact", href: "/#quote" },
 ] as const;
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const servicesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 24);
     update();
     window.addEventListener("scroll", update, { passive: true });
     return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  // Close services dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(e.target as Node)
+      ) {
+        setServicesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   return (
@@ -42,7 +59,7 @@ export default function SiteHeader() {
       }`}
     >
       {/*
-       * Padding system — consistent across header / hero / services:
+       * Padding system - consistent across header / hero / services:
        *   320–639px  → 16px  (px-4)
        *   640–767px  → 24px  (sm:px-6)
        *   768–1279px → 32px  (md:px-8)
@@ -55,37 +72,135 @@ export default function SiteHeader() {
          * h-[68px] on mobile, h-[78px] on desktop (xl).
          */}
         <div className="grid grid-cols-[auto_1fr_auto] items-center h-[68px] xl:h-[78px]">
-          {/* ── Logo — always left ── */}
+          {/* ── Logo - always left ── */}
           <Link
             href="/"
-            aria-label="London Screen Hire — return to homepage"
+            aria-label="London Screen Hire, return to homepage"
             className="shrink-0"
           >
             <SiteLogo />
           </Link>
 
-          {/* ── Desktop navigation — centred in the middle column, xl+ only ── */}
+          {/* ── Desktop navigation - centred in the middle column, xl+ only ── */}
           <nav
-            className="hidden xl:flex items-center justify-center gap-8"
+            className="hidden xl:flex items-center justify-center gap-7"
             aria-label="Main navigation"
           >
+            {/* Home */}
+            <Link
+              href="/#home"
+              className="text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200"
+            >
+              Home
+            </Link>
+
+            {/* Services dropdown */}
+            <div className="relative" ref={servicesRef}>
+              <button
+                aria-expanded={servicesOpen}
+                aria-haspopup="true"
+                onClick={() => setServicesOpen((v) => !v)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") setServicesOpen(false);
+                }}
+                className="flex items-center gap-1 text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2 rounded-[2px]"
+              >
+                Services
+                <ChevronDown
+                  size={13}
+                  strokeWidth={1.75}
+                  className={`transition-transform duration-200 ${servicesOpen ? "rotate-180" : ""}`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {servicesOpen && (
+                <div
+                  role="menu"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
+                >
+                  <div className="grid grid-cols-2 gap-x-6">
+                    {/* ── LED Screens group ── */}
+                    <div>
+                      <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
+                        LED Screens
+                      </p>
+                      {services
+                        .filter((s) =>
+                          [
+                            "led-screen-hire-london",
+                            "indoor-led-screen-hire",
+                            "outdoor-led-screen-hire",
+                            "wedding-led-screen-hire",
+                            "conference-led-screen-hire",
+                            "exhibition-led-screen-hire",
+                          ].includes(s.slug),
+                        )
+                        .map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/${service.slug}`}
+                            role="menuitem"
+                            onClick={() => setServicesOpen(false)}
+                            className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
+                          >
+                            <span className="text-[0.8125rem] font-medium text-lsh-grey-300 group-hover:text-white transition-colors duration-200">
+                              {service.navLabel}
+                            </span>
+                          </Link>
+                        ))}
+                    </div>
+
+                    {/* ── Event Production group ── */}
+                    <div>
+                      <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
+                        Event Production
+                      </p>
+                      {services
+                        .filter((s) =>
+                          [
+                            "corporate-av-hire",
+                            "stage-hire",
+                            "lighting-hire",
+                          ].includes(s.slug),
+                        )
+                        .map((service) => (
+                          <Link
+                            key={service.slug}
+                            href={`/${service.slug}`}
+                            role="menuitem"
+                            onClick={() => setServicesOpen(false)}
+                            className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
+                          >
+                            <span className="text-[0.8125rem] font-medium text-lsh-grey-300 group-hover:text-white transition-colors duration-200">
+                              {service.navLabel}
+                            </span>
+                          </Link>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Remaining nav items */}
             {NAV_ITEMS.map(({ label, href }) => (
-              <a
+              <Link
                 key={label}
                 href={href}
                 className="text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200"
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Middle column spacer on mobile / tablet (keeps grid stable) */}
           <span className="xl:hidden" aria-hidden="true" />
 
-          {/* ── Right column — adapts per breakpoint ── */}
+          {/* ── Right column - adapts per breakpoint ── */}
           <div className="flex items-center justify-end gap-2 sm:gap-3">
-            {/* Desktop CTA — xl+ only */}
+            {/* Desktop CTA - xl+ only */}
             <Link
               href="/#quote"
               className="hidden xl:inline-flex items-center justify-center h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200 shrink-0"
@@ -93,7 +208,7 @@ export default function SiteHeader() {
               Get a Quote
             </Link>
 
-            {/* Compact quote — sm to lg only (640–1279px) */}
+            {/* Compact quote - sm to lg only (640–1279px) */}
             <Link
               href="/#quote"
               className="hidden sm:inline-flex xl:hidden items-center justify-center h-9 px-4 text-xs font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200 shrink-0"
@@ -101,8 +216,14 @@ export default function SiteHeader() {
               Get a Quote
             </Link>
 
-            {/* Hamburger — hidden on xl+ */}
-            <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+            {/* Hamburger - hidden on xl+ */}
+            <Sheet
+              open={menuOpen}
+              onOpenChange={(open) => {
+                setMenuOpen(open);
+                if (!open) setMobileServicesOpen(false);
+              }}
+            >
               <SheetTrigger asChild>
                 {/* 44×44px touch target */}
                 <button
@@ -130,19 +251,101 @@ export default function SiteHeader() {
                     className="flex flex-col px-3 pt-3 pb-1 gap-0.5 flex-1 overflow-y-auto"
                     aria-label="Mobile navigation"
                   >
-                    {NAV_ITEMS.map(({ label, href }) => (
-                      <a
-                        key={label}
-                        href={href}
-                        onClick={() => setMenuOpen(false)}
-                        className="flex items-center py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
+                    {/* Home */}
+                    <Link
+                      href="/#home"
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
+                    >
+                      Home
+                    </Link>
+
+                    {/* Services accordion */}
+                    <div>
+                      <button
+                        onClick={() => setMobileServicesOpen((v) => !v)}
+                        aria-expanded={mobileServicesOpen}
+                        className="flex items-center justify-between w-full py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
                       >
-                        {label}
-                      </a>
-                    ))}
+                        Services
+                        <ChevronDown
+                          size={15}
+                          strokeWidth={1.75}
+                          className={`text-lsh-blue transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                          aria-hidden="true"
+                        />
+                      </button>
+
+                      {mobileServicesOpen && (
+                        <div className="mt-0.5 ml-3 border-l border-[var(--lsh-border-dark)] pl-3">
+                          {/* LED Screens group */}
+                          <p className="px-2 pt-2 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
+                            LED Screens
+                          </p>
+                          {services
+                            .filter((s) =>
+                              [
+                                "led-screen-hire-london",
+                                "indoor-led-screen-hire",
+                                "outdoor-led-screen-hire",
+                                "wedding-led-screen-hire",
+                                "conference-led-screen-hire",
+                                "exhibition-led-screen-hire",
+                              ].includes(s.slug),
+                            )
+                            .map((service) => (
+                              <Link
+                                key={service.slug}
+                                href={`/${service.slug}`}
+                                onClick={() => setMenuOpen(false)}
+                                className="flex items-center py-2 px-2 text-[0.875rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[3px] transition-colors duration-200"
+                              >
+                                {service.navLabel}
+                              </Link>
+                            ))}
+
+                          {/* Event Production group */}
+                          <p className="px-2 pt-3 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
+                            Event Production
+                          </p>
+                          {services
+                            .filter((s) =>
+                              [
+                                "corporate-av-hire",
+                                "stage-hire",
+                                "lighting-hire",
+                              ].includes(s.slug),
+                            )
+                            .map((service) => (
+                              <Link
+                                key={service.slug}
+                                href={`/${service.slug}`}
+                                onClick={() => setMenuOpen(false)}
+                                className="flex items-center py-2 px-2 text-[0.875rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[3px] transition-colors duration-200"
+                              >
+                                {service.navLabel}
+                              </Link>
+                            ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Remaining items */}
+                    <div className="mt-1">
+                      {NAV_ITEMS.map(({ label, href }) => (
+                        <Link
+                          key={label}
+                          href={href}
+                          onClick={() => setMenuOpen(false)}
+                          className="flex items-center py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
                   </nav>
 
-                  {/* Contact shortcuts — driven by src/data/contact.ts */}
+                  {/* Contact shortcuts - driven by src/data/contact.ts */}
                   <div className="px-3 pb-3 flex flex-col gap-1">
                     <a
                       href={contact.phone.href}
@@ -196,7 +399,7 @@ export default function SiteHeader() {
                           href={s.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Follow us on Instagram — opens in a new tab"
+                          aria-label="Follow us on Instagram, opens in a new tab"
                           className="flex items-center justify-center h-11 w-11 shrink-0 rounded-[4px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
                         >
                           <svg

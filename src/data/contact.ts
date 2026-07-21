@@ -20,7 +20,7 @@ export interface ContactItem {
 export interface ContactData {
   phone: ContactItem;
   email: ContactItem;
-  /** Optional — omit until a verified WhatsApp number is supplied. */
+  /** Optional - omit until a verified WhatsApp number is supplied. */
   whatsapp?: ContactItem;
 }
 

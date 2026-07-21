@@ -1,7 +1,7 @@
 /**
  * Footer content data for London Screen Hire.
  *
- * ⚠️  socialLinks hrefs are PLACEHOLDER — set placeholder: false and provide a
+ * ⚠️  socialLinks hrefs are PLACEHOLDER - set placeholder: false and provide a
  *     verified URL before enabling each platform row.
  * ⚠️  footerLocation and footerSummary coverage claims must be confirmed with
  *     the client before launch.
@@ -16,7 +16,7 @@ export type SocialLink = {
   label: string;
   href: string;
   icon: "facebook" | "instagram" | "youtube" | "linkedin";
-  /** When true the row is hidden — set false only once a real URL is supplied. */
+  /** When true the row is hidden - set false only once a real URL is supplied. */
   placeholder: boolean;
 };
 
@@ -30,12 +30,14 @@ export const quickLinks: FooterLink[] = [
 ];
 
 export const serviceLinks: FooterLink[] = [
-  { label: "LED Screen Hire", href: "/#services" },
-  { label: "Audio Systems", href: "/#services" },
-  { label: "Lighting", href: "/#services" },
-  { label: "Staging", href: "/#services" },
-  { label: "Live Streaming", href: "/#services" },
-  { label: "Event Production", href: "/#services" },
+  { label: "LED Screen Hire", href: "/led-screen-hire-london" },
+  { label: "Indoor LED Screens", href: "/indoor-led-screen-hire" },
+  { label: "Outdoor LED Screens", href: "/outdoor-led-screen-hire" },
+  { label: "Wedding LED Screens", href: "/wedding-led-screen-hire" },
+  { label: "Conference Screens", href: "/conference-led-screen-hire" },
+  { label: "Corporate AV Hire", href: "/corporate-av-hire" },
+  { label: "Stage Hire", href: "/stage-hire" },
+  { label: "Lighting Hire", href: "/lighting-hire" },
 ];
 
 /**
@@ -59,12 +61,12 @@ export const legalLinks: FooterLink[] = [
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
-/** ⚠️ PLACEHOLDER — confirm exact service coverage area with client. */
+/** ⚠️ PLACEHOLDER - confirm exact service coverage area with client. */
 export const footerSummary =
   "Professional LED screen hire and AV production for corporate events, weddings, exhibitions, concerts and outdoor events across London and the UK.";
 
-/** ⚠️ PLACEHOLDER — confirm coverage area. */
+/** ⚠️ PLACEHOLDER - confirm coverage area. */
 export const footerLocation = "London & UK";
 
-/** Build-time year — acceptable for static export. */
+/** Build-time year - acceptable for static export. */
 export const copyright = `© ${new Date().getFullYear()} London Screen Hire. All rights reserved.`;

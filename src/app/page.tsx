@@ -68,7 +68,7 @@ export default function Home() {
         <div className="relative bg-lsh-dark">
           <HeroSection />
           {/*
-           * Graduated overlap — services panel rises into the hero's bottom gradient zone.
+           * Graduated overlap - services panel rises into the hero's bottom gradient zone.
            * Mobile: no overlap (hero content area needs full height)
            * sm:  -32px  640px+
            * md:  -48px  768px+
@@ -80,19 +80,19 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Recent Projects — off-white, sharp transition from dark */}
+        {/* Recent Projects - off-white, sharp transition from dark */}
         <ProjectsSection />
 
-        {/* Why Choose Us — dark, sharp transition from off-white */}
+        {/* Why Choose Us - dark, sharp transition from off-white */}
         <WhyChooseUsSection />
 
-        {/* Statistics strip — blue, attaches directly beneath dark section */}
+        {/* Statistics strip - blue, attaches directly beneath dark section */}
         <StatisticsStrip />
 
-        {/* Testimonials — off-white, attaches directly beneath blue strip */}
+        {/* Testimonials - off-white, attaches directly beneath blue strip */}
         <TestimonialsSection />
 
-        {/* Contact & Quote — dark, attaches directly beneath off-white Testimonials */}
+        {/* Contact & Quote - dark, attaches directly beneath off-white Testimonials */}
         <ContactSection />
       </main>
       <SiteFooter />

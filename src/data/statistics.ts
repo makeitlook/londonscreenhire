@@ -11,7 +11,7 @@ export interface Statistic {
   label: string;
   icon: LucideIcon;
   /**
-   * IMPORTANT — placeholder: true means this value has NOT been verified
+   * IMPORTANT - placeholder: true means this value has NOT been verified
    * by the client and must be confirmed before launch.
    */
   placeholder: boolean;
@@ -44,7 +44,7 @@ export const statistics: Statistic[] = [
     numericValue: 1000,
   },
   {
-    // Non-numeric — no count-up animation
+    // Non-numeric - no count-up animation
     value: "UK-Wide",
     label: "Coverage",
     icon: MapPin,

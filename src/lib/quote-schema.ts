@@ -1,6 +1,6 @@
 /**
  * Validation rules for the London Screen Hire quote form.
- * Plain TypeScript — no Zod or external schema library required.
+ * Plain TypeScript - no Zod or external schema library required.
  */
 
 export interface QuoteFields {
@@ -28,7 +28,7 @@ export interface QuoteErrors {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-// Only these characters are permitted — rejects any letter a-z/A-Z
+// Only these characters are permitted - rejects any letter a-z/A-Z
 const PHONE_CHARS_RE = /^[0-9\s+()\-]+$/;
 
 export function validateQuote(fields: QuoteFields): QuoteErrors {

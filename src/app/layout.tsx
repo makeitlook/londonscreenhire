@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -18,23 +19,22 @@ const inter = Inter({
   display: "swap",
 });
 
-const SITE_URL = "https://londonscreenhire.co.uk";
 const OG_DESCRIPTION =
   "Professional LED screen and projection screen hire for events across London and the UK. Request a free quote today.";
 
 export const metadata: Metadata = {
   title: {
-    default: "London Screen Hire — LED & Projection Screen Hire",
+    default: "LED Screen Hire London | London Screen Hire",
     template: "%s | London Screen Hire",
   },
   description:
-    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK. Request a free quote today.",
+    "Professional LED screen hire and AV production for corporate events, conferences, exhibitions, weddings and live events across London and the UK. Request a free quote today.",
   keywords: [
-    "screen hire London",
     "LED screen hire London",
-    "projection screen hire",
+    "video wall hire London",
+    "LED screen rental London",
     "AV hire London",
-    "event screens UK",
+    "event production London",
     "conference screen hire",
     "exhibition screen hire",
     "LED wall hire",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL(SITE_URL),
   alternates: {
-    canonical: "/",
+    canonical: SITE_URL,
   },
   robots: {
     index: true,
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   openGraph: {
-    title: "London Screen Hire — LED & Projection Screen Hire",
+    title: "London Screen Hire | LED & Projection Screen Hire",
     description: OG_DESCRIPTION,
     url: SITE_URL,
     siteName: "London Screen Hire",
@@ -61,13 +61,13 @@ export const metadata: Metadata = {
         url: "/images/hero/hero.png",
         width: 1200,
         height: 630,
-        alt: "London Screen Hire — Professional LED and projection screen hire for events",
+        alt: "London Screen Hire, professional LED and projection screen hire for events",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "London Screen Hire — LED & Projection Screen Hire",
+    title: "London Screen Hire | LED & Projection Screen Hire",
     description: OG_DESCRIPTION,
     images: ["/images/hero/hero.png"],
   },

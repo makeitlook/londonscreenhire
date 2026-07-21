@@ -4,11 +4,11 @@ import { contact, type ContactItem } from "@/data/contact";
 import { FadeIn } from "@/components/shared/fade-in";
 
 /**
- * ContactSection — server component outer shell.
+ * ContactSection - server component outer shell.
  *
  * Dark section attaching directly beneath the off-white Testimonials section.
- * Desktop (lg+): two-column flex — left contact content (~42%) + right quote form (~58%).
- * Tablet/mobile: stacked — heading block, contact details, then form.
+ * Desktop (lg+): two-column flex - left contact content (~42%) + right quote form (~58%).
+ * Tablet/mobile: stacked - heading block, contact details, then form.
  *
  * ⚠️ Contact details in src/data/contact.ts are PLACEHOLDER. Replace before launch.
  * WhatsApp row is hidden until a verified number is added to contact.ts.
@@ -89,7 +89,7 @@ export default function ContactSection() {
               weddings, concerts and more.
             </p>
 
-            {/* Contact details — driven by src/data/contact.ts */}
+            {/* Contact details - driven by src/data/contact.ts */}
             <ul className="space-y-4" aria-label="Contact details">
               {contactItems.map((item) => (
                 <ContactRow key={item.icon} item={item} />

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { featuredServices } from "@/data/featured-services";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -15,7 +16,7 @@ import { FadeIn } from "@/components/shared/fade-in";
  *   Index 2: 2-col r+b | 3-col b   | 6-col r
  *   Index 3: 2-col b   | 3-col r   | 6-col r
  *   Index 4: 2-col r   | 3-col r   | 6-col r
- *   Index 5: 2-col —   | 3-col —   | 6-col —
+ *   Index 5: 2-col -   | 3-col -   | 6-col -
  */
 const ITEM_BORDERS = [
   "border-r border-b xl:border-b-0",
@@ -27,7 +28,7 @@ const ITEM_BORDERS = [
 ] as const;
 
 /**
- * FeaturedServices — server component.
+ * FeaturedServices - server component.
  *
  * Dark panel that overlaps the hero on tablet/desktop.
  * Mobile: 2-col compact grid with reduced vertical padding.
@@ -49,11 +50,8 @@ export default function FeaturedServices() {
             >
               {featuredServices.map((service, index) => {
                 const Icon = service.icon;
-                return (
-                  <li
-                    key={service.title}
-                    className={`flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 py-5 px-3 sm:py-7 sm:px-5 xl:py-9 border-[var(--lsh-border-dark)] transition-colors duration-200 hover:bg-lsh-charcoal-light ${ITEM_BORDERS[index]}`}
-                  >
+                const inner = (
+                  <>
                     <Icon
                       size={26}
                       strokeWidth={1.4}
@@ -68,6 +66,23 @@ export default function FeaturedServices() {
                         {service.description}
                       </p>
                     </div>
+                  </>
+                );
+
+                const itemClass = `flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 py-5 px-3 sm:py-7 sm:px-5 xl:py-9 border-[var(--lsh-border-dark)] transition-colors duration-200 hover:bg-lsh-charcoal-light ${ITEM_BORDERS[index]}`;
+
+                return (
+                  <li key={service.title} className={itemClass}>
+                    {service.href ? (
+                      <Link
+                        href={service.href}
+                        className="flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 w-full focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-[-2px] rounded-[2px]"
+                      >
+                        {inner}
+                      </Link>
+                    ) : (
+                      inner
+                    )}
                   </li>
                 );
               })}

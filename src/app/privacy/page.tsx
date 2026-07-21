@@ -1,5 +1,5 @@
 /**
- * Privacy Policy page — placeholder content.
+ * Privacy Policy page - placeholder content.
  * ⚠️  All legal content below is a placeholder and must be reviewed and
  *     approved by a qualified professional before launch.
  */
@@ -94,7 +94,7 @@ export default function PrivacyPage() {
 
             <H2>Third-Party Processors</H2>
             <P>
-              <strong className="text-white font-semibold">Web3Forms</strong> —
+              <strong className="text-white font-semibold">Web3Forms:</strong>{" "}
               Quote requests submitted through this website are transmitted via
               Web3Forms (web3forms.com), a third-party form processing service
               that delivers your enquiry to us by email. Please refer to the{" "}
@@ -112,7 +112,7 @@ export default function PrivacyPage() {
               <strong className="text-white font-semibold">
                 Vercel Analytics &amp; Speed Insights
               </strong>{" "}
-              — If you choose to accept analytics, this website uses Vercel
+              If you choose to accept analytics, this website uses Vercel
               Analytics and Vercel Speed Insights. These services are cookieless
               and do not store your IP address. They record only aggregated,
               anonymous metrics (page URL, referrer, country, device type, and
