@@ -39,7 +39,7 @@ export default function TestimonialsSection() {
                 fontSize: "clamp(2.125rem, calc(2.5vw + 1.125rem), 3.25rem)",
               }}
             >
-              Trusted by Clients Across the UK
+              What Our Clients Say
             </h2>
             <span
               className="block bg-lsh-blue rounded-sm"
@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
          * sm–lg: 2-col; third card sits in col-1 of row 2.
          * lg+:   3-col single row.
          */}
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {testimonials.map((t) => (
               <TestimonialCard key={t.name} testimonial={t} />

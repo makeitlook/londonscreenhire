@@ -9,31 +9,31 @@ export const projects: Project[] = [
   {
     title: "Corporate Conferences",
     location: "London",
-    image: "/images/projects/corporate.png",
+    image: "/images/projects/corporate.webp",
     alt: "LED screen hire for a corporate conference",
   },
   {
     title: "Awards Ceremonies",
     location: "Birmingham",
-    image: "/images/projects/awards.png",
+    image: "/images/projects/awards.webp",
     alt: "LED screen and stage production for an awards ceremony",
   },
   {
     title: "Live Concerts",
     location: "Manchester",
-    image: "/images/projects/concert.png",
+    image: "/images/projects/concert.webp",
     alt: "LED wall and stage production for a live concert",
   },
   {
     title: "Exhibition Stands",
     location: "ExCeL London",
-    image: "/images/projects/exhibition.png",
+    image: "/images/projects/exhibition.webp",
     alt: "LED screen on an exhibition stand",
   },
   {
     title: "Wedding Receptions",
     location: "London",
-    image: "/images/projects/wedding.png",
+    image: "/images/projects/wedding.webp",
     alt: "LED screen backdrop for a wedding reception",
   },
 ];

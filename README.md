@@ -89,7 +89,7 @@ Content is intentionally repository-based rather than CMS-driven:
 - Contact details: `src/data/contact.ts`
 - Footer and social links: `src/data/footer.ts`
 
-Several data files contain explicit placeholder warnings. Unverified statistics, testimonials, service claims, contact details, coverage claims, and legal copy must be confirmed before launch.
+Statistics and testimonials remain clearly marked in their data files until the supporting business records or customer approvals are available. Confirm those items before presenting them as verified claims. Social links with no confirmed profile URL remain hidden automatically.
 
 ## Images
 
@@ -130,11 +130,13 @@ After changing the form or deployment configuration, perform a clearly labelled 
 
 `npm run build` generates the static export in `out/`. Deploy that directory to the configured static host.
 
+Vercel reads the production security headers from `vercel.json`. Keep its Content Security Policy in sync if the form, analytics provider, fonts, or external media sources change.
+
 Before production deployment:
 
 1. Confirm `SITE_URL` in `src/lib/site.ts`.
 2. Confirm the Web3Forms access key in the hosting environment.
-3. Replace or approve all content marked as placeholder.
-4. Obtain professional approval for privacy and terms content.
+3. Verify statistics and obtain permission for published testimonials.
+4. Have the privacy notice, website terms and booking terms reviewed for the final trading entity and business process.
 5. Compress production imagery.
 6. Verify the quote form, navigation, canonical URLs, sitemap, and social metadata on the deployed domain.

@@ -3,8 +3,6 @@
  *
  * ⚠️  socialLinks hrefs are PLACEHOLDER - set placeholder: false and provide a
  *     verified URL before enabling each platform row.
- * ⚠️  footerLocation and footerSummary coverage claims must be confirmed with
- *     the client before launch.
  */
 
 export type FooterLink = {
@@ -61,12 +59,10 @@ export const legalLinks: FooterLink[] = [
   { label: "Terms & Conditions", href: "/terms" },
 ];
 
-/** ⚠️ PLACEHOLDER - confirm exact service coverage area with client. */
 export const footerSummary =
-  "Professional LED screen hire and AV production for corporate events, weddings, exhibitions, concerts and outdoor events across London and the UK.";
+  "Professional LED screen hire and AV production for corporate events, weddings, exhibitions, concerts and outdoor events in London, with UK-wide projects available by arrangement.";
 
-/** ⚠️ PLACEHOLDER - confirm coverage area. */
-export const footerLocation = "London & UK";
+export const footerLocation = "London & UK by arrangement";
 
 /** Build-time year - acceptable for static export. */
 export const copyright = `© ${new Date().getFullYear()} London Screen Hire. All rights reserved.`;

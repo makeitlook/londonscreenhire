@@ -85,7 +85,7 @@ export default function WhyChooseUsSection() {
            *   xl  (1280px+):  3-col (right side of desktop split)
            * Gap: 2 (8px) - panel feel, not loose cards
            */}
-          <FadeIn className="xl:flex-1" delay={0.12}>
+          <FadeIn className="xl:flex-1">
             <ul className="grid grid-cols-2 lg:grid-cols-3 gap-2" role="list">
               {benefits.map((benefit) => {
                 const Icon = benefit.icon;

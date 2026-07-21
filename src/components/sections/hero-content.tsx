@@ -1,11 +1,8 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 /**
- * HeroContent - client component isolated to contain Framer Motion.
- * Keeps the parent HeroSection as a server component.
+ * HeroContent remains a server component so the hero is immediately available
+ * without a client-side animation runtime.
  *
  * Typography scale:
  *   H1 clamp: 2.375rem (38px) at 320–390px → scales to 5.125rem (82px) at 1290px+
@@ -23,12 +20,6 @@ import { ArrowRight } from "lucide-react";
  *   sm+          → inline row
  */
 export default function HeroContent() {
-  const reduce = useReducedMotion();
-
-  const hidden = { opacity: 0, y: reduce ? 0 : 18 };
-  const visible = { opacity: 1, y: 0 };
-  const ease = "easeOut" as const;
-
   return (
     <div className="flex flex-col items-start w-full sm:max-w-[80%] md:max-w-[58%] xl:max-w-[46%]">
       {/*
@@ -39,19 +30,14 @@ export default function HeroContent() {
        * Mobile/tablet (< sm): shorter - fits on one line at 320px+
        * Desktop (sm+): full version
        */}
-      <motion.p
-        initial={hidden}
-        animate={visible}
-        transition={{ duration: 0.4, ease }}
-        className="mb-3 text-[0.6875rem] font-semibold uppercase text-lsh-blue"
-      >
+      <p className="mb-3 text-[0.6875rem] font-semibold uppercase text-lsh-blue">
         <span className="tracking-[0.16em] sm:hidden">
           LED Screen Hire &amp; AV Solutions
         </span>
         <span className="hidden sm:inline tracking-[0.22em]">
           Professional LED Screen &amp; AV Solutions
         </span>
-      </motion.p>
+      </p>
 
       {/*
        * H1 - calibrated clamp targeting:
@@ -62,28 +48,21 @@ export default function HeroContent() {
        *   1290px+ → 82px (clamp ceiling)
        * Formula: clamp(2.375rem, calc(5.7vw + 1.25rem), 5.125rem)
        */}
-      <motion.h1
-        initial={hidden}
-        animate={visible}
-        transition={{ duration: 0.45, delay: reduce ? 0 : 0.08, ease }}
+      <h1
         className="font-heading font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white mb-4 sm:mb-5"
         style={{ fontSize: "clamp(2.375rem, calc(5.7vw + 1.25rem), 5.125rem)" }}
       >
         BIGGER SCREENS.
         <br />
         BIGGER IMPACT.
-      </motion.h1>
+      </h1>
 
       {/* Supporting copy + CTAs */}
-      <motion.div
-        initial={hidden}
-        animate={visible}
-        transition={{ duration: 0.45, delay: reduce ? 0 : 0.16, ease }}
-        className="flex flex-col items-start gap-4 sm:gap-5 w-full"
-      >
+      <div className="flex flex-col items-start gap-4 sm:gap-5 w-full">
         <p className="text-[0.875rem] sm:text-[0.9rem] leading-[1.6] text-lsh-grey-300 max-w-[400px]">
           Professional LED screen hire, audiovisual production and event
-          solutions across London and the UK.
+          solutions across London, with UK-wide projects available by
+          arrangement.
         </p>
 
         {/*
@@ -105,7 +84,7 @@ export default function HeroContent() {
             Our Services
           </a>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

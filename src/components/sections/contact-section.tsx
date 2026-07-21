@@ -10,8 +10,6 @@ import { FadeIn } from "@/components/shared/fade-in";
  * Desktop (lg+): two-column flex - left contact content (~42%) + right quote form (~58%).
  * Tablet/mobile: stacked - heading block, contact details, then form.
  *
- * ⚠️ Contact details in src/data/contact.ts are PLACEHOLDER. Replace before launch.
- * WhatsApp row is hidden until a verified number is added to contact.ts.
  */
 
 const iconMap: Record<ContactItem["icon"], React.ComponentType<LucideProps>> = {
@@ -85,7 +83,8 @@ export default function ContactSection() {
             {/* Supporting copy */}
             <p className="text-[var(--lsh-grey-300)] text-[0.9375rem] leading-relaxed mb-8 max-w-[420px]">
               Tell us about your event and we&rsquo;ll put together a tailored
-              package. We work across London and the UK for corporate events,
+              package. We work across London, with UK-wide projects available
+              by arrangement, for corporate events,
               weddings, concerts and more.
             </p>
 
@@ -98,7 +97,7 @@ export default function ContactSection() {
           </FadeIn>
 
           {/* ── Right: quote form ── */}
-          <FadeIn className="flex-1 bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] rounded-[4px] p-6 md:p-8" delay={0.12}>
+          <FadeIn className="flex-1 bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] rounded-[4px] p-6 md:p-8">
             <QuoteForm />
           </FadeIn>
         </div>

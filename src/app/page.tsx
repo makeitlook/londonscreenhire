@@ -23,7 +23,7 @@ const localBusinessSchema = {
   "@id": `${SITE_URL}/#business`,
   name: SITE_NAME,
   description:
-    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events across London and the UK.",
+    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement.",
   url: SITE_URL,
   telephone: contact.phone.href.replace("tel:", ""),
   email: contact.email.display,

@@ -1,37 +1,34 @@
-/**
- * Privacy Policy page - placeholder content.
- * ⚠️  All legal content below is a placeholder and must be reviewed and
- *     approved by a qualified professional before launch.
- */
 import type { Metadata } from "next";
-import Link from "next/link";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import { contact } from "@/data/contact";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How London Screen Hire collects, uses and protects your personal data when you use our website or request a quote.",
+    "How London Screen Hire collects, uses and protects personal data when you use our website or request a quote.",
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: false, follow: false },
 };
 
-// Heading and section helpers keep the page short and readable
 function H2({ children }: { children: React.ReactNode }) {
   return (
-    <h2 className="font-heading font-semibold uppercase text-white text-xl tracking-wide mt-10 mb-3">
+    <h2 className="mt-10 mb-3 font-heading text-xl font-semibold uppercase tracking-wide text-white">
       {children}
     </h2>
   );
 }
+
 function P({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[0.9375rem] text-[var(--lsh-grey-300)] leading-relaxed mb-4">
+    <p className="mb-4 text-[0.9375rem] leading-relaxed text-[var(--lsh-grey-300)]">
       {children}
     </p>
   );
 }
+
+const linkClass = "text-lsh-blue hover:underline";
 
 export default function PrivacyPage() {
   return (
@@ -39,148 +36,169 @@ export default function PrivacyPage() {
       <SiteHeader />
       <main
         id="main-content"
-        className="bg-lsh-dark min-h-screen pt-[68px] xl:pt-[78px]"
+        className="min-h-screen bg-lsh-dark pt-[68px] xl:pt-[78px]"
       >
         <div className="lsh-container py-16 md:py-20">
-          <div className="max-w-3xl">
+          <article className="max-w-3xl">
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
               Legal
             </p>
             <h1
-              className="font-heading font-bold uppercase text-white leading-[0.9] mb-4"
+              className="mb-4 font-heading font-bold uppercase leading-[0.9] text-white"
               style={{ fontSize: "clamp(2.25rem, 5vw, 3.25rem)" }}
             >
               Privacy Policy
             </h1>
-            <p className="text-[0.8125rem] text-[var(--lsh-grey-500)] mb-10">
-              Last updated {new Date().getFullYear()}
+            <p className="mb-10 text-[0.8125rem] text-[var(--lsh-grey-500)]">
+              Last updated 21 July 2026
             </p>
 
             <H2>Who We Are</H2>
             <P>
-              London Screen Hire provides professional LED screen hire and AV
-              production services across London and the UK. Our contact details
-              are available on the{" "}
-              <Link href="/#quote" className="text-lsh-blue hover:underline">
-                contact page
-              </Link>
+              London Screen Hire is the controller of the personal data
+              described in this notice. You can contact us at{" "}
+              <a href={contact.email.href} className={linkClass}>
+                {contact.email.display}
+              </a>{" "}
+              or{" "}
+              <a href={contact.phone.href} className={linkClass}>
+                {contact.phone.display}
+              </a>
               .
             </P>
 
             <H2>Information We Collect</H2>
             <P>
-              When you submit a quote request through our website form, we
-              collect your name, email address, phone number, event details,
-              venue information, and any additional requirements you provide. We
-              do not collect payment information through this website.
+              When you request a quote, we collect the information entered in
+              the form. This may include your name, email address, phone number,
+              event type and date, venue, preferred screen size and the event
+              details you choose to provide. We do not collect payment details
+              through this website.
             </P>
             <P>
-              If you accept our optional analytics notice, we collect anonymous
-              usage data such as the page visited, the referring URL, your
-              approximate country, and device type. No name, email address, or
-              persistent identifier is recorded by this analytics service.
-            </P>
-
-            <H2>How We Use Your Information</H2>
-            <P>
-              We use the information you provide solely to respond to your
-              enquiry and to put together a quote for your event. We will not
-              use your details for unsolicited marketing without your separate
-              consent.
-            </P>
-            <P>
-              Anonymous analytics data is used only to understand how visitors
-              use the site so we can improve it. It is not used for advertising,
-              profiling, or any form of personalised tracking.
+              Our hosting and security providers may process technical request
+              data, such as IP address, browser information and server logs, to
+              deliver and protect the website. If you accept optional analytics,
+              we also receive aggregated usage and performance information.
             </P>
 
-            <H2>Third-Party Processors</H2>
+            <H2>How and Why We Use Your Information</H2>
             <P>
-              <strong className="text-white font-semibold">Web3Forms:</strong>{" "}
-              Quote requests submitted through this website are transmitted via
-              Web3Forms (web3forms.com), a third-party form processing service
-              that delivers your enquiry to us by email. Please refer to the{" "}
+              We use enquiry information to respond, prepare a quote, discuss
+              your requirements and take steps towards a booking at your request.
+              We also process information where necessary for our legitimate
+              interests in administering enquiries, keeping business records and
+              protecting the website from misuse.
+            </P>
+            <P>
+              Optional analytics load only after you accept them. We use the
+              resulting aggregated information to understand site performance
+              and improve the website. We do not use enquiry details for direct
+              marketing unless you give separate permission.
+            </P>
+
+            <H2>Services That Process Data for Us</H2>
+            <P>
+              <strong className="font-semibold text-white">Web3Forms:</strong>{" "}
+              quote requests are transmitted through Web3Forms so they can be
+              delivered to us. Web3Forms states that submissions are encrypted
+              at rest and may be retained for up to three years. Read the{" "}
               <a
                 href="https://web3forms.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lsh-blue hover:underline"
+                className={linkClass}
               >
                 Web3Forms privacy policy
-              </a>{" "}
-              for details of how they handle data in transit.
+              </a>
+              .
             </P>
             <P>
-              <strong className="text-white font-semibold">
-                Vercel Analytics &amp; Speed Insights
+              <strong className="font-semibold text-white">
+                Vercel Analytics and Speed Insights:
               </strong>{" "}
-              If you choose to accept analytics, this website uses Vercel
-              Analytics and Vercel Speed Insights. These services are cookieless
-              and do not store your IP address. They record only aggregated,
-              anonymous metrics (page URL, referrer, country, device type, and
-              performance timings). Vercel is GDPR-compliant and processes data
-              under Standard Contractual Clauses. See the{" "}
+              if accepted, these tools provide aggregated website usage and
+              performance metrics. Vercel states that Analytics does not
+              associate data with an IP address and discards its temporary
+              session identifier after 24 hours. Read Vercel&apos;s{" "}
               <a
-                href="https://vercel.com/legal/privacy-policy"
+                href="https://vercel.com/docs/analytics/privacy-policy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-lsh-blue hover:underline"
+                className={linkClass}
               >
-                Vercel privacy policy
-              </a>{" "}
-              for full details.
-            </P>
-
-            <H2>Cookies and Local Storage</H2>
-            <P>
-              This website does not set any tracking or advertising cookies. If
-              you interact with the analytics consent notice, your preference
-              (&ldquo;accepted&rdquo; or &ldquo;declined&rdquo;) is saved in
-              your browser&apos;s{" "}
-              <code className="text-lsh-blue text-[0.85em]">localStorage</code>{" "}
-              under the key{" "}
-              <code className="text-lsh-blue text-[0.85em]">
-                lsh-analytics-consent
-              </code>
-              . This value is never transmitted to any server. You can clear it
-              at any time by clearing your browser&apos;s site data.
-            </P>
-
-            <H2>Data Retention</H2>
-            <P>
-              We retain enquiry data only for as long as is necessary to respond
-              to and follow up on your request. Specific retention periods are
-              subject to confirmation. To request deletion of your data, please
-              contact us directly.
-            </P>
-
-            <H2>Your Rights</H2>
-            <P>
-              Under UK GDPR you have the right to access, correct, or request
-              deletion of personal data we hold about you, to restrict or object
-              to processing, and to data portability. To exercise these rights,
-              please contact us using the details on our{" "}
-              <Link href="/#quote" className="text-lsh-blue hover:underline">
-                contact page
-              </Link>
-              . You also have the right to lodge a complaint with the{" "}
-              <a
-                href="https://ico.org.uk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lsh-blue hover:underline"
-              >
-                Information Commissioner&apos;s Office (ICO)
+                Analytics privacy information
               </a>
               .
             </P>
 
+            <H2>International Transfers</H2>
+            <P>
+              Some suppliers may process data outside the UK. Where this occurs,
+              we rely on the supplier&apos;s stated safeguards, such as an adequacy
+              decision or approved standard contractual clauses, as applicable.
+            </P>
+
+            <H2>Cookies and Local Storage</H2>
+            <P>
+              We do not use advertising cookies. Your analytics choice is saved
+              in your browser&apos;s local storage under the key{" "}
+              <code className="text-[0.85em] text-lsh-blue">
+                lsh-analytics-consent
+              </code>
+              . It is used to remember whether optional analytics may load and
+              can be removed by clearing this site&apos;s browser data.
+            </P>
+
+            <H2>How Long We Keep Information</H2>
+            <P>
+              We keep enquiry and quote records for as long as reasonably needed
+              to respond, manage any resulting booking, resolve disputes and meet
+              legal or accounting obligations. Retention depends on whether an
+              enquiry becomes a booking and the nature of the correspondence.
+              Web3Forms states that it may retain submissions for a maximum of
+              three years. We delete or anonymise information when it is no
+              longer needed, subject to any legal requirement to retain it.
+            </P>
+
+            <H2>Your Rights</H2>
+            <P>
+              Depending on the circumstances, you may have rights to access,
+              correct or erase your personal data, restrict or object to its use,
+              and receive a portable copy. You may also withdraw an analytics
+              choice by clearing this site&apos;s browser data. These rights are not
+              absolute and exemptions may apply. Contact us using the details
+              above to make a request.
+            </P>
+            <P>
+              You may complain to the{" "}
+              <a
+                href="https://ico.org.uk/make-a-complaint/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={linkClass}
+              >
+                Information Commissioner&apos;s Office
+              </a>
+              . We would appreciate the opportunity to address your concern
+              first.
+            </P>
+
+            <H2>Required Information and Automated Decisions</H2>
+            <P>
+              Required form fields are needed so we can assess and respond to
+              your enquiry. If they are not provided, we may be unable to prepare
+              a quote. We do not use the information submitted through this site
+              for automated decision-making or profiling.
+            </P>
+
             <H2>Changes to This Policy</H2>
             <P>
-              We may update this policy from time to time. The current version
-              will always be available on this page.
+              We may update this notice when our website, suppliers or processing
+              activities change. The current version and update date will remain
+              available on this page.
             </P>
-          </div>
+          </article>
         </div>
       </main>
       <SiteFooter />

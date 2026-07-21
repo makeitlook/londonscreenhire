@@ -1,12 +1,6 @@
 /**
- * Contact details for London Screen Hire.
- *
- * ⚠️  ALL values below are PLACEHOLDERS.
- *     Replace phone, email and (if required) WhatsApp with client-confirmed
- *     details before launch.
- *
- * WhatsApp row is intentionally hidden until a verified number is supplied.
- * To enable it, uncomment the `whatsapp` block and set the correct href.
+ * Confirmed contact details for London Screen Hire. Keep telephone and email
+ * links sourced from this module so they remain consistent across the site.
  */
 
 export interface ContactItem {
@@ -20,7 +14,7 @@ export interface ContactItem {
 export interface ContactData {
   phone: ContactItem;
   email: ContactItem;
-  /** Optional - omit until a verified WhatsApp number is supplied. */
+  /** Optional - omit if WhatsApp is no longer offered. */
   whatsapp?: ContactItem;
 }
 

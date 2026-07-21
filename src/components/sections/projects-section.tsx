@@ -48,7 +48,7 @@ export default function ProjectsSection() {
          * pr-4 on the inner ul gives breathing room after the last card.
          * Card width: 78vw - shows one full card + deliberate sliver of next.
          */}
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <div className="sm:hidden -mx-4 px-4 overflow-x-auto pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             <ul
               className="flex gap-3 snap-x snap-mandatory pr-4"
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
          * 1280px+:    5-col
          * Gap: 16px desktop for compact density matching mockup
          */}
-        <FadeIn delay={0.1}>
+        <FadeIn>
           <ul
             className="hidden sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"
             role="list"

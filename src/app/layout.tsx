@@ -20,7 +20,7 @@ const inter = Inter({
 });
 
 const OG_DESCRIPTION =
-  "Professional LED screen and projection screen hire for events across London and the UK. Request a free quote today.";
+  "Professional LED screen and projection screen hire for events in London, with UK-wide projects available by arrangement. Request a free quote today.";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | London Screen Hire",
   },
   description:
-    "Professional LED screen hire and AV production for corporate events, conferences, exhibitions, weddings and live events across London and the UK. Request a free quote today.",
+    "Professional LED screen hire and AV production for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement. Request a free quote today.",
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,

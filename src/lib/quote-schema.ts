@@ -110,9 +110,9 @@ export function validateQuote(fields: QuoteFields): QuoteErrors {
     errors.message = "Message must be 1500 characters or fewer.";
   }
 
-  /* ── Consent ── */
+  /* ── Privacy notice acknowledgement ── */
   if (!fields.consent) {
-    errors.consent = "Please confirm your consent to be contacted.";
+    errors.consent = "Please confirm you have read the Privacy Policy.";
   }
 
   return errors;

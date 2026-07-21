@@ -1,9 +1,8 @@
 /**
  * Central service-page data for London Screen Hire.
  *
- * ⚠️  All copy is placeholder and requires client review before launch.
- * ⚠️  heroImage paths reference the original service photography. Showcase
- *     and CTA images use the newer, service-specific production image set.
+ * Service descriptions are deliberately scoped to the agreed quote so that
+ * package contents are not presented as universal inclusions.
  */
 import {
   LayoutGrid,
@@ -89,8 +88,6 @@ export interface ServicePage {
   relatedSlugs: string[];
   metaTitle: string;
   metaDescription: string;
-  /** true = copy requires client review before launch */
-  placeholder: boolean;
 }
 
 export const services: ServicePage[] = [
@@ -105,14 +102,14 @@ export const services: ServicePage[] = [
     shortIntro:
       "Modular LED displays and seamless video walls for indoor and outdoor events across London.",
     fullIntro:
-      "London Screen Hire supplies high-quality LED screens for events of every scale. From compact display panels for conferences and exhibitions to large-format modular video walls for concerts, festivals and outdoor public screenings, our equipment is chosen for reliability and visual impact. We handle logistics, installation and on-site technical operation so you can focus on your event. Our team works with venues and production companies across London and the surrounding region.",
+      "London Screen Hire supplies high-quality LED screens for a wide range of events. From compact display panels for conferences and exhibitions to large-format modular video walls for concerts, festivals and outdoor public screenings, each setup is specified for the venue, content and viewing distance. We can handle logistics, installation and on-site technical operation, with the final scope confirmed in your quote.",
     primaryKeyword: "LED Screen Rental London",
     secondaryKeywords: [
       "Video Wall Hire London",
       "LED Wall Hire London",
       "LED Display Hire London",
     ],
-    heroImage: "/images/services/ledscreen.png",
+    heroImage: "/images/services/ledscreen.webp",
     heroAlt: "Large LED video wall installed at a London event",
     showcaseImage: "/images/cta/LED Panel Installation Detail.webp",
     showcaseAlt: "Technician fitting a modular LED display panel",
@@ -135,7 +132,7 @@ export const services: ServicePage[] = [
       {
         title: "Technical Crew",
         description:
-          "Qualified technicians manage installation, operation and pack-down.",
+          "Technical support is available for installation, operation and pack-down.",
         icon: Users,
       },
       {
@@ -238,7 +235,7 @@ export const services: ServicePage[] = [
       {
         question: "Do you provide a technician during the event?",
         answer:
-          "Yes. A qualified technician is included with all LED screen bookings to manage the display throughout your event.",
+          "Technical operation can be included where required. The crew, operating hours and level of support will be confirmed in your quote.",
       },
     ],
     relatedSlugs: [
@@ -249,7 +246,6 @@ export const services: ServicePage[] = [
     metaTitle: "LED Screen & Video Wall Hire London",
     metaDescription:
       "Professional LED screen and video wall hire in London. Modular indoor and outdoor LED displays for corporate events, weddings, exhibitions and live events. Get a free quote.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -263,10 +259,10 @@ export const services: ServicePage[] = [
     shortIntro:
       "High-resolution indoor LED screens for conferences, awards, weddings, exhibitions and stage backdrops.",
     fullIntro:
-      "Indoor LED screens deliver sharp, vivid imagery for audiences at close and medium viewing distances. Whether you need a backdrop for a conference presentation, a stage screen for an awards ceremony or a seamless video wall for an exhibition stand, our indoor LED panels produce consistent brightness and colour across the full display surface. We carry out a detailed site assessment with your venue team to ensure the installation is safe, compliant and positioned for the best viewing angles.",
+      "Indoor LED screens deliver sharp, vivid imagery for audiences at close and medium viewing distances. Whether you need a backdrop for a conference presentation, a stage screen for an awards ceremony or a seamless video wall for an exhibition stand, our indoor LED panels are configured for consistent brightness and colour across the display. We assess the proposed location with your venue team and coordinate the installation around safety requirements, access and viewing angles.",
     primaryKeyword: "Indoor LED Screen Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/indoorled.png",
+    heroImage: "/images/services/indoorled.webp",
     heroAlt: "Indoor LED screen installed at a conference venue in London",
     showcaseImage: "/images/cta/LED Wall Installation Crew.webp",
     showcaseAlt: "Technical crew assembling a large indoor LED wall",
@@ -390,7 +386,6 @@ export const services: ServicePage[] = [
     metaTitle: "Indoor LED Screen Hire London",
     metaDescription:
       "High-resolution indoor LED screen hire in London for conferences, award ceremonies, weddings and exhibitions. Professional installation and on-site technical support.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -407,7 +402,7 @@ export const services: ServicePage[] = [
       "Outdoor events demand screens built for higher ambient light, open sites and variable weather conditions. Our outdoor LED displays produce sufficient brightness to remain clear and legible in daylight, and our team assesses each site for structural requirements, power supply, ground conditions and audience sightlines before installation. We plan every outdoor deployment carefully to meet safety requirements and ensure the display performs reliably from event open to close.",
     primaryKeyword: "Outdoor LED Screen Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/outdoorscreen.png",
+    heroImage: "/images/services/outdoorscreen.webp",
     heroAlt: "Outdoor LED screen at a London festival or public event",
     showcaseImage: "/images/cta/Large LED Wall Installation.webp",
     showcaseAlt: "Event crew installing a large-format LED wall",
@@ -430,7 +425,7 @@ export const services: ServicePage[] = [
       {
         title: "Power Planning",
         description:
-          "Generator or mains power planning included as part of your event specification.",
+          "Power planning is available as part of your event specification.",
         icon: Zap,
       },
       {
@@ -532,8 +527,7 @@ export const services: ServicePage[] = [
     relatedSlugs: ["stage-hire", "lighting-hire", "led-screen-hire-london"],
     metaTitle: "Outdoor LED Screen Hire London",
     metaDescription:
-      "High-brightness outdoor LED screen hire in London for festivals, sporting events and public screenings. Site survey, installation and technical support included.",
-    placeholder: true,
+      "High-brightness outdoor LED screen hire in London for festivals, sporting events and public screenings, with site survey, installation and technical support available.",
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -550,7 +544,7 @@ export const services: ServicePage[] = [
       "A well-placed LED screen elevates a wedding reception, bringing your photography, video and live camera feed to every corner of the room. Whether you want a dramatic backdrop behind the top table, a screen for speeches and toasts, or a display for a first dance backdrop sequence, our wedding LED screens are configured to complement your venue and event design. We coordinate with your venue, wedding planner and other suppliers to ensure the installation integrates cleanly with your décor.",
     primaryKeyword: "Wedding LED Screen Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/wedding.png",
+    heroImage: "/images/services/wedding.webp",
     heroAlt: "LED screen backdrop at a wedding reception venue in London",
     showcaseImage: "/images/cta/Wedding LED Wall Installation.webp",
     showcaseAlt: "Technical crew completing an LED wall installation at a wedding venue",
@@ -673,7 +667,6 @@ export const services: ServicePage[] = [
     metaTitle: "Wedding LED Screen Hire London",
     metaDescription:
       "Wedding LED screen hire in London. Stage backdrops, live camera feeds and photo or video presentations for wedding receptions and ceremonies. Enquire today.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -690,14 +683,14 @@ export const services: ServicePage[] = [
       "Clear, reliable screen content is central to any successful conference. Our LED conference screens are specified to match your room layout, delegate numbers and content requirements. We integrate with standard presentation laptops, confidence monitors, camera systems and audio setups. For hybrid events, our technical team can work alongside your streaming or broadcast supplier. All equipment is tested and ready before your first delegate arrives.",
     primaryKeyword: "Conference LED Screen Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/conference.png",
+    heroImage: "/images/services/conference.webp",
     heroAlt:
       "LED screen displaying conference presentation content at a London venue",
     showcaseImage: "/images/cta/Conference Led Wall Production.webp",
     showcaseAlt: "Conference stage with LED wall and production control position",
     ctaImage: "/images/cta/Corporate Conference LED Wall.webp",
     ctaImageAlt: "Corporate conference audience facing a panoramic LED presentation wall",
-    ctaHeading: "Book a Conference Screen Package",
+    ctaHeading: "Request a Conference Screen Quote",
     benefits: [
       {
         title: "Presentation Clarity",
@@ -811,7 +804,6 @@ export const services: ServicePage[] = [
     metaTitle: "Conference LED Screen Hire London",
     metaDescription:
       "Conference LED screen hire in London. Presentation screens, camera feeds and hybrid event display solutions for conferences, seminars and corporate events.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -825,10 +817,10 @@ export const services: ServicePage[] = [
     shortIntro:
       "Modular LED video walls and display screens for exhibition stands, product launches and brand activations.",
     fullIntro:
-      "An LED screen draws attention and communicates your brand content effectively in a busy exhibition hall. Our modular LED panels are built into configurations that suit your stand dimensions, whether that is a compact single screen or a large seamless video wall. We work with your stand builder, event organiser and exhibition venue to ensure installation complies with hall regulations and is completed on schedule. Content integration, stand coordination and technical support are all included.",
+      "An LED screen can help your brand content stand out in a busy exhibition hall. Our modular LED panels can be configured around your stand dimensions, from a compact single screen to a large seamless video wall. We coordinate with your stand builder, event organiser and venue around access, installation and hall requirements. Content integration, stand coordination and technical support can be included in the agreed package.",
     primaryKeyword: "Exhibition LED Screen Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/exhibition.png",
+    heroImage: "/images/services/exhibition.webp",
     heroAlt: "LED video wall display at a London exhibition stand",
     showcaseImage: "/images/cta/LED Panel Installation Detail.webp",
     showcaseAlt: "Close-up of a technician installing a modular LED panel",
@@ -930,12 +922,12 @@ export const services: ServicePage[] = [
       {
         question: "Will installation comply with exhibition hall regulations?",
         answer:
-          "We liaise with your exhibition organiser and stand builder to ensure our installation method meets venue and hall regulations.",
+          "We liaise with your exhibition organiser and stand builder so the proposed installation method can be agreed against venue and hall requirements.",
       },
       {
         question: "Can we run content throughout the full exhibition day?",
         answer:
-          "Yes. Our screens run continuously from hall open to close. We load and test your content before the event and ensure the system operates reliably throughout the exhibition.",
+          "Operating hours can be specified around the exhibition schedule. We can load and check your content before opening, with any on-site operating support confirmed in the quote.",
       },
       {
         question: "How quickly can you install a screen at an exhibition?",
@@ -951,7 +943,6 @@ export const services: ServicePage[] = [
     metaTitle: "Exhibition LED Screen Hire London",
     metaDescription:
       "Exhibition LED screen hire in London. Seamless video walls and modular display screens for exhibition stands, product launches and brand activations.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -971,7 +962,7 @@ export const services: ServicePage[] = [
       "Corporate Event Production London",
       "AV Equipment Hire London",
     ],
-    heroImage: "/images/services/stage.png",
+    heroImage: "/images/services/stage.webp",
     heroAlt:
       "Corporate AV setup with LED screens, audio and lighting at a London event",
     showcaseImage: "/images/cta/Live Audio Engineer.webp",
@@ -1098,7 +1089,6 @@ export const services: ServicePage[] = [
     metaTitle: "Corporate AV Hire London",
     metaDescription:
       "Corporate AV hire in London. LED screens, audio, lighting and staging packages for conferences, awards ceremonies, product launches and hybrid events.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -1115,7 +1105,7 @@ export const services: ServicePage[] = [
       "A well-designed stage defines the focus of your event and gives performers, speakers and presenters a clear platform. London Screen Hire supplies stage decking, raised platforms and truss structures for indoor and outdoor events. Our staging integrates directly with our LED screen and lighting hire, enabling a coordinated technical installation from a single supplier. We assess your venue or site to confirm appropriate stage dimensions, heights and access requirements.",
     primaryKeyword: "Stage Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/av.png",
+    heroImage: "/images/services/av.webp",
     heroAlt: "Professional stage setup at a London indoor event venue",
     showcaseImage: "/images/cta/Event Stage LED Wall.webp",
     showcaseAlt: "Professional event stage with LED wall, truss and lighting",
@@ -1242,7 +1232,6 @@ export const services: ServicePage[] = [
     metaTitle: "Stage Hire London",
     metaDescription:
       "Professional stage hire in London for conferences, awards, live events and outdoor occasions. Truss, risers and integrated screen and lighting packages.",
-    placeholder: true,
   },
 
   // ─────────────────────────────────────────────────────────────────────────
@@ -1259,7 +1248,7 @@ export const services: ServicePage[] = [
       "Event lighting transforms a space by setting the tone, directing attention and reinforcing your event's identity. London Screen Hire supplies stage and event lighting including wash lights, moving heads, effects and intelligent control systems. Our lighting hire integrates with staging and LED screen installations, managed by an experienced lighting technician. Whether you need understated corporate room dressing or a dramatic stage production, we specify equipment appropriate to your event scale and venue.",
     primaryKeyword: "Lighting Hire London",
     secondaryKeywords: [],
-    heroImage: "/images/services/lighting.png",
+    heroImage: "/images/services/lighting.webp",
     heroAlt: "Professional stage lighting at a London corporate or live event",
     showcaseImage: "/images/cta/Stage Lighting Fixture.webp",
     showcaseAlt: "Moving-head stage lights mounted on an event truss",
@@ -1370,7 +1359,7 @@ export const services: ServicePage[] = [
       {
         question: "Do you operate the lighting during the event?",
         answer:
-          "Yes. A lighting technician is included with all event lighting bookings. They rig, focus and operate the system throughout your event.",
+          "Technical operation is available where required. Rigging, focusing, operating hours and crew requirements will be confirmed in your quote.",
       },
       {
         question: "Can lighting be combined with staging and LED screens?",
@@ -1386,7 +1375,6 @@ export const services: ServicePage[] = [
     metaTitle: "Lighting Hire London",
     metaDescription:
       "Professional lighting hire in London for stage shows, corporate events, weddings and exhibitions. Moving heads, wash lighting and full technical operation.",
-    placeholder: true,
   },
 ];
 

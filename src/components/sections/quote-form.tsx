@@ -1,27 +1,8 @@
 "use client";
 
 import { useState, useId, useRef, useEffect, type FormEvent } from "react";
-import {
-  Loader2,
-  CheckCircle2,
-  CalendarIcon,
-  ArrowRight,
-  AlertTriangle,
-} from "lucide-react";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
-import { Calendar } from "@/components/ui/calendar";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
+import Link from "next/link";
+import { Loader2, CheckCircle2, ArrowRight, AlertTriangle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { validateQuote, type QuoteErrors } from "@/lib/quote-schema";
 
@@ -49,6 +30,21 @@ function formatUK(date: Date): string {
   });
 }
 
+function toDateInputValue(date: Date | undefined): string {
+  if (!date) return "";
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function fromDateInputValue(value: string): Date | undefined {
+  if (!value) return undefined;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return Number.isNaN(date.getTime()) ? undefined : date;
+}
+
 // ── Component ────────────────────────────────────────────────────────────────
 export default function QuoteForm() {
   const id = useId();
@@ -57,7 +53,6 @@ export default function QuoteForm() {
   const [errors, setErrors] = useState<QuoteErrors>({});
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState<Date | undefined>(undefined);
-  const [dateOpen, setDateOpen] = useState(false);
   const [screenSize, setScreenSize] = useState("");
   const [consent, setConsent] = useState(false);
   const [shouldFocusName, setShouldFocusName] = useState(false);
@@ -159,7 +154,7 @@ export default function QuoteForm() {
     payload.set("Venue or Event Location", fields.venue.trim());
     payload.set("Screen Size Required", fields.screenSize);
     payload.set("Event Details and Requirements", fields.message.trim());
-    payload.set("Consent Given", "Yes");
+    payload.set("Privacy Notice Acknowledged", "Yes");
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -283,33 +278,42 @@ export default function QuoteForm() {
 
         {/* Event Type */}
         <div>
-          <FLabel required>Event Type</FLabel>
-          <Select value={eventType} onValueChange={setEventType}>
-            <SelectTrigger
-              aria-describedby={errors.eventType ? `${id}-et-e` : undefined}
-              aria-invalid={errors.eventType ? "true" : undefined}
-              className={errors.eventType ? "border-red-500" : ""}
-            >
-              <SelectValue placeholder="Select an event type" />
-            </SelectTrigger>
-            <SelectContent>
-              {[
-                "Corporate Event",
-                "Conference",
-                "Exhibition",
-                "Awards Ceremony",
-                "Wedding",
-                "Concert or Festival",
-                "Outdoor Event",
-                "Live Streaming",
-                "Other",
-              ].map((o) => (
-                <SelectItem key={o} value={o}>
-                  {o}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <FLabel htmlFor={`${id}-event-type`} required>
+            Event Type
+          </FLabel>
+          <select
+            id={`${id}-event-type`}
+            name="eventType"
+            value={eventType}
+            onChange={(event) => setEventType(event.target.value)}
+            aria-describedby={errors.eventType ? `${id}-et-e` : undefined}
+            aria-invalid={errors.eventType ? "true" : undefined}
+            className={cn(
+              inputBase,
+              "cursor-pointer [color-scheme:dark]",
+              !eventType && "text-[var(--lsh-grey-500)]",
+              errors.eventType && inputErr,
+            )}
+          >
+            <option value="" disabled>
+              Select an event type
+            </option>
+            {[
+              "Corporate Event",
+              "Conference",
+              "Exhibition",
+              "Awards Ceremony",
+              "Wedding",
+              "Concert or Festival",
+              "Outdoor Event",
+              "Live Streaming",
+              "Other",
+            ].map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
           <FError id={`${id}-et-e`}>{errors.eventType}</FError>
         </div>
 
@@ -318,42 +322,27 @@ export default function QuoteForm() {
 
         {/* Event Date */}
         <div>
-          <FLabel required>Event Date</FLabel>
-          <Popover open={dateOpen} onOpenChange={setDateOpen}>
-            <PopoverTrigger asChild>
-              <button
-                type="button"
-                aria-describedby={errors.eventDate ? `${id}-date-e` : undefined}
-                className={cn(
-                  inputBase,
-                  "flex items-center justify-between gap-2 text-left cursor-pointer",
-                  !eventDate && "text-[var(--lsh-grey-500)]",
-                  errors.eventDate && inputErr,
-                )}
-              >
-                <span>
-                  {eventDate ? formatUK(eventDate) : "Select an event date"}
-                </span>
-                <CalendarIcon
-                  size={16}
-                  className="shrink-0 text-[var(--lsh-grey-400)]"
-                  aria-hidden="true"
-                />
-              </button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-0" align="start">
-              <Calendar
-                mode="single"
-                selected={eventDate}
-                onSelect={(d) => {
-                  setEventDate(d);
-                  setDateOpen(false);
-                }}
-                disabled={{ before: new Date() }}
-                initialFocus
-              />
-            </PopoverContent>
-          </Popover>
+          <FLabel htmlFor={`${id}-date`} required>
+            Event Date
+          </FLabel>
+          <input
+            id={`${id}-date`}
+            name="eventDate"
+            type="date"
+            min={toDateInputValue(new Date())}
+            value={toDateInputValue(eventDate)}
+            onChange={(event) =>
+              setEventDate(fromDateInputValue(event.target.value))
+            }
+            aria-describedby={errors.eventDate ? `${id}-date-e` : undefined}
+            aria-invalid={errors.eventDate ? "true" : undefined}
+            className={cn(
+              inputBase,
+              "[color-scheme:dark]",
+              !eventDate && "text-[var(--lsh-grey-500)]",
+              errors.eventDate && inputErr,
+            )}
+          />
           <FError id={`${id}-date-e`}>{errors.eventDate}</FError>
         </div>
 
@@ -378,30 +367,39 @@ export default function QuoteForm() {
 
         {/* Screen Size - full width */}
         <div className="sm:col-span-2">
-          <FLabel required>Screen Size Required</FLabel>
-          <Select value={screenSize} onValueChange={setScreenSize}>
-            <SelectTrigger
-              aria-describedby={errors.screenSize ? `${id}-ss-e` : undefined}
-              aria-invalid={errors.screenSize ? "true" : undefined}
-              className={errors.screenSize ? "border-red-500" : ""}
-            >
-              <SelectValue placeholder="Select a screen size" />
-            </SelectTrigger>
-            <SelectContent>
-              {[
-                ["Not Sure", "Not Sure, We Can Advise"],
-                ["Small Screen", "Small Screen"],
-                ["Medium Screen", "Medium Screen"],
-                ["Large Screen", "Large Screen"],
-                ["Multiple Screens", "Multiple Screens"],
-                ["Custom LED Wall", "Custom LED Wall"],
-              ].map(([v, l]) => (
-                <SelectItem key={v} value={v}>
-                  {l}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+          <FLabel htmlFor={`${id}-screen-size`} required>
+            Screen Size Required
+          </FLabel>
+          <select
+            id={`${id}-screen-size`}
+            name="screenSize"
+            value={screenSize}
+            onChange={(event) => setScreenSize(event.target.value)}
+            aria-describedby={errors.screenSize ? `${id}-ss-e` : undefined}
+            aria-invalid={errors.screenSize ? "true" : undefined}
+            className={cn(
+              inputBase,
+              "cursor-pointer [color-scheme:dark]",
+              !screenSize && "text-[var(--lsh-grey-500)]",
+              errors.screenSize && inputErr,
+            )}
+          >
+            <option value="" disabled>
+              Select a screen size
+            </option>
+            {[
+              ["Not Sure", "Not Sure, We Can Advise"],
+              ["Small Screen", "Small Screen"],
+              ["Medium Screen", "Medium Screen"],
+              ["Large Screen", "Large Screen"],
+              ["Multiple Screens", "Multiple Screens"],
+              ["Custom LED Wall", "Custom LED Wall"],
+            ].map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
+          </select>
           <FError id={`${id}-ss-e`}>{errors.screenSize}</FError>
         </div>
 
@@ -430,14 +428,15 @@ export default function QuoteForm() {
         {/* Consent - full width */}
         <div className="sm:col-span-2 flex flex-col gap-1">
           <div className="flex items-start gap-3">
-            <Checkbox
+            <input
+              type="checkbox"
               id={`${id}-consent`}
               checked={consent}
-              onCheckedChange={(v) => setConsent(v === true)}
+              onChange={(event) => setConsent(event.target.checked)}
               aria-describedby={errors.consent ? `${id}-consent-e` : undefined}
               aria-invalid={errors.consent ? "true" : undefined}
               className={cn(
-                "mt-0.5 shrink-0",
+                "mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer accent-[var(--lsh-blue)]",
                 errors.consent && "border-red-500",
               )}
             />
@@ -445,7 +444,8 @@ export default function QuoteForm() {
               htmlFor={`${id}-consent`}
               className="text-[0.875rem] text-[var(--lsh-grey-300)] leading-snug cursor-pointer"
             >
-              I agree that London Screen Hire may contact me about this enquiry.
+              I have read the Privacy Policy and understand how my details will
+              be used to respond to this enquiry.
               <span className="text-red-400 ml-0.5" aria-hidden="true">
                 *
               </span>
@@ -453,7 +453,12 @@ export default function QuoteForm() {
           </div>
           <FError id={`${id}-consent-e`}>{errors.consent}</FError>
           <p className="text-[0.725rem] text-[var(--lsh-grey-500)] leading-snug ml-[calc(18px+0.75rem)]">
-            Your details will only be used to respond to this enquiry.
+            Read our{" "}
+            <Link href="/privacy" className="text-lsh-blue hover:underline">
+              Privacy Policy
+            </Link>
+            . We use your details to handle your enquiry and any resulting
+            booking.
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { contact } from "@/data/contact";
 import ServiceBreadcrumbs from "./service-breadcrumbs";
 
 interface ServiceHeroProps {
@@ -99,7 +100,8 @@ export default function ServiceHero({
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
             <a
-              href="tel:+447946098813"
+              href={contact.phone.href}
+              aria-label={contact.phone.ariaLabel}
               className="inline-flex items-center justify-center h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white border border-white/25 rounded-[4px] hover:border-white/40 hover:bg-white/5 transition-colors duration-200"
             >
               Call Us
