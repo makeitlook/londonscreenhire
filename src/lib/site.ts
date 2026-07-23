@@ -1,9 +1,4 @@
-/**
- * Central site configuration.
- *
- * Canonical production origin (no trailing slash).
- * Keep this aligned with the domain that redirects all alternate hosts.
- */
-export const SITE_URL = "https://www.londonscreenhire.com";
+import siteContent from "@/content/site.json";
 
-export const SITE_NAME = "London Screen Hire";
+export const SITE_URL = siteContent.url;
+export const SITE_NAME = siteContent.name;

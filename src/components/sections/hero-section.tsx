@@ -1,4 +1,5 @@
 import Image from "next/image";
+import homeContent from "@/content/home.json";
 import HeroContent from "./hero-content";
 
 /**
@@ -26,15 +27,15 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      aria-label="Hero"
+      aria-label={homeContent.hero.ariaLabel}
       className="relative w-full overflow-hidden flex flex-col"
       style={{ height: "clamp(560px, 72vw, 660px)" }}
     >
       {/* ── Background image ── */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero/hero.png"
-          alt="Large LED video wall at a professionally produced live event"
+          src={homeContent.hero.image}
+          alt={homeContent.hero.imageAlt}
           fill
           className="object-cover object-[60%_50%] md:object-[70%_50%]"
           priority

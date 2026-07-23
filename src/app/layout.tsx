@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
+import siteContent from "@/content/site.json";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -19,16 +20,12 @@ const inter = Inter({
   display: "swap",
 });
 
-const OG_DESCRIPTION =
-  "Professional LED screen and projection screen hire for events in London, with UK-wide projects available by arrangement. Request a free quote today.";
-
 export const metadata: Metadata = {
   title: {
-    default: "LED Screen Hire & Event AV Production | London",
-    template: "%s | London Screen Hire",
+    default: siteContent.homeMetadata.title,
+    template: siteContent.homeMetadata.titleTemplate,
   },
-  description:
-    "LED screen hire and AV production for corporate events, conferences, exhibitions and weddings across London. Get a tailored quote.",
+  description: siteContent.homeMetadata.description,
   metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: SITE_URL,
@@ -45,34 +42,34 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "London Screen Hire | LED & Projection Screen Hire",
-    description: OG_DESCRIPTION,
+    title: siteContent.homeMetadata.socialTitle,
+    description: siteContent.homeMetadata.socialDescription,
     url: SITE_URL,
     siteName: SITE_NAME,
-    locale: "en_GB",
+    locale: siteContent.socialLocale,
     type: "website",
     images: [
       {
-        url: "/images/hero/hero.png",
-        alt: "London Screen Hire, professional LED and projection screen hire for events",
+        url: siteContent.homeMetadata.socialImage,
+        alt: siteContent.homeMetadata.socialImageAlt,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "London Screen Hire | LED & Projection Screen Hire",
-    description: OG_DESCRIPTION,
-    images: ["/images/hero/hero.png"],
+    title: siteContent.homeMetadata.socialTitle,
+    description: siteContent.homeMetadata.socialDescription,
+    images: [siteContent.homeMetadata.socialImage],
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/images/favicon-16x16.png",
-    apple: "/images/apple-touch-icon.png",
+    icon: siteContent.icons.favicon,
+    shortcut: siteContent.icons.shortcut,
+    apple: siteContent.icons.apple,
     other: {
       rel: "icon",
       type: "image/png",
       sizes: "192x192",
-      url: "/images/android-chrome-192x192.png",
+      url: siteContent.icons.android192,
     },
   },
 };
@@ -84,7 +81,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en-GB"
+      lang={siteContent.language}
       className={`${barlowCondensed.variable} ${inter.variable}`}
     >
       <body className="font-body">

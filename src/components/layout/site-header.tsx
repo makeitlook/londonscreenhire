@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Menu, Phone, MessageCircle, ChevronDown } from "lucide-react";
 import SiteLogo from "@/components/shared/site-logo";
+import navigationContent from "@/content/navigation.json";
+import siteContent from "@/content/site.json";
 import { contact } from "@/data/contact";
 import { socialLinks } from "@/data/footer";
 import { services } from "@/data/services";
@@ -14,13 +16,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-/** Desktop top-level items (Home and Services handled separately) */
-const NAV_ITEMS = [
-  { label: "Projects", href: "/#projects" },
-  { label: "About", href: "/#about" },
-  { label: "Testimonials", href: "/#testimonials" },
-  { label: "Contact", href: "/#quote" },
-] as const;
+const { header: headerContent } = navigationContent;
+const [screenServices, productionServices] = headerContent.serviceGroups;
+const NAV_ITEMS = headerContent.links;
 
 export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -80,7 +78,7 @@ export default function SiteHeader() {
         href="#main-content"
         className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-[3px] bg-lsh-blue px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
       >
-        Skip to main content
+        {headerContent.skipLink}
       </a>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
@@ -106,7 +104,7 @@ export default function SiteHeader() {
           {/* ── Logo - always left ── */}
           <Link
             href="/"
-            aria-label="London Screen Hire, return to homepage"
+            aria-label={siteContent.logo.homeAriaLabel}
             className="shrink-0"
           >
             <SiteLogo />
@@ -115,14 +113,14 @@ export default function SiteHeader() {
           {/* ── Desktop navigation - centred in the middle column, xl+ only ── */}
           <nav
             className="hidden xl:flex items-center justify-center gap-7"
-            aria-label="Main navigation"
+            aria-label={headerContent.mainNavAriaLabel}
           >
             {/* Home */}
             <Link
               href="/#home"
               className="text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200"
             >
-              Home
+              {headerContent.homeLabel}
             </Link>
 
             {/* Services dropdown */}
@@ -148,7 +146,7 @@ export default function SiteHeader() {
                 }}
                 className="flex items-center gap-1 text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2 rounded-[2px]"
               >
-                Services
+                {headerContent.servicesLabel}
                 <ChevronDown
                   size={13}
                   strokeWidth={1.75}
@@ -166,18 +164,11 @@ export default function SiteHeader() {
                     {/* ── LED Screens group ── */}
                     <div>
                       <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                        LED Screens
+                        {screenServices.label}
                       </p>
                       {services
                         .filter((s) =>
-                          [
-                            "led-screen-hire-london",
-                            "indoor-led-screen-hire",
-                            "outdoor-led-screen-hire",
-                            "wedding-led-screen-hire",
-                            "conference-led-screen-hire",
-                            "exhibition-led-screen-hire",
-                          ].includes(s.slug),
+                          screenServices.slugs.includes(s.slug),
                         )
                         .map((service) => (
                           <Link
@@ -197,15 +188,11 @@ export default function SiteHeader() {
                     {/* ── Event Production group ── */}
                     <div>
                       <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                        Event Production
+                        {productionServices.label}
                       </p>
                       {services
                         .filter((s) =>
-                          [
-                            "corporate-av-hire",
-                            "stage-hire",
-                            "lighting-hire",
-                          ].includes(s.slug),
+                          productionServices.slugs.includes(s.slug),
                         )
                         .map((service) => (
                           <Link
@@ -248,7 +235,7 @@ export default function SiteHeader() {
               href="/#quote"
               className="hidden xl:inline-flex items-center justify-center h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200 shrink-0"
             >
-              Get a Quote
+              {headerContent.quoteCta}
             </Link>
 
             {/* Compact quote - sm to lg only (640–1279px) */}
@@ -256,7 +243,7 @@ export default function SiteHeader() {
               href="/#quote"
               className="hidden sm:inline-flex xl:hidden items-center justify-center h-9 px-4 text-xs font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200 shrink-0"
             >
-              Get a Quote
+              {headerContent.quoteCta}
             </Link>
 
             {/* Hamburger - hidden on xl+ */}
@@ -270,7 +257,7 @@ export default function SiteHeader() {
               <SheetTrigger asChild>
                 {/* 44×44px touch target */}
                 <button
-                  aria-label="Open navigation menu"
+                  aria-label={headerContent.openMenuAriaLabel}
                   className="xl:hidden flex items-center justify-center h-11 w-11 -mr-2 text-white hover:text-lsh-grey-300 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue"
                 >
                   <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
@@ -281,7 +268,9 @@ export default function SiteHeader() {
                 side={"right" as const}
                 className="w-[300px] p-0 bg-lsh-charcoal border-l border-[var(--lsh-border-dark)]"
               >
-                <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+                <SheetTitle className="sr-only">
+                  {headerContent.menuTitle}
+                </SheetTitle>
 
                 <div className="flex flex-col h-full">
                   {/* Sheet header */}
@@ -292,7 +281,7 @@ export default function SiteHeader() {
                   {/* Sheet navigation links */}
                   <nav
                     className="flex flex-col px-3 pt-3 pb-1 gap-0.5 flex-1 overflow-y-auto"
-                    aria-label="Mobile navigation"
+                    aria-label={headerContent.mobileNavAriaLabel}
                   >
                     {/* Home */}
                     <Link
@@ -300,7 +289,7 @@ export default function SiteHeader() {
                       onClick={() => setMenuOpen(false)}
                       className="flex items-center py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
                     >
-                      Home
+                      {headerContent.homeLabel}
                     </Link>
 
                     {/* Services accordion */}
@@ -310,7 +299,7 @@ export default function SiteHeader() {
                         aria-expanded={mobileServicesOpen}
                         className="flex items-center justify-between w-full py-3 px-3 text-[0.9375rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[4px] transition-colors duration-200"
                       >
-                        Services
+                        {headerContent.servicesLabel}
                         <ChevronDown
                           size={15}
                           strokeWidth={1.75}
@@ -323,18 +312,11 @@ export default function SiteHeader() {
                         <div className="mt-0.5 ml-3 border-l border-[var(--lsh-border-dark)] pl-3">
                           {/* LED Screens group */}
                           <p className="px-2 pt-2 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                            LED Screens
+                            {screenServices.label}
                           </p>
                           {services
                             .filter((s) =>
-                              [
-                                "led-screen-hire-london",
-                                "indoor-led-screen-hire",
-                                "outdoor-led-screen-hire",
-                                "wedding-led-screen-hire",
-                                "conference-led-screen-hire",
-                                "exhibition-led-screen-hire",
-                              ].includes(s.slug),
+                              screenServices.slugs.includes(s.slug),
                             )
                             .map((service) => (
                               <Link
@@ -349,15 +331,11 @@ export default function SiteHeader() {
 
                           {/* Event Production group */}
                           <p className="px-2 pt-3 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                            Event Production
+                            {productionServices.label}
                           </p>
                           {services
                             .filter((s) =>
-                              [
-                                "corporate-av-hire",
-                                "stage-hire",
-                                "lighting-hire",
-                              ].includes(s.slug),
+                              productionServices.slugs.includes(s.slug),
                             )
                             .map((service) => (
                               <Link
@@ -429,7 +407,7 @@ export default function SiteHeader() {
                       onClick={() => setMenuOpen(false)}
                       className="flex-1 flex items-center justify-center h-11 text-[0.9375rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200"
                     >
-                      Get a Quote
+                      {headerContent.quoteCta}
                     </Link>
                     {socialLinks
                       .filter(
@@ -442,7 +420,7 @@ export default function SiteHeader() {
                           href={s.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          aria-label="Follow us on Instagram, opens in a new tab"
+                          aria-label={headerContent.instagramAriaLabel}
                           className="flex items-center justify-center h-11 w-11 shrink-0 rounded-[4px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
                         >
                           <svg

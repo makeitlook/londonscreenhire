@@ -7,6 +7,8 @@ import {
   type LucideProps,
 } from "lucide-react";
 import SiteLogo from "@/components/shared/site-logo";
+import navigationContent from "@/content/navigation.json";
+import siteContent from "@/content/site.json";
 import { contact, type ContactItem } from "@/data/contact";
 import {
   quickLinks,
@@ -105,6 +107,7 @@ const linkClass =
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function SiteFooter() {
+  const { footer } = navigationContent;
   const contactItems: ContactItem[] = [
     contact.phone,
     contact.email,
@@ -117,13 +120,13 @@ export default function SiteFooter() {
   return (
     <footer
       className="relative bg-lsh-black border-t border-[var(--lsh-border-dark)] overflow-hidden"
-      aria-label="Site footer"
+      aria-label={footer.ariaLabel}
     >
       {/* ── Background image + overlay ───────────────────────────────────── */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "url(/images/footer/footer.png)",
+          backgroundImage: `url(${footer.backgroundImage})`,
           backgroundSize: "cover",
           backgroundPosition: "right center",
           backgroundRepeat: "no-repeat",
@@ -144,7 +147,7 @@ export default function SiteFooter() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.75fr_1fr_1fr_1.5fr] gap-10 sm:gap-x-8 sm:gap-y-10 lg:gap-8">
           {/* Col 1 - Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" aria-label="London Screen Hire, return to homepage">
+            <Link href="/" aria-label={siteContent.logo.homeAriaLabel}>
               <SiteLogo />
             </Link>
             <p className="mt-5 text-[0.875rem] text-[var(--lsh-grey-400)] leading-relaxed max-w-[300px] lg:max-w-none">
@@ -154,8 +157,8 @@ export default function SiteFooter() {
 
           {/* Col 2 - Quick Links */}
           <div>
-            <p className={colLabel}>Quick Links</p>
-            <nav aria-label="Footer quick links">
+            <p className={colLabel}>{footer.quickLinksHeading}</p>
+            <nav aria-label={footer.quickLinksAriaLabel}>
               <ul className="mt-4 space-y-2.5">
                 {quickLinks.map((link) => (
                   <li key={link.label}>
@@ -170,8 +173,8 @@ export default function SiteFooter() {
 
           {/* Col 3 - Services */}
           <div>
-            <p className={colLabel}>Services</p>
-            <nav aria-label="Footer services">
+            <p className={colLabel}>{footer.servicesHeading}</p>
+            <nav aria-label={footer.servicesAriaLabel}>
               <ul className="mt-4 space-y-2.5">
                 {serviceLinks.map((link) => (
                   <li key={link.label}>
@@ -186,7 +189,7 @@ export default function SiteFooter() {
 
           {/* Col 4 - Contact */}
           <div>
-            <p className={colLabel}>Contact</p>
+            <p className={colLabel}>{footer.contactHeading}</p>
             <address className="not-italic mt-4">
               <ul className="space-y-3">
                 {contactItems.map((item) => {
@@ -226,7 +229,7 @@ export default function SiteFooter() {
             {/* Social - only rendered when verified URLs exist */}
             {activeSocial.length > 0 && (
               <div className="mt-6">
-                <p className={colLabel}>Follow Us</p>
+                <p className={colLabel}>{footer.followHeading}</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {activeSocial.map((s) => {
                     const Icon = socialIconMap[s.icon];
@@ -236,7 +239,7 @@ export default function SiteFooter() {
                         href={s.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`${s.label}, opens in a new tab`}
+                        aria-label={`${s.label}, ${footer.socialAriaSuffix}`}
                         className="inline-flex items-center justify-center w-9 h-9 rounded-[3px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
                       >
                         {Icon && <Icon />}
@@ -257,17 +260,17 @@ export default function SiteFooter() {
             {copyright}
           </p>
           <p className="text-[0.75rem] text-[var(--lsh-grey-500)]">
-            Website designed by{" "}
+            {footer.creditPrefix}{" "}
             <a
-              href="https://www.makeitlook.co.uk"
+              href={footer.creditHref}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-200"
             >
-              Make It Look
+              {footer.creditLabel}
             </a>
           </p>
-          <nav aria-label="Legal links">
+          <nav aria-label={footer.legalAriaLabel}>
             <ul className="flex items-center gap-5">
               {legalLinks.map((link) => (
                 <li key={link.label}>

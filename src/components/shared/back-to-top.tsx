@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
+import uiContent from "@/content/ui.json";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
@@ -21,7 +22,7 @@ export default function BackToTop() {
   return (
     <button
       onClick={handleClick}
-      aria-label="Back to top"
+      aria-label={uiContent.backToTopAriaLabel}
       className={[
         "fixed bottom-24 right-5 sm:right-6 z-50",
         "flex items-center justify-center w-10 h-10",

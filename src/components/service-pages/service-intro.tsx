@@ -29,7 +29,7 @@ export default function ServiceIntro({
           {/* ── Left: intro copy ── */}
           <div>
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              About This Service
+              {uiContent.servicePages.introEyebrow}
             </p>
             <p className="max-w-[600px] text-[0.9375rem] leading-[1.75] text-lsh-grey-700">
               {fullIntro}
@@ -42,7 +42,7 @@ export default function ServiceIntro({
               id="service-process-heading"
               className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue"
             >
-              How It Works
+              {uiContent.servicePages.processHeading}
             </h2>
 
             <ol className="relative list-none m-0 p-0 space-y-0">
@@ -83,3 +83,4 @@ export default function ServiceIntro({
     </section>
   );
 }
+import uiContent from "@/content/ui.json";

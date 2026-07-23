@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import uiContent from "@/content/ui.json";
 
 interface ServiceBenefit {
   title: string;
@@ -23,14 +24,14 @@ export default function ServiceBenefits({ benefits }: ServiceBenefitsProps) {
     >
       <div className="lsh-container">
         <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-          Key Benefits
+          {uiContent.servicePages.benefitsEyebrow}
         </p>
         <h2
           id="service-benefits-heading"
           className="font-heading font-bold uppercase text-white leading-[0.9] tracking-[-0.01em] mb-8"
           style={{ fontSize: "clamp(1.75rem, 3vw + 0.5rem, 2.75rem)" }}
         >
-          Why Choose Us
+          {uiContent.servicePages.benefitsHeading}
         </h2>
 
         <ul

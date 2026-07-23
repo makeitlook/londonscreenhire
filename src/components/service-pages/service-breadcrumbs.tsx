@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import uiContent from "@/content/ui.json";
 
 interface ServiceBreadcrumbsProps {
   serviceLabel: string;
@@ -15,7 +16,7 @@ export default function ServiceBreadcrumbs({
 }: ServiceBreadcrumbsProps) {
   return (
     <nav
-      aria-label="Breadcrumb"
+      aria-label={uiContent.servicePages.breadcrumbsAriaLabel}
       className="flex items-center gap-1.5 text-[0.75rem] text-lsh-grey-500 flex-wrap"
     >
       <ol className="flex items-center gap-1.5 flex-wrap list-none m-0 p-0">
@@ -24,7 +25,7 @@ export default function ServiceBreadcrumbs({
             href="/"
             className="hover:text-lsh-grey-300 transition-colors duration-200"
           >
-            Home
+            {uiContent.servicePages.homeLabel}
           </Link>
         </li>
         <li aria-hidden="true">
@@ -35,7 +36,7 @@ export default function ServiceBreadcrumbs({
             href="/#services"
             className="text-lsh-grey-400 hover:text-lsh-grey-300 transition-colors duration-200"
           >
-            Services
+            {uiContent.servicePages.servicesLabel}
           </Link>
         </li>
         <li aria-hidden="true">

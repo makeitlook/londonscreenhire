@@ -1,4 +1,5 @@
 import { Phone, Mail, MessageCircle, type LucideProps } from "lucide-react";
+import homeContent from "@/content/home.json";
 import QuoteForm from "./quote-form";
 import { contact, type ContactItem } from "@/data/contact";
 import { FadeIn } from "@/components/shared/fade-in";
@@ -66,7 +67,7 @@ export default function ContactSection() {
           <FadeIn className="lg:w-[42%] lg:shrink-0 mb-10 lg:mb-0">
             {/* Eyebrow */}
             <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              Get in Touch
+              {homeContent.contactSection.eyebrow}
             </p>
 
             {/* Heading */}
@@ -77,19 +78,19 @@ export default function ContactSection() {
                 fontSize: "clamp(2.125rem, calc(2.5vw + 1.125rem), 3.25rem)",
               }}
             >
-              Request a Free Quote
+              {homeContent.contactSection.heading}
             </h2>
 
             {/* Supporting copy */}
             <p className="text-[var(--lsh-grey-300)] text-[0.9375rem] leading-relaxed mb-8 max-w-[420px]">
-              Tell us about your event and we&rsquo;ll put together a tailored
-              package. We work across London, with UK-wide projects available
-              by arrangement, for corporate events,
-              weddings, concerts and more.
+              {homeContent.contactSection.description}
             </p>
 
             {/* Contact details - driven by src/data/contact.ts */}
-            <ul className="space-y-4" aria-label="Contact details">
+            <ul
+              className="space-y-4"
+              aria-label={homeContent.contactSection.contactListAriaLabel}
+            >
               {contactItems.map((item) => (
                 <ContactRow key={item.icon} item={item} />
               ))}

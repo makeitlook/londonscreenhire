@@ -1,68 +1,22 @@
-/**
- * Footer content data for London Screen Hire.
- *
- * ⚠️  socialLinks hrefs are PLACEHOLDER - set placeholder: false and provide a
- *     verified URL before enabling each platform row.
- */
+import navigationContent from "@/content/navigation.json";
 
-export type FooterLink = {
-  label: string;
-  href: string;
-};
-
+export type FooterLink = { label: string; href: string };
 export type SocialLink = {
   label: string;
   href: string;
   icon: "facebook" | "instagram" | "youtube" | "linkedin";
-  /** When true the row is hidden - set false only once a real URL is supplied. */
   placeholder: boolean;
 };
 
-export const quickLinks: FooterLink[] = [
-  { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
-  { label: "Events", href: "/#projects" },
-  { label: "About", href: "/#about" },
-  { label: "Testimonials", href: "/#testimonials" },
-  { label: "Get a Quote", href: "/#quote" },
-];
+const { footer } = navigationContent;
 
-export const serviceLinks: FooterLink[] = [
-  { label: "LED Screen Hire", href: "/led-screen-hire-london" },
-  { label: "Indoor LED Screens", href: "/indoor-led-screen-hire" },
-  { label: "Outdoor LED Screens", href: "/outdoor-led-screen-hire" },
-  { label: "Wedding LED Screens", href: "/wedding-led-screen-hire" },
-  { label: "Conference Screens", href: "/conference-led-screen-hire" },
-  { label: "Corporate AV Hire", href: "/corporate-av-hire" },
-  { label: "Stage Hire", href: "/stage-hire" },
-  { label: "Lighting Hire", href: "/lighting-hire" },
-];
-
-/**
- * All entries are placeholder until verified profile URLs are confirmed.
- * To activate: set placeholder: false and add the full profile URL.
- */
-export const socialLinks: SocialLink[] = [
-  { label: "Facebook", href: "", icon: "facebook", placeholder: true },
-  {
-    label: "Instagram",
-    href: "https://www.instagram.com/londonscreenhire",
-    icon: "instagram",
-    placeholder: false,
-  },
-  { label: "YouTube", href: "", icon: "youtube", placeholder: true },
-  { label: "LinkedIn", href: "", icon: "linkedin", placeholder: true },
-];
-
-export const legalLinks: FooterLink[] = [
-  { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms & Conditions", href: "/terms" },
-];
-
-export const footerSummary =
-  "Professional LED screen hire and AV production for corporate events, weddings, exhibitions, concerts and outdoor events in London, with UK-wide projects available by arrangement.";
-
-export const footerLocation = "London & UK by arrangement";
-
-/** Build-time year - acceptable for static export. */
-export const copyright = `© ${new Date().getFullYear()} London Screen Hire. All rights reserved.`;
+export const quickLinks: FooterLink[] = footer.quickLinks;
+export const serviceLinks: FooterLink[] = footer.serviceLinks;
+export const socialLinks = footer.socialLinks as SocialLink[];
+export const legalLinks: FooterLink[] = footer.legalLinks;
+export const footerSummary = footer.summary;
+export const footerLocation = footer.location;
+export const copyright = footer.copyrightTemplate.replace(
+  "{year}",
+  String(new Date().getFullYear()),
+);

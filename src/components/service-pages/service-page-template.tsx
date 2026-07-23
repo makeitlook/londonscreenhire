@@ -9,6 +9,7 @@ import ServiceShowcase from "@/components/service-pages/service-showcase";
 import ServiceFaqs from "@/components/service-pages/service-faqs";
 import RelatedServices from "@/components/service-pages/related-services";
 import ServiceQuoteCta from "@/components/service-pages/service-quote-cta";
+import uiContent from "@/content/ui.json";
 import type { ServicePage } from "@/data/services";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -50,13 +51,13 @@ export default function ServicePageTemplate({
           {
             "@type": "ListItem",
             position: 1,
-            name: "Home",
+            name: uiContent.servicePages.homeLabel,
             item: SITE_URL,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: "Services",
+            name: uiContent.servicePages.servicesLabel,
             item: `${SITE_URL}/#services`,
           },
           {

@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import uiContent from "@/content/ui.json";
 
 const CONSENT_KEY = "lsh-analytics-consent";
 type ConsentValue = "accepted" | "declined" | null;
@@ -52,20 +53,18 @@ export default function ConsentManager() {
       {consent === null && (
         <div
           role="region"
-          aria-label="Analytics consent notice"
+          aria-label={uiContent.consent.ariaLabel}
           className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/10"
           style={{ backgroundColor: "var(--lsh-charcoal)" }}
         >
           <div className="lsh-container flex flex-col gap-4 py-4 sm:flex-row sm:items-center md:py-5">
             <p className="flex-1 text-[0.8125rem] leading-relaxed" style={{ color: "var(--lsh-grey-300)" }}>
-              We use privacy-friendly, cookieless analytics to understand how
-              visitors use our site. No personal data is stored or shared with
-              advertisers.{" "}
+              {uiContent.consent.message}{" "}
               <Link
                 href="/privacy"
                 className="text-lsh-blue hover:underline focus-visible:outline-none focus-visible:underline"
               >
-                Privacy Policy
+                {uiContent.consent.privacyLink}
               </Link>
             </p>
             <div className="flex items-center gap-3 shrink-0">
@@ -74,13 +73,13 @@ export default function ConsentManager() {
                 className="px-4 py-2 text-[0.8125rem] font-semibold border border-white/20 rounded-sm hover:border-white/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lsh-blue"
                 style={{ color: "var(--lsh-grey-300)" }}
               >
-                Decline
+                {uiContent.consent.decline}
               </button>
               <button
                 onClick={() => decide("accepted")}
                 className="px-4 py-2 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-sm hover:bg-[var(--lsh-blue-hover)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                Accept
+                {uiContent.consent.accept}
               </button>
             </div>
           </div>

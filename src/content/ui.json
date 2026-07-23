@@ -1,0 +1,51 @@
+{
+  "servicePages": {
+    "heroAriaLabel": "Service overview",
+    "breadcrumbsAriaLabel": "Breadcrumb",
+    "homeLabel": "Home",
+    "servicesLabel": "Services",
+    "quoteCta": "Get a Quote",
+    "callCta": "Call Us",
+    "introEyebrow": "About This Service",
+    "processHeading": "How It Works",
+    "benefitsEyebrow": "Key Benefits",
+    "benefitsHeading": "Why Choose Us",
+    "usesEyebrow": "Suitable For",
+    "usesHeading": "Event Types",
+    "learnMore": "Learn more",
+    "showcaseEyebrow": "Our Approach",
+    "faqsEyebrow": "FAQs",
+    "faqsHeading": "Common Questions",
+    "faqsPrompt": "Can’t find an answer? Get in touch and we’ll respond promptly.",
+    "callPrefix": "Call",
+    "relatedEyebrow": "Also From London Screen Hire",
+    "relatedHeading": "Related Services",
+    "quoteEyebrow": "Get in Touch",
+    "quoteDescription": "Tell us about your event and we’ll put together a tailored proposal with no obligation. We respond promptly to all enquiries."
+  },
+  "consent": {
+    "ariaLabel": "Analytics consent notice",
+    "message": "We use privacy-friendly, cookieless analytics to understand how visitors use our site. No personal data is stored or shared with advertisers.",
+    "privacyLink": "Privacy Policy",
+    "decline": "Decline",
+    "accept": "Accept"
+  },
+  "notFound": {
+    "metadataTitle": "Page Not Found",
+    "metadataDescription": "The requested page could not be found.",
+    "eyebrow": "Error 404",
+    "heading": "Page Not Found",
+    "message": "The page you’re looking for doesn’t exist. It may have been moved or the URL may be incorrect.",
+    "homeCta": "Back to Homepage"
+  },
+  "error": {
+    "skipLink": "Skip to main content",
+    "eyebrow": "Service interruption",
+    "heading": "Something Went Wrong",
+    "message": "We couldn’t load this page. Try again, return to the homepage, or contact our team if the problem continues.",
+    "retry": "Try Again",
+    "homeCta": "Back to Homepage",
+    "helpPrefix": "Need help now? Email"
+  },
+  "backToTopAriaLabel": "Back to top"
+}

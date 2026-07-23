@@ -1,0 +1,101 @@
+{
+  "eyebrow": "Legal",
+  "privacy": {
+    "metadataTitle": "Privacy Policy",
+    "metadataDescription": "How London Screen Hire collects, uses and protects personal data when you use our website or request a quote.",
+    "heading": "Privacy Policy",
+    "lastUpdated": "Last updated 21 July 2026",
+    "whoWeAre": {
+      "heading": "Who We Are",
+      "prefix": "London Screen Hire is the controller of the personal data described in this notice. You can contact us at",
+      "connector": "or"
+    },
+    "sectionsBeforeServices": [
+      {
+        "heading": "Information We Collect",
+        "paragraphs": [
+          "When you request a quote, we collect the information entered in the form. This may include your name, email address, phone number, event type and date, venue, preferred screen size and the event details you choose to provide. We do not collect payment details through this website.",
+          "Our hosting and security providers may process technical request data, such as IP address, browser information and server logs, to deliver and protect the website. If you accept optional analytics, we also receive aggregated usage and performance information."
+        ]
+      },
+      {
+        "heading": "How and Why We Use Your Information",
+        "paragraphs": [
+          "We use enquiry information to respond, prepare a quote, discuss your requirements and take steps towards a booking at your request. We also process information where necessary for our legitimate interests in administering enquiries, keeping business records and protecting the website from misuse.",
+          "Optional analytics load only after you accept them. We use the resulting aggregated information to understand site performance and improve the website. We do not use enquiry details for direct marketing unless you give separate permission."
+        ]
+      }
+    ],
+    "services": {
+      "heading": "Services That Process Data for Us",
+      "web3forms": {
+        "label": "Web3Forms:",
+        "prefix": "quote requests are transmitted through Web3Forms so they can be delivered to us. Web3Forms states that submissions are encrypted at rest and may be retained for up to three years. Read the",
+        "linkLabel": "Web3Forms privacy policy",
+        "linkHref": "https://web3forms.com/privacy"
+      },
+      "vercel": {
+        "label": "Vercel Analytics and Speed Insights:",
+        "prefix": "if accepted, these tools provide aggregated website usage and performance metrics. Vercel states that Analytics does not associate data with an IP address and discards its temporary session identifier after 24 hours. Read Vercel’s",
+        "linkLabel": "Analytics privacy information",
+        "linkHref": "https://vercel.com/docs/analytics/privacy-policy"
+      }
+    },
+    "internationalTransfers": {
+      "heading": "International Transfers",
+      "paragraphs": ["Some suppliers may process data outside the UK. Where this occurs, we rely on the supplier’s stated safeguards, such as an adequacy decision or approved standard contractual clauses, as applicable."]
+    },
+    "cookies": {
+      "heading": "Cookies and Local Storage",
+      "prefix": "We do not use advertising cookies. Your analytics choice is saved in your browser’s local storage under the key",
+      "storageKey": "lsh-analytics-consent",
+      "suffix": ". It is used to remember whether optional analytics may load and can be removed by clearing this site’s browser data."
+    },
+    "sectionsAfterCookies": [
+      {
+        "heading": "How Long We Keep Information",
+        "paragraphs": ["We keep enquiry and quote records for as long as reasonably needed to respond, manage any resulting booking, resolve disputes and meet legal or accounting obligations. Retention depends on whether an enquiry becomes a booking and the nature of the correspondence. Web3Forms states that it may retain submissions for a maximum of three years. We delete or anonymise information when it is no longer needed, subject to any legal requirement to retain it."]
+      }
+    ],
+    "rights": {
+      "heading": "Your Rights",
+      "paragraph": "Depending on the circumstances, you may have rights to access, correct or erase your personal data, restrict or object to its use, and receive a portable copy. You may also withdraw an analytics choice by clearing this site’s browser data. These rights are not absolute and exemptions may apply. Contact us using the details above to make a request.",
+      "complaintPrefix": "You may complain to the",
+      "complaintLinkLabel": "Information Commissioner’s Office",
+      "complaintLinkHref": "https://ico.org.uk/make-a-complaint/",
+      "complaintSuffix": ". We would appreciate the opportunity to address your concern first."
+    },
+    "finalSections": [
+      {
+        "heading": "Required Information and Automated Decisions",
+        "paragraphs": ["Required form fields are needed so we can assess and respond to your enquiry. If they are not provided, we may be unable to prepare a quote. We do not use the information submitted through this site for automated decision-making or profiling."]
+      },
+      {
+        "heading": "Changes to This Policy",
+        "paragraphs": ["We may update this notice when our website, suppliers or processing activities change. The current version and update date will remain available on this page."]
+      }
+    ]
+  },
+  "terms": {
+    "metadataTitle": "Website Terms of Use",
+    "metadataDescription": "Terms governing use of the London Screen Hire website and its quote request service.",
+    "heading": "Website Terms of Use",
+    "lastUpdated": "Last updated 21 July 2026",
+    "about": {
+      "heading": "About These Terms",
+      "prefix": "These terms apply when you use the London Screen Hire website. They cover the website and its enquiry service; they are not the hire terms for an event booking. Questions can be sent to",
+      "connector": "or discussed on"
+    },
+    "sections": [
+      { "heading": "Website Information", "paragraphs": ["Service pages provide general information and examples. The equipment, crew, timings, delivery area, technical specification and services included in a booking will be set out in the relevant written quote or booking documents."] },
+      { "heading": "Enquiries, Quotes and Bookings", "paragraphs": ["Sending an enquiry does not create a booking or require either party to proceed. Quotes are subject to availability and may have an expiry date. A booking is confirmed only when the written quote has been accepted and any stated booking requirements, such as a deposit or signed hire terms, have been completed."] },
+      { "heading": "Availability and Changes", "paragraphs": ["We may update, suspend or withdraw parts of the website without notice. We cannot guarantee uninterrupted access, and equipment or crew shown on the site may not be available for every date or venue."] },
+      { "heading": "Acceptable Use", "paragraphs": ["You must not misuse the website, attempt unauthorised access, introduce malicious code, interfere with its operation, submit unlawful material or use the enquiry form to send spam or abusive content."] },
+      { "heading": "Intellectual Property", "paragraphs": ["Unless stated otherwise, the text, branding, layout and original media on this website belong to London Screen Hire or are used with permission. You may view the site for your own lawful use, but may not reproduce or commercially exploit its content without prior written permission."] },
+      { "heading": "Third-Party Links", "paragraphs": ["Links to third-party websites are provided for convenience. We do not control those websites and are not responsible for their content, availability or privacy practices."] },
+      { "heading": "Liability", "paragraphs": ["Nothing in these terms excludes or limits liability where doing so would be unlawful, including liability for death or personal injury caused by negligence, or for fraud. To the extent permitted by law, we are not responsible for loss caused solely by temporary website unavailability or reasonable reliance on general website information instead of an agreed written quote. Liability relating to a confirmed booking is governed by the applicable booking documents and mandatory law."] },
+      { "heading": "Governing Law", "paragraphs": ["These website terms are governed by the laws of England and Wales. The courts of England and Wales will have jurisdiction, although consumers keep any mandatory rights to bring a claim in another part of the UK where applicable."] },
+      { "heading": "Changes to These Terms", "paragraphs": ["We may revise these terms when the website or relevant law changes. The current version and update date will remain available on this page."] }
+    ]
+  }
+}

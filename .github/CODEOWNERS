@@ -1,0 +1,9 @@
+# Application and workflow changes require review from the repository owner.
+/.github/ @makeitlook
+/src/app/ @makeitlook
+/src/components/ @makeitlook
+/src/data/ @makeitlook
+/src/lib/ @makeitlook
+/*.js @makeitlook
+/*.ts @makeitlook
+/*.json @makeitlook

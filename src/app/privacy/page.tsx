@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
+import legalContent from "@/content/legal.json";
 import { contact } from "@/data/contact";
 import { SITE_URL } from "@/lib/site";
 
+const content = legalContent.privacy;
+
 export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description:
-    "How London Screen Hire collects, uses and protects personal data when you use our website or request a quote.",
+  title: content.metadataTitle,
+  description: content.metadataDescription,
   alternates: { canonical: `${SITE_URL}/privacy` },
   robots: { index: false, follow: false },
 };
@@ -28,6 +30,25 @@ function P({ children }: { children: React.ReactNode }) {
   );
 }
 
+function TextSections({
+  sections,
+}: {
+  sections: { heading: string; paragraphs: string[] }[];
+}) {
+  return (
+    <>
+      {sections.map((section) => (
+        <section key={section.heading}>
+          <H2>{section.heading}</H2>
+          {section.paragraphs.map((paragraph) => (
+            <P key={paragraph}>{paragraph}</P>
+          ))}
+        </section>
+      ))}
+    </>
+  );
+}
+
 const linkClass = "text-lsh-blue hover:underline";
 
 export default function PrivacyPage() {
@@ -41,163 +62,83 @@ export default function PrivacyPage() {
         <div className="lsh-container py-16 md:py-20">
           <article className="max-w-3xl">
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              Legal
+              {legalContent.eyebrow}
             </p>
             <h1
               className="mb-4 font-heading font-bold uppercase leading-[0.9] text-white"
               style={{ fontSize: "clamp(2.25rem, 5vw, 3.25rem)" }}
             >
-              Privacy Policy
+              {content.heading}
             </h1>
             <p className="mb-10 text-[0.8125rem] text-[var(--lsh-grey-500)]">
-              Last updated 21 July 2026
+              {content.lastUpdated}
             </p>
 
-            <H2>Who We Are</H2>
+            <H2>{content.whoWeAre.heading}</H2>
             <P>
-              London Screen Hire is the controller of the personal data
-              described in this notice. You can contact us at{" "}
+              {content.whoWeAre.prefix}{" "}
               <a href={contact.email.href} className={linkClass}>
                 {contact.email.display}
               </a>{" "}
-              or{" "}
+              {content.whoWeAre.connector}{" "}
               <a href={contact.phone.href} className={linkClass}>
                 {contact.phone.display}
               </a>
               .
             </P>
 
-            <H2>Information We Collect</H2>
-            <P>
-              When you request a quote, we collect the information entered in
-              the form. This may include your name, email address, phone number,
-              event type and date, venue, preferred screen size and the event
-              details you choose to provide. We do not collect payment details
-              through this website.
-            </P>
-            <P>
-              Our hosting and security providers may process technical request
-              data, such as IP address, browser information and server logs, to
-              deliver and protect the website. If you accept optional analytics,
-              we also receive aggregated usage and performance information.
-            </P>
+            <TextSections sections={content.sectionsBeforeServices} />
 
-            <H2>How and Why We Use Your Information</H2>
-            <P>
-              We use enquiry information to respond, prepare a quote, discuss
-              your requirements and take steps towards a booking at your request.
-              We also process information where necessary for our legitimate
-              interests in administering enquiries, keeping business records and
-              protecting the website from misuse.
-            </P>
-            <P>
-              Optional analytics load only after you accept them. We use the
-              resulting aggregated information to understand site performance
-              and improve the website. We do not use enquiry details for direct
-              marketing unless you give separate permission.
-            </P>
+            <H2>{content.services.heading}</H2>
+            {[content.services.web3forms, content.services.vercel].map(
+              (service) => (
+                <P key={service.label}>
+                  <strong className="font-semibold text-white">
+                    {service.label}
+                  </strong>{" "}
+                  {service.prefix}{" "}
+                  <a
+                    href={service.linkHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={linkClass}
+                  >
+                    {service.linkLabel}
+                  </a>
+                  .
+                </P>
+              ),
+            )}
 
-            <H2>Services That Process Data for Us</H2>
-            <P>
-              <strong className="font-semibold text-white">Web3Forms:</strong>{" "}
-              quote requests are transmitted through Web3Forms so they can be
-              delivered to us. Web3Forms states that submissions are encrypted
-              at rest and may be retained for up to three years. Read the{" "}
-              <a
-                href="https://web3forms.com/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
-                Web3Forms privacy policy
-              </a>
-              .
-            </P>
-            <P>
-              <strong className="font-semibold text-white">
-                Vercel Analytics and Speed Insights:
-              </strong>{" "}
-              if accepted, these tools provide aggregated website usage and
-              performance metrics. Vercel states that Analytics does not
-              associate data with an IP address and discards its temporary
-              session identifier after 24 hours. Read Vercel&apos;s{" "}
-              <a
-                href="https://vercel.com/docs/analytics/privacy-policy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={linkClass}
-              >
-                Analytics privacy information
-              </a>
-              .
-            </P>
+            <TextSections sections={[content.internationalTransfers]} />
 
-            <H2>International Transfers</H2>
+            <H2>{content.cookies.heading}</H2>
             <P>
-              Some suppliers may process data outside the UK. Where this occurs,
-              we rely on the supplier&apos;s stated safeguards, such as an adequacy
-              decision or approved standard contractual clauses, as applicable.
-            </P>
-
-            <H2>Cookies and Local Storage</H2>
-            <P>
-              We do not use advertising cookies. Your analytics choice is saved
-              in your browser&apos;s local storage under the key{" "}
+              {content.cookies.prefix}{" "}
               <code className="text-[0.85em] text-lsh-blue">
-                lsh-analytics-consent
+                {content.cookies.storageKey}
               </code>
-              . It is used to remember whether optional analytics may load and
-              can be removed by clearing this site&apos;s browser data.
+              {content.cookies.suffix}
             </P>
 
-            <H2>How Long We Keep Information</H2>
-            <P>
-              We keep enquiry and quote records for as long as reasonably needed
-              to respond, manage any resulting booking, resolve disputes and meet
-              legal or accounting obligations. Retention depends on whether an
-              enquiry becomes a booking and the nature of the correspondence.
-              Web3Forms states that it may retain submissions for a maximum of
-              three years. We delete or anonymise information when it is no
-              longer needed, subject to any legal requirement to retain it.
-            </P>
+            <TextSections sections={content.sectionsAfterCookies} />
 
-            <H2>Your Rights</H2>
+            <H2>{content.rights.heading}</H2>
+            <P>{content.rights.paragraph}</P>
             <P>
-              Depending on the circumstances, you may have rights to access,
-              correct or erase your personal data, restrict or object to its use,
-              and receive a portable copy. You may also withdraw an analytics
-              choice by clearing this site&apos;s browser data. These rights are not
-              absolute and exemptions may apply. Contact us using the details
-              above to make a request.
-            </P>
-            <P>
-              You may complain to the{" "}
+              {content.rights.complaintPrefix}{" "}
               <a
-                href="https://ico.org.uk/make-a-complaint/"
+                href={content.rights.complaintLinkHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={linkClass}
               >
-                Information Commissioner&apos;s Office
+                {content.rights.complaintLinkLabel}
               </a>
-              . We would appreciate the opportunity to address your concern
-              first.
+              {content.rights.complaintSuffix}
             </P>
 
-            <H2>Required Information and Automated Decisions</H2>
-            <P>
-              Required form fields are needed so we can assess and respond to
-              your enquiry. If they are not provided, we may be unable to prepare
-              a quote. We do not use the information submitted through this site
-              for automated decision-making or profiling.
-            </P>
-
-            <H2>Changes to This Policy</H2>
-            <P>
-              We may update this notice when our website, suppliers or processing
-              activities change. The current version and update date will remain
-              available on this page.
-            </P>
+            <TextSections sections={content.finalSections} />
           </article>
         </div>
       </main>

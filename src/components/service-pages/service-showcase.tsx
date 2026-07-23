@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import uiContent from "@/content/ui.json";
 
 interface ServiceShowcaseProps {
   h1: string;
@@ -55,7 +56,7 @@ export default function ServiceShowcase({
         <div className="xl:w-[45%] xl:shrink-0 flex items-center px-6 sm:px-8 xl:px-12 py-10 xl:py-14">
           <div>
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              Our Approach
+              {uiContent.servicePages.showcaseEyebrow}
             </p>
             <h2
               id="service-showcase-heading"
@@ -71,7 +72,7 @@ export default function ServiceShowcase({
               href="/#quote"
               className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
             >
-              Get a Quote
+              {uiContent.servicePages.quoteCta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
           </div>

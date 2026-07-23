@@ -1,4 +1,5 @@
 import Image from "next/image";
+import homeContent from "@/content/home.json";
 import { projects } from "@/data/projects";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -21,7 +22,7 @@ export default function ProjectsSection() {
           <div className="flex flex-col items-center mb-6 md:mb-8 xl:mb-10">
             {/* Eyebrow */}
             <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              What We Deliver
+              {homeContent.projects.eyebrow}
             </p>
 
             <h2
@@ -29,7 +30,7 @@ export default function ProjectsSection() {
               className="font-heading font-bold uppercase leading-[0.9] tracking-[-0.01em] text-lsh-dark text-center mb-2.5"
               style={{ fontSize: "clamp(2rem, calc(2.5vw + 1.125rem), 3rem)" }}
             >
-              Built for Every Event
+              {homeContent.projects.heading}
             </h2>
 
             {/* Blue underline accent */}

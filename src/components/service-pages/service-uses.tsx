@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import uiContent from "@/content/ui.json";
 
 interface ServiceUseCase {
   title: string;
@@ -25,14 +26,14 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
     >
       <div className="lsh-container">
         <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-          Suitable For
+          {uiContent.servicePages.usesEyebrow}
         </p>
         <h2
           id="service-uses-heading"
           className="font-heading font-bold uppercase text-lsh-dark leading-[0.9] tracking-[-0.01em] mb-8"
           style={{ fontSize: "clamp(1.75rem, 3vw + 0.5rem, 2.75rem)" }}
         >
-          Event Types
+          {uiContent.servicePages.usesHeading}
         </h2>
 
         <ul
@@ -54,7 +55,7 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
                     {useCase.description}
                   </p>
                   <span className="mt-4 inline-flex items-center gap-1 text-[0.8rem] font-semibold text-lsh-blue">
-                    Learn more
+                    {uiContent.servicePages.learnMore}
                     <ArrowRight
                       size={13}
                       strokeWidth={2}

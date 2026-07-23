@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ServicePage } from "@/data/services";
+import siteContent from "@/content/site.json";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 type ServiceMetadataSource = Pick<
@@ -22,7 +23,7 @@ export function createServiceMetadata(
       description: service.metaDescription,
       url: pageUrl,
       siteName: SITE_NAME,
-      locale: "en_GB",
+      locale: siteContent.socialLocale,
       type: "website",
       images: [{ url: service.heroImage, alt: service.heroAlt }],
     },

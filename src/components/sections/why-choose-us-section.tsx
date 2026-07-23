@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import homeContent from "@/content/home.json";
 import { benefits } from "@/data/benefits";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -37,7 +38,7 @@ export default function WhyChooseUsSection() {
           <FadeIn className="xl:w-[36%] xl:shrink-0 mb-8 md:mb-10 xl:mb-0">
             {/* Eyebrow */}
             <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              Why Choose Us
+              {homeContent.whyChoose.eyebrow}
             </p>
 
             {/*
@@ -51,18 +52,16 @@ export default function WhyChooseUsSection() {
               className="font-heading font-bold uppercase leading-[0.88] tracking-[-0.01em] text-white mb-4"
               style={{ fontSize: "clamp(2.25rem, calc(3vw + 1rem), 3.375rem)" }}
             >
-              Experience.
-              <br />
-              Quality.
-              <br />
-              Reliability.
+              {homeContent.whyChoose.headingLines.map((line) => (
+                <span key={line} className="block">
+                  {line}
+                </span>
+              ))}
             </h2>
 
             {/* Supporting copy */}
             <p className="text-[0.9rem] leading-[1.65] text-lsh-grey-300 mb-6 max-w-[460px]">
-              We specialise in high-impact LED screen hire and AV production,
-              delivering professional results through careful planning, premium
-              equipment and dependable on-site support.
+              {homeContent.whyChoose.description}
             </p>
 
             {/* CTA - drives to the quote form */}
@@ -70,7 +69,7 @@ export default function WhyChooseUsSection() {
               href="/#quote"
               className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
             >
-              Get a Quote
+              {homeContent.whyChoose.cta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
           </FadeIn>

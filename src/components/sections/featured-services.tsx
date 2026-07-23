@@ -1,4 +1,5 @@
 import Link from "next/link";
+import homeContent from "@/content/home.json";
 import { featuredServices } from "@/data/featured-services";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -38,7 +39,7 @@ export default function FeaturedServices() {
   return (
     <section
       id="services"
-      aria-label="Featured services"
+      aria-label={homeContent.featuredServices.ariaLabel}
       className="bg-lsh-dark py-0 scroll-mt-[68px] xl:scroll-mt-[78px]"
     >
       <div className="lsh-container">

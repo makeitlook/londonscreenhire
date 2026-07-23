@@ -33,6 +33,7 @@ const PHONE_CHARS_RE = /^[0-9\s+()\-]+$/;
 
 export function validateQuote(fields: QuoteFields): QuoteErrors {
   const errors: QuoteErrors = {};
+  const messages = formsContent.quote.validation;
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -40,19 +41,19 @@ export function validateQuote(fields: QuoteFields): QuoteErrors {
   /* ── Name ── */
   const name = fields.name.trim();
   if (!name) {
-    errors.name = "Please enter your full name.";
+    errors.name = messages.nameRequired;
   } else if (name.length < 2) {
-    errors.name = "Name must be at least 2 characters.";
+    errors.name = messages.nameShort;
   } else if (name.length > 100) {
-    errors.name = "Name must be 100 characters or fewer.";
+    errors.name = messages.nameLong;
   }
 
   /* ── Email ── */
   const email = fields.email.trim();
   if (!email) {
-    errors.email = "Please enter your email address.";
+    errors.email = messages.emailRequired;
   } else if (!EMAIL_RE.test(email)) {
-    errors.email = "Please enter a valid email address.";
+    errors.email = messages.emailInvalid;
   }
 
   /* ── Phone ──
@@ -64,56 +65,57 @@ export function validateQuote(fields: QuoteFields): QuoteErrors {
   ── */
   const phone = fields.phone.trim();
   if (!phone) {
-    errors.phone = "Please enter a contact phone number.";
+    errors.phone = messages.phoneRequired;
   } else if (
     phone.length > 30 ||
     !PHONE_CHARS_RE.test(phone) ||
     phone.replace(/\D/g, "").length < 7
   ) {
-    errors.phone = "Enter a valid phone number";
+    errors.phone = messages.phoneInvalid;
   }
 
   /* ── Event type ── */
   if (!fields.eventType) {
-    errors.eventType = "Please select an event type.";
+    errors.eventType = messages.eventTypeRequired;
   }
 
   /* ── Event date ── */
   if (!fields.eventDate) {
-    errors.eventDate = "Please select an event date.";
+    errors.eventDate = messages.eventDateRequired;
   } else if (fields.eventDate < today) {
-    errors.eventDate = "Event date must not be in the past.";
+    errors.eventDate = messages.eventDatePast;
   }
 
   /* ── Venue ── */
   const venue = fields.venue.trim();
   if (!venue) {
-    errors.venue = "Please enter a venue or event location.";
+    errors.venue = messages.venueRequired;
   } else if (venue.length < 2) {
-    errors.venue = "Venue must be at least 2 characters.";
+    errors.venue = messages.venueShort;
   } else if (venue.length > 150) {
-    errors.venue = "Venue must be 150 characters or fewer.";
+    errors.venue = messages.venueLong;
   }
 
   /* ── Screen size ── */
   if (!fields.screenSize) {
-    errors.screenSize = "Please select a screen size.";
+    errors.screenSize = messages.screenSizeRequired;
   }
 
   /* ── Message ── */
   const message = fields.message.trim();
   if (!message) {
-    errors.message = "Please describe your event requirements.";
+    errors.message = messages.messageRequired;
   } else if (message.length < 10) {
-    errors.message = "Please provide at least 10 characters.";
+    errors.message = messages.messageShort;
   } else if (message.length > 1500) {
-    errors.message = "Message must be 1500 characters or fewer.";
+    errors.message = messages.messageLong;
   }
 
   /* ── Privacy notice acknowledgement ── */
   if (!fields.consent) {
-    errors.consent = "Please confirm you have read the Privacy Policy.";
+    errors.consent = messages.consentRequired;
   }
 
   return errors;
 }
+import formsContent from "@/content/forms.json";

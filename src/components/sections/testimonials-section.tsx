@@ -1,4 +1,5 @@
 import { Quote } from "lucide-react";
+import homeContent from "@/content/home.json";
 import { testimonials } from "@/data/testimonials";
 import { FadeIn } from "@/components/shared/fade-in";
 
@@ -30,7 +31,7 @@ export default function TestimonialsSection() {
         <FadeIn>
           <div className="flex flex-col items-center mb-8 md:mb-10">
             <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              What Our Clients Say
+              {homeContent.testimonials.eyebrow}
             </p>
             <h2
               id="testimonials-heading"
@@ -39,7 +40,7 @@ export default function TestimonialsSection() {
                 fontSize: "clamp(2.125rem, calc(2.5vw + 1.125rem), 3.25rem)",
               }}
             >
-              What Our Clients Say
+              {homeContent.testimonials.heading}
             </h2>
             <span
               className="block bg-lsh-blue rounded-sm"

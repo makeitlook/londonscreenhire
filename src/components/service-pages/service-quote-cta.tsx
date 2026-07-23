@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
+import uiContent from "@/content/ui.json";
 import { contact } from "@/data/contact";
 
 interface ServiceQuoteCtaProps {
@@ -32,7 +33,7 @@ export default function ServiceQuoteCta({
         <div className="flex-1 flex items-center px-6 sm:px-8 xl:px-12 py-14 sm:py-16 xl:py-20">
           <div>
             <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              Get in Touch
+              {uiContent.servicePages.quoteEyebrow}
             </p>
             <h2
               id="service-cta-heading"
@@ -42,8 +43,7 @@ export default function ServiceQuoteCta({
               {ctaHeading}
             </h2>
             <p className="text-[0.9375rem] leading-[1.65] text-lsh-grey-300 mb-8 max-w-[480px]">
-              Tell us about your event and we&rsquo;ll put together a tailored
-              proposal with no obligation. We respond promptly to all enquiries.
+              {uiContent.servicePages.quoteDescription}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -51,7 +51,7 @@ export default function ServiceQuoteCta({
                 href="/#quote"
                 className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
               >
-                Get a Quote
+                {uiContent.servicePages.quoteCta}
                 <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
               </Link>
               <a

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import uiContent from "@/content/ui.json";
 import { contact } from "@/data/contact";
 import ServiceBreadcrumbs from "./service-breadcrumbs";
 
@@ -32,7 +33,7 @@ export default function ServiceHero({
   return (
     <section
       className="relative min-h-0 overflow-hidden bg-lsh-dark sm:min-h-[clamp(480px,60vh,640px)]"
-      aria-label="Service overview"
+      aria-label={uiContent.servicePages.heroAriaLabel}
     >
       {/* Background image */}
       <div className="absolute inset-0">
@@ -96,7 +97,7 @@ export default function ServiceHero({
               href="/#quote"
               className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
             >
-              Get a Quote
+              {uiContent.servicePages.quoteCta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
             </Link>
             <a
@@ -104,7 +105,7 @@ export default function ServiceHero({
               aria-label={contact.phone.ariaLabel}
               className="inline-flex items-center justify-center h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white border border-white/25 rounded-[4px] hover:border-white/40 hover:bg-white/5 transition-colors duration-200"
             >
-              Call Us
+              {uiContent.servicePages.callCta}
             </a>
           </div>
         </div>

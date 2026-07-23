@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import homeContent from "@/content/home.json";
 
 /**
  * HeroContent remains a server component so the hero is immediately available
@@ -32,10 +33,10 @@ export default function HeroContent() {
        */}
       <p className="mb-3 text-[0.6875rem] font-semibold uppercase text-lsh-blue">
         <span className="tracking-[0.16em] sm:hidden">
-          LED Screen Hire &amp; AV Solutions
+          {homeContent.hero.eyebrowMobile}
         </span>
         <span className="hidden sm:inline tracking-[0.22em]">
-          Professional LED Screen &amp; AV Solutions
+          {homeContent.hero.eyebrowDesktop}
         </span>
       </p>
 
@@ -52,17 +53,17 @@ export default function HeroContent() {
         className="font-heading font-bold uppercase leading-[0.88] tracking-[-0.02em] text-white mb-4 sm:mb-5"
         style={{ fontSize: "clamp(2.375rem, calc(5.7vw + 1.25rem), 5.125rem)" }}
       >
-        BIGGER SCREENS.
-        <br />
-        BIGGER IMPACT.
+        {homeContent.hero.headingLines.map((line) => (
+          <span key={line} className="block">
+            {line}
+          </span>
+        ))}
       </h1>
 
       {/* Supporting copy + CTAs */}
       <div className="flex flex-col items-start gap-4 sm:gap-5 w-full">
         <p className="text-[0.875rem] sm:text-[0.9rem] leading-[1.6] text-lsh-grey-300 max-w-[400px]">
-          Professional LED screen hire, audiovisual production and event
-          solutions across London, with UK-wide projects available by
-          arrangement.
+          {homeContent.hero.description}
         </p>
 
         {/*
@@ -74,14 +75,14 @@ export default function HeroContent() {
             href="#quote"
             className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
           >
-            Get a Quote
+            {homeContent.hero.primaryCta}
             <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />
           </a>
           <a
             href="#services"
             className="inline-flex items-center justify-center h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white border border-white/25 rounded-[4px] hover:border-white/40 hover:bg-white/5 transition-colors duration-200 whitespace-nowrap"
           >
-            Our Services
+            {homeContent.hero.secondaryCta}
           </a>
         </div>
       </div>

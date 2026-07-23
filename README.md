@@ -15,25 +15,43 @@ Production website for London Screen Hire, built as a lightweight static Next.js
 
 The project uses `output: "export"`, so `npm run build` produces a static site in `out/`.
 
-## Local development
+## Getting started
 
 Requirements:
 
-- Node.js 18 or newer
+- Node.js 22.13.0 (pinned in `.nvmrc`)
 - npm
 
-Install dependencies and start the development server:
+Clone the repository, install dependencies and create your local environment
+file:
 
 ```bash
-npm install
+git clone https://github.com/makeitlook/londonscreenhire.git
+cd londonscreenhire
+nvm use
+npm ci
+cp .env.example .env.local
+```
+
+If you do not use `nvm`, install the Node version declared in `.nvmrc` with
+your preferred version manager before running `npm ci`.
+
+Add a Web3Forms access key to `.env.local` if you need to test quote-form
+submissions. You can leave it empty for normal page and content work.
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000). Changes appear as you edit
+the project. Stop the server with `Ctrl+C`.
 
 ## Environment variables
 
-Create `.env.local` with the production or test Web3Forms access key:
+The setup command above copies `.env.example` to `.env.local`. Set the
+production or test Web3Forms access key there:
 
 ```bash
 NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_access_key
@@ -50,8 +68,11 @@ npm run dev        # Start the local development server
 npm run lint       # Run ESLint directly
 npm run typecheck  # Run TypeScript without emitting files
 npm run build      # Create the production static export
-npm run start      # Serve a Next.js production build where supported
+npm run preview    # Serve the generated out/ directory locally
 ```
+
+Run `npm run build` before `npm run preview`. The preview command serves the
+already-generated static export from `out/`.
 
 Before handing off or deploying a change, run:
 
@@ -72,7 +93,8 @@ src/
     service-pages/      Shared service-page template and sections
     shared/             Reusable site-specific components
     ui/                 shadcn/ui primitives
-  data/                 Typed site, service and marketing content
+  content/              All editor-facing website content in JSON
+  data/                 Typed adapters between JSON content and components
   lib/                  Validation and shared site configuration
 public/images/          Repository-hosted production imagery
 docs/                   Design system and performance budget
@@ -80,16 +102,64 @@ docs/                   Design system and performance budget
 
 ## Content management
 
-Content is intentionally repository-based rather than CMS-driven:
+All editable website copy is kept in [`src/content`](src/content) as JSON so a
+content contributor can work without changing components or application code.
+See the [`src/content` editing guide](src/content/README.md) for the complete
+file map and editing rules.
 
-- Service content: `src/data/services.ts`
-- Projects: `src/data/projects.ts`
-- Testimonials: `src/data/testimonials.ts`
-- Statistics: `src/data/statistics.ts`
-- Contact details: `src/data/contact.ts`
-- Footer and social links: `src/data/footer.ts`
+For content-only changes:
 
-Statistics and testimonials remain clearly marked in their data files until the supporting business records or customer approvals are available. Confirm those items before presenting them as verified claims. Social links with no confirmed profile URL remain hidden automatically.
+1. Change only the relevant files in `src/content/`.
+2. Keep existing JSON keys and icon values unless a developer is coordinating
+   the change.
+3. Do not add comments or trailing commas; both are invalid in JSON.
+4. Preview the affected pages locally.
+5. Run the validation commands below before opening a pull request.
+
+Files in `src/data/` are TypeScript adapters used by the application. Content
+editors should not need to change them. Items marked with
+`"placeholder": true` are not client-verified and must be confirmed before
+being published as factual claims.
+
+## Making a change
+
+Start every change from the latest `dev` branch and use a short-lived feature
+branch:
+
+```bash
+git fetch origin
+git switch dev
+git pull --ff-only origin dev
+git switch -c your-name/short-description
+```
+
+Keep each branch focused on one task. Check the changed pages locally, then run:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+Commit and push your feature branch, then open a pull request with `dev` as the
+base branch. This step is required.
+
+## Pull request and release workflow
+
+The required merge path is:
+
+```text
+feature branch -> pull request to dev -> review/test on dev -> pull request from dev to main
+```
+
+- Do not open feature or content pull requests directly against `main`.
+- All day-to-day changes must be reviewed and merged into `dev` first.
+- Once the combined changes on `dev` have been checked and approved, open a
+  separate pull request from `dev` into `main`.
+- `main` is the production/release branch.
+
+If `dev` is not available on the remote, ask a maintainer to create or restore
+it before starting work; do not use `main` as a substitute.
 
 ## Images
 
@@ -100,7 +170,7 @@ The static export does not provide runtime image optimisation. Compress every ph
 - Keep mobile hero crops at or below 180KB.
 - Keep cards and section images at or below 100KB.
 - Preserve the aspect ratio and focal point expected by the component.
-- Update file paths in the relevant data file when changing formats.
+- Update file paths in the relevant `src/content/` JSON file when changing formats.
 
 Only true hero images should use priority loading. Below-the-fold images should remain lazy-loaded.
 
@@ -120,6 +190,9 @@ Core requirements include:
 - Responsive review at 375, 390, 768, 1024, 1280, 1440 and 1920 pixels
 - A shared 1440px maximum content frame while section backgrounds remain full width
 
+When changing layout or components, follow the documented design system and
+reuse the existing shared components before introducing new patterns.
+
 ## Quote form
 
 The quote form uses native browser `fetch` to submit to Web3Forms. It includes client-side validation, a honeypot, field-level error associations, loading state, success confirmation, and a submission-level fallback.
@@ -134,7 +207,7 @@ Vercel reads the production security headers from `vercel.json`. Keep its Conten
 
 Before production deployment:
 
-1. Confirm `SITE_URL` in `src/lib/site.ts`.
+1. Confirm the site URL in `src/content/site.json`.
 2. Confirm the Web3Forms access key in the hosting environment.
 3. Verify statistics and obtain permission for published testimonials.
 4. Have the privacy notice, website terms and booking terms reviewed for the final trading entity and business process.

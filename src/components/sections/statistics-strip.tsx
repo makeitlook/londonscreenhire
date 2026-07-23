@@ -1,4 +1,5 @@
 import { statistics } from "@/data/statistics";
+import homeContent from "@/content/home.json";
 import { FadeIn } from "@/components/shared/fade-in";
 
 /**
@@ -38,7 +39,7 @@ export default function StatisticsStrip() {
   return (
     <section
       id="stats"
-      aria-label="London Screen Hire statistics"
+      aria-label={homeContent.statisticsAriaLabel}
       className="bg-lsh-blue scroll-mt-[68px] xl:scroll-mt-[78px]"
     >
       <div className="lsh-container">

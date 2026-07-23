@@ -1,0 +1,23 @@
+{
+  "phone": {
+    "label": "Phone",
+    "display": "07946 098813",
+    "href": "tel:+447946098813",
+    "ariaLabel": "Call us on 07946 098813",
+    "icon": "phone"
+  },
+  "email": {
+    "label": "Email",
+    "display": "info@londonscreenhire.com",
+    "href": "mailto:info@londonscreenhire.com",
+    "ariaLabel": "Email info@londonscreenhire.com",
+    "icon": "mail"
+  },
+  "whatsapp": {
+    "label": "WhatsApp",
+    "display": "Message us on WhatsApp",
+    "href": "https://wa.me/447946098813",
+    "ariaLabel": "Message us on WhatsApp",
+    "icon": "whatsapp"
+  }
+}

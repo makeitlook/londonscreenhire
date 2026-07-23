@@ -7,10 +7,10 @@ export default function SiteLogo() {
   return (
     <div className="flex flex-col leading-none select-none">
       <span className="font-heading text-[0.72rem] font-semibold tracking-[0.28em] uppercase text-lsh-grey-300">
-        London
+        {siteContent.logo.topLine}
       </span>
       <span className="font-heading text-[2.05rem] font-bold tracking-[-0.015em] uppercase text-lsh-white leading-[1]">
-        Screen Hire
+        {siteContent.logo.mainLine}
       </span>
       {/* Blue accent rule - remove when real SVG logo is provided */}
       <span
@@ -20,3 +20,4 @@ export default function SiteLogo() {
     </div>
   );
 }
+import siteContent from "@/content/site.json";

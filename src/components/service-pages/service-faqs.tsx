@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import uiContent from "@/content/ui.json";
 import { contact } from "@/data/contact";
 
 interface ServiceFaq {
@@ -27,18 +28,17 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
           {/* ── Left: heading + contact ── */}
           <div className="xl:w-[32%] xl:shrink-0 mb-10 xl:mb-0 xl:sticky xl:top-28">
             <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
-              FAQs
+              {uiContent.servicePages.faqsEyebrow}
             </p>
             <h2
               id="service-faqs-heading"
               className="font-heading font-bold uppercase text-white leading-[0.9] tracking-[-0.01em] mb-5"
               style={{ fontSize: "clamp(1.75rem, 3vw + 0.5rem, 2.75rem)" }}
             >
-              Common Questions
+              {uiContent.servicePages.faqsHeading}
             </h2>
             <p className="text-[0.9rem] leading-[1.65] text-lsh-grey-400 mb-5">
-              Can&rsquo;t find an answer? Get in touch and we&rsquo;ll respond
-              promptly.
+              {uiContent.servicePages.faqsPrompt}
             </p>
             <a
               href={contact.phone.href}
@@ -46,7 +46,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
               className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-[4px] bg-lsh-blue px-6 text-[0.8125rem] font-semibold text-white transition-colors duration-200 hover:bg-lsh-blue-hover active:bg-lsh-blue-dark sm:w-auto focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2"
             >
               <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
-              Call {contact.phone.display}
+              {uiContent.servicePages.callPrefix} {contact.phone.display}
             </a>
           </div>
 

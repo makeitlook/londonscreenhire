@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import ErrorScreen from "@/components/shared/error-screen";
+import siteContent from "@/content/site.json";
 
 export default function GlobalError({
   error,
@@ -15,7 +16,7 @@ export default function GlobalError({
   }, [error]);
 
   return (
-    <html lang="en-GB">
+    <html lang={siteContent.language}>
       <body
         className="font-body"
         style={{ margin: 0, backgroundColor: "#0a0d12", color: "#ffffff" }}

@@ -3,6 +3,7 @@
 import { useState, useId, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { Loader2, CheckCircle2, ArrowRight, AlertTriangle } from "lucide-react";
+import formsContent from "@/content/forms.json";
 import { cn } from "@/lib/utils";
 import { validateQuote, type QuoteErrors } from "@/lib/quote-schema";
 
@@ -47,6 +48,7 @@ function fromDateInputValue(value: string): Date | undefined {
 
 // ── Component ────────────────────────────────────────────────────────────────
 export default function QuoteForm() {
+  const content = formsContent.quote;
   const id = useId();
   const [formState, setFormState] = useState<FormState>("idle");
   const [submitError, setSubmitError] = useState<string | null>(null);
@@ -131,7 +133,7 @@ export default function QuoteForm() {
     const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
     if (!accessKey) {
       setSubmitError(
-        "Our enquiry form is temporarily unavailable. Please contact us directly by phone or email.",
+        content.unavailableError,
       );
       setTimeout(() => submitErrorRef.current?.focus(), 0);
       return;
@@ -141,20 +143,20 @@ export default function QuoteForm() {
 
     const payload = new FormData();
     payload.set("access_key", accessKey);
-    payload.set("subject", "New Quote Request | London Screen Hire");
-    payload.set("from_name", "London Screen Hire Website");
-    payload.set("Full Name", fields.name.trim());
-    payload.set("Email Address", fields.email.trim());
-    payload.set("Phone Number", fields.phone.trim());
-    payload.set("Event Type", fields.eventType);
+    payload.set("subject", content.emailSubject);
+    payload.set("from_name", content.emailFromName);
+    payload.set(content.emailFields.name, fields.name.trim());
+    payload.set(content.emailFields.email, fields.email.trim());
+    payload.set(content.emailFields.phone, fields.phone.trim());
+    payload.set(content.emailFields.eventType, fields.eventType);
     payload.set(
-      "Event Date",
-      fields.eventDate ? formatUK(fields.eventDate) : "Not specified",
+      content.emailFields.eventDate,
+      fields.eventDate ? formatUK(fields.eventDate) : content.notSpecified,
     );
-    payload.set("Venue or Event Location", fields.venue.trim());
-    payload.set("Screen Size Required", fields.screenSize);
-    payload.set("Event Details and Requirements", fields.message.trim());
-    payload.set("Privacy Notice Acknowledged", "Yes");
+    payload.set(content.emailFields.venue, fields.venue.trim());
+    payload.set(content.emailFields.screenSize, fields.screenSize);
+    payload.set(content.emailFields.message, fields.message.trim());
+    payload.set(content.emailFields.consent, content.yes);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -167,14 +169,14 @@ export default function QuoteForm() {
       } else {
         setFormState("idle");
         setSubmitError(
-          "Something went wrong. Please try again or contact us directly by phone or email.",
+          content.submitError,
         );
         setTimeout(() => submitErrorRef.current?.focus(), 0);
       }
     } catch {
       setFormState("idle");
       setSubmitError(
-        "Something went wrong. Please try again or contact us directly by phone or email.",
+        content.submitError,
       );
       setTimeout(() => submitErrorRef.current?.focus(), 0);
     }
@@ -186,10 +188,10 @@ export default function QuoteForm() {
       <div className="flex flex-col items-center justify-center gap-4 text-center py-14 px-4">
         <CheckCircle2 size={48} className="text-lsh-blue" aria-hidden="true" />
         <h3 className="font-heading font-bold uppercase text-white text-2xl leading-tight">
-          Enquiry Sent
+          {content.successHeading}
         </h3>
         <p className="text-[var(--lsh-grey-300)] text-[0.9375rem] leading-relaxed max-w-xs">
-          Thanks, your enquiry has been sent. We&rsquo;ll be in touch shortly.
+          {content.successMessage}
         </p>
         <button
           onClick={handleReset}
@@ -202,7 +204,7 @@ export default function QuoteForm() {
             "focus:ring-offset-[var(--lsh-charcoal)]",
           )}
         >
-          Send Another Enquiry
+          {content.reset}
         </button>
       </div>
     );
@@ -210,7 +212,7 @@ export default function QuoteForm() {
 
   // ── Form ─────────────────────────────────────────────────────────────────────
   return (
-    <form onSubmit={handleSubmit} noValidate aria-label="Request a quote">
+    <form onSubmit={handleSubmit} noValidate aria-label={content.ariaLabel}>
       {/* Honeypot - invisible to real users */}
       <input
         type="checkbox"
@@ -222,12 +224,12 @@ export default function QuoteForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
         {/* ── Group: Your Details ── */}
-        <p className={groupHeading}>Your Details</p>
+        <p className={groupHeading}>{content.groups.details}</p>
 
         {/* Full Name */}
         <div>
           <FLabel htmlFor={`${id}-name`} required>
-            Full Name
+            {content.fields.name}
           </FLabel>
           <input
             ref={nameRef}
@@ -245,7 +247,7 @@ export default function QuoteForm() {
         {/* Email */}
         <div>
           <FLabel htmlFor={`${id}-email`} required>
-            Email Address
+            {content.fields.email}
           </FLabel>
           <input
             id={`${id}-email`}
@@ -262,7 +264,7 @@ export default function QuoteForm() {
         {/* Phone */}
         <div>
           <FLabel htmlFor={`${id}-phone`} required>
-            Phone Number
+            {content.fields.phone}
           </FLabel>
           <input
             id={`${id}-phone`}
@@ -279,7 +281,7 @@ export default function QuoteForm() {
         {/* Event Type */}
         <div>
           <FLabel htmlFor={`${id}-event-type`} required>
-            Event Type
+            {content.fields.eventType}
           </FLabel>
           <select
             id={`${id}-event-type`}
@@ -296,19 +298,9 @@ export default function QuoteForm() {
             )}
           >
             <option value="" disabled>
-              Select an event type
+              {content.eventTypePlaceholder}
             </option>
-            {[
-              "Corporate Event",
-              "Conference",
-              "Exhibition",
-              "Awards Ceremony",
-              "Wedding",
-              "Concert or Festival",
-              "Outdoor Event",
-              "Live Streaming",
-              "Other",
-            ].map((option) => (
+            {content.eventTypes.map((option) => (
               <option key={option} value={option}>
                 {option}
               </option>
@@ -318,12 +310,12 @@ export default function QuoteForm() {
         </div>
 
         {/* ── Group: Event Information ── */}
-        <p className={groupHeading}>Event Information</p>
+        <p className={groupHeading}>{content.groups.event}</p>
 
         {/* Event Date */}
         <div>
           <FLabel htmlFor={`${id}-date`} required>
-            Event Date
+            {content.fields.eventDate}
           </FLabel>
           <input
             id={`${id}-date`}
@@ -349,14 +341,14 @@ export default function QuoteForm() {
         {/* Venue */}
         <div>
           <FLabel htmlFor={`${id}-venue`} required>
-            Venue or Event Location
+            {content.fields.venue}
           </FLabel>
           <input
             id={`${id}-venue`}
             name="venue"
             type="text"
             maxLength={150}
-            placeholder="Venue name, town or postcode"
+            placeholder={content.fields.venuePlaceholder}
             autoComplete="off"
             aria-describedby={errors.venue ? `${id}-venue-e` : undefined}
             aria-invalid={errors.venue ? "true" : undefined}
@@ -368,7 +360,7 @@ export default function QuoteForm() {
         {/* Screen Size - full width */}
         <div className="sm:col-span-2">
           <FLabel htmlFor={`${id}-screen-size`} required>
-            Screen Size Required
+            {content.fields.screenSize}
           </FLabel>
           <select
             id={`${id}-screen-size`}
@@ -385,18 +377,11 @@ export default function QuoteForm() {
             )}
           >
             <option value="" disabled>
-              Select a screen size
+              {content.screenSizePlaceholder}
             </option>
-            {[
-              ["Not Sure", "Not Sure, We Can Advise"],
-              ["Small Screen", "Small Screen"],
-              ["Medium Screen", "Medium Screen"],
-              ["Large Screen", "Large Screen"],
-              ["Multiple Screens", "Multiple Screens"],
-              ["Custom LED Wall", "Custom LED Wall"],
-            ].map(([value, label]) => (
-              <option key={value} value={value}>
-                {label}
+            {content.screenSizes.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>
@@ -406,14 +391,14 @@ export default function QuoteForm() {
         {/* Message - full width */}
         <div className="sm:col-span-2">
           <FLabel htmlFor={`${id}-msg`} required>
-            Event Details and Requirements
+            {content.fields.message}
           </FLabel>
           <textarea
             id={`${id}-msg`}
             name="message"
             rows={5}
             maxLength={1500}
-            placeholder="Tell us about your event, preferred screen setup, audience size, timings and any additional AV requirements."
+            placeholder={content.fields.messagePlaceholder}
             aria-describedby={errors.message ? `${id}-msg-e` : undefined}
             aria-invalid={errors.message ? "true" : undefined}
             className={cn(
@@ -444,8 +429,7 @@ export default function QuoteForm() {
               htmlFor={`${id}-consent`}
               className="text-[0.875rem] text-[var(--lsh-grey-300)] leading-snug cursor-pointer"
             >
-              I have read the Privacy Policy and understand how my details will
-              be used to respond to this enquiry.
+              {content.consent}
               <span className="text-red-400 ml-0.5" aria-hidden="true">
                 *
               </span>
@@ -453,12 +437,11 @@ export default function QuoteForm() {
           </div>
           <FError id={`${id}-consent-e`}>{errors.consent}</FError>
           <p className="text-[0.725rem] text-[var(--lsh-grey-500)] leading-snug ml-[calc(18px+0.75rem)]">
-            Read our{" "}
+            {content.privacyPrefix}{" "}
             <Link href="/privacy" className="text-lsh-blue hover:underline">
-              Privacy Policy
+              {content.privacyLink}
             </Link>
-            . We use your details to handle your enquiry and any resulting
-            booking.
+            . {content.privacySuffix}
           </p>
         </div>
 
@@ -502,11 +485,11 @@ export default function QuoteForm() {
                   className="animate-spin"
                   aria-hidden="true"
                 />
-                Sending Enquiry…
+                {content.submitting}
               </>
             ) : (
               <>
-                Request a Quote
+                {content.submit}
                 <ArrowRight size={16} aria-hidden="true" />
               </>
             )}

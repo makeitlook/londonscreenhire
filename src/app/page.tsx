@@ -11,6 +11,7 @@ import ContactSection from "@/components/sections/contact-section";
 import { contact } from "@/data/contact";
 import { socialLinks } from "@/data/footer";
 import { services } from "@/data/services";
+import siteContent from "@/content/site.json";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const verifiedSocialProfiles = socialLinks
@@ -22,26 +23,25 @@ const localBusinessSchema = {
   "@type": "LocalBusiness",
   "@id": `${SITE_URL}/#business`,
   name: SITE_NAME,
-  description:
-    "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement.",
+  description: siteContent.business.description,
   url: SITE_URL,
   telephone: contact.phone.href.replace("tel:", ""),
   email: contact.email.display,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "London",
-    addressCountry: "GB",
+    addressLocality: siteContent.business.addressLocality,
+    addressCountry: siteContent.business.addressCountry,
   },
   areaServed: {
     "@type": "Country",
-    name: "United Kingdom",
+    name: siteContent.business.areaServed,
   },
-  priceRange: "££",
-  image: `${SITE_URL}/images/hero/hero.png`,
+  priceRange: siteContent.business.priceRange,
+  image: `${SITE_URL}${siteContent.homeMetadata.socialImage}`,
   sameAs: verifiedSocialProfiles,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Screen Hire Services",
+    name: siteContent.business.offerCatalogName,
     itemListElement: services.map((service) => {
       const serviceUrl = `${SITE_URL}/${service.slug}`;
 

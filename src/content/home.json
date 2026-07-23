@@ -1,0 +1,71 @@
+{
+  "hero": {
+    "ariaLabel": "Hero",
+    "image": "/images/hero/hero.png",
+    "imageAlt": "Large LED video wall at a professionally produced live event",
+    "eyebrowMobile": "LED Screen Hire & AV Solutions",
+    "eyebrowDesktop": "Professional LED Screen & AV Solutions",
+    "headingLines": ["BIGGER SCREENS.", "BIGGER IMPACT."],
+    "description": "Professional LED screen hire, audiovisual production and event solutions across London, with UK-wide projects available by arrangement.",
+    "primaryCta": "Get a Quote",
+    "secondaryCta": "Our Services"
+  },
+  "featuredServices": {
+    "ariaLabel": "Featured services",
+    "items": [
+      { "title": "LED Screen Hire", "description": "Indoor and outdoor LED screens for every event.", "icon": "Monitor", "href": "/led-screen-hire-london" },
+      { "title": "Audio Systems", "description": "Clear, powerful sound for live and corporate events.", "icon": "Volume2", "href": "/corporate-av-hire" },
+      { "title": "Lighting", "description": "Lighting, effects and atmosphere.", "icon": "Lightbulb", "href": "/lighting-hire" },
+      { "title": "Staging", "description": "Professional staging, trussing and set design.", "icon": "Layers", "href": "/stage-hire" },
+      { "title": "Live Streaming", "description": "Multi-camera streaming and video production.", "icon": "Radio", "href": "/corporate-av-hire" },
+      { "title": "Event Production", "description": "Technical management from planning to delivery.", "icon": "Clapperboard", "href": "/corporate-av-hire" }
+    ]
+  },
+  "projects": {
+    "eyebrow": "What We Deliver",
+    "heading": "Built for Every Event",
+    "items": [
+      { "title": "Corporate Conferences", "location": "London", "image": "/images/projects/corporate.webp", "alt": "LED screen hire for a corporate conference" },
+      { "title": "Awards Ceremonies", "location": "Birmingham", "image": "/images/projects/awards.webp", "alt": "LED screen and stage production for an awards ceremony" },
+      { "title": "Live Concerts", "location": "Manchester", "image": "/images/projects/concert.webp", "alt": "LED wall and stage production for a live concert" },
+      { "title": "Exhibition Stands", "location": "ExCeL London", "image": "/images/projects/exhibition.webp", "alt": "LED screen on an exhibition stand" },
+      { "title": "Wedding Receptions", "location": "London", "image": "/images/projects/wedding.webp", "alt": "LED screen backdrop for a wedding reception" }
+    ]
+  },
+  "whyChoose": {
+    "eyebrow": "Why Choose Us",
+    "headingLines": ["Experience.", "Quality.", "Reliability."],
+    "description": "We specialise in high-impact LED screen hire and AV production, delivering professional results through careful planning, premium equipment and dependable on-site support.",
+    "cta": "Get a Quote",
+    "benefits": [
+      { "title": "Premium Equipment", "description": "Professional LED screens and AV equipment for dependable event performance.", "icon": "BadgeCheck" },
+      { "title": "Experienced Team", "description": "Skilled technicians supporting planning, installation and live delivery.", "icon": "Users" },
+      { "title": "Reliable Service", "description": "Careful preparation, clear communication and dependable support.", "icon": "ShieldCheck" },
+      { "title": "Flexible Coverage", "description": "Event support across London and selected UK locations.", "icon": "MapPinned" },
+      { "title": "Technical Support", "description": "Practical guidance from planning through to live production.", "icon": "Headphones" },
+      { "title": "Competitive Solutions", "description": "Tailored equipment and production options for your event.", "icon": "PoundSterling" }
+    ]
+  },
+  "statisticsAriaLabel": "London Screen Hire statistics",
+  "statistics": [
+    { "value": "10+", "label": "Years Experience", "icon": "CalendarDays", "placeholder": true, "numericValue": 10 },
+    { "value": "1,500+", "label": "Events Delivered", "icon": "Monitor", "placeholder": true, "numericValue": 1500 },
+    { "value": "1,000+", "label": "Happy Clients", "icon": "Users", "placeholder": true, "numericValue": 1000 },
+    { "value": "UK-Wide", "label": "Coverage", "icon": "MapPin", "placeholder": true }
+  ],
+  "testimonials": {
+    "eyebrow": "What Our Clients Say",
+    "heading": "What Our Clients Say",
+    "items": [
+      { "quote": "London Screen Hire provided an outstanding LED wall and professional production support for our event. The installation and service were excellent from start to finish.", "name": "David M.", "role": "Event Manager", "initial": "D", "placeholder": true },
+      { "quote": "Professional, reliable and a pleasure to work with. The screens looked excellent and the team handled the technical setup smoothly.", "name": "Emma L.", "role": "Marketing Director", "initial": "E", "placeholder": true },
+      { "quote": "A knowledgeable and friendly team who delivered a polished result for our event. Everything was handled with care and professionalism.", "name": "Raj K.", "role": "Wedding Planner", "initial": "R", "placeholder": true }
+    ]
+  },
+  "contactSection": {
+    "eyebrow": "Get in Touch",
+    "heading": "Request a Free Quote",
+    "description": "Tell us about your event and we’ll put together a tailored package. We work across London, with UK-wide projects available by arrangement, for corporate events, weddings, concerts and more.",
+    "contactListAriaLabel": "Contact details"
+  }
+}
