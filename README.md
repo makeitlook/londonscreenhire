@@ -174,18 +174,32 @@ CI does not require GitHub secrets or repository variables. The
 CI builds; it is only needed to test real quote submissions. Keep the real key
 in `.env.local` and the hosting environment, never in Git.
 
-After both workflows have run on GitHub at least once, configure a ruleset for
-`master` that:
+After both workflows have run on GitHub at least once, use two layered rulesets
+for `master`:
 
-- Requires a pull request before merging.
-- Requires the **Require dev source branch** and **CI** status checks.
-- Requires conversation resolution before merging.
-- Prevents force pushes.
-- Prevents branch deletion.
+1. Create a **Master safeguards** ruleset with no bypass actors. Require a pull
+   request with zero required approvals, the **Require dev source branch** and
+   **CI** status checks, conversation resolution, and prevention of force
+   pushes and branch deletion.
+2. Create a separate **Master external approval** ruleset requiring one
+   approving review. Add only the repository owner (`@makeitlook`) to its
+   bypass list using **For pull requests only**. Do not add this bypass to
+   **Master safeguards**.
 
-Apply similar pull-request protection to `dev` and require **CI**, but do not
-add a source-branch restriction to `dev`; feature branches must remain able to
-merge into it.
+This lets the repository owner merge their own pull requests without a review,
+but only after opening a pull request and passing the branch-source and CI
+checks. Pull requests opened by anyone else require one approval.
+
+Apply the same two-ruleset pattern to `dev`: keep **CI**, pull requests,
+conversation resolution, force-push prevention and deletion prevention in a
+non-bypassable **Dev safeguards** ruleset, then put the one-approval requirement
+and owner-only pull-request bypass in a separate **Dev external approval**
+ruleset. Do not add a source-branch restriction to `dev`; feature branches must
+remain able to merge into it.
+
+If GitHub offers only role-based bypass choices for this user-owned repository,
+select **Repository administrators** and ensure no other contributor receives
+administrator access. Do not select the broader write or maintain roles.
 
 ## Images
 
