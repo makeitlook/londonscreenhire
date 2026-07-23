@@ -67,6 +67,8 @@ If the key is absent, the form remains visible but shows an accessible contact-b
 npm run dev        # Start the local development server
 npm run lint       # Run ESLint directly
 npm run typecheck  # Run TypeScript without emitting files
+npm test           # Run the automated test suite once
+npm run test:watch # Run tests in watch mode
 npm run build      # Create the production static export
 npm run preview    # Serve the generated out/ directory locally
 ```
@@ -79,6 +81,7 @@ Before handing off or deploying a change, run:
 ```bash
 npm run lint
 npm run typecheck
+npm test
 npm run build
 ```
 
@@ -121,10 +124,21 @@ editors should not need to change them. Items marked with
 `"placeholder": true` are not client-verified and must be confirmed before
 being published as factual claims.
 
-## Making a change
+## Development and release workflow
 
-Start every change from the latest `dev` branch and use a short-lived feature
-branch:
+The required merge path is:
+
+```text
+feature branch -> pull request to dev -> review/test on dev -> pull request from dev to master
+```
+
+1. Create each short-lived feature branch from the latest `dev`.
+2. Open feature and content pull requests into `dev`.
+3. Do not open feature pull requests directly into `master`.
+4. Release by opening a pull request from `dev` into `master`.
+5. Merge into `master` only after every required check passes.
+
+Start a change with:
 
 ```bash
 git fetch origin
@@ -138,28 +152,40 @@ Keep each branch focused on one task. Check the changed pages locally, then run:
 ```bash
 npm run lint
 npm run typecheck
+npm test
 npm run build
 ```
 
 Commit and push your feature branch, then open a pull request with `dev` as the
 base branch. This step is required.
 
-## Pull request and release workflow
+GitHub automation:
 
-The required merge path is:
+- `.github/workflows/ci.yml` is the **CI** workflow. It runs `npm ci`, lint,
+  type-checking, unit tests and the production static build for pull requests
+  into `dev` or `master` and pushes to either branch.
+- `.github/workflows/require-dev-for-master.yml` is the **Require dev for
+  master** workflow. For pull requests into `master`, its
+  **Require dev source branch** check fails unless the source branch is exactly
+  `dev`.
 
-```text
-feature branch -> pull request to dev -> review/test on dev -> pull request from dev to main
-```
+CI does not require GitHub secrets or repository variables. The
+`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` value is optional for local development and
+CI builds; it is only needed to test real quote submissions. Keep the real key
+in `.env.local` and the hosting environment, never in Git.
 
-- Do not open feature or content pull requests directly against `main`.
-- All day-to-day changes must be reviewed and merged into `dev` first.
-- Once the combined changes on `dev` have been checked and approved, open a
-  separate pull request from `dev` into `main`.
-- `main` is the production/release branch.
+After both workflows have run on GitHub at least once, configure a ruleset for
+`master` that:
 
-If `dev` is not available on the remote, ask a maintainer to create or restore
-it before starting work; do not use `main` as a substitute.
+- Requires a pull request before merging.
+- Requires the **Require dev source branch** and **CI** status checks.
+- Requires conversation resolution before merging.
+- Prevents force pushes.
+- Prevents branch deletion.
+
+Apply similar pull-request protection to `dev` and require **CI**, but do not
+add a source-branch restriction to `dev`; feature branches must remain able to
+merge into it.
 
 ## Images
 
