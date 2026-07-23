@@ -10,12 +10,13 @@
     "build": "next build",
     "preview": "serve out",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.19",
     "@radix-ui/react-slot": "^1.1.2",
-    "@types/node": "20.2.0",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@vercel/analytics": "^1.5.0",
@@ -36,6 +37,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "serve": "^14.2.6"
+    "@types/node": "^22.20.1",
+    "serve": "^14.2.6",
+    "vitest": "4.1.10"
   }
 }

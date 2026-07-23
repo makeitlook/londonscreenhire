@@ -1,0 +1,32 @@
+name: Require dev for master
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+
+permissions:
+  contents: read
+
+jobs:
+  require-dev-source:
+    name: Require dev source branch
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+
+    steps:
+      - name: Validate pull request source branch
+        env:
+          SOURCE_BRANCH: ${{ github.head_ref }}
+        run: |
+          if [[ "$SOURCE_BRANCH" != "dev" ]]; then
+            echo "::error title=Invalid production source branch::Production releases must be promoted from dev into master. Received source branch '$SOURCE_BRANCH'."
+            exit 1
+          fi
+
+          echo "Source branch is dev; production promotion is allowed."
