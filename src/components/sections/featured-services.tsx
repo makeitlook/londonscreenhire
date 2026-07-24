@@ -40,7 +40,7 @@ export default function FeaturedServices() {
     <section
       id="services"
       aria-label={homeContent.featuredServices.ariaLabel}
-      className="bg-lsh-dark py-0 scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-dark py-0 scroll-mt-[76px] xl:scroll-mt-[86px]"
     >
       <div className="lsh-container">
         <FadeIn>
@@ -56,7 +56,7 @@ export default function FeaturedServices() {
                     <Icon
                       size={26}
                       strokeWidth={1.4}
-                      className="text-lsh-blue shrink-0"
+                      className="text-lsh-gold shrink-0"
                       aria-hidden="true"
                     />
                     <div>
@@ -77,7 +77,7 @@ export default function FeaturedServices() {
                     {service.href ? (
                       <Link
                         href={service.href}
-                        className="flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 w-full focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-[-2px] rounded-[2px]"
+                        className="flex flex-col items-center text-center gap-2.5 sm:gap-3 xl:gap-4 w-full focus-visible:outline-2 focus-visible:outline-lsh-gold focus-visible:outline-offset-[-2px] rounded-[2px]"
                       >
                         {inner}
                       </Link>

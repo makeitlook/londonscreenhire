@@ -14,7 +14,7 @@ type FormState = "idle" | "loading" | "success";
 const inputBase =
   "w-full h-[46px] px-3.5 bg-[var(--lsh-charcoal-light)] border border-[var(--lsh-border-dark)] " +
   "rounded-[3px] text-white text-[0.9375rem] placeholder:text-[var(--lsh-grey-500)] " +
-  "focus:outline-none focus:border-lsh-blue focus:ring-1 focus:ring-lsh-blue/30 transition-colors";
+  "focus:outline-none focus:border-lsh-gold focus:ring-1 focus:ring-lsh-gold/30 transition-colors";
 const inputErr = "border-red-500 focus:border-red-500 focus:ring-red-500/20";
 const labelBase =
   "block mb-1.5 text-[0.8125rem] font-medium text-[var(--lsh-grey-300)]";
@@ -186,7 +186,7 @@ export default function QuoteForm() {
   if (formState === "success") {
     return (
       <div className="flex flex-col items-center justify-center gap-4 text-center py-14 px-4">
-        <CheckCircle2 size={48} className="text-lsh-blue" aria-hidden="true" />
+        <CheckCircle2 size={48} className="text-lsh-gold" aria-hidden="true" />
         <h3 className="font-heading font-bold uppercase text-white text-2xl leading-tight">
           {content.successHeading}
         </h3>
@@ -199,8 +199,8 @@ export default function QuoteForm() {
             "mt-2 inline-flex items-center gap-2 h-[40px] px-6",
             "bg-transparent border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-300)]",
             "text-[0.875rem] font-medium rounded-[3px] transition-colors",
-            "hover:border-lsh-blue hover:text-white",
-            "focus:outline-none focus:ring-2 focus:ring-lsh-blue focus:ring-offset-2",
+            "hover:border-lsh-gold hover:text-white",
+            "focus:outline-none focus:ring-2 focus:ring-lsh-gold focus:ring-offset-2",
             "focus:ring-offset-[var(--lsh-charcoal)]",
           )}
         >
@@ -421,7 +421,7 @@ export default function QuoteForm() {
               aria-describedby={errors.consent ? `${id}-consent-e` : undefined}
               aria-invalid={errors.consent ? "true" : undefined}
               className={cn(
-                "mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer accent-[var(--lsh-blue)]",
+                "mt-0.5 h-[18px] w-[18px] shrink-0 cursor-pointer accent-[var(--lsh-gold)]",
                 errors.consent && "border-red-500",
               )}
             />
@@ -438,7 +438,7 @@ export default function QuoteForm() {
           <FError id={`${id}-consent-e`}>{errors.consent}</FError>
           <p className="text-[0.725rem] text-[var(--lsh-grey-500)] leading-snug ml-[calc(18px+0.75rem)]">
             {content.privacyPrefix}{" "}
-            <Link href="/privacy" className="text-lsh-blue hover:underline">
+            <Link href="/privacy" className="text-lsh-gold hover:underline">
               {content.privacyLink}
             </Link>
             . {content.privacySuffix}
@@ -471,9 +471,9 @@ export default function QuoteForm() {
             disabled={formState === "loading"}
             className={cn(
               "inline-flex items-center justify-center gap-2 h-[46px] px-8 w-full sm:w-auto",
-              "bg-lsh-blue hover:bg-[var(--lsh-blue-hover)] text-white text-[0.9375rem] font-semibold",
+              "bg-lsh-gold hover:bg-[var(--lsh-gold-hover)] text-lsh-black text-[0.9375rem] font-semibold",
               "rounded-[3px] transition-colors",
-              "focus:outline-none focus:ring-2 focus:ring-lsh-blue focus:ring-offset-2",
+              "focus:outline-none focus:ring-2 focus:ring-lsh-gold focus:ring-offset-2",
               "focus:ring-offset-[var(--lsh-charcoal)]",
               "disabled:opacity-60 disabled:cursor-not-allowed",
             )}

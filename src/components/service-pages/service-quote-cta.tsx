@@ -32,7 +32,7 @@ export default function ServiceQuoteCta({
         {/* ── Left: content ── */}
         <div className="flex-1 flex items-center px-6 sm:px-8 xl:px-12 py-14 sm:py-16 xl:py-20">
           <div>
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {uiContent.servicePages.quoteEyebrow}
             </p>
             <h2
@@ -49,7 +49,7 @@ export default function ServiceQuoteCta({
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
                 href="/#quote"
-                className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
+                className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200"
               >
                 {uiContent.servicePages.quoteCta}
                 <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
@@ -75,7 +75,7 @@ export default function ServiceQuoteCta({
             sizes="(max-width: 1279px) 100vw, (max-width: 1440px) 38vw, 548px"
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-lsh-blue/15" aria-hidden="true" />
+          <div className="absolute inset-0 bg-lsh-gold/15" aria-hidden="true" />
           <div
             className="absolute inset-0 hidden xl:block"
             style={{

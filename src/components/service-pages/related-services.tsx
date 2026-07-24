@@ -17,7 +17,7 @@ function ServiceCard({ service }: { service: ServiceItem }) {
   return (
     <Link
       href={`/${service.slug}`}
-      className="group flex flex-col h-full bg-white border border-[var(--lsh-border-light)] rounded-[3px] overflow-hidden hover:border-lsh-blue/40 transition-colors duration-200"
+      className="group flex flex-col h-full bg-white border border-[var(--lsh-border-light)] rounded-[3px] overflow-hidden hover:border-lsh-gold/40 transition-colors duration-200"
     >
       {/* Image strip */}
       <div className="relative w-full aspect-[16/9] bg-lsh-charcoal overflow-hidden">
@@ -40,16 +40,16 @@ function ServiceCard({ service }: { service: ServiceItem }) {
 
       {/* Card body */}
       <div className="flex flex-col flex-1 p-5 sm:p-6">
-        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-lsh-blue mb-1.5">
+        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-lsh-gold-ink mb-1.5">
           {service.eyebrow}
         </p>
-        <h3 className="font-heading font-bold uppercase tracking-wide text-lsh-dark text-[1rem] leading-snug mb-2 group-hover:text-lsh-blue transition-colors duration-200">
+        <h3 className="font-heading font-bold uppercase tracking-wide text-lsh-dark text-[1rem] leading-snug mb-2 group-hover:text-lsh-gold-ink transition-colors duration-200">
           {service.navLabel}
         </h3>
         <p className="text-[0.875rem] leading-[1.6] text-lsh-grey-700 flex-1">
           {service.shortIntro}
         </p>
-        <span className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-lsh-blue">
+        <span className="mt-4 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold text-lsh-gold-ink">
           {uiContent.servicePages.learnMore}
           <ArrowRight
             size={13}
@@ -77,7 +77,7 @@ export default function RelatedServices({ services }: RelatedServicesProps) {
       aria-labelledby="related-services-heading"
     >
       <div className="lsh-container">
-        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
           {uiContent.servicePages.relatedEyebrow}
         </p>
         <h2

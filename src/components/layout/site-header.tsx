@@ -76,7 +76,7 @@ export default function SiteHeader() {
     <>
       <a
         href="#main-content"
-        className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-[3px] bg-lsh-blue px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform focus:translate-y-0"
+        className="fixed left-4 top-4 z-[60] -translate-y-24 rounded-[3px] bg-lsh-gold px-4 py-3 text-sm font-semibold text-lsh-black shadow-lg transition-transform focus:translate-y-0"
       >
         {headerContent.skipLink}
       </a>
@@ -98,9 +98,9 @@ export default function SiteHeader() {
         {/*
          * Three-column grid keeps the nav truly centred regardless of
          * logo / CTA width differences.
-         * h-[68px] on mobile, h-[78px] on desktop (xl).
+         * h-[76px] on mobile, h-[86px] on desktop (xl).
          */}
-        <div className="grid grid-cols-[auto_1fr_auto] items-center h-[68px] xl:h-[78px]">
+        <div className="grid grid-cols-[auto_1fr_auto] items-center h-[76px] xl:h-[86px]">
           {/* ── Logo - always left ── */}
           <Link
             href="/"
@@ -144,7 +144,7 @@ export default function SiteHeader() {
                     openServicesAndFocusFirstLink();
                   }
                 }}
-                className="flex items-center gap-1 text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2 rounded-[2px]"
+                className="flex items-center gap-1 text-[0.8125rem] font-medium tracking-wide text-lsh-grey-300 hover:text-lsh-white transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-gold focus-visible:outline-offset-2 rounded-[2px]"
               >
                 {headerContent.servicesLabel}
                 <ChevronDown
@@ -233,7 +233,7 @@ export default function SiteHeader() {
             {/* Desktop CTA - xl+ only */}
             <Link
               href="/#quote"
-              className="hidden xl:inline-flex items-center justify-center h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200 shrink-0"
+              className="hidden xl:inline-flex items-center justify-center h-[44px] px-6 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200 shrink-0"
             >
               {headerContent.quoteCta}
             </Link>
@@ -241,7 +241,7 @@ export default function SiteHeader() {
             {/* Compact quote - sm to lg only (640–1279px) */}
             <Link
               href="/#quote"
-              className="hidden sm:inline-flex xl:hidden items-center justify-center h-9 px-4 text-xs font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200 shrink-0"
+              className="hidden sm:inline-flex xl:hidden items-center justify-center h-9 px-4 text-xs font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover transition-colors duration-200 shrink-0"
             >
               {headerContent.quoteCta}
             </Link>
@@ -258,7 +258,7 @@ export default function SiteHeader() {
                 {/* 44×44px touch target */}
                 <button
                   aria-label={headerContent.openMenuAriaLabel}
-                  className="xl:hidden flex items-center justify-center h-11 w-11 -mr-2 text-white hover:text-lsh-grey-300 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue"
+                  className="xl:hidden flex items-center justify-center h-11 w-11 -mr-2 text-white hover:text-lsh-grey-300 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-gold"
                 >
                   <Menu size={24} strokeWidth={1.5} aria-hidden="true" />
                 </button>
@@ -274,7 +274,7 @@ export default function SiteHeader() {
 
                 <div className="flex flex-col h-full">
                   {/* Sheet header */}
-                  <div className="flex items-center px-5 h-[68px] border-b border-[var(--lsh-border-dark)] shrink-0">
+                  <div className="flex items-center px-5 h-[76px] border-b border-[var(--lsh-border-dark)] shrink-0">
                     <SiteLogo />
                   </div>
 
@@ -303,7 +303,7 @@ export default function SiteHeader() {
                         <ChevronDown
                           size={15}
                           strokeWidth={1.75}
-                          className={`text-lsh-blue transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                          className={`text-lsh-gold transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
                           aria-hidden="true"
                         />
                       </button>
@@ -376,7 +376,7 @@ export default function SiteHeader() {
                       <Phone
                         size={16}
                         strokeWidth={1.5}
-                        className="text-lsh-blue shrink-0"
+                        className="text-lsh-gold shrink-0"
                         aria-hidden="true"
                       />
                       {contact.phone.display}
@@ -392,7 +392,7 @@ export default function SiteHeader() {
                         <MessageCircle
                           size={16}
                           strokeWidth={1.5}
-                          className="text-lsh-blue shrink-0"
+                          className="text-lsh-gold shrink-0"
                           aria-hidden="true"
                         />
                         {contact.whatsapp.display}
@@ -405,7 +405,7 @@ export default function SiteHeader() {
                     <Link
                       href="/#quote"
                       onClick={() => setMenuOpen(false)}
-                      className="flex-1 flex items-center justify-center h-11 text-[0.9375rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover transition-colors duration-200"
+                      className="flex-1 flex items-center justify-center h-11 text-[0.9375rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover transition-colors duration-200"
                     >
                       {headerContent.quoteCta}
                     </Link>
@@ -421,7 +421,7 @@ export default function SiteHeader() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={headerContent.instagramAriaLabel}
-                          className="flex items-center justify-center h-11 w-11 shrink-0 rounded-[4px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
+                          className="flex items-center justify-center h-11 w-11 shrink-0 rounded-[4px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-gold hover:text-white transition-colors duration-200"
                         >
                           <svg
                             viewBox="0 0 24 24"

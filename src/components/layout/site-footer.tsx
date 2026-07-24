@@ -101,7 +101,7 @@ const socialIconMap: Record<string, React.ComponentType> = {
 
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const colLabel =
-  "text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-lsh-blue";
+  "text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-lsh-gold";
 const linkClass =
   "text-[0.875rem] text-[var(--lsh-grey-400)] hover:text-white transition-colors duration-200";
 
@@ -148,7 +148,7 @@ export default function SiteFooter() {
           {/* Col 1 - Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" aria-label={siteContent.logo.homeAriaLabel}>
-              <SiteLogo />
+              <SiteLogo placement="footer" />
             </Link>
             <p className="mt-5 text-[0.875rem] text-[var(--lsh-grey-400)] leading-relaxed max-w-[300px] lg:max-w-none">
               {footerSummary}
@@ -203,7 +203,7 @@ export default function SiteFooter() {
                       >
                         <Icon
                           size={14}
-                          className="mt-0.5 shrink-0 text-lsh-blue"
+                          className="mt-0.5 shrink-0 text-lsh-gold"
                           aria-hidden="true"
                         />
                         <span className="text-[0.875rem] text-[var(--lsh-grey-400)] group-hover:text-white transition-colors duration-200">
@@ -216,7 +216,7 @@ export default function SiteFooter() {
                 <li className="flex items-start gap-2.5">
                   <MapPin
                     size={14}
-                    className="mt-0.5 shrink-0 text-lsh-blue"
+                    className="mt-0.5 shrink-0 text-lsh-gold"
                     aria-hidden="true"
                   />
                   <span className="text-[0.875rem] text-[var(--lsh-grey-400)]">
@@ -240,7 +240,7 @@ export default function SiteFooter() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${s.label}, ${footer.socialAriaSuffix}`}
-                        className="inline-flex items-center justify-center w-9 h-9 rounded-[3px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-blue hover:text-white transition-colors duration-200"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-[3px] border border-[var(--lsh-border-dark)] text-[var(--lsh-grey-400)] hover:border-lsh-gold hover:text-white transition-colors duration-200"
                       >
                         {Icon && <Icon />}
                       </a>

@@ -18,44 +18,83 @@ const verifiedSocialProfiles = socialLinks
   .filter((link) => !link.placeholder && link.href)
   .map((link) => link.href);
 
-const localBusinessSchema = {
+const homepageStructuredData = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": `${SITE_URL}/#business`,
-  name: SITE_NAME,
-  description: siteContent.business.description,
-  url: SITE_URL,
-  telephone: contact.phone.href.replace("tel:", ""),
-  email: contact.email.display,
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: siteContent.business.addressLocality,
-    addressCountry: siteContent.business.addressCountry,
-  },
-  areaServed: {
-    "@type": "Country",
-    name: siteContent.business.areaServed,
-  },
-  priceRange: siteContent.business.priceRange,
-  image: `${SITE_URL}${siteContent.homeMetadata.socialImage}`,
-  sameAs: verifiedSocialProfiles,
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: siteContent.business.offerCatalogName,
-    itemListElement: services.map((service) => {
-      const serviceUrl = `${SITE_URL}/${service.slug}`;
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: siteContent.homeMetadata.description,
+      inLanguage: siteContent.language,
+      publisher: {
+        "@id": `${SITE_URL}/#business`,
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: SITE_URL,
+      name: siteContent.homeMetadata.title,
+      description: siteContent.homeMetadata.description,
+      inLanguage: siteContent.language,
+      isPartOf: {
+        "@id": `${SITE_URL}/#website`,
+      },
+      about: {
+        "@id": `${SITE_URL}/#business`,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}${siteContent.homeMetadata.socialImage}`,
+      },
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": `${SITE_URL}/#business`,
+      name: SITE_NAME,
+      description: siteContent.business.description,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}${siteContent.logo.image}`,
+        width: 841,
+        height: 457,
+      },
+      telephone: contact.phone.href.replace("tel:", ""),
+      email: contact.email.display,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: siteContent.business.addressLocality,
+        addressCountry: siteContent.business.addressCountry,
+      },
+      areaServed: {
+        "@type": "Country",
+        name: siteContent.business.areaServed,
+      },
+      priceRange: siteContent.business.priceRange,
+      image: `${SITE_URL}${siteContent.homeMetadata.socialImage}`,
+      sameAs: verifiedSocialProfiles,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: siteContent.business.offerCatalogName,
+        itemListElement: services.map((service) => {
+          const serviceUrl = `${SITE_URL}/${service.slug}`;
 
-      return {
-        "@type": "Offer",
-        url: serviceUrl,
-        itemOffered: {
-          "@type": "Service",
-          name: service.navLabel,
-          url: serviceUrl,
-        },
-      };
-    }),
-  },
+          return {
+            "@type": "Offer",
+            url: serviceUrl,
+            itemOffered: {
+              "@type": "Service",
+              name: service.navLabel,
+              url: serviceUrl,
+            },
+          };
+        }),
+      },
+    },
+  ],
 };
 
 export default function Home() {
@@ -64,7 +103,10 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(localBusinessSchema),
+          __html: JSON.stringify(homepageStructuredData).replace(
+            /</g,
+            "\\u003c",
+          ),
         }}
       />
       <SiteHeader />
@@ -91,10 +133,10 @@ export default function Home() {
         {/* Why Choose Us - dark, sharp transition from off-white */}
         <WhyChooseUsSection />
 
-        {/* Statistics strip - blue, attaches directly beneath dark section */}
+        {/* Statistics strip - gold, attaches directly beneath dark section */}
         <StatisticsStrip />
 
-        {/* Testimonials - off-white, attaches directly beneath blue strip */}
+        {/* Testimonials - off-white, attaches directly beneath gold strip */}
         <TestimonialsSection />
 
         {/* Contact & Quote - dark, attaches directly beneath off-white Testimonials */}

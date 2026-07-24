@@ -31,7 +31,7 @@ export default function HeroContent() {
        * Mobile/tablet (< sm): shorter - fits on one line at 320px+
        * Desktop (sm+): full version
        */}
-      <p className="mb-3 text-[0.6875rem] font-semibold uppercase text-lsh-blue">
+      <p className="mb-3 text-[0.6875rem] font-semibold uppercase text-lsh-gold">
         <span className="tracking-[0.16em] sm:hidden">
           {homeContent.hero.eyebrowMobile}
         </span>
@@ -73,7 +73,7 @@ export default function HeroContent() {
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
           <a
             href="#quote"
-            className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
+            className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200"
           >
             {homeContent.hero.primaryCta}
             <ArrowRight size={15} strokeWidth={2} aria-hidden="true" />

@@ -10,10 +10,18 @@ export const dynamic = "force-static";
  *
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes: MetadataRoute.Sitemap = [{ url: SITE_URL }];
+  const staticRoutes: MetadataRoute.Sitemap = [
+    {
+      url: SITE_URL,
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+  ];
 
   const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
     url: `${SITE_URL}/${service.slug}`,
+    changeFrequency: "monthly",
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...serviceRoutes];

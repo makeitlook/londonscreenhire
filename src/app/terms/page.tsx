@@ -30,7 +30,7 @@ function P({ children }: { children: React.ReactNode }) {
   );
 }
 
-const linkClass = "text-lsh-blue hover:underline";
+const linkClass = "text-lsh-gold hover:underline";
 
 export default function TermsPage() {
   return (
@@ -38,11 +38,11 @@ export default function TermsPage() {
       <SiteHeader />
       <main
         id="main-content"
-        className="min-h-screen bg-lsh-dark pt-[68px] xl:pt-[78px]"
+        className="min-h-screen bg-lsh-dark pt-[76px] xl:pt-[86px]"
       >
         <div className="lsh-container py-16 md:py-20">
           <article className="max-w-3xl">
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {legalContent.eyebrow}
             </p>
             <h1

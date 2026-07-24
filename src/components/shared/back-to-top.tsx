@@ -26,7 +26,7 @@ export default function BackToTop() {
       className={[
         "fixed bottom-24 right-5 sm:right-6 z-50",
         "flex items-center justify-center w-10 h-10",
-        "bg-lsh-blue hover:bg-[var(--lsh-blue-hover)] text-white",
+        "bg-lsh-gold hover:bg-[var(--lsh-gold-hover)] text-lsh-black",
         "border border-[var(--lsh-border-dark)] rounded-[3px]",
         "shadow-lg transition-all duration-200",
         visible

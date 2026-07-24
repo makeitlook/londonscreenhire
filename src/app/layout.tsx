@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
@@ -20,6 +20,10 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0a0d12",
+};
+
 export const metadata: Metadata = {
   title: {
     default: siteContent.homeMetadata.title,
@@ -27,8 +31,18 @@ export const metadata: Metadata = {
   },
   description: siteContent.homeMetadata.description,
   metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "Event services",
+  manifest: "/manifest.webmanifest",
   alternates: {
     canonical: SITE_URL,
+    languages: {
+      "en-GB": SITE_URL,
+      "x-default": SITE_URL,
+    },
   },
   robots: {
     index: true,
@@ -51,6 +65,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteContent.homeMetadata.socialImage,
+        width: 1536,
+        height: 1024,
         alt: siteContent.homeMetadata.socialImageAlt,
       },
     ],
@@ -62,15 +78,37 @@ export const metadata: Metadata = {
     images: [siteContent.homeMetadata.socialImage],
   },
   icons: {
-    icon: siteContent.icons.favicon,
+    icon: [
+      { url: siteContent.icons.favicon },
+      {
+        url: siteContent.icons.shortcut,
+        type: "image/png",
+        sizes: "16x16",
+      },
+      {
+        url: "/images/favicon-32x32.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: siteContent.icons.android192,
+        type: "image/png",
+        sizes: "192x192",
+      },
+      {
+        url: siteContent.icons.android512,
+        type: "image/png",
+        sizes: "512x512",
+      },
+    ],
     shortcut: siteContent.icons.shortcut,
-    apple: siteContent.icons.apple,
-    other: {
-      rel: "icon",
-      type: "image/png",
-      sizes: "192x192",
-      url: siteContent.icons.android192,
-    },
+    apple: [
+      {
+        url: siteContent.icons.apple,
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
   },
 };
 

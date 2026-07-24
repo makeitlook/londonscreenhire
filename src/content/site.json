@@ -4,8 +4,7 @@
   "language": "en-GB",
   "socialLocale": "en_GB",
   "logo": {
-    "topLine": "London",
-    "mainLine": "Screen Hire",
+    "image": "/images/brand/london-screen-hire-logo.png",
     "homeAriaLabel": "London Screen Hire, return to homepage"
   },
   "homeMetadata": {
@@ -21,7 +20,8 @@
     "favicon": "/favicon.ico",
     "shortcut": "/images/favicon-16x16.png",
     "apple": "/images/apple-touch-icon.png",
-    "android192": "/images/android-chrome-192x192.png"
+    "android192": "/images/android-chrome-192x192.png",
+    "android512": "/images/android-chrome-512x512.png"
   },
   "business": {
     "description": "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement.",

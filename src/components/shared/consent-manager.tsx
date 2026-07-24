@@ -62,7 +62,7 @@ export default function ConsentManager() {
               {uiContent.consent.message}{" "}
               <Link
                 href="/privacy"
-                className="text-lsh-blue hover:underline focus-visible:outline-none focus-visible:underline"
+                className="text-lsh-gold hover:underline focus-visible:outline-none focus-visible:underline"
               >
                 {uiContent.consent.privacyLink}
               </Link>
@@ -70,14 +70,14 @@ export default function ConsentManager() {
             <div className="flex items-center gap-3 shrink-0">
               <button
                 onClick={() => decide("declined")}
-                className="px-4 py-2 text-[0.8125rem] font-semibold border border-white/20 rounded-sm hover:border-white/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lsh-blue"
+                className="px-4 py-2 text-[0.8125rem] font-semibold border border-white/20 rounded-sm hover:border-white/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lsh-gold"
                 style={{ color: "var(--lsh-grey-300)" }}
               >
                 {uiContent.consent.decline}
               </button>
               <button
                 onClick={() => decide("accepted")}
-                className="px-4 py-2 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-sm hover:bg-[var(--lsh-blue-hover)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="px-4 py-2 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-sm hover:bg-[var(--lsh-gold-hover)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 {uiContent.consent.accept}
               </button>

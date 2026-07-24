@@ -1,9 +1,6 @@
 {
   "servicePages": {
     "heroAriaLabel": "Service overview",
-    "breadcrumbsAriaLabel": "Breadcrumb",
-    "homeLabel": "Home",
-    "servicesLabel": "Services",
     "quoteCta": "Get a Quote",
     "callCta": "Call Us",
     "introEyebrow": "About This Service",
