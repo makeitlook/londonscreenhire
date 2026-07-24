@@ -23,7 +23,7 @@ export default function ServiceBenefits({ benefits }: ServiceBenefitsProps) {
       aria-labelledby="service-benefits-heading"
     >
       <div className="lsh-container">
-        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
           {uiContent.servicePages.benefitsEyebrow}
         </p>
         <h2
@@ -45,7 +45,7 @@ export default function ServiceBenefits({ benefits }: ServiceBenefitsProps) {
                 <article className="flex flex-col h-full bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] p-5 sm:p-6 hover:bg-lsh-charcoal-light transition-colors duration-200">
                   {/* Icon */}
                   <span
-                    className="mb-4 shrink-0 text-lsh-blue"
+                    className="mb-4 shrink-0 text-lsh-gold"
                     aria-hidden="true"
                   >
                     <Icon size={22} strokeWidth={1.75} />

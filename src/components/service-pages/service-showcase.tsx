@@ -55,7 +55,7 @@ export default function ServiceShowcase({
         {/* ── Text panel ── */}
         <div className="xl:w-[45%] xl:shrink-0 flex items-center px-6 sm:px-8 xl:px-12 py-10 xl:py-14">
           <div>
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {uiContent.servicePages.showcaseEyebrow}
             </p>
             <h2
@@ -70,7 +70,7 @@ export default function ServiceShowcase({
             </p>
             <Link
               href="/#quote"
-              className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
+              className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200"
             >
               {uiContent.servicePages.quoteCta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />

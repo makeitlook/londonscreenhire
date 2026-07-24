@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/shared/fade-in";
 /**
  * StatisticsStrip - server component.
  *
- * Full-width bright-blue band that attaches directly beneath the dark
+ * Full-width brand-gold band that attaches directly beneath the dark
  * Why Choose Us section with no gap or separator.
  *
  * Layout:
@@ -29,9 +29,9 @@ import { FadeIn } from "@/components/shared/fade-in";
  *     [0] right  [1] right  [2] right  [3] -
  */
 const BORDERS = [
-  "border-r border-b lg:border-b-0 border-white/20",
-  "border-b lg:border-b-0 lg:border-r border-white/20",
-  "border-r lg:border-r border-white/20",
+  "border-r border-b lg:border-b-0 border-black/20",
+  "border-b lg:border-b-0 lg:border-r border-black/20",
+  "border-r lg:border-r border-black/20",
   "",
 ] as const;
 
@@ -40,7 +40,7 @@ export default function StatisticsStrip() {
     <section
       id="stats"
       aria-label={homeContent.statisticsAriaLabel}
-      className="bg-lsh-blue scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-gold scroll-mt-[76px] xl:scroll-mt-[86px]"
     >
       <div className="lsh-container">
         <FadeIn>
@@ -59,20 +59,20 @@ export default function StatisticsStrip() {
                   <Icon
                     size={30}
                     strokeWidth={1.4}
-                    className="text-white/80 shrink-0 hidden sm:block lg:block"
+                    className="text-lsh-black/75 shrink-0 hidden sm:block lg:block"
                     aria-hidden="true"
                   />
                   {/* Value + label stack */}
                   <div className="flex flex-col items-center sm:items-start">
                     <span
-                      className="font-heading font-bold text-white leading-none"
+                      className="font-heading font-bold text-lsh-black leading-none"
                       style={{
                         fontSize: "clamp(1.75rem, calc(2vw + 1rem), 2.625rem)",
                       }}
                     >
                       {stat.value}
                     </span>
-                    <span className="mt-1 text-[0.6875rem] sm:text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-white/80">
+                    <span className="mt-1 text-[0.6875rem] sm:text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-lsh-black/75">
                       {stat.label}
                     </span>
                   </div>

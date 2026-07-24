@@ -9,7 +9,7 @@ import ServiceShowcase from "@/components/service-pages/service-showcase";
 import ServiceFaqs from "@/components/service-pages/service-faqs";
 import RelatedServices from "@/components/service-pages/related-services";
 import ServiceQuoteCta from "@/components/service-pages/service-quote-cta";
-import uiContent from "@/content/ui.json";
+import siteContent from "@/content/site.json";
 import type { ServicePage } from "@/data/services";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 
@@ -27,7 +27,7 @@ interface ServicePageTemplateProps {
  *
  * Layout order:
  * 1. Header
- * 2. Hero (breadcrumbs inline)
+ * 2. Hero
  * 3. Intro + connected process timeline (off-white)
  * 4. Key benefits with icons (dark)
  * 5. Event types / use cases with optional links (off-white)
@@ -46,27 +46,18 @@ export default function ServicePageTemplate({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: uiContent.servicePages.homeLabel,
-            item: SITE_URL,
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: uiContent.servicePages.servicesLabel,
-            item: `${SITE_URL}/#services`,
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            name: service.navLabel,
-            item: pageUrl,
-          },
-        ],
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: service.metaTitle,
+        description: service.metaDescription,
+        inLanguage: siteContent.language,
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${pageUrl}#service`,
+        },
       },
       {
         "@type": "Service",
@@ -82,6 +73,18 @@ export default function ServicePageTemplate({
           url: SITE_URL,
         },
       },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faqs`,
+        mainEntity: service.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
     ],
   };
 
@@ -89,7 +92,9 @@ export default function ServicePageTemplate({
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
       />
       <SiteHeader />
       <main id="main-content">
@@ -99,7 +104,6 @@ export default function ServicePageTemplate({
           shortIntro={service.shortIntro}
           heroImage={service.heroImage}
           heroAlt={service.heroAlt}
-          serviceLabel={service.navLabel}
         />
         <ServiceIntro
           fullIntro={service.fullIntro}

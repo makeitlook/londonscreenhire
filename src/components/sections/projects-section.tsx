@@ -13,7 +13,7 @@ export default function ProjectsSection() {
        * md:      pt-16 pb-16  (64px / 64px)
        * xl:      pt-20 pb-20  (80px / 80px)
        */
-      className="bg-lsh-off-white pt-12 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-off-white pt-12 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="projects-heading"
     >
       <div className="lsh-container">
@@ -21,7 +21,7 @@ export default function ProjectsSection() {
         <FadeIn>
           <div className="flex flex-col items-center mb-6 md:mb-8 xl:mb-10">
             {/* Eyebrow */}
-            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
               {homeContent.projects.eyebrow}
             </p>
 
@@ -33,9 +33,9 @@ export default function ProjectsSection() {
               {homeContent.projects.heading}
             </h2>
 
-            {/* Blue underline accent */}
+            {/* Gold underline accent */}
             <span
-              className="block bg-lsh-blue rounded-sm"
+              className="block bg-lsh-gold rounded-sm"
               style={{ width: "38px", height: "2px" }}
               aria-hidden="true"
             />

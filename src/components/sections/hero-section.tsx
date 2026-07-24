@@ -11,7 +11,7 @@ import HeroContent from "./hero-content";
  *   660px ceiling - desktop cap keeps it compact and crisp
  *
  * Padding: matches the site-wide system (px-4 / sm:px-6 / md:px-8 / xl:px-12).
- * Header offset: 68px mobile, 78px xl - matches header heights exactly.
+ * Header offset: 76px mobile, 86px xl - matches header heights exactly.
  *
  * Overlay strategy:
  *   Left-heavy dark gradient  → text zone always readable
@@ -99,7 +99,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Content - vertically centred within the non-header space ── */}
-      <div className="relative z-10 flex flex-col justify-center flex-1 pt-[68px] xl:pt-[78px]">
+      <div className="relative z-10 flex flex-col justify-center flex-1 pt-[76px] xl:pt-[86px]">
         {/*
          * mt-4 on mobile shifts the visual centre ~16px lower than true centre.
          * This gives a more grounded, less floating feel at small viewports.

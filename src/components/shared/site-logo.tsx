@@ -1,23 +1,33 @@
-/**
- * SiteLogo - temporary text treatment.
- * Replace this component with the approved SVG asset when available.
- * Outer <div> wrapper is preserved so callers need no structural changes on swap.
- */
-export default function SiteLogo() {
+import Image from "next/image";
+import siteContent from "@/content/site.json";
+
+interface SiteLogoProps {
+  placement?: "header" | "footer";
+}
+
+export default function SiteLogo({ placement = "header" }: SiteLogoProps) {
+  const sizing =
+    placement === "footer"
+      ? "h-auto w-[190px] sm:w-[210px]"
+      : "h-auto w-[108px] sm:w-[120px] xl:w-[134px]";
+  const spacing =
+    placement === "header" ? "inline-flex items-center pt-1" : "inline-flex";
+
   return (
-    <div className="flex flex-col leading-none select-none">
-      <span className="font-heading text-[0.72rem] font-semibold tracking-[0.28em] uppercase text-lsh-grey-300">
-        {siteContent.logo.topLine}
-      </span>
-      <span className="font-heading text-[2.05rem] font-bold tracking-[-0.015em] uppercase text-lsh-white leading-[1]">
-        {siteContent.logo.mainLine}
-      </span>
-      {/* Blue accent rule - remove when real SVG logo is provided */}
-      <span
-        className="mt-[5px] block h-[2.5px] w-8 bg-lsh-blue"
-        aria-hidden="true"
+    <span className={spacing}>
+      <Image
+        src={siteContent.logo.image}
+        alt={siteContent.name}
+        width={841}
+        height={457}
+        sizes={
+          placement === "footer"
+            ? "(min-width: 640px) 210px, 190px"
+            : "(min-width: 1280px) 134px, (min-width: 640px) 120px, 108px"
+        }
+        className={sizing}
+        priority={placement === "header"}
       />
-    </div>
+    </span>
   );
 }
-import siteContent from "@/content/site.json";

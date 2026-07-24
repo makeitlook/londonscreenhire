@@ -6,11 +6,11 @@ import { FadeIn } from "@/components/shared/fade-in";
 /**
  * TestimonialsSection - server component.
  *
- * Off-white section attaching directly beneath the blue statistics strip.
+ * Off-white section attaching directly beneath the gold statistics strip.
  * Desktop (lg+):  3-col grid, one row.
  * Tablet (sm–lg): 2-col grid, third card in col-1 of second row.
  * Mobile (<sm):   Native horizontal scroll with snap, ~86vw cards.
- * Pagination:     Decorative dots, first dot blue, rest grey. aria-hidden.
+ * Pagination:     Decorative dots, first dot gold, rest grey. aria-hidden.
  */
 export default function TestimonialsSection() {
   return (
@@ -23,14 +23,14 @@ export default function TestimonialsSection() {
        *   md+:          pb-16
        *   xl+:          pb-20
        */
-      className="bg-lsh-off-white pt-14 pb-10 sm:pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-off-white pt-14 pb-10 sm:pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="testimonials-heading"
     >
       <div className="lsh-container">
         {/* ── Heading block ── */}
         <FadeIn>
           <div className="flex flex-col items-center mb-8 md:mb-10">
-            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
               {homeContent.testimonials.eyebrow}
             </p>
             <h2
@@ -43,7 +43,7 @@ export default function TestimonialsSection() {
               {homeContent.testimonials.heading}
             </h2>
             <span
-              className="block bg-lsh-blue rounded-sm"
+              className="block bg-lsh-gold rounded-sm"
               style={{ width: "40px", height: "2px" }}
               aria-hidden="true"
             />
@@ -76,7 +76,7 @@ export default function TestimonialsSection() {
           className="sm:hidden flex items-center justify-center gap-2 mt-6"
           aria-hidden="true"
         >
-          <span className="block w-2 h-2 rounded-full bg-lsh-blue" />
+          <span className="block w-2 h-2 rounded-full bg-lsh-gold" />
           <span className="block w-2 h-2 rounded-full bg-lsh-grey-300" />
           <span className="block w-2 h-2 rounded-full bg-lsh-grey-300" />
         </div>
@@ -96,7 +96,7 @@ function TestimonialCard({
       <Quote
         size={24}
         strokeWidth={1.5}
-        className="text-lsh-blue mb-4 shrink-0"
+        className="text-lsh-gold-ink mb-4 shrink-0"
         aria-hidden="true"
       />
 

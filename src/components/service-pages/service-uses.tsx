@@ -16,7 +16,7 @@ interface ServiceUsesProps {
 /**
  * Suitable event types / applications - off-white section.
  * Cards with an optional internal link. Linked cards get a hover arrow and
- * blue border highlight; static cards display a plain blue dot instead.
+ * gold border highlight; static cards display a plain gold dot instead.
  */
 export default function ServiceUses({ useCases }: ServiceUsesProps) {
   return (
@@ -25,7 +25,7 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
       aria-labelledby="service-uses-heading"
     >
       <div className="lsh-container">
-        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+        <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
           {uiContent.servicePages.usesEyebrow}
         </p>
         <h2
@@ -46,15 +46,15 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
               <li key={useCase.title}>
                 <Link
                   href={useCase.href}
-                  className="group flex flex-col bg-white border border-[var(--lsh-border-light)] rounded-[3px] p-5 sm:p-6 h-full hover:border-lsh-blue/40 transition-colors duration-200"
+                  className="group flex flex-col bg-white border border-[var(--lsh-border-light)] rounded-[3px] p-5 sm:p-6 h-full hover:border-lsh-gold/40 transition-colors duration-200"
                 >
-                  <h3 className="font-heading font-semibold uppercase tracking-wide text-lsh-dark text-[0.9375rem] leading-snug mb-1.5 group-hover:text-lsh-blue transition-colors duration-200">
+                  <h3 className="font-heading font-semibold uppercase tracking-wide text-lsh-dark text-[0.9375rem] leading-snug mb-1.5 group-hover:text-lsh-gold-ink transition-colors duration-200">
                     {useCase.title}
                   </h3>
                   <p className="text-[0.875rem] leading-[1.6] text-lsh-grey-700 flex-1">
                     {useCase.description}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-1 text-[0.8rem] font-semibold text-lsh-blue">
+                  <span className="mt-4 inline-flex items-center gap-1 text-[0.8rem] font-semibold text-lsh-gold-ink">
                     {uiContent.servicePages.learnMore}
                     <ArrowRight
                       size={13}
@@ -70,7 +70,7 @@ export default function ServiceUses({ useCases }: ServiceUsesProps) {
               <li key={useCase.title}>
                 <article className="flex flex-col bg-white border border-[var(--lsh-border-light)] rounded-[3px] p-5 sm:p-6 h-full">
                   <span
-                    className="block w-[6px] h-[6px] rounded-full bg-lsh-blue mb-3 shrink-0"
+                    className="block w-[6px] h-[6px] rounded-full bg-lsh-gold mb-3 shrink-0"
                     aria-hidden="true"
                   />
                   <h3 className="font-heading font-semibold uppercase tracking-wide text-lsh-dark text-[0.9375rem] leading-snug mb-1.5">

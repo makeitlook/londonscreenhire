@@ -16,9 +16,11 @@
     --lsh-charcoal: #171a1f;
     --lsh-charcoal-light: #20242b;
 
-    --lsh-blue: #0868f7;
-    --lsh-blue-hover: #1977ff;
-    --lsh-blue-dark: #0756ca;
+    --lsh-gold: #d7a21f;
+    --lsh-gold-hover: #e3b83f;
+    --lsh-gold-dark: #b88413;
+    --lsh-gold-ink: #8a5b00;
+    --lsh-gold-focus: #a87500;
 
     --lsh-white: #ffffff;
     --lsh-off-white: #f4f5f6;
@@ -38,8 +40,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 220 18% 10%;
     --popover-foreground: 0 0% 98%;
-    --primary: 216 94% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 43 75% 48%;
+    --primary-foreground: 220 33% 3%;
     --secondary: 220 18% 14%;
     --secondary-foreground: 0 0% 98%;
     --muted: 220 14% 14%;
@@ -50,7 +52,7 @@
     --destructive-foreground: 0 0% 98%;
     --border: 216 12% 18%;
     --input: 216 12% 18%;
-    --ring: 216 94% 50%;
+    --ring: 42 100% 33%;
     --radius: 0.25rem;
   }
 
@@ -68,7 +70,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--lsh-blue);
+    outline: 2px solid var(--lsh-gold-focus);
     outline-offset: 2px;
     border-radius: 2px;
   }

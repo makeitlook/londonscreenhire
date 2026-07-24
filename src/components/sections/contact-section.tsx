@@ -32,14 +32,14 @@ function ContactRow({ item }: { item: ContactItem }) {
           ? { target: "_blank", rel: "noopener noreferrer" }
           : {})}
       >
-        <span className="flex items-center justify-center w-10 h-10 rounded-[3px] bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] text-lsh-blue group-hover:bg-lsh-blue group-hover:text-white transition-colors shrink-0">
+        <span className="flex items-center justify-center w-10 h-10 rounded-[3px] bg-[var(--lsh-charcoal)] border border-[var(--lsh-border-dark)] text-lsh-gold group-hover:bg-lsh-gold group-hover:text-lsh-black transition-colors shrink-0">
           <Icon size={17} aria-hidden="true" />
         </span>
         <div>
           <p className="text-[0.75rem] text-[var(--lsh-grey-400)] leading-none mb-0.5">
             {item.label}
           </p>
-          <p className="text-white text-[0.9375rem] font-medium leading-snug group-hover:text-lsh-blue transition-colors">
+          <p className="text-white text-[0.9375rem] font-medium leading-snug group-hover:text-lsh-gold transition-colors">
             {item.display}
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function ContactSection() {
   return (
     <section
       id="quote"
-      className="bg-lsh-dark pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-dark pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="contact-heading"
     >
       <div className="lsh-container">
@@ -66,7 +66,7 @@ export default function ContactSection() {
           {/* ── Left: contact content ── */}
           <FadeIn className="lg:w-[42%] lg:shrink-0 mb-10 lg:mb-0">
             {/* Eyebrow */}
-            <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {homeContent.contactSection.eyebrow}
             </p>
 

@@ -28,7 +28,7 @@ export default function ServiceIntro({
         <div className="grid grid-cols-1 items-start gap-y-12 lg:grid-cols-[minmax(0,0.82fr)_minmax(0,1.18fr)] lg:gap-x-14 xl:gap-x-20">
           {/* ── Left: intro copy ── */}
           <div>
-            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
               {uiContent.servicePages.introEyebrow}
             </p>
             <p className="max-w-[600px] text-[0.9375rem] leading-[1.75] text-lsh-grey-700">
@@ -40,7 +40,7 @@ export default function ServiceIntro({
           <div className="xl:flex-1">
             <h2
               id="service-process-heading"
-              className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue"
+              className="mb-5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink"
             >
               {uiContent.servicePages.processHeading}
             </h2>
@@ -59,7 +59,7 @@ export default function ServiceIntro({
                 >
                   {/* Step number bubble */}
                   <span
-                    className="relative z-10 shrink-0 flex items-center justify-center w-[30px] h-[30px] rounded-full bg-lsh-blue text-white font-heading font-bold text-[0.75rem] leading-none ring-4 ring-lsh-off-white"
+                    className="relative z-10 shrink-0 flex items-center justify-center w-[30px] h-[30px] rounded-full bg-lsh-gold text-lsh-black font-heading font-bold text-[0.75rem] leading-none ring-4 ring-lsh-off-white"
                     aria-hidden="true"
                   >
                     {step.step}

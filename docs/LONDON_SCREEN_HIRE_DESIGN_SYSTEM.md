@@ -151,9 +151,7 @@ Absolute positioning is appropriate for:
 
 ## 7. Colour system
 
-Final colours must be sampled from the client's original logo and approved assets.
-
-Until those assets are available, use these provisional values:
+Final colours are sampled from the client's approved gold, white and black logo.
 
 ```css
 :root {
@@ -162,9 +160,11 @@ Until those assets are available, use these provisional values:
   --lsh-charcoal: #171a1f;
   --lsh-charcoal-light: #20242b;
 
-  --lsh-blue: #0868f7;
-  --lsh-blue-hover: #1977ff;
-  --lsh-blue-dark: #0756ca;
+  --lsh-gold: #d7a21f;
+  --lsh-gold-hover: #e3b83f;
+  --lsh-gold-dark: #b88413;
+  --lsh-gold-ink: #8a5b00;
+  --lsh-gold-focus: #a87500;
 
   --lsh-white: #ffffff;
   --lsh-off-white: #f4f5f6;
@@ -195,7 +195,7 @@ Use white or off-white for:
 - Testimonials
 - Selected content breaks shown in the mockup
 
-Use blue for:
+Use gold for:
 
 - Primary buttons
 - Icons
@@ -224,8 +224,8 @@ Suggested variable mapping:
   --card: 0 0% 100%;
   --card-foreground: 220 33% 3%;
 
-  --primary: 216 94% 50%;
-  --primary-foreground: 0 0% 100%;
+  --primary: 43 75% 48%;
+  --primary-foreground: 220 33% 3%;
 
   --secondary: 216 12% 12%;
   --secondary-foreground: 0 0% 100%;
@@ -235,7 +235,7 @@ Suggested variable mapping:
 
   --border: 216 10% 82%;
   --input: 216 10% 82%;
-  --ring: 216 94% 50%;
+  --ring: 42 100% 33%;
 
   --radius: 0.25rem;
 }
@@ -310,8 +310,8 @@ Do not allow responsive type to create line breaks that significantly change the
 
 Use:
 
-- Electric blue background
-- White text
+- Brand gold background
+- Near-black text
 - Rectangular shape
 - Small corner radius
 - Medium or bold label
@@ -413,7 +413,7 @@ Requirements:
 
 - Six featured services on desktop
 - Thin separators or card borders
-- Blue line icons
+- Gold line icons
 - Compact descriptions
 - Consistent item height
 - Dark background
@@ -464,11 +464,11 @@ Do not publish claims that the client has not verified.
 
 ## 17. Statistics strip
 
-The statistics area should use brand blue as a strong horizontal break.
+The statistics area should use brand gold as a strong horizontal break.
 
 Requirements:
 
-- High-contrast white numbers
+- High-contrast near-black numbers
 - Condensed typography
 - Short labels
 - Even column distribution
@@ -526,7 +526,7 @@ Use Lucide icons unless the mockup or client assets require custom icons.
 Rules:
 
 - Consistent stroke width
-- Primarily blue on dark backgrounds
+- Primarily gold on dark backgrounds
 - Simple line style
 - No mixed icon libraries
 - No decorative icons without meaning

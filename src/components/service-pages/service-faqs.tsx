@@ -27,7 +27,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
         <div className="flex flex-col xl:flex-row xl:gap-16 xl:items-start">
           {/* ── Left: heading + contact ── */}
           <div className="xl:w-[32%] xl:shrink-0 mb-10 xl:mb-0 xl:sticky xl:top-28">
-            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {uiContent.servicePages.faqsEyebrow}
             </p>
             <h2
@@ -43,7 +43,7 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
             <a
               href={contact.phone.href}
               aria-label={contact.phone.ariaLabel}
-              className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-[4px] bg-lsh-blue px-6 text-[0.8125rem] font-semibold text-white transition-colors duration-200 hover:bg-lsh-blue-hover active:bg-lsh-blue-dark sm:w-auto focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-2"
+              className="inline-flex h-[46px] w-full items-center justify-center gap-2 rounded-[4px] bg-lsh-gold px-6 text-[0.8125rem] font-semibold text-lsh-black transition-colors duration-200 hover:bg-lsh-gold-hover active:bg-lsh-gold-dark sm:w-auto focus-visible:outline-2 focus-visible:outline-lsh-gold-focus focus-visible:outline-offset-2"
             >
               <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
               {uiContent.servicePages.callPrefix} {contact.phone.display}
@@ -57,13 +57,13 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
                 key={index}
                 className="group bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] overflow-hidden"
               >
-                <summary className="flex items-center justify-between gap-4 px-5 py-4 sm:px-6 cursor-pointer list-none select-none text-white hover:bg-lsh-charcoal-light transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-blue focus-visible:outline-offset-[-2px]">
+                <summary className="flex items-center justify-between gap-4 px-5 py-4 sm:px-6 cursor-pointer list-none select-none text-white hover:bg-lsh-charcoal-light transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-gold focus-visible:outline-offset-[-2px]">
                   <span className="font-heading font-semibold uppercase tracking-wide text-[0.9375rem] leading-snug">
                     {faq.question}
                   </span>
                   {/* Chevron rotates when open */}
                   <svg
-                    className="shrink-0 w-4 h-4 text-lsh-blue transition-transform duration-200 group-open:rotate-180"
+                    className="shrink-0 w-4 h-4 text-lsh-gold transition-transform duration-200 group-open:rotate-180"
                     viewBox="0 0 16 16"
                     fill="none"
                     stroke="currentColor"

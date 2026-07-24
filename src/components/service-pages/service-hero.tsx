@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import uiContent from "@/content/ui.json";
 import { contact } from "@/data/contact";
-import ServiceBreadcrumbs from "./service-breadcrumbs";
 
 interface ServiceHeroProps {
   eyebrow: string;
@@ -11,7 +10,6 @@ interface ServiceHeroProps {
   shortIntro: string;
   heroImage: string;
   heroAlt: string;
-  serviceLabel: string;
 }
 
 /**
@@ -28,7 +26,6 @@ export default function ServiceHero({
   shortIntro,
   heroImage,
   heroAlt,
-  serviceLabel,
 }: ServiceHeroProps) {
   return (
     <section
@@ -68,13 +65,8 @@ export default function ServiceHero({
       {/* Content - constrained left column */}
       <div className="lsh-container relative z-10 flex items-center pb-12 pt-[100px] sm:pb-20 sm:pt-[128px] xl:pb-24 xl:pt-[148px]">
         <div className="w-full sm:max-w-[72%] md:max-w-[58%] xl:max-w-[46%]">
-          {/* Breadcrumbs */}
-          <div className="mb-5">
-            <ServiceBreadcrumbs serviceLabel={serviceLabel} />
-          </div>
-
           {/* Eyebrow */}
-          <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+          <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
             {eyebrow}
           </p>
 
@@ -95,7 +87,7 @@ export default function ServiceHero({
           <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <Link
               href="/#quote"
-              className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
+              className="inline-flex items-center justify-center gap-2 h-[50px] sm:h-[46px] px-7 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200"
             >
               {uiContent.servicePages.quoteCta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />

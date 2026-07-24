@@ -22,7 +22,7 @@ export default function WhyChooseUsSection() {
        * md:      pt-16 pb-16  (64px)
        * xl:      pt-20 pb-20  (80px)
        */
-      className="bg-lsh-dark pt-12 pb-12 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[68px] xl:scroll-mt-[78px]"
+      className="bg-lsh-dark pt-12 pb-12 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="why-choose-heading"
     >
       <div className="lsh-container">
@@ -37,7 +37,7 @@ export default function WhyChooseUsSection() {
           {/* ── Left content block ── */}
           <FadeIn className="xl:w-[36%] xl:shrink-0 mb-8 md:mb-10 xl:mb-0">
             {/* Eyebrow */}
-            <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-blue">
+            <p className="mb-2.5 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
               {homeContent.whyChoose.eyebrow}
             </p>
 
@@ -67,7 +67,7 @@ export default function WhyChooseUsSection() {
             {/* CTA - drives to the quote form */}
             <Link
               href="/#quote"
-              className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-white bg-lsh-blue rounded-[4px] hover:bg-lsh-blue-hover active:bg-lsh-blue-dark transition-colors duration-200"
+              className="inline-flex items-center gap-2 h-[44px] px-6 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-[4px] hover:bg-lsh-gold-hover active:bg-lsh-gold-dark transition-colors duration-200"
             >
               {homeContent.whyChoose.cta}
               <ArrowRight size={14} strokeWidth={2} aria-hidden="true" />
@@ -97,7 +97,7 @@ export default function WhyChooseUsSection() {
                       <Icon
                         size={28}
                         strokeWidth={1.4}
-                        className="text-lsh-blue mb-2.5 shrink-0 sm:mb-3"
+                        className="text-lsh-gold mb-2.5 shrink-0 sm:mb-3"
                         aria-hidden="true"
                       />
                       <h3 className="font-heading font-bold uppercase tracking-wide text-white text-[0.8125rem] sm:text-[0.875rem] xl:text-[0.9375rem] leading-snug mb-1.5">
