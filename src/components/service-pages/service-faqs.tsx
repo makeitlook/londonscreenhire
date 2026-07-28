@@ -9,36 +9,54 @@ interface ServiceFaq {
 
 interface ServiceFaqsProps {
   faqs: ServiceFaq[];
+  eyebrow?: string;
+  heading?: string;
+  prompt?: string;
+  headingId?: string;
+  tone?: "dark" | "light";
 }
 
 /**
- * FAQs - dark section, two-column on desktop.
+ * FAQs - light or dark section, two-column on desktop.
  * Left: eyebrow + heading + contact prompt (32% width).
  * Right: full accordion using native <details>/<summary> (no JS).
  * Accessible, keyboard-navigable, respects prefers-reduced-motion.
  */
-export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
+export default function ServiceFaqs({
+  faqs,
+  eyebrow = uiContent.servicePages.faqsEyebrow,
+  heading = uiContent.servicePages.faqsHeading,
+  prompt = uiContent.servicePages.faqsPrompt,
+  headingId = "service-faqs-heading",
+  tone = "dark",
+}: ServiceFaqsProps) {
+  const isLight = tone === "light";
+
   return (
     <section
-      className="bg-lsh-dark py-14 sm:py-16 xl:py-20"
-      aria-labelledby="service-faqs-heading"
+      className={`${isLight ? "bg-white" : "bg-lsh-dark"} py-14 sm:py-16 xl:py-20`}
+      aria-labelledby={headingId}
     >
       <div className="lsh-container">
         <div className="flex flex-col xl:flex-row xl:gap-16 xl:items-start">
           {/* ── Left: heading + contact ── */}
           <div className="xl:w-[32%] xl:shrink-0 mb-10 xl:mb-0 xl:sticky xl:top-28">
-            <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold">
-              {uiContent.servicePages.faqsEyebrow}
+            <p
+              className={`mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] ${isLight ? "text-lsh-gold-ink" : "text-lsh-gold"}`}
+            >
+              {eyebrow}
             </p>
             <h2
-              id="service-faqs-heading"
-              className="font-heading font-bold uppercase text-white leading-[0.9] tracking-[-0.01em] mb-5"
+              id={headingId}
+              className={`font-heading font-bold uppercase leading-[0.9] tracking-[-0.01em] mb-5 ${isLight ? "text-lsh-dark" : "text-white"}`}
               style={{ fontSize: "clamp(1.75rem, 3vw + 0.5rem, 2.75rem)" }}
             >
-              {uiContent.servicePages.faqsHeading}
+              {heading}
             </h2>
-            <p className="text-[0.9rem] leading-[1.65] text-lsh-grey-400 mb-5">
-              {uiContent.servicePages.faqsPrompt}
+            <p
+              className={`text-[0.9rem] leading-[1.65] mb-5 ${isLight ? "text-lsh-grey-700" : "text-lsh-grey-400"}`}
+            >
+              {prompt}
             </p>
             <a
               href={contact.phone.href}
@@ -55,15 +73,17 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
             {faqs.map((faq, index) => (
               <details
                 key={index}
-                className="group bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[3px] overflow-hidden"
+                className={`group overflow-hidden rounded-[3px] border ${isLight ? "border-[var(--lsh-border-light)] bg-lsh-off-white" : "border-[var(--lsh-border-dark)] bg-lsh-charcoal"}`}
               >
-                <summary className="flex items-center justify-between gap-4 px-5 py-4 sm:px-6 cursor-pointer list-none select-none text-white hover:bg-lsh-charcoal-light transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-gold focus-visible:outline-offset-[-2px]">
+                <summary
+                  className={`flex cursor-pointer list-none select-none items-center justify-between gap-4 px-5 py-4 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-lsh-gold focus-visible:outline-offset-[-2px] sm:px-6 ${isLight ? "text-lsh-dark hover:bg-white" : "text-white hover:bg-lsh-charcoal-light"}`}
+                >
                   <span className="font-heading font-semibold uppercase tracking-wide text-[0.9375rem] leading-snug">
                     {faq.question}
                   </span>
                   {/* Chevron rotates when open */}
                   <svg
-                    className="shrink-0 w-4 h-4 text-lsh-gold transition-transform duration-200 group-open:rotate-180"
+                    className={`h-4 w-4 shrink-0 transition-transform duration-200 group-open:rotate-180 ${isLight ? "text-lsh-gold-ink" : "text-lsh-gold"}`}
                     viewBox="0 0 16 16"
                     fill="none"
                     stroke="currentColor"
@@ -75,8 +95,12 @@ export default function ServiceFaqs({ faqs }: ServiceFaqsProps) {
                     <path d="M3 6l5 5 5-5" />
                   </svg>
                 </summary>
-                <div className="border-t border-[var(--lsh-border-dark)] px-5 py-5 sm:px-6">
-                  <p className="text-[0.9rem] leading-[1.7] text-lsh-grey-300">
+                <div
+                  className={`border-t px-5 py-5 sm:px-6 ${isLight ? "border-[var(--lsh-border-light)]" : "border-[var(--lsh-border-dark)]"}`}
+                >
+                  <p
+                    className={`text-[0.9rem] leading-[1.7] ${isLight ? "text-lsh-grey-700" : "text-lsh-grey-300"}`}
+                  >
                     {faq.answer}
                   </p>
                 </div>

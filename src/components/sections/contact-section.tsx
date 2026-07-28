@@ -58,7 +58,7 @@ export default function ContactSection() {
   return (
     <section
       id="quote"
-      className="bg-lsh-dark pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
+      className="bg-lsh-dark border-t-2 border-lsh-gold pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="contact-heading"
     >
       <div className="lsh-container">
