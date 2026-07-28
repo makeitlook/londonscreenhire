@@ -8,13 +8,34 @@
     "homeAriaLabel": "London Screen Hire, return to homepage"
   },
   "homeMetadata": {
-    "title": "LED Screen Hire & Event AV Production | London",
+    "title": "LED Screen Hire London | TV, Projector & Video Wall Hire UK",
     "titleTemplate": "%s | London Screen Hire",
-    "description": "LED screen hire and AV production for corporate events, conferences, exhibitions and weddings across London. Get a tailored quote.",
-    "socialTitle": "London Screen Hire | LED & Projection Screen Hire",
-    "socialDescription": "Professional LED screen and projection screen hire for events in London, with UK-wide projects available by arrangement. Request a free quote today.",
-    "socialImage": "/images/hero/hero.png",
-    "socialImageAlt": "London Screen Hire, professional LED and projection screen hire for events"
+    "description": "Hire LED screens, TVs, projectors, video walls & AV equipment in London. Professional event screen hire with fast delivery, setup, and competitive pricing.",
+    "keywords": [
+      "LED Screen Hire London",
+      "Screen Hire London",
+      "LED Screen Rental London",
+      "TV Hire London",
+      "Projector Hire London",
+      "Video Wall Hire London",
+      "AV Equipment Hire London",
+      "Audio Visual Hire London",
+      "Event Screen Hire",
+      "Exhibition Screen Hire",
+      "Conference AV Hire",
+      "Corporate Event AV Hire",
+      "Outdoor LED Screen Hire",
+      "Indoor LED Screen Hire",
+      "LED Display Hire"
+    ],
+    "socialTitle": "LED Screen Hire London | TV Hire, Video Wall & AV Equipment",
+    "socialDescription": "Hire LED screens, TVs, projectors, video walls and AV equipment for exhibitions, conferences, corporate events and live events across London.",
+    "socialImage": "/images/projects/concert.webp",
+    "socialImageWidth": 1536,
+    "socialImageHeight": 1024,
+    "socialImageAlt": "London Screen Hire - LED Screen & AV Equipment Hire",
+    "twitterDescription": "Professional LED screen, TV, projector, video wall and AV equipment hire across London for events, exhibitions and conferences.",
+    "twitterImage": "/images/projects/corporate.webp"
   },
   "icons": {
     "favicon": "/favicon.ico",
@@ -25,10 +46,26 @@
   },
   "business": {
     "description": "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement.",
-    "addressLocality": "London",
+    "streetAddress": "174 Hampton Road West",
+    "addressLocality": "Feltham",
+    "addressRegion": "London",
+    "postalCode": "TW13 6BE",
     "addressCountry": "GB",
+    "latitude": 51.437625,
+    "longitude": -0.382002,
     "areaServed": "United Kingdom",
     "priceRange": "££",
-    "offerCatalogName": "Screen Hire Services"
+    "offerCatalogName": "Screen Hire Services",
+    "openingHours": {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
   }
 }

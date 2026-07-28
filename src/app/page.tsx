@@ -3,11 +3,14 @@ import BackToTop from "@/components/shared/back-to-top";
 import SiteFooter from "@/components/layout/site-footer";
 import HeroSection from "@/components/sections/hero-section";
 import FeaturedServices from "@/components/sections/featured-services";
+import ServiceOverviewSection from "@/components/sections/service-overview-section";
 import ProjectsSection from "@/components/sections/projects-section";
 import WhyChooseUsSection from "@/components/sections/why-choose-us-section";
 import StatisticsStrip from "@/components/sections/statistics-strip";
 import TestimonialsSection from "@/components/sections/testimonials-section";
 import ContactSection from "@/components/sections/contact-section";
+import ServiceFaqs from "@/components/service-pages/service-faqs";
+import homeContent from "@/content/home.json";
 import { contact } from "@/data/contact";
 import { socialLinks } from "@/data/footer";
 import { services } from "@/data/services";
@@ -51,7 +54,7 @@ const homepageStructuredData = {
       },
     },
     {
-      "@type": "LocalBusiness",
+      "@type": ["Organization", "LocalBusiness"],
       "@id": `${SITE_URL}/#business`,
       name: SITE_NAME,
       description: siteContent.business.description,
@@ -66,8 +69,16 @@ const homepageStructuredData = {
       email: contact.email.display,
       address: {
         "@type": "PostalAddress",
+        streetAddress: siteContent.business.streetAddress,
         addressLocality: siteContent.business.addressLocality,
+        addressRegion: siteContent.business.addressRegion,
+        postalCode: siteContent.business.postalCode,
         addressCountry: siteContent.business.addressCountry,
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: siteContent.business.latitude,
+        longitude: siteContent.business.longitude,
       },
       areaServed: {
         "@type": "Country",
@@ -76,6 +87,12 @@ const homepageStructuredData = {
       priceRange: siteContent.business.priceRange,
       image: `${SITE_URL}${siteContent.homeMetadata.socialImage}`,
       sameAs: verifiedSocialProfiles,
+      openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: siteContent.business.openingHours.days,
+        opens: siteContent.business.openingHours.opens,
+        closes: siteContent.business.openingHours.closes,
+      },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: siteContent.business.offerCatalogName,
@@ -93,6 +110,18 @@ const homepageStructuredData = {
           };
         }),
       },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faqs`,
+      mainEntity: homeContent.faqs.items.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.answer,
+        },
+      })),
     },
   ],
 };
@@ -115,17 +144,15 @@ export default function Home() {
         <div className="relative bg-lsh-dark">
           <HeroSection />
           {/*
-           * Graduated overlap - services panel rises into the hero's bottom gradient zone.
-           * Mobile: no overlap (hero content area needs full height)
-           * sm:  -32px  640px+
-           * md:  -48px  768px+
-           * lg:  -72px  1024px+
-           * xl:  -80px  1280px+
+           * Restrained overlap keeps the panel connected to the hero while
+           * preserving a clear gap beneath the hero actions.
            */}
-          <div className="relative z-10 -mt-5 sm:-mt-8 md:-mt-12 lg:-mt-[72px] xl:-mt-20 pb-5 md:pb-8 xl:pb-10">
+          <div className="relative z-10 mt-0 sm:-mt-6 md:-mt-8 lg:-mt-8 xl:-mt-8 pb-5 md:pb-8 xl:pb-10">
             <FeaturedServices />
           </div>
         </div>
+
+        <ServiceOverviewSection />
 
         {/* Recent Projects - off-white, sharp transition from dark */}
         <ProjectsSection />
@@ -139,7 +166,16 @@ export default function Home() {
         {/* Testimonials - off-white, attaches directly beneath gold strip */}
         <TestimonialsSection />
 
-        {/* Contact & Quote - dark, attaches directly beneath off-white Testimonials */}
+        <ServiceFaqs
+          faqs={homeContent.faqs.items}
+          eyebrow={homeContent.faqs.eyebrow}
+          heading={homeContent.faqs.heading}
+          prompt={homeContent.faqs.prompt}
+          headingId="homepage-faqs-heading"
+          tone="light"
+        />
+
+        {/* Contact & Quote - dark, follows the homepage FAQs */}
         <ContactSection />
       </main>
       <SiteFooter />

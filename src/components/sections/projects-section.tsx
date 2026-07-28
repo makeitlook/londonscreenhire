@@ -13,7 +13,7 @@ export default function ProjectsSection() {
        * md:      pt-16 pb-16  (64px / 64px)
        * xl:      pt-20 pb-20  (80px / 80px)
        */
-      className="bg-lsh-off-white pt-12 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
+      className="bg-lsh-off-white pt-8 pb-14 md:pt-10 md:pb-16 xl:pt-12 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="projects-heading"
     >
       <div className="lsh-container">

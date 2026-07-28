@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     template: siteContent.homeMetadata.titleTemplate,
   },
   description: siteContent.homeMetadata.description,
+  keywords: siteContent.homeMetadata.keywords,
   metadataBase: new URL(SITE_URL),
   applicationName: SITE_NAME,
   authors: [{ name: SITE_NAME, url: SITE_URL }],
@@ -65,8 +66,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: siteContent.homeMetadata.socialImage,
-        width: 1536,
-        height: 1024,
+        width: siteContent.homeMetadata.socialImageWidth,
+        height: siteContent.homeMetadata.socialImageHeight,
         alt: siteContent.homeMetadata.socialImageAlt,
       },
     ],
@@ -74,8 +75,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteContent.homeMetadata.socialTitle,
-    description: siteContent.homeMetadata.socialDescription,
-    images: [siteContent.homeMetadata.socialImage],
+    description: siteContent.homeMetadata.twitterDescription,
+    images: [siteContent.homeMetadata.twitterImage],
   },
   icons: {
     icon: [
