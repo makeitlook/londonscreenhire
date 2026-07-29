@@ -13,6 +13,7 @@
     ],
     "links": [
       { "label": "Projects", "href": "/#projects" },
+      { "label": "Blog", "href": "/blog" },
       { "label": "About", "href": "/#about" },
       { "label": "Testimonials", "href": "/#testimonials" },
       { "label": "Contact", "href": "/#quote" }
@@ -30,6 +31,7 @@
     "quickLinks": [
       { "label": "Home", "href": "/#home" },
       { "label": "Services", "href": "/#services" },
+      { "label": "Blog", "href": "/blog" },
       { "label": "Events", "href": "/#projects" },
       { "label": "About", "href": "/#about" },
       { "label": "Testimonials", "href": "/#testimonials" },
