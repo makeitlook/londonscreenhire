@@ -227,46 +227,98 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
 
           {/* Structured Sections */}
           <div className="space-y-12">
-            {post.content.sections.map((section, idx) => (
-              <section key={section.heading} className="space-y-4">
-                <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-white flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-lsh-gold/15 text-xs font-bold text-lsh-gold border border-lsh-gold/30">
-                    {idx + 1}
-                  </span>
-                  {section.heading}
-                </h2>
+            {post.content.sections.map((section, idx) => {
+              const isFaq =
+                /faq|frequently asked/i.test(section.heading);
 
-                {section.paragraphs.map((p, pIdx) => (
-                  <p
-                    key={pIdx}
-                    className="text-sm md:text-base leading-relaxed text-[var(--lsh-grey-300)]"
-                  >
-                    {p}
-                  </p>
-                ))}
+              if (isFaq) {
+                // Parse each paragraph as "Question? Answer text."
+                const faqs = section.paragraphs.map((p) => {
+                  const firstQ = p.indexOf("?");
+                  if (firstQ === -1) return { q: p, a: "" };
+                  return {
+                    q: p.slice(0, firstQ + 1).trim(),
+                    a: p.slice(firstQ + 1).trim(),
+                  };
+                });
 
-                {section.callout && (
-                  <div className="my-6 rounded bg-lsh-black/80 border border-lsh-gold/30 p-5 text-sm leading-relaxed text-lsh-gold flex items-start gap-3">
-                    <HelpCircle className="h-5 w-5 shrink-0 mt-0.5 text-lsh-gold" />
-                    <div>{section.callout}</div>
-                  </div>
-                )}
+                return (
+                  <section key={section.heading} className="space-y-4">
+                    <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-white flex items-center gap-3">
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-lsh-gold/15 text-xs font-bold text-lsh-gold border border-lsh-gold/30">
+                        {idx + 1}
+                      </span>
+                      {section.heading}
+                    </h2>
 
-                {section.bullets && section.bullets.length > 0 && (
-                  <ul className="my-4 space-y-2.5 rounded bg-lsh-charcoal p-5 border border-[var(--lsh-border-dark)]">
-                    {section.bullets.map((bullet, bIdx) => (
-                      <li
-                        key={bIdx}
-                        className="flex items-start gap-3 text-xs md:text-sm text-[var(--lsh-grey-300)]"
-                      >
-                        <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-lsh-gold" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </section>
-            ))}
+                    <div className="divide-y divide-[var(--lsh-border-dark)] rounded-md border border-[var(--lsh-border-dark)] overflow-hidden">
+                      {faqs.map(({ q, a }, fIdx) => (
+                        <details
+                          key={fIdx}
+                          className="group bg-lsh-charcoal open:bg-lsh-charcoal-light transition-colors duration-200"
+                        >
+                          <summary className="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 select-none">
+                            <span className="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-white group-open:text-lsh-gold transition-colors duration-200">
+                              {q}
+                            </span>
+                            {/* +/− indicator */}
+                            <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-[var(--lsh-border-dark)] text-lsh-gold text-sm font-bold group-open:rotate-45 transition-transform duration-200">
+                              +
+                            </span>
+                          </summary>
+                          {a && (
+                            <p className="px-5 pb-5 pt-1 text-xs md:text-sm leading-relaxed text-[var(--lsh-grey-300)]">
+                              {a}
+                            </p>
+                          )}
+                        </details>
+                      ))}
+                    </div>
+                  </section>
+                );
+              }
+
+              return (
+                <section key={section.heading} className="space-y-4">
+                  <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-white flex items-center gap-3">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded bg-lsh-gold/15 text-xs font-bold text-lsh-gold border border-lsh-gold/30">
+                      {idx + 1}
+                    </span>
+                    {section.heading}
+                  </h2>
+
+                  {section.paragraphs.map((p, pIdx) => (
+                    <p
+                      key={pIdx}
+                      className="text-sm md:text-base leading-relaxed text-[var(--lsh-grey-300)]"
+                    >
+                      {p}
+                    </p>
+                  ))}
+
+                  {section.callout && (
+                    <div className="my-6 rounded bg-lsh-black/80 border border-lsh-gold/30 p-5 text-sm leading-relaxed text-lsh-gold flex items-start gap-3">
+                      <HelpCircle className="h-5 w-5 shrink-0 mt-0.5 text-lsh-gold" />
+                      <div>{section.callout}</div>
+                    </div>
+                  )}
+
+                  {section.bullets && section.bullets.length > 0 && (
+                    <ul className="my-4 space-y-2.5 rounded bg-lsh-charcoal p-5 border border-[var(--lsh-border-dark)]">
+                      {section.bullets.map((bullet, bIdx) => (
+                        <li
+                          key={bIdx}
+                          className="flex items-start gap-3 text-xs md:text-sm text-[var(--lsh-grey-300)]"
+                        >
+                          <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-lsh-gold" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </section>
+              );
+            })}
           </div>
 
           {/* Conclusion */}
