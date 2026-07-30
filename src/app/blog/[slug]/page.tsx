@@ -11,7 +11,8 @@ import SiteHeader from "@/components/layout/site-header";
 import SiteFooter from "@/components/layout/site-footer";
 import BlogCard from "@/components/blog/blog-card";
 import BlogShareButtons from "@/components/blog/blog-share-buttons";
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, SITE_NAME } from "@/lib/site";
+import siteContent from "@/content/site.json";
 import {
   Calendar,
   Clock,
@@ -94,11 +95,11 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     },
     publisher: {
       "@type": "Organization",
-      name: "London Screen Hire",
+      name: SITE_NAME,
       url: SITE_URL,
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/images/brand/logo.png`,
+        url: `${SITE_URL}${siteContent.logo.image}`,
       },
     },
     mainEntityOfPage: {
@@ -111,7 +112,9 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
       <SiteHeader />

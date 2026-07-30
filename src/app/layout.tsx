@@ -111,6 +111,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  verification: {
+    google: "5weQ7lTIbyaVvLCBI5zdDM-g6pYuXcO7RYDncm695Ts",
+  },
 };
 
 export default function RootLayout({
