@@ -25,6 +25,54 @@ import {
   HelpCircle,
 } from "lucide-react";
 
+function renderFormattedText(text: string) {
+  if (!text) return null;
+  const parts: React.ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const label = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http");
+
+    if (isExternal) {
+      parts.push(
+        <a
+          key={match.index}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-lsh-gold font-semibold hover:underline"
+        >
+          {label}
+        </a>
+      );
+    } else {
+      parts.push(
+        <Link
+          key={match.index}
+          href={href}
+          className="text-lsh-gold font-semibold hover:underline"
+        >
+          {label}
+        </Link>
+      );
+    }
+    lastIndex = regex.lastIndex;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -225,7 +273,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
         <article className="lsh-container pb-16">
           {/* Introduction */}
           <div className="mb-10 rounded-md border-l-4 border-lsh-gold bg-lsh-charcoal p-6 text-base md:text-lg leading-relaxed text-white shadow-sm">
-            {post.content.introduction}
+            {renderFormattedText(post.content.introduction)}
           </div>
 
           {/* Structured Sections */}
@@ -271,7 +319,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
                           </summary>
                           {a && (
                             <p className="px-5 pb-5 pt-1 text-xs md:text-sm leading-relaxed text-[var(--lsh-grey-300)]">
-                              {a}
+                              {renderFormattedText(a)}
                             </p>
                           )}
                         </details>
@@ -295,14 +343,14 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
                       key={pIdx}
                       className="text-sm md:text-base leading-relaxed text-[var(--lsh-grey-300)]"
                     >
-                      {p}
+                      {renderFormattedText(p)}
                     </p>
                   ))}
 
                   {section.callout && (
                     <div className="my-6 rounded bg-lsh-black/80 border border-lsh-gold/30 p-5 text-sm leading-relaxed text-lsh-gold flex items-start gap-3">
                       <HelpCircle className="h-5 w-5 shrink-0 mt-0.5 text-lsh-gold" />
-                      <div>{section.callout}</div>
+                      <div>{renderFormattedText(section.callout)}</div>
                     </div>
                   )}
 
@@ -314,7 +362,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
                           className="flex items-start gap-3 text-xs md:text-sm text-[var(--lsh-grey-300)]"
                         >
                           <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-lsh-gold" />
-                          <span>{bullet}</span>
+                          <span>{renderFormattedText(bullet)}</span>
                         </li>
                       ))}
                     </ul>
@@ -330,7 +378,7 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
               Summary & Key Takeaway
             </h3>
             <p className="text-sm leading-relaxed text-[var(--lsh-grey-300)]">
-              {post.content.conclusion}
+              {renderFormattedText(post.content.conclusion)}
             </p>
           </div>
 

@@ -55,6 +55,7 @@
     "socialLinks": [
       { "label": "Facebook", "href": "https://www.facebook.com/London.screen.hire/", "icon": "facebook", "placeholder": false },
       { "label": "Instagram", "href": "https://www.instagram.com/london.screen.hire/", "icon": "instagram", "placeholder": false },
+      { "label": "Trustpilot", "href": "https://www.trustpilot.com/review/londonscreenhire.com", "icon": "trustpilot", "placeholder": false },
       { "label": "YouTube", "href": "", "icon": "youtube", "placeholder": true },
       { "label": "LinkedIn", "href": "", "icon": "linkedin", "placeholder": true }
     ],

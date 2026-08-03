@@ -1,5 +1,35 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/.well-known/api-catalog",
+      "destination": "/api/well-known/api-catalog"
+    },
+    {
+      "source": "/.well-known/mcp/server-card.json",
+      "destination": "/api/well-known/mcp/server-card"
+    },
+    {
+      "source": "/.well-known/agent-skills/index.json",
+      "destination": "/api/well-known/agent-skills"
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server",
+      "destination": "/api/well-known/oauth-authorization-server"
+    },
+    {
+      "source": "/.well-known/oauth-protected-resource",
+      "destination": "/api/well-known/oauth-protected-resource"
+    },
+    {
+      "source": "/.well-known/openid-configuration",
+      "destination": "/api/well-known/openid-configuration"
+    },
+    {
+      "source": "/.well-known/agents",
+      "destination": "/api/well-known/agents"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -27,6 +57,10 @@
         {
           "key": "Strict-Transport-Security",
           "value": "max-age=31536000"
+        },
+        {
+          "key": "Link",
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\", </auth.md>; rel=\"auth\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\""
         }
       ]
     }

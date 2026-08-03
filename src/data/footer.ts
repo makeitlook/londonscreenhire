@@ -4,7 +4,7 @@ export type FooterLink = { label: string; href: string };
 export type SocialLink = {
   label: string;
   href: string;
-  icon: "facebook" | "instagram" | "youtube" | "linkedin";
+  icon: "facebook" | "instagram" | "youtube" | "linkedin" | "trustpilot";
   placeholder: boolean;
 };
 
