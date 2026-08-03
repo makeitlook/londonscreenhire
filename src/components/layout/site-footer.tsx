@@ -92,9 +92,24 @@ function LinkedInIcon() {
   );
 }
 
+function TrustpilotIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+    </svg>
+  );
+}
+
 const socialIconMap: Record<string, React.ComponentType> = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
+  trustpilot: TrustpilotIcon,
   youtube: YouTubeIcon,
   linkedin: LinkedInIcon,
 };
@@ -246,6 +261,19 @@ export default function SiteFooter() {
                       </a>
                     );
                   })}
+                </div>
+                <div className="mt-3">
+                  <a
+                    href="https://www.trustpilot.com/review/londonscreenhire.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-xs font-medium text-[var(--lsh-grey-400)] hover:text-[#00b67a] transition-colors duration-200"
+                  >
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-[#00b67a] text-black">
+                      <TrustpilotIcon />
+                    </span>
+                    <span>Review us on Trustpilot</span>
+                  </a>
                 </div>
               </div>
             )}
