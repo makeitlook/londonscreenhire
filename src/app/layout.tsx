@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
+import WebMcpProvider from "@/components/shared/webmcp-provider";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
 import siteContent from "@/content/site.json";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
@@ -129,6 +130,7 @@ export default function RootLayout({
       <body className="font-body">
         {children}
         <WhatsAppFab />
+        <WebMcpProvider />
         <ConsentManager />
       </body>
     </html>

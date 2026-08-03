@@ -30,11 +30,6 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const allPosts = getAllBlogPosts();
   const featuredPost = getFeaturedBlogPost();
-  // When there is only one post it is both featured and listed in the grid.
-  // With multiple posts, skip the featured one in the grid to avoid duplication.
-  const regularPosts = allPosts.length > 1
-    ? allPosts.filter((post) => post.slug !== featuredPost.slug)
-    : allPosts;
   const categories = getBlogCategories();
 
   return (
@@ -88,7 +83,7 @@ export default function BlogPage() {
               </p>
             </div>
 
-            <BlogListClient initialPosts={regularPosts} categories={categories} />
+            <BlogListClient initialPosts={allPosts} categories={categories} />
           </section>
 
           {/* Call to Action Box */}
