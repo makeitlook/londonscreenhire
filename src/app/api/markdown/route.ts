@@ -1,22 +1,21 @@
+import { NextRequest, NextResponse } from "next/server";
+import homeContent from "@/content/home.json";
+
+export const dynamic = "force-dynamic";
+
 /**
- * Vercel Serverless Function: Markdown for Agents
- *
- * Lives in /api/markdown.js (top-level /api/ directory) — handled by Vercel
- * as a serverless function independently of the Next.js static export.
- *
- * Fetches the requested page as HTML and converts it to Markdown.
- * Called by middleware when a request carries Accept: text/markdown
- * or comes from a known AI bot user-agent.
+ * Markdown Content Negotiation Endpoint (Markdown for Agents).
+ * Converts HTML pages to Markdown when Accept: text/markdown is specified.
  *
  * @see https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
  * @see https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md
  */
-export default async function handler(req, res) {
-  const { path = "/" } = req.query;
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const path = searchParams.get("path") || "/";
 
-  // Build absolute URL from Vercel-injected headers
-  const protocol = req.headers["x-forwarded-proto"] || "https";
-  const host = req.headers["host"] || "www.londonscreenhire.com";
+  const host = request.headers.get("host") || "www.londonscreenhire.com";
+  const protocol = request.headers.get("x-forwarded-proto") || "https";
   const targetUrl = `${protocol}://${host}${path}`;
 
   let markdown = "";
@@ -24,7 +23,6 @@ export default async function handler(req, res) {
   try {
     const response = await fetch(targetUrl, {
       headers: {
-        // Prevent recursive middleware processing
         "X-Bypass-Markdown": "true",
         Accept: "text/html",
       },
@@ -40,18 +38,21 @@ export default async function handler(req, res) {
     markdown = generateFallbackMarkdown(path);
   }
 
-  // Estimate token count (~4 characters per token)
   const tokenCount = Math.ceil(markdown.length / 4);
 
-  res.setHeader("Content-Type", "text/markdown; charset=utf-8");
-  res.setHeader("x-markdown-tokens", tokenCount.toString());
-  res.setHeader("X-Markdown-Tokens", tokenCount.toString());
-  res.setHeader("Cache-Control", "public, max-age=60");
-  res.setHeader("Vary", "Accept");
-  res.status(200).send(markdown);
+  return new NextResponse(markdown, {
+    status: 200,
+    headers: {
+      "Content-Type": "text/markdown; charset=utf-8",
+      "x-markdown-tokens": tokenCount.toString(),
+      "X-Markdown-Tokens": tokenCount.toString(),
+      "Cache-Control": "public, max-age=60",
+      Vary: "Accept",
+    },
+  });
 }
 
-function convertHtmlToMarkdown(html) {
+function convertHtmlToMarkdown(html: string): string {
   return html
     .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "")
     .replace(/<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi, "")
@@ -88,10 +89,13 @@ function convertHtmlToMarkdown(html) {
     .trim();
 }
 
-function generateFallbackMarkdown(path) {
-  return `# London Screen Hire — LED Screen & AV Hire in London
+function generateFallbackMarkdown(path: string): string {
+  const title = homeContent.hero?.headingLines?.join(" ") || "London Screen Hire — LED Screen & AV Hire in London";
+  const subtitle = homeContent.hero?.description || "Professional LED screen hire, video wall rental, and audio-visual equipment hire in London and across the UK.";
 
-Professional LED screen hire, video wall rental, and audio-visual equipment hire in London and across the UK.
+  return `# ${title}
+
+${subtitle}
 
 ## Service Overview
 

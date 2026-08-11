@@ -1,0 +1,30 @@
+; ==============================================================================
+; DNS for AI Discovery (DNS-AID) Zone Configuration
+; Domain: londonscreenhire.com
+; Specification: draft-mozleywilliams-dnsop-dnsaid & RFC 9460 (SVCB / HTTPS RRs)
+; ==============================================================================
+
+$TTL 3600
+
+; ------------------------------------------------------------------------------
+; 1. DNS-AID Primary Entrypoint Index Record (_index._agents)
+; Discovers main agent index at /.well-known/agents
+; ------------------------------------------------------------------------------
+_index._agents.londonscreenhire.com. IN HTTPS 1 londonscreenhire.com. alpn="h2,h3" endpoint="/.well-known/agents"
+
+; ------------------------------------------------------------------------------
+; 2. DNS-AID Agent-to-Agent / Skills Record (_a2a._agents)
+; Discovers agent skills index at /.well-known/agent-skills/index.json
+; ------------------------------------------------------------------------------
+_a2a._agents.londonscreenhire.com.   IN HTTPS 1 londonscreenhire.com. alpn="h2,h3" endpoint="/.well-known/agent-skills/index.json"
+
+; ------------------------------------------------------------------------------
+; 3. Alternative SVCB ServiceMode Format for Agent-to-Agent (A2A) Discovery
+; ------------------------------------------------------------------------------
+; _a2a._agents.londonscreenhire.com. IN SVCB  1 londonscreenhire.com. alpn="a2a" port=443 mandatory=alpn,port
+
+; ------------------------------------------------------------------------------
+; 4. Experimental Key Format (key65200) for unregistered SvcParamKeys
+; ------------------------------------------------------------------------------
+; _index._agents.londonscreenhire.com. IN HTTPS 1 londonscreenhire.com. alpn="h2,h3" key65200="/.well-known/agents"
+; _a2a._agents.londonscreenhire.com.   IN HTTPS 1 londonscreenhire.com. alpn="h2,h3" key65200="/.well-known/agent-skills/index.json"
