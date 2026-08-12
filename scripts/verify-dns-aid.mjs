@@ -85,6 +85,7 @@ async function verifyEntrypoint(entry) {
 
   let recordFound = false;
   let dnssecValid = false;
+  let paramMatched = false;
 
   for (const rrType of RR_TYPES) {
     try {
@@ -93,8 +94,9 @@ async function verifyEntrypoint(entry) {
 
       const answersCF = resCF.Answer || [];
       const answersGoogle = resGoogle.Answer || [];
+      const allAnswers = answersCF.concat(answersGoogle);
 
-      if (answersCF.length > 0 || answersGoogle.length > 0) {
+      if (allAnswers.length > 0) {
         recordFound = true;
         console.log(`   ✅ Found ${rrType.name} (Type ${rrType.code}) record.`);
 
@@ -105,9 +107,12 @@ async function verifyEntrypoint(entry) {
           console.log(`   ⚠️  Record returned without DNSSEC AD flag.`);
         }
 
-        const dataStr = JSON.stringify(answersCF.concat(answersGoogle));
-        if (dataStr.includes(entry.expectedEndpoint) || dataStr.includes("alpn=")) {
-          console.log(`   ✨ Endpoint parameter matches expected pattern.`);
+        const dataStr = JSON.stringify(allAnswers);
+        if (dataStr.includes(entry.expectedEndpoint)) {
+          paramMatched = true;
+          console.log(`   ✨ Exact endpoint parameter ("${entry.expectedEndpoint}") validated.`);
+        } else {
+          console.log(`   ❌ Endpoint parameter mismatch: expected "${entry.expectedEndpoint}".`);
         }
       }
     } catch (err) {
@@ -116,12 +121,13 @@ async function verifyEntrypoint(entry) {
   }
 
   if (!recordFound) {
-    console.log(`   ℹ️ Record not live on public DNS resolvers yet.`);
+    console.log(`   ❌ Record not found on public DNS resolvers.`);
     console.log(`   📋 Local Zone Record to publish:`);
     console.log(`      ${entry.name}. 3600 IN HTTPS 1 ${DOMAIN}. alpn="h2,h3" endpoint="${entry.expectedEndpoint}"`);
   }
 
-  return { name: entry.name, recordFound, dnssecValid };
+  const passed = recordFound && dnssecValid && paramMatched;
+  return { name: entry.name, recordFound, dnssecValid, paramMatched, passed };
 }
 
 async function main() {
@@ -131,18 +137,36 @@ async function main() {
   console.log("=========================================================");
 
   const results = [];
+  let allPassed = true;
   for (const entry of ENTRYPOINTS) {
     const res = await verifyEntrypoint(entry);
     results.push(res);
+    if (!res.passed) {
+      allPassed = false;
+    }
   }
 
   console.log("\n---------------------------------------------------------");
   console.log("Summary:");
   for (const r of results) {
-    const status = r.recordFound ? (r.dnssecValid ? "PASSED (DNSSEC Authenticated)" : "FOUND (Pending DNSSEC)") : "NOT PUBLISHED YET";
+    let status = "FAILED";
+    if (r.passed) {
+      status = "PASSED (DNSSEC & Parameters Validated)";
+    } else if (!r.recordFound) {
+      status = "FAILED (Record Missing)";
+    } else if (!r.dnssecValid) {
+      status = "FAILED (DNSSEC Invalid/Disabled)";
+    } else if (!r.paramMatched) {
+      status = "FAILED (Parameter Mismatch)";
+    }
     console.log(` - ${r.name}: ${status}`);
   }
   console.log("---------------------------------------------------------\n");
+
+  if (!allPassed) {
+    console.error("❌ DNS verification failed! One or more required DNS-AID records are missing, invalid, or lack DNSSEC authentication.");
+    process.exit(1);
+  }
 }
 
 main().catch((err) => {

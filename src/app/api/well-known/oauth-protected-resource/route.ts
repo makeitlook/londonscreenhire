@@ -12,7 +12,7 @@ export async function GET() {
   const metadata = {
     resource: `${SITE_URL}/`,
     authorization_servers: [SITE_URL],
-    bearer_methods_supported: ["header"],
+    bearer_methods_supported: [],
     scopes_supported: ["public", "read"],
     resource_documentation: `${SITE_URL}/auth.md`,
     resource_policy_uri: `${SITE_URL}/privacy`,

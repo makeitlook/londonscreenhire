@@ -155,4 +155,3 @@ curl -X POST https://isitagentready.com/api/scan \
 ```
 
 Verify that `checks.discoverability.dnsAid.status` equals `"pass"`.
-

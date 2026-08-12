@@ -35,7 +35,7 @@ Content-Signal: ai-train=no, search=yes, ai-input=no
 
 ## Contact & Support
 
-For technical enquiries, email: info@londonscreenhire.com  
+For technical enquiries, email: info@londonscreenhire.com
 Or submit a request via: https://www.londonscreenhire.com/#quote
 
 ## Agent Auth Configuration Block

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import homeContent from "@/content/home.json";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 /**
  * Markdown Content Negotiation Endpoint (Markdown for Agents).
@@ -11,11 +11,21 @@ export const dynamic = "force-dynamic";
  * @see https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md
  */
 export async function GET(request: NextRequest) {
-  const searchParams = request.nextUrl.searchParams;
-  const path = searchParams.get("path") || "/";
+  let path = "/";
+  try {
+    path = request.nextUrl?.searchParams?.get("path") || "/";
+  } catch {
+    path = "/";
+  }
 
-  const host = request.headers.get("host") || "www.londonscreenhire.com";
-  const protocol = request.headers.get("x-forwarded-proto") || "https";
+  let host = "www.londonscreenhire.com";
+  let protocol = "https";
+  try {
+    host = request.headers.get("host") || "www.londonscreenhire.com";
+    protocol = request.headers.get("x-forwarded-proto") || "https";
+  } catch {
+    // static prerender fallback
+  }
   const targetUrl = `${protocol}://${host}${path}`;
 
   let markdown = "";

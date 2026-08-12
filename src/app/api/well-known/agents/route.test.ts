@@ -41,7 +41,7 @@ describe("Agent Discovery & Auth.md Metadata Routes", () => {
     const data = await response.json();
     expect(data.resource).toBeDefined();
     expect(Array.isArray(data.authorization_servers)).toBe(true);
-    expect(data.bearer_methods_supported).toContain("header");
+    expect(data.bearer_methods_supported).toEqual([]);
     expect(data.resource_documentation).toContain("/auth.md");
   });
 
@@ -52,6 +52,7 @@ describe("Agent Discovery & Auth.md Metadata Routes", () => {
 
     const data = await response.json();
     expect(data.issuer).toBeDefined();
+    expect(data.authorization_endpoint).toBeUndefined();
     expect(data.agent_auth).toBeDefined();
     expect(data.agent_auth.skill).toBe(
       "https://isitagentready.com/.well-known/agent-skills/auth-md/SKILL.md"

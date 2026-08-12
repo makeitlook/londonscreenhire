@@ -11,12 +11,9 @@ export const dynamic = "force-static";
 export async function GET() {
   const metadata = {
     issuer: SITE_URL,
-    authorization_endpoint: `${SITE_URL}/oauth/authorize`,
-    token_endpoint: `${SITE_URL}/oauth/token`,
-    jwks_uri: `${SITE_URL}/.well-known/jwks.json`,
     scopes_supported: ["public", "read"],
-    response_types_supported: ["token"],
-    grant_types_supported: ["implicit", "client_credentials"],
+    response_types_supported: [],
+    grant_types_supported: [],
     token_endpoint_auth_methods_supported: ["none"],
     service_documentation: `${SITE_URL}/auth.md`,
     op_policy_uri: `${SITE_URL}/privacy`,
