@@ -5,7 +5,7 @@ export interface Testimonial {
   name: string;
   role: string;
   initial: string;
-  placeholder: boolean;
+  placeholder?: boolean;
 }
 
 export const testimonials: Testimonial[] = homeContent.testimonials.items;
