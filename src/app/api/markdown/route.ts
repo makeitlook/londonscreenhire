@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import homeContent from "@/content/home.json";
 
-export const dynamic = "force-static";
-
 /**
  * Markdown Content Negotiation Endpoint (Markdown for Agents).
  * Converts HTML pages to Markdown when Accept: text/markdown is specified.

@@ -56,8 +56,8 @@
       { "label": "Facebook", "href": "https://www.facebook.com/London.screen.hire/", "icon": "facebook", "placeholder": false },
       { "label": "Instagram", "href": "https://www.instagram.com/london.screen.hire/", "icon": "instagram", "placeholder": false },
       { "label": "Trustpilot", "href": "https://www.trustpilot.com/review/londonscreenhire.com", "icon": "trustpilot", "placeholder": false },
-      { "label": "YouTube", "href": "", "icon": "youtube", "placeholder": true },
-      { "label": "LinkedIn", "href": "", "icon": "linkedin", "placeholder": true }
+      { "label": "YouTube", "href": "https://www.youtube.com/@LondonScreenHire", "icon": "youtube", "placeholder": false },
+      { "label": "LinkedIn", "href": "https://www.linkedin.com/company/london-screen-hire", "icon": "linkedin", "placeholder": false }
     ],
     "copyrightTemplate": "© {year} London Screen Hire. All rights reserved.",
     "creditPrefix": "Website designed by",

@@ -71,11 +71,8 @@ export function middleware(request: NextRequest) {
     '</.well-known/agents>; rel="agents"',
     '</.well-known/api-catalog>; rel="api-catalog"',
     '</llms.txt>; rel="describedby"',
-    '</auth.md>; rel="auth"',
     '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
     '</.well-known/agent-skills/index.json>; rel="agent-skills"',
-    '</.well-known/oauth-authorization-server>; rel="oauth-authorization-server"',
-    '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
     '</api/markdown?path=/>; rel="alternate"; type="text/markdown"',
   ].join(", ");
 
