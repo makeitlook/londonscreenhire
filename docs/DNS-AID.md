@@ -138,14 +138,6 @@ dig +dnssec HTTPS _a2a._agents.londonscreenhire.com
 
 Ensure the response header contains the `flags: qr rd ra ad;` (`ad` = Authentic Data).
 
-### Automated Verification Script
-
-Run the repository verification script:
-
-```bash
-node scripts/verify-dns-aid.mjs
-```
-
 ### IsItAgentReady Scanner API Test
 
 ```bash

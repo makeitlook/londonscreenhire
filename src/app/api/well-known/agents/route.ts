@@ -37,24 +37,6 @@ export async function GET() {
         contentType: "application/json",
       },
       {
-        type: "oauth-authorization-server",
-        rel: "oauth-authorization-server",
-        url: `${SITE_URL}/.well-known/oauth-authorization-server`,
-        contentType: "application/json",
-      },
-      {
-        type: "oauth-protected-resource",
-        rel: "oauth-protected-resource",
-        url: `${SITE_URL}/.well-known/oauth-protected-resource`,
-        contentType: "application/json",
-      },
-      {
-        type: "auth-documentation",
-        rel: "auth",
-        url: `${SITE_URL}/auth.md`,
-        contentType: "text/markdown",
-      },
-      {
         type: "llms",
         rel: "describedby",
         url: `${SITE_URL}/llms.txt`,

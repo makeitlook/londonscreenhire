@@ -16,7 +16,7 @@ export interface Statistic {
   value: string;
   label: string;
   icon: LucideIcon;
-  placeholder: boolean;
+  placeholder?: boolean;
   numericValue?: number;
 }
 

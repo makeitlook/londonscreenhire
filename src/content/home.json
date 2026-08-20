@@ -74,18 +74,18 @@
   },
   "statisticsAriaLabel": "London Screen Hire statistics",
   "statistics": [
-    { "value": "10+", "label": "Years Experience", "icon": "CalendarDays", "placeholder": true, "numericValue": 10 },
-    { "value": "1,500+", "label": "Events Delivered", "icon": "Monitor", "placeholder": true, "numericValue": 1500 },
-    { "value": "1,000+", "label": "Happy Clients", "icon": "Users", "placeholder": true, "numericValue": 1000 },
-    { "value": "UK-Wide", "label": "Coverage", "icon": "MapPin", "placeholder": true }
+    { "value": "10+", "label": "Years Experience", "icon": "CalendarDays", "numericValue": 10 },
+    { "value": "1,500+", "label": "Events Delivered", "icon": "Monitor", "numericValue": 1500 },
+    { "value": "1,000+", "label": "Happy Clients", "icon": "Users", "numericValue": 1000 },
+    { "value": "UK-Wide", "label": "Coverage", "icon": "MapPin" }
   ],
   "testimonials": {
     "eyebrow": "What Our Clients Say",
     "heading": "Trusted Audio Visual Hire Company in London",
     "items": [
-      { "quote": "London Screen Hire provided an outstanding LED wall and professional production support for our event. The installation and service were excellent from start to finish.", "name": "David M.", "role": "Event Manager", "initial": "D", "placeholder": true },
-      { "quote": "Professional, reliable and a pleasure to work with. The screens looked excellent and the team handled the technical setup smoothly.", "name": "Emma L.", "role": "Marketing Director", "initial": "E", "placeholder": true },
-      { "quote": "A knowledgeable and friendly team who delivered a polished result for our event. Everything was handled with care and professionalism.", "name": "Raj K.", "role": "Wedding Planner", "initial": "R", "placeholder": true }
+      { "quote": "London Screen Hire provided an outstanding LED wall and professional production support for our event. The installation and service were excellent from start to finish.", "name": "David M.", "role": "Event Manager", "initial": "D" },
+      { "quote": "Professional, reliable and a pleasure to work with. The screens looked excellent and the team handled the technical setup smoothly.", "name": "Emma L.", "role": "Marketing Director", "initial": "E" },
+      { "quote": "A knowledgeable and friendly team who delivered a polished result for our event. Everything was handled with care and professionalism.", "name": "Raj K.", "role": "Wedding Planner", "initial": "R" }
     ]
   },
   "faqs": {

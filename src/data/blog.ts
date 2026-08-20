@@ -139,6 +139,102 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
+    slug: "choosing-the-right-led-screen-size-for-your-event",
+    title: "How to Choose the Right LED Screen Size for Your Event",
+    excerpt:
+      "Not sure what LED screen size you need? Our London-based AV experts break down how to choose the right screen size for conferences, weddings, exhibitions and outdoor events.",
+    publishedAt: "2026-08-17",
+    readTime: "7 min read",
+    category: "Event Planning",
+    featured: false,
+    author: {
+      name: "London Screen Hire Team",
+      role: "AV & Event Production Specialists",
+    },
+    coverImage: "/blogs/choosing-the-right-led-screen-size-for-your-event.png",
+    tags: [
+      "LED Screen Size",
+      "LED Screen Hire London",
+      "Event AV",
+      "Screen Size Guide",
+      "Conference Screen Hire",
+      "Outdoor LED Screen",
+    ],
+    content: {
+      introduction:
+        "Picking the wrong LED screen size is one of the most common (and costly) mistakes event organisers make. Go too small and your content gets lost in a large venue. Go too big and you risk overwhelming an intimate space or blowing your budget on capacity you don't need. At [London Screen Hire](/led-screen-hire-london), we get asked this question on almost every enquiry: *What size LED screen do I actually need?* The honest answer is that it depends on a handful of factors — but once you understand them, sizing your screen becomes a straightforward calculation rather than a guessing game. This guide walks you through exactly how to choose the right LED screen size, whether you're planning a corporate conference, a wedding reception, an exhibition stand, or an outdoor concert in London.",
+      sections: [
+        {
+          heading: "Why LED Screen Size Matters More Than You Think",
+          paragraphs: [
+            "An [LED screen](https://en.wikipedia.org/wiki/LED_display) isn't just a backdrop — it's often the visual centrepiece of your event. Getting the size right from the planning stage saves you from last-minute changes, awkward sightlines, or an underwhelming presentation.",
+          ],
+          bullets: [
+            "Keeps content readable for every seat in the room",
+            "Creates the right visual impact without dominating the space",
+            "Fits comfortably within your venue's dimensions and power supply",
+            "Matches your budget without paying for unnecessary resolution or scale",
+          ],
+        },
+        {
+          heading: "4 Key Factors That Determine LED Screen Size",
+          paragraphs: [
+            "The physical space you're working with is the starting point. A screen that looks perfect in a small boardroom will feel lost in an exhibition hall, and a screen designed for a stadium will be far too large for a hotel conference room. We always recommend sharing venue dimensions, ceiling height, and floor plans when requesting a quote.",
+            "A standard industry rule of thumb is that the maximum viewing distance should be roughly 6 to 8 times the screen height for clear readability. In practice, this means your screen height should be roughly 1/8th to 1/10th of the maximum viewing distance. So if your furthest audience member is sitting 20 metres from the screen, you'll want a screen height of at least 2 to 2.5 metres (such as a 3m x 2m or 4m x 2.5m display) — sizing up for text-heavy or detailed presentations.",
+          ],
+          bullets: [
+            "Up to 50 guests / 5–10m viewing distance: Small screen (2m x 1.2m or similar)",
+            "50–200 guests / 10–20m: Medium screen (3m x 2m to 4m x 2.5m)",
+            "200–500 guests / 20–40m: Large screen (5m x 3m and above)",
+            "500+ guests / 40m+: Large-format or multi-screen setup",
+          ],
+        },
+        {
+          heading: "Content Type & Indoor vs Outdoor Use",
+          paragraphs: [
+            "What you're displaying affects the ideal size and resolution. Slides and text-heavy presentations need larger screens or closer viewing distances so small text stays legible. Video and brand content can work well on slightly smaller screens with higher pixel density. Live camera feeds benefit from wider aspect ratios and larger scale so facial detail carries to the back of the room.",
+            "Outdoor LED screens need to be brighter and often larger to remain visible in daylight and against ambient light, while indoor screens can use higher-resolution panels at a more moderate size since viewing distances are typically shorter. Industry guidelines from [PLASA (Professional Lighting and Sound Association)](https://www.plasa.org/) recommend that outdoor display brightness be assessed as part of pre-event technical planning. If your event is outdoors — a festival, sports event, or open-air ceremony — brightness (measured in nits) becomes just as important as physical size.",
+          ],
+        },
+        {
+          heading: "Recommended LED Screen Sizes by Event Type",
+          paragraphs: [
+            "[Corporate Conferences & Meetings](/conference-led-screen-hire): Most conference rooms and meeting spaces work well with a medium-sized screen, sized to keep presentation text and speaker video clearly visible from the back row.",
+            "[Weddings](/wedding-led-screen-hire): Wedding receptions typically call for a smaller, elegant screen used for photo slideshows, live-streaming the ceremony to guests, or displaying a welcome message — sized to complement the room rather than dominate it.",
+            "[Exhibitions & Trade Stands](/led-screen-hire-london): Exhibition stands benefit from screens sized to catch attention from across a busy hall while still fitting the footprint of your stand space.",
+            "[Awards Ceremonies & Large Corporate Events](/corporate-av-hire): These events usually call for large-format screens or full video walls, often paired with staging, to support live camera feeds, sponsor branding, and high-impact visuals.",
+            "[Outdoor Events & Concerts](/outdoor-led-screen-hire): Outdoor screens need to prioritise brightness and scale to stay visible in daylight across large crowds.",
+          ],
+        },
+        {
+          heading: "Common Mistakes to Avoid When Sizing an LED Screen",
+          paragraphs: [
+            "Screen sizing is genuinely easier with an experienced AV team involved from the start. When you [request a quote](/#quote), tell us your venue, audience size, and content type, and we'll recommend the right LED screen size — no guesswork required.",
+          ],
+          bullets: [
+            "Only thinking about the screen, not the room — power access, rigging points, and floor space all affect what's realistically possible in your venue",
+            "Underestimating viewing distance — a screen that looks fine up close can be unreadable from the back of a large room",
+            "Ignoring content format — a screen sized for slides may not suit a wide-format live video feed, and vice versa",
+            "Not planning for outdoor brightness — an indoor-spec screen used outdoors in daylight will often appear washed out",
+          ],
+          callout:
+            "With over 10 years of experience, 1,500+ events delivered, and 1,000+ happy clients across London and the UK, London Screen Hire has sized and delivered LED screens for everything from intimate wedding receptions to large-scale conferences and outdoor concerts.",
+        },
+        {
+          heading: "Frequently Asked Questions",
+          paragraphs: [
+            "What is the average LED screen size for a corporate event? Most corporate events use a medium-sized screen, though the ideal size depends on room dimensions, audience size, and content type. Our team can recommend the right fit after a quick chat about your event.",
+            "Can I hire multiple LED screens for one event? Yes. Multiple screens are common for larger venues, exhibition halls, or events needing content displayed in more than one location.",
+            "Do bigger screens cost significantly more to hire? Pricing depends on screen size, resolution, rental duration, and technical requirements. [Contact us](/#quote) for a free, tailored quote.",
+            "How far in advance should I book LED screen hire in London? We recommend booking as early as possible, especially for weekend events, large-scale productions, or peak event season, to guarantee equipment availability.",
+          ],
+        },
+      ],
+      conclusion:
+        "Screen sizing doesn't need to be a guessing game. Whether you need a small display for an intimate wedding, a medium screen for a conference, or a large-format outdoor setup for a festival, the London Screen Hire team is here to guide you from brief to delivery. [Get a free, no-obligation quote](/#quote) or call us on [07946 098813](tel:+447946098813) — we'll recommend the perfect screen size for your event.",
+    },
+  },
+  {
     slug: "professional-led-screen-hire-in-london-complete-av-solutions",
     title: "Professional LED Screen Hire in London: Complete AV Solutions for Corporate Events, Exhibitions & Live Productions",
     excerpt:
