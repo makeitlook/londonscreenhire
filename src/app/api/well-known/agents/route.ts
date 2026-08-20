@@ -57,4 +57,4 @@ export async function GET() {
       "Cache-Control": "public, max-age=86400",
     },
   });
-}
+}

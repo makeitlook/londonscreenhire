@@ -180,7 +180,7 @@ export const blogPosts: BlogPost[] = [
           heading: "4 Key Factors That Determine LED Screen Size",
           paragraphs: [
             "The physical space you're working with is the starting point. A screen that looks perfect in a small boardroom will feel lost in an exhibition hall, and a screen designed for a stadium will be far too large for a hotel conference room. We always recommend sharing venue dimensions, ceiling height, and floor plans when requesting a quote.",
-            "A simple industry rule of thumb is the '1 metre per inch' guideline: for every metre of viewing distance, you need roughly one inch of screen height for comfortable readability. So if your furthest audience member is sitting 20 metres from the screen, you'll want a screen with at least 20 inches of height — though for text-heavy or detailed content, it's safer to size up.",
+            "A standard industry rule of thumb is that the maximum viewing distance should be roughly 6 to 8 times the screen height for clear readability. In practice, this means your screen height should be roughly 1/8th to 1/10th of the maximum viewing distance. So if your furthest audience member is sitting 20 metres from the screen, you'll want a screen height of at least 2 to 2.5 metres (such as a 3m x 2m or 4m x 2.5m display) — sizing up for text-heavy or detailed presentations.",
           ],
           bullets: [
             "Up to 50 guests / 5–10m viewing distance: Small screen (2m x 1.2m or similar)",
