@@ -64,19 +64,20 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // For normal HTML requests: add Link discovery headers (RFC 8288)
+  // For normal HTML requests: add Link discovery headers (RFC 8288) and Vary header
   const response = NextResponse.next();
 
   const linkHeader = [
+    '</.well-known/agents>; rel="agents"',
     '</.well-known/api-catalog>; rel="api-catalog"',
     '</llms.txt>; rel="describedby"',
-    '</auth.md>; rel="auth"',
     '</.well-known/mcp/server-card.json>; rel="mcp-server-card"',
     '</.well-known/agent-skills/index.json>; rel="agent-skills"',
-    '</.well-known/oauth-protected-resource>; rel="oauth-protected-resource"',
+    '</api/markdown?path=/>; rel="alternate"; type="text/markdown"',
   ].join(", ");
 
   response.headers.set("Link", linkHeader);
+  response.headers.set("Vary", "Accept");
 
   return response;
 }

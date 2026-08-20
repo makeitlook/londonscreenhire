@@ -14,20 +14,23 @@
       "destination": "/api/well-known/agent-skills"
     },
     {
-      "source": "/.well-known/oauth-authorization-server",
-      "destination": "/api/well-known/oauth-authorization-server"
-    },
-    {
-      "source": "/.well-known/oauth-protected-resource",
-      "destination": "/api/well-known/oauth-protected-resource"
-    },
-    {
-      "source": "/.well-known/openid-configuration",
-      "destination": "/api/well-known/openid-configuration"
+      "source": "/.well-known/agent-skills",
+      "destination": "/api/well-known/agent-skills"
     },
     {
       "source": "/.well-known/agents",
       "destination": "/api/well-known/agents"
+    },
+    {
+      "source": "/((?!api/|_next/|\\.well-known/|.*\\.(?:png|jpg|jpeg|gif|webp|avif|ico|svg|woff|woff2|ttf|otf|css|js|txt|md|json|xml|webmanifest)$).*)",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/api/markdown?path=/$1"
     }
   ],
   "headers": [
@@ -59,8 +62,12 @@
           "value": "max-age=31536000"
         },
         {
+          "key": "Vary",
+          "value": "Accept"
+        },
+        {
           "key": "Link",
-          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\", </auth.md>; rel=\"auth\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </.well-known/oauth-protected-resource>; rel=\"oauth-protected-resource\""
+          "value": "</.well-known/agents>; rel=\"agents\", </.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\", </.well-known/mcp/server-card.json>; rel=\"mcp-server-card\", </.well-known/agent-skills/index.json>; rel=\"agent-skills\", </api/markdown?path=/>; rel=\"alternate\"; type=\"text/markdown\""
         }
       ]
     }

@@ -37,12 +37,6 @@ export async function GET() {
         contentType: "application/json",
       },
       {
-        type: "oauth-protected-resource",
-        rel: "oauth-protected-resource",
-        url: `${SITE_URL}/.well-known/oauth-protected-resource`,
-        contentType: "application/json",
-      },
-      {
         type: "llms",
         rel: "describedby",
         url: `${SITE_URL}/llms.txt`,

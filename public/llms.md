@@ -72,7 +72,6 @@ Contact: https://www.londonscreenhire.com/#quote
 API Catalog: https://www.londonscreenhire.com/.well-known/api-catalog
 Agent Skills: https://www.londonscreenhire.com/.well-known/agent-skills/index.json
 MCP Server Card: https://www.londonscreenhire.com/.well-known/mcp/server-card.json
-Auth: https://www.londonscreenhire.com/auth.md
 
 ## Keywords
 
