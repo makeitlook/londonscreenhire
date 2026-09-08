@@ -158,8 +158,13 @@ export default function SiteHeader() {
               {servicesOpen && (
                 <div
                   id="desktop-services-navigation"
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] max-h-[calc(100dvh-110px)] overflow-y-auto bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
                 >
+                  <Link href={headerContent.allServicesHref} data-service-link
+                    onClick={() => setServicesOpen(false)}
+                    className="block px-2 py-2 mb-3 text-sm font-semibold text-lsh-gold hover:text-white">
+                    {headerContent.allServicesLabel}
+                  </Link>
                   <div className="grid grid-cols-2 gap-x-6">
                     {/* ── LED Screens group ── */}
                     <div>
@@ -310,6 +315,11 @@ export default function SiteHeader() {
 
                       {mobileServicesOpen && (
                         <div className="mt-0.5 ml-3 border-l border-[var(--lsh-border-dark)] pl-3">
+                          <Link href={headerContent.allServicesHref}
+                            onClick={() => setMenuOpen(false)}
+                            className="flex py-3 px-2 text-sm font-semibold text-lsh-gold hover:text-white">
+                            {headerContent.allServicesLabel}
+                          </Link>
                           {/* LED Screens group */}
                           <p className="px-2 pt-2 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
                             {screenServices.label}
