@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Building2,
   Monitor,
@@ -38,6 +39,9 @@ export default function ServiceOverviewSection() {
             <p className="max-w-[470px] text-[0.9375rem] leading-[1.75] text-lsh-grey-700">
               {homeContent.serviceOverview.description}
             </p>
+            <Link href="/screen-hire" className="mt-6 inline-flex min-h-[44px] items-center font-semibold text-lsh-gold-ink underline underline-offset-4">
+              {homeContent.serviceOverview.allServicesLabel}
+            </Link>
           </FadeIn>
 
           <FadeIn className="min-w-0">

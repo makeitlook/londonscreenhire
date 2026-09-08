@@ -13,7 +13,7 @@ interface RelatedServicesProps {
 
 type ServiceItem = RelatedServicesProps["services"][number];
 
-function ServiceCard({ service }: { service: ServiceItem }) {
+export function ServiceCard({ service }: { service: ServiceItem }) {
   return (
     <Link
       href={`/${service.slug}`}
