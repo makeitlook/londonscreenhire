@@ -4,8 +4,9 @@ import { useState, useId, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { Loader2, CheckCircle2, ArrowRight, AlertTriangle } from "lucide-react";
 import formsContent from "@/content/forms.json";
-import { cn } from "@/lib/utils";
+import { trackLeadConversion } from "@/lib/gtag";
 import { validateQuote, type QuoteErrors } from "@/lib/quote-schema";
+import { cn } from "@/lib/utils";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type FormState = "idle" | "loading" | "success";
@@ -165,6 +166,7 @@ export default function QuoteForm() {
       });
       const json = (await res.json()) as { success: boolean };
       if (json.success) {
+        trackLeadConversion();
         setFormState("success");
       } else {
         setFormState("idle");
