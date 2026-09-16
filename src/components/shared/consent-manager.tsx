@@ -18,7 +18,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleTracking from "@/components/shared/google-tracking";
 import uiContent from "@/content/ui.json";
-import { CONSENT_STORAGE_KEY } from "@/lib/gtag";
+import { CONSENT_STORAGE_KEY, GA_TRACKING_ID } from "@/lib/gtag";
 
 type ConsentValue = "accepted" | "declined" | null;
 
@@ -43,9 +43,31 @@ export default function ConsentManager() {
   }, []);
 
   const decide = (value: "accepted" | "declined") => {
+    const wasAccepted = consent === "accepted";
     localStorage.setItem(CONSENT_STORAGE_KEY, value);
     setConsent(value);
     setIsOpen(false);
+
+    // If withdrawing consent after previously accepting in this session, explicitly disable
+    // Google trackers and reload the page so any loaded tracking scripts are completely purged.
+    if (wasAccepted && value === "declined") {
+      try {
+        (window as unknown as Record<string, boolean>)[`ga-disable-${GA_TRACKING_ID}`] = true;
+
+        if (typeof window.gtag === "function") {
+          window.gtag("consent", "update", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "denied",
+          });
+        }
+      } catch {
+        // Continue to reload
+      }
+
+      window.location.reload();
+    }
   };
 
   // Do not render anything until client has hydrated - prevents SSR mismatch.
