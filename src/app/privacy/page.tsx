@@ -90,8 +90,11 @@ export default function PrivacyPage() {
             <TextSections sections={content.sectionsBeforeServices} />
 
             <H2>{content.services.heading}</H2>
-            {[content.services.web3forms, content.services.vercel].map(
-              (service) => (
+            {[
+              content.services.web3forms,
+              content.services.vercel,
+              content.services.google,
+            ].map((service) => (
                 <P key={service.label}>
                   <strong className="font-semibold text-white">
                     {service.label}
