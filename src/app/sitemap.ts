@@ -13,6 +13,11 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
+      url: `${SITE_URL}/screen-hire`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: SITE_URL,
       changeFrequency: "monthly",
       priority: 1,

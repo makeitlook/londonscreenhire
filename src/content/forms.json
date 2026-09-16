@@ -10,20 +10,23 @@
       "eventDate": "Event Date",
       "venue": "Venue or Event Location",
       "venuePlaceholder": "Venue name, town or postcode",
-      "screenSize": "Screen Size Required",
+      "screenSize": "Screen Size or AV Equipment Required",
       "message": "Event Details and Requirements",
-      "messagePlaceholder": "Tell us about your event, preferred screen setup, audience size, timings and any additional AV requirements."
+      "messagePlaceholder": "Tell us about your event, screens, speakers, staging, microphones, audience size, timings and any additional AV requirements."
     },
     "eventTypePlaceholder": "Select an event type",
     "eventTypes": ["Corporate Event", "Conference", "Exhibition", "Awards Ceremony", "Wedding", "Concert or Festival", "Outdoor Event", "Live Streaming", "Other"],
-    "screenSizePlaceholder": "Select a screen size",
+    "screenSizePlaceholder": "Select a screen size or AV equipment",
     "screenSizes": [
       { "value": "Not Sure", "label": "Not Sure, We Can Advise" },
       { "value": "Small Screen", "label": "Small Screen" },
       { "value": "Medium Screen", "label": "Medium Screen" },
       { "value": "Large Screen", "label": "Large Screen" },
       { "value": "Multiple Screens", "label": "Multiple Screens" },
-      { "value": "Custom LED Wall", "label": "Custom LED Wall" }
+      { "value": "Custom LED Wall", "label": "Custom LED Wall" },
+      { "value": "Speakers", "label": "Speakers" },
+      { "value": "Staging", "label": "Staging" },
+      { "value": "Microphones", "label": "Mics / Wireless Microphones" }
     ],
     "consent": "I have read the Privacy Policy and understand how my details will be used to respond to this enquiry.",
     "privacyPrefix": "Read our",
@@ -45,7 +48,7 @@
       "eventType": "Event Type",
       "eventDate": "Event Date",
       "venue": "Venue or Event Location",
-      "screenSize": "Screen Size Required",
+      "screenSize": "Screen Size or AV Equipment Required",
       "message": "Event Details and Requirements",
       "consent": "Privacy Notice Acknowledged"
     },
@@ -65,7 +68,7 @@
       "venueRequired": "Please enter a venue or event location.",
       "venueShort": "Venue must be at least 2 characters.",
       "venueLong": "Venue must be 150 characters or fewer.",
-      "screenSizeRequired": "Please select a screen size.",
+      "screenSizeRequired": "Please select a screen size or AV equipment.",
       "messageRequired": "Please describe your event requirements.",
       "messageShort": "Please provide at least 10 characters.",
       "messageLong": "Message must be 1500 characters or fewer.",

@@ -1,0 +1,27 @@
+{
+  "title": "Screen & AV Equipment Hire London",
+  "description": "Explore LED screens, TVs, projectors, speakers, wireless microphones, staging, lighting and live streaming for your London event.",
+  "eyebrow": "Our Hire Services",
+  "heading": "Screen & AV Hire in London",
+  "intro": "Find the equipment and technical support for your event. Explore each service for setup advice, event uses and answers to common questions, or ask us to put together a combined package.",
+  "heroImage": "/images/services/av.webp",
+  "heroAlt": "Audio visual production setup for an event",
+  "ctaHeading": "Plan Your Screen & AV Hire",
+  "groups": [
+    {
+      "heading": "Screens & Displays",
+      "description": "Choose a display around your venue, audience distance and presentation content.",
+      "slugs": ["led-screen-hire-london", "indoor-led-screen-hire", "outdoor-led-screen-hire", "tv-hire-london", "projector-screen-hire-london"]
+    },
+    {
+      "heading": "Audio & Event Production",
+      "description": "Bring sound, staging, lighting and technical production together in one event plan.",
+      "slugs": ["speaker-hire-london", "wireless-microphone-hire-london", "corporate-av-hire", "stage-hire", "lighting-hire", "live-streaming-london"]
+    },
+    {
+      "heading": "Screens for Your Event",
+      "description": "Explore display setups tailored to weddings, conferences and exhibition stands.",
+      "slugs": ["wedding-led-screen-hire", "conference-led-screen-hire", "exhibition-led-screen-hire"]
+    }
+  ]
+}

@@ -8,9 +8,9 @@
     "homeAriaLabel": "London Screen Hire, return to homepage"
   },
   "homeMetadata": {
-    "title": "LED Screen Hire London | TV, Projector & Video Wall Hire UK",
+    "title": "LED Screen Hire London | Speakers, Mics & AV Hire",
     "titleTemplate": "%s | London Screen Hire",
-    "description": "Hire LED screens, TVs, projectors, video walls & AV equipment in London. Professional event screen hire with fast delivery, setup, and competitive pricing.",
+    "description": "Hire LED screens, speakers, wireless microphones & AV equipment in London. Professional delivery, setup and technical support for events.",
     "keywords": [
       "LED Screen Hire London",
       "Screen Hire London",
@@ -45,7 +45,7 @@
     "android512": "/images/android-chrome-512x512.png"
   },
   "business": {
-    "description": "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide projects available by arrangement.",
+    "description": "Professional LED screen and projection screen hire for corporate events, conferences, exhibitions, weddings and live events in London, with UK-wide and worldwide projects available by arrangement.",
     "streetAddress": "174 Hampton Road West",
     "addressLocality": "Feltham",
     "addressRegion": "London",
@@ -53,7 +53,7 @@
     "addressCountry": "GB",
     "latitude": 51.437625,
     "longitude": -0.382002,
-    "areaServed": "United Kingdom",
+    "areaServed": "Worldwide",
     "priceRange": "££",
     "offerCatalogName": "Screen Hire Services",
     "openingHours": {

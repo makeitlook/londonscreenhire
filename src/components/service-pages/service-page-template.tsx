@@ -22,7 +22,7 @@ interface ServicePageTemplateProps {
 }
 
 /**
- * ServicePageTemplate - shared layout for all nine service pages.
+ * ServicePageTemplate - shared layout for all service pages.
  * All sections are Server Components - no client JS required.
  *
  * Layout order:

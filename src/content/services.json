@@ -588,9 +588,9 @@
       }
     ],
     "relatedSlugs": [
-      "corporate-av-hire",
-      "indoor-led-screen-hire",
-      "stage-hire"
+      "projector-screen-hire-london",
+      "wireless-microphone-hire-london",
+      "live-streaming-london"
     ],
     "metaTitle": "Conference LED Screen Hire London",
     "metaDescription": "Conference LED screen hire in London. Presentation screens, camera feeds and hybrid event display solutions for conferences, seminars and corporate events."
@@ -702,9 +702,9 @@
       }
     ],
     "relatedSlugs": [
-      "corporate-av-hire",
+      "tv-hire-london",
       "indoor-led-screen-hire",
-      "led-screen-hire-london"
+      "corporate-av-hire"
     ],
     "metaTitle": "Exhibition LED Screen Hire London",
     "metaDescription": "Exhibition LED screen hire in London. Seamless video walls and modular display screens for exhibition stands, product launches and brand activations."
@@ -826,9 +826,9 @@
       }
     ],
     "relatedSlugs": [
-      "conference-led-screen-hire",
-      "stage-hire",
-      "lighting-hire"
+      "speaker-hire-london",
+      "wireless-microphone-hire-london",
+      "live-streaming-london"
     ],
     "metaTitle": "Corporate AV Hire London",
     "metaDescription": "Corporate AV hire in London. LED screens, audio, lighting and staging packages for conferences, awards ceremonies, product launches and hybrid events."
@@ -1067,5 +1067,520 @@
     ],
     "metaTitle": "Lighting Hire London",
     "metaDescription": "Professional lighting hire in London for stage shows, corporate events, weddings and exhibitions. Moving heads, wash lighting and full technical operation."
+  },
+  {
+    "slug": "tv-hire-london",
+    "navLabel": "TV Hire",
+    "eyebrow": "TV & Presentation Displays",
+    "h1": "TV Hire London",
+    "shortIntro": "TV screens for exhibition stands, meetings and event presentations, with delivery and setup planned around your venue.",
+    "fullIntro": "A TV display can give a smaller audience a clear view of slides, product videos or event information without a full LED wall installation. We plan TV hire around where your audience will stand or sit, the space available and the device supplying the content. Tell us whether the screen is for a meeting room, reception area or exhibition stand, along with access times and any sound requirements. Screen size, mounting arrangements and connections are agreed as part of your quote.",
+    "primaryKeyword": "TV Hire London",
+    "secondaryKeywords": [],
+    "heroImage": "/images/services/tvhire.webp",
+    "heroAlt": "TV display on a floor stand showing the London skyline at an event",
+    "showcaseImage": "/images/services/tvhire1.webp",
+    "showcaseAlt": "Four TV displays of different sizes on floor stands",
+    "ctaImage": "/images/services/tvhire.webp",
+    "ctaImageAlt": "TV display on a floor stand showing the London skyline at an event",
+    "ctaHeading": "Request a TV Hire Quote",
+    "benefits": [
+      {
+        "title": "Audience Position",
+        "description": "Choose screen placement around seated viewers, passing visitors or a reception queue.",
+        "icon": "Eye"
+      },
+      {
+        "title": "Content Connections",
+        "description": "Confirm your laptop or media source before the event so the connection can be planned.",
+        "icon": "Plug"
+      },
+      {
+        "title": "Venue Layout",
+        "description": "Agree the display position and mounting arrangement around available floor space.",
+        "icon": "LayoutGrid"
+      },
+      {
+        "title": "Combined AV",
+        "description": "Add speakers or microphones when your presentation needs sound reinforcement.",
+        "icon": "Volume2"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Exhibition Stands",
+        "description": "Show product films and presentation content to visitors.",
+        "href": "/exhibition-led-screen-hire"
+      },
+      {
+        "title": "Meetings & Briefings",
+        "description": "Support slides and videos for smaller groups.",
+        "href": "/corporate-av-hire"
+      },
+      {
+        "title": "Reception Displays",
+        "description": "Display welcome messages, schedules and event information.",
+        "href": "/screen-hire"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Plan the display",
+        "description": "Share your venue, viewing distance and preferred screen position."
+      },
+      {
+        "step": 2,
+        "title": "Confirm the source",
+        "description": "Tell us which laptop or playback device will provide the content."
+      },
+      {
+        "step": 3,
+        "title": "Install & test",
+        "description": "We agree access times, set up the display and check your content."
+      },
+      {
+        "step": 4,
+        "title": "Finish & collect",
+        "description": "Collection and any operating support are agreed with your event schedule."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What size TV should I hire?",
+        "answer": "The best fit depends on your audience distance, the room and whether you are showing detailed slides or video. Send us your venue details so we can recommend an option and confirm availability."
+      },
+      {
+        "question": "Can I connect my own laptop?",
+        "answer": "Tell us your laptop model and available display connections when enquiring. We will confirm the connection and any adapters needed before the event."
+      },
+      {
+        "question": "Can a TV be supplied with a stand?",
+        "answer": "Include your preferred screen height and position in your enquiry. The mounting or stand arrangement will be confirmed with your quote."
+      },
+      {
+        "question": "Can I hire several TVs for an exhibition?",
+        "answer": "Yes, you can enquire about multiple displays. Let us know the number of screens and whether each will show the same content or separate material."
+      }
+    ],
+    "relatedSlugs": [
+      "projector-screen-hire-london",
+      "exhibition-led-screen-hire",
+      "speaker-hire-london"
+    ],
+    "metaTitle": "TV Hire London",
+    "metaDescription": "TV screens for exhibition stands, meetings and event presentations, with delivery and setup planned around your venue."
+  },
+  {
+    "slug": "projector-screen-hire-london",
+    "navLabel": "Projector & Screen Hire",
+    "eyebrow": "Projection for Events",
+    "h1": "Projector & Screen Hire London",
+    "shortIntro": "Projector and projection screen hire for presentations, conferences and event video, with a setup tailored to your room.",
+    "fullIntro": "Projection works best when the screen, projector position and room lighting are considered together. We help plan a display for your presentation content, audience and venue, including the space needed between the projector and screen. Share room dimensions, ceiling restrictions and any daylight or stage lighting that may affect the image. We can discuss projection alongside TV and LED options, then confirm the equipment, connections, installation and support in your quote.",
+    "primaryKeyword": "Projector & Screen Hire London",
+    "secondaryKeywords": [],
+    "heroImage": "/images/services/projector.webp",
+    "heroAlt": "Projector displaying a mountain landscape on a large screen in a conference venue",
+    "showcaseImage": "/images/services/projector.webp",
+    "showcaseAlt": "Projector displaying a mountain landscape on a large screen in a conference venue",
+    "ctaImage": "/images/services/projector.webp",
+    "ctaImageAlt": "Projector displaying a mountain landscape on a large screen in a conference venue",
+    "ctaHeading": "Request a Projector & Screen Hire Quote",
+    "benefits": [
+      {
+        "title": "Room Planning",
+        "description": "Account for audience sightlines, room lighting and projector placement.",
+        "icon": "Eye"
+      },
+      {
+        "title": "Matched Setup",
+        "description": "Plan the projector and screen together around the image size required.",
+        "icon": "Focus"
+      },
+      {
+        "title": "Presentation Support",
+        "description": "Confirm playback devices and test slides or video before guests arrive.",
+        "icon": "Play"
+      },
+      {
+        "title": "Audio Options",
+        "description": "Include speakers and microphones for the spoken and recorded parts of your event.",
+        "icon": "Volume2"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Conferences",
+        "description": "Display slides and supporting video for delegates.",
+        "href": "/conference-led-screen-hire"
+      },
+      {
+        "title": "Training Sessions",
+        "description": "Make learning materials visible across a meeting room.",
+        "href": "/corporate-av-hire"
+      },
+      {
+        "title": "Event Presentations",
+        "description": "Plan a display around speeches, brand content and event schedules.",
+        "href": "/tv-hire-london"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Review the room",
+        "description": "Send the room dimensions, lighting conditions and seating plan."
+      },
+      {
+        "step": 2,
+        "title": "Agree the layout",
+        "description": "We discuss image size, projector position and content connections."
+      },
+      {
+        "step": 3,
+        "title": "Set up & rehearse",
+        "description": "Installation and a playback check are scheduled before the event."
+      },
+      {
+        "step": 4,
+        "title": "Support & collection",
+        "description": "We confirm any technician time and the collection arrangements."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to hire a screen with the projector?",
+        "answer": "A suitable projection surface helps you plan a consistent image. Tell us if the venue already has a screen so we can discuss compatibility and what equipment is needed."
+      },
+      {
+        "question": "Can projection work in a bright room?",
+        "answer": "Ambient light affects how a projected image looks. Share details of windows and room lighting; we can discuss light control or whether a TV or LED display would suit the venue better."
+      },
+      {
+        "question": "Can you provide sound for video playback?",
+        "answer": "Yes. Include video playback and audience size in your brief so we can plan the audio equipment alongside the projection setup."
+      },
+      {
+        "question": "What does projector and screen hire cost?",
+        "answer": "The quote depends on the display requirements, venue, duration and installation or support needed. Send your event details for an itemised proposal."
+      }
+    ],
+    "relatedSlugs": [
+      "tv-hire-london",
+      "indoor-led-screen-hire",
+      "speaker-hire-london"
+    ],
+    "metaTitle": "Projector & Screen Hire London",
+    "metaDescription": "Projector and projection screen hire for presentations, conferences and event video, with a setup tailored to your room."
+  },
+  {
+    "slug": "speaker-hire-london",
+    "navLabel": "Speaker Hire",
+    "eyebrow": "Event Sound Systems",
+    "h1": "Speaker Hire London",
+    "shortIntro": "Speakers and event sound systems for speeches, presentations and music, planned around your audience and venue.",
+    "fullIntro": "Clear event sound starts with understanding what your audience needs to hear. A spoken presentation, background music and a live performance each need a different brief. We plan speaker placement and the wider audio setup around the venue layout, audience size and the sources you want to connect. Tell us about any venue sound limits, outdoor areas and microphone requirements. Delivery, setup, sound checks and any technical operation are confirmed in the quote.",
+    "primaryKeyword": "Speaker Hire London",
+    "secondaryKeywords": [],
+    "heroImage": "/images/services/speaker.webp",
+    "heroAlt": "Speakers and subwoofers positioned beside an event stage and lectern",
+    "showcaseImage": "/images/services/speaker1.webp",
+    "showcaseAlt": "Pair of speakers mounted above subwoofers in an event venue",
+    "ctaImage": "/images/services/speaker.webp",
+    "ctaImageAlt": "Speakers and subwoofers positioned beside an event stage and lectern",
+    "ctaHeading": "Request a Speaker Hire Quote",
+    "benefits": [
+      {
+        "title": "Speech Clarity",
+        "description": "Plan coverage around presenters, delegates and audience seating.",
+        "icon": "Megaphone"
+      },
+      {
+        "title": "Music Playback",
+        "description": "Include your playback sources and how music fits into the event.",
+        "icon": "Music"
+      },
+      {
+        "title": "Sound Checks",
+        "description": "Allow time to check microphones and playback before guests arrive.",
+        "icon": "SlidersHorizontal"
+      },
+      {
+        "title": "Event Integration",
+        "description": "Coordinate the audio with your screens, staging and running order.",
+        "icon": "Link2"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Conferences",
+        "description": "Support speeches, panel discussions and presentation audio.",
+        "href": "/corporate-av-hire"
+      },
+      {
+        "title": "Wedding Receptions",
+        "description": "Plan audio for speeches and reception music.",
+        "href": "/wedding-led-screen-hire"
+      },
+      {
+        "title": "Live Events",
+        "description": "Discuss sound requirements alongside staging and lighting.",
+        "href": "/stage-hire"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Brief the sound",
+        "description": "Tell us the audience size, venue and speech or music requirements."
+      },
+      {
+        "step": 2,
+        "title": "Plan the system",
+        "description": "We discuss speakers, microphones and the sources to be connected."
+      },
+      {
+        "step": 3,
+        "title": "Set up & sound check",
+        "description": "Position the equipment and check levels before the event."
+      },
+      {
+        "step": 4,
+        "title": "Agree event support",
+        "description": "Confirm operating hours, technical support and collection."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "How many speakers will my event need?",
+        "answer": "Coverage depends on the room shape, audience size, programme and speaker positions. Send a layout or describe the venue so we can plan a suitable setup."
+      },
+      {
+        "question": "Can I hire speakers with wireless microphones?",
+        "answer": "Yes. Include the number of speakers or performers using microphones at the same time, plus any audience questions, in your enquiry."
+      },
+      {
+        "question": "Can you connect a laptop for music or video?",
+        "answer": "Tell us which playback devices you want to use and what connections they have. We can confirm how to connect them to the event audio setup."
+      },
+      {
+        "question": "Can you support an outdoor event?",
+        "answer": "Share the site layout, audience area, power arrangements and event schedule. We will discuss suitable equipment, positioning and weather planning before confirming the setup."
+      }
+    ],
+    "relatedSlugs": [
+      "wireless-microphone-hire-london",
+      "corporate-av-hire",
+      "stage-hire"
+    ],
+    "metaTitle": "Speaker Hire London",
+    "metaDescription": "Speakers and event sound systems for speeches, presentations and music, planned around your audience and venue."
+  },
+  {
+    "slug": "wireless-microphone-hire-london",
+    "navLabel": "Wireless Microphone Hire",
+    "eyebrow": "Speech & Presentation Audio",
+    "h1": "Wireless Microphone Hire London",
+    "shortIntro": "Wireless microphones for presenters, speeches and panel discussions, with audio connections and setup agreed for your event.",
+    "fullIntro": "Wireless microphone hire needs to fit both the speaker and the sound system. Tell us how many people will speak at once, whether presenters need to move around and how audience questions will be handled. We can discuss the microphone format and supporting audio equipment, including connections to a venue system where suitable. The brief also helps us plan setup time, a sound check and any technician support required during the programme.",
+    "primaryKeyword": "Wireless Microphone Hire London",
+    "secondaryKeywords": [],
+    "heroImage": "/images/services/michire.webp",
+    "heroAlt": "Wireless handheld microphones, receiver and bodypack on an equipment case",
+    "showcaseImage": "/images/services/michire1.webp",
+    "showcaseAlt": "Handheld microphones and a gooseneck microphone at a conference lectern",
+    "ctaImage": "/images/services/michire.webp",
+    "ctaImageAlt": "Wireless handheld microphones, receiver and bodypack on an equipment case",
+    "ctaHeading": "Request a Wireless Microphone Hire Quote",
+    "benefits": [
+      {
+        "title": "Presenter Movement",
+        "description": "Plan microphone use around the stage layout and presentation format.",
+        "icon": "Users"
+      },
+      {
+        "title": "Panel Discussions",
+        "description": "Account for simultaneous speakers and audience questions.",
+        "icon": "Megaphone"
+      },
+      {
+        "title": "System Connections",
+        "description": "Check compatibility with the venue system or hired speakers in advance.",
+        "icon": "Plug"
+      },
+      {
+        "title": "Technical Setup",
+        "description": "Discuss sound checks and support for microphone handovers.",
+        "icon": "SlidersHorizontal"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Conference Speakers",
+        "description": "Support keynotes, panels and audience questions.",
+        "href": "/conference-led-screen-hire"
+      },
+      {
+        "title": "Wedding Speeches",
+        "description": "Plan a microphone setup for hosts and speeches.",
+        "href": "/wedding-led-screen-hire"
+      },
+      {
+        "title": "Corporate Presentations",
+        "description": "Coordinate microphones with presentation audio and screens.",
+        "href": "/corporate-av-hire"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Count the presenters",
+        "description": "Tell us how many microphones will be needed simultaneously."
+      },
+      {
+        "step": 2,
+        "title": "Review the venue audio",
+        "description": "Confirm whether you need speakers or want to use a venue system."
+      },
+      {
+        "step": 3,
+        "title": "Check the setup",
+        "description": "Agree installation access and time for presenter sound checks."
+      },
+      {
+        "step": 4,
+        "title": "Plan handovers",
+        "description": "Discuss microphone changes, technical support and collection."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Can I hire microphones without speakers?",
+        "answer": "Tell us about the sound system you intend to use. We can review the required connections and confirm a suitable microphone setup in your quote."
+      },
+      {
+        "question": "Which microphone format should I request?",
+        "answer": "Describe whether speakers will hold a microphone, need their hands free or move around a stage. We will discuss a suitable format and confirm availability."
+      },
+      {
+        "question": "Can several wireless microphones be used together?",
+        "answer": "Include the number needed at the same time and any other wireless audio at the venue. This lets us plan the system and setup requirements."
+      },
+      {
+        "question": "Do you provide someone to manage the microphones?",
+        "answer": "Technical operation can be included where required. Let us know the running order, rehearsal times and any panel or audience handovers so support can be quoted."
+      }
+    ],
+    "relatedSlugs": [
+      "speaker-hire-london",
+      "conference-led-screen-hire",
+      "live-streaming-london"
+    ],
+    "metaTitle": "Wireless Microphone Hire London",
+    "metaDescription": "Wireless microphones for presenters, speeches and panel discussions, with audio connections and setup agreed for your event."
+  },
+  {
+    "slug": "live-streaming-london",
+    "navLabel": "Live Streaming",
+    "eyebrow": "Live & Hybrid Events",
+    "h1": "Live Streaming Services London",
+    "shortIntro": "Camera, sound and technical production for live streams and hybrid events, connecting your venue programme with remote viewers.",
+    "fullIntro": "A live stream brings together camera coverage, clear audio and presentation content for an audience beyond the room. We plan the production around your programme, platform and venue connection, including how slides, speakers and event video will appear to remote viewers. Share your audience access requirements and whether remote contributors need to participate. Camera positions, audio feeds, rehearsals and technical operation are agreed before the event so the stream fits the wider production.",
+    "primaryKeyword": "Live Streaming Services London",
+    "secondaryKeywords": [],
+    "heroImage": "/images/services/livestreaming.webp",
+    "heroAlt": "Cameras, video switcher and preview monitors prepared for a conference live stream",
+    "showcaseImage": "/images/services/livestreaming.webp",
+    "showcaseAlt": "Live streaming production desk with camera feeds and audio controls",
+    "ctaImage": "/images/services/livestreaming.webp",
+    "ctaImageAlt": "Cameras, video switcher and preview monitors prepared for a conference live stream",
+    "ctaHeading": "Request a Live Streaming Quote",
+    "benefits": [
+      {
+        "title": "Camera Planning",
+        "description": "Plan views of presenters, panels and the event stage.",
+        "icon": "Video"
+      },
+      {
+        "title": "Presentation Content",
+        "description": "Coordinate slides and video with the live programme.",
+        "icon": "Play"
+      },
+      {
+        "title": "Connected Audio",
+        "description": "Plan a clear sound feed for remote viewers as well as the venue audience.",
+        "icon": "Volume2"
+      },
+      {
+        "title": "Production Support",
+        "description": "Agree rehearsals, operating times and stream management.",
+        "icon": "UserCheck"
+      }
+    ],
+    "useCases": [
+      {
+        "title": "Hybrid Conferences",
+        "description": "Connect an in-room programme with an online audience.",
+        "href": "/conference-led-screen-hire"
+      },
+      {
+        "title": "Product Launches",
+        "description": "Share presentations and demonstrations with remote viewers.",
+        "href": "/corporate-av-hire"
+      },
+      {
+        "title": "Live Productions",
+        "description": "Coordinate stream coverage with stage and display requirements.",
+        "href": "/stage-hire"
+      }
+    ],
+    "processSteps": [
+      {
+        "step": 1,
+        "title": "Define the audience",
+        "description": "Tell us who will watch, which platform you use and the event format."
+      },
+      {
+        "step": 2,
+        "title": "Review the connection",
+        "description": "Discuss venue internet, access and audio or presentation sources."
+      },
+      {
+        "step": 3,
+        "title": "Rehearse the programme",
+        "description": "Check camera views, sound and presentation transitions."
+      },
+      {
+        "step": 4,
+        "title": "Run the production",
+        "description": "Agree the technical team and operating schedule for the live event."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What internet connection does the venue need?",
+        "answer": "A reliable connection must suit the planned stream. Share the venue connection details so the technical requirements and testing can be agreed before the event."
+      },
+      {
+        "question": "Can you include presentation slides in the stream?",
+        "answer": "Yes. Tell us how presenters will supply slides and video so we can plan how these sources appear alongside the camera coverage."
+      },
+      {
+        "question": "Can remote speakers join the event?",
+        "answer": "Tell us how many remote contributors are involved and which platform you plan to use. We can discuss the audio, display and rehearsal arrangements for a hybrid programme."
+      },
+      {
+        "question": "Can the event also be recorded?",
+        "answer": "Include recording in the brief. We will confirm what can be captured, the deliverable format and any additional requirements in the quote."
+      }
+    ],
+    "relatedSlugs": [
+      "corporate-av-hire",
+      "wireless-microphone-hire-london",
+      "conference-led-screen-hire"
+    ],
+    "metaTitle": "Live Streaming Services London",
+    "metaDescription": "Camera, sound and technical production for live streams and hybrid events, connecting your venue programme with remote viewers."
   }
 ]

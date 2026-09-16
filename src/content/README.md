@@ -9,7 +9,8 @@ remain in the rest of `src`.
 - `contact.json` — phone, email and WhatsApp details
 - `navigation.json` — header, footer, links, social profiles and footer credit
 - `forms.json` — quote form labels, choices, messages and validation copy
-- `services.json` — all nine service pages, including SEO metadata and FAQs
+- `service-hub.json` — services overview page and grouped service links
+- `services.json` — all service pages, including SEO metadata and FAQs
 - `legal.json` — privacy policy and website terms
 - `ui.json` — shared service-page labels, consent and error messages
 
