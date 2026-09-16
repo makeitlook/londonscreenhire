@@ -16,9 +16,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import GoogleTracking from "@/components/shared/google-tracking";
 import uiContent from "@/content/ui.json";
+import { CONSENT_STORAGE_KEY } from "@/lib/gtag";
 
-const CONSENT_KEY = "lsh-analytics-consent";
 type ConsentValue = "accepted" | "declined" | null;
 
 export default function ConsentManager() {
@@ -26,13 +27,13 @@ export default function ConsentManager() {
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY) as ConsentValue | null;
+    const stored = localStorage.getItem(CONSENT_STORAGE_KEY) as ConsentValue | null;
     setConsent(stored ?? null);
     setHydrated(true);
   }, []);
 
   const decide = (value: "accepted" | "declined") => {
-    localStorage.setItem(CONSENT_KEY, value);
+    localStorage.setItem(CONSENT_STORAGE_KEY, value);
     setConsent(value);
   };
 
@@ -41,11 +42,12 @@ export default function ConsentManager() {
 
   return (
     <>
-      {/* Load analytics only when accepted */}
+      {/* Load analytics and marketing tracking only when accepted */}
       {consent === "accepted" && (
         <>
           <Analytics />
           <SpeedInsights />
+          <GoogleTracking />
         </>
       )}
 

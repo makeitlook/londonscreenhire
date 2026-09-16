@@ -15,14 +15,14 @@
         "heading": "Information We Collect",
         "paragraphs": [
           "When you request a quote, we collect the information entered in the form. This may include your name, email address, phone number, event type and date, venue, preferred screen size and the event details you choose to provide. We do not collect payment details through this website.",
-          "Our hosting and security providers may process technical request data, such as IP address, browser information and server logs, to deliver and protect the website. If you accept optional analytics, we also receive aggregated usage and performance information."
+          "Our hosting and security providers may process technical request data, such as IP address, browser information and server logs, to deliver and protect the website. If you accept optional analytics and measurement tools, we also receive aggregated usage, campaign performance and conversion metrics through Google and Vercel services."
         ]
       },
       {
         "heading": "How and Why We Use Your Information",
         "paragraphs": [
           "We use enquiry information to respond, prepare a quote, discuss your requirements and take steps towards a booking at your request. We also process information where necessary for our legitimate interests in administering enquiries, keeping business records and protecting the website from misuse.",
-          "Optional analytics load only after you accept them. We use the resulting aggregated information to understand site performance and improve the website. We do not use enquiry details for direct marketing unless you give separate permission."
+          "Optional analytics and measurement tools (including Google Tag Manager, Google Ads conversion tracking and Vercel Analytics) load only after you accept them. We use these tools to understand site performance, measure enquiry conversions from our advertising campaigns and improve the website. We do not use enquiry form submissions for automated profiling or third-party marketing without your consent."
         ]
       }
     ],
@@ -39,6 +39,12 @@
         "prefix": "if accepted, these tools provide aggregated website usage and performance metrics. Vercel states that Analytics does not associate data with an IP address and discards its temporary session identifier after 24 hours. Read Vercel’s",
         "linkLabel": "Analytics privacy information",
         "linkHref": "https://vercel.com/docs/analytics/privacy-policy"
+      },
+      "google": {
+        "label": "Google Tag Manager and Google Ads:",
+        "prefix": "if accepted, Google tools help us measure site interactions and track quote enquiries resulting from Google advertising campaigns. Google may process device identifiers, IP addresses and browser characteristics in accordance with",
+        "linkLabel": "Google’s Privacy & Terms",
+        "linkHref": "https://policies.google.com/privacy"
       }
     },
     "internationalTransfers": {
@@ -47,9 +53,9 @@
     },
     "cookies": {
       "heading": "Cookies and Local Storage",
-      "prefix": "We do not use advertising cookies. Your analytics choice is saved in your browser’s local storage under the key",
+      "prefix": "We only set analytics and advertising measurement cookies or identifiers if you accept optional tracking. Your preference is saved in your browser’s local storage under the key",
       "storageKey": "lsh-analytics-consent",
-      "suffix": ". It is used to remember whether optional analytics may load and can be removed by clearing this site’s browser data."
+      "suffix": ". If you decline, no optional Google or Vercel tracking tools are loaded. You can reset your preference at any time by clearing this site’s browser storage."
     },
     "sectionsAfterCookies": [
       {
