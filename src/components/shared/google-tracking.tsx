@@ -1,19 +1,27 @@
 "use client";
 
 import Script from "next/script";
-import { GA_TRACKING_ID, GTM_ID } from "@/lib/gtag";
+import {
+  CONVERSION_PROVIDER,
+  GA_TRACKING_ID,
+  GTM_ID,
+  type ConversionProvider,
+} from "@/lib/gtag";
 
 interface GoogleTrackingProps {
   /**
-   * If Google Ads is configured inside the GTM container, set to false to avoid duplicate tags.
-   * Defaults to true to support standalone Google Ads tracking until GTM tags are verified.
+   * Provider handling conversion tracking.
+   * If "gtm", only GTM is loaded (standalone gtag is omitted to prevent duplicate tags).
+   * If "gtag", standalone gtag is loaded alongside GTM.
    */
-  enableStandaloneGtag?: boolean;
+  provider?: ConversionProvider;
 }
 
 export default function GoogleTracking({
-  enableStandaloneGtag = true,
+  provider = CONVERSION_PROVIDER,
 }: GoogleTrackingProps) {
+  const isGtmOnly = provider === "gtm";
+
   return (
     <>
       {/* Google Tag Manager */}
@@ -25,8 +33,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`}
       </Script>
 
-      {/* Standalone Google Ads tag (gtag.js) */}
-      {enableStandaloneGtag && (
+      {/* Standalone Google Ads tag (gtag.js) - omitted when conversions are managed through GTM */}
+      {!isGtmOnly && (
         <>
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

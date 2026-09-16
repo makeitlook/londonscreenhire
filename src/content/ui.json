@@ -25,7 +25,12 @@
     "message": "We use optional analytics and advertising measurement tools (including Google Tag Manager and Google Ads) to understand how visitors use our site and measure campaign performance. These only load if you accept.",
     "privacyLink": "Privacy Policy",
     "decline": "Decline",
-    "accept": "Accept"
+    "accept": "Accept",
+    "settingsButton": "Cookie settings",
+    "close": "Close",
+    "statusPrefix": "Current choice:",
+    "statusAccepted": "Accepted",
+    "statusDeclined": "Declined"
   },
   "notFound": {
     "metadataTitle": "Page Not Found",

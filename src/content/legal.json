@@ -4,7 +4,7 @@
     "metadataTitle": "Privacy Policy",
     "metadataDescription": "How London Screen Hire collects, uses and protects personal data when you use our website or request a quote.",
     "heading": "Privacy Policy",
-    "lastUpdated": "Last updated 21 July 2026",
+    "lastUpdated": "Last updated 16 September 2026",
     "whoWeAre": {
       "heading": "Who We Are",
       "prefix": "London Screen Hire is the controller of the personal data described in this notice. You can contact us at",
@@ -14,7 +14,7 @@
       {
         "heading": "Information We Collect",
         "paragraphs": [
-          "When you request a quote, we collect the information entered in the form. This may include your name, email address, phone number, event type and date, venue, preferred screen size and the event details you choose to provide. We do not collect payment details through this website.",
+          "When you request a quote, we collect the information entered in the form. This may include your name, email address, phone number, event type and date, venue, preferred screen size or AV equipment and the event details you choose to provide. We do not collect payment details through this website.",
           "Our hosting and security providers may process technical request data, such as IP address, browser information and server logs, to deliver and protect the website. If you accept optional analytics and measurement tools, we also receive aggregated usage, campaign performance and conversion metrics through Google and Vercel services."
         ]
       },
@@ -54,8 +54,8 @@
     "cookies": {
       "heading": "Cookies and Local Storage",
       "prefix": "We only set analytics and advertising measurement cookies or identifiers if you accept optional tracking. Your preference is saved in your browser’s local storage under the key",
-      "storageKey": "lsh-analytics-consent",
-      "suffix": ". If you decline, no optional Google or Vercel tracking tools are loaded. You can reset your preference at any time by clearing this site’s browser storage."
+      "storageKey": "lsh-tracking-consent-v2",
+      "suffix": ". If you decline, no optional Google or Vercel tracking tools are loaded. You can change or withdraw your preference at any time using the Cookie settings button on this website or by clearing this site’s browser storage."
     },
     "sectionsAfterCookies": [
       {
