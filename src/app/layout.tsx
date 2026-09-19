@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { Barlow_Condensed, Inter } from "next/font/google";
 import ConsentManager from "@/components/shared/consent-manager";
+import GoogleTracking from "@/components/shared/google-tracking";
 import WebMcpProvider from "@/components/shared/webmcp-provider";
 import WhatsAppFab from "@/components/shared/whatsapp-fab";
 import siteContent from "@/content/site.json";
+import { GTM_ID } from "@/lib/gtag";
 import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -113,7 +115,7 @@ export const metadata: Metadata = {
     ],
   },
   verification: {
-    google: "5weQ7lTIbyaVvLCBI5zdDM-g6pYuXcO7RYDncm695Ts",
+    google: "RyotMa0xkNq0wMbfedOCCsBgn-gtb9BbkV2TKoDp-XE",
   },
 };
 
@@ -128,6 +130,16 @@ export default function RootLayout({
       className={`${barlowCondensed.variable} ${inter.variable}`}
     >
       <body className="font-body">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
+        <GoogleTracking />
         {children}
         <WhatsAppFab />
         <WebMcpProvider />
