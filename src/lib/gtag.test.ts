@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  GA_MEASUREMENT_ID,
   GA_TRACKING_ID,
   GTM_ID,
   LEAD_CONVERSION_SEND_TO,
@@ -46,6 +47,7 @@ describe("gtag tracking and consent handling", () => {
   });
 
   it("exports valid tracking constants and versioned consent key", () => {
+    expect(GA_MEASUREMENT_ID).toBe("G-FQPFHDB4ZM");
     expect(GA_TRACKING_ID).toBe("AW-18422810681");
     expect(GTM_ID).toBe("GTM-5V42SDFR");
     expect(LEAD_CONVERSION_SEND_TO).toBe("AW-18422810681/V4a1CKj5g-wcELmQ19BE");
