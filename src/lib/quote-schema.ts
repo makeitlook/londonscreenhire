@@ -4,6 +4,7 @@
  */
 
 export interface QuoteFields {
+  enquiryType: string;
   name: string;
   email: string;
   phone: string;
@@ -16,6 +17,7 @@ export interface QuoteFields {
 }
 
 export interface QuoteErrors {
+  enquiryType?: string;
   name?: string;
   email?: string;
   phone?: string;
@@ -37,6 +39,11 @@ export function validateQuote(fields: QuoteFields): QuoteErrors {
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
+
+  /* ── Enquiry type ── */
+  if (!fields.enquiryType) {
+    errors.enquiryType = messages.enquiryTypeRequired;
+  }
 
   /* ── Name ── */
   const name = fields.name.trim();
@@ -74,16 +81,19 @@ export function validateQuote(fields: QuoteFields): QuoteErrors {
     errors.phone = messages.phoneInvalid;
   }
 
-  /* ── Event type ── */
-  if (!fields.eventType) {
+  /* ── Event type — only required for short-term hire ── */
+  const isHire = fields.enquiryType === "Short-Term Hire (Events & Shows)";
+  if (isHire && !fields.eventType) {
     errors.eventType = messages.eventTypeRequired;
   }
 
-  /* ── Event date ── */
-  if (!fields.eventDate) {
-    errors.eventDate = messages.eventDateRequired;
-  } else if (fields.eventDate < today) {
-    errors.eventDate = messages.eventDatePast;
+  /* ── Event date — only required for short-term hire ── */
+  if (isHire) {
+    if (!fields.eventDate) {
+      errors.eventDate = messages.eventDateRequired;
+    } else if (fields.eventDate < today) {
+      errors.eventDate = messages.eventDatePast;
+    }
   }
 
   /* ── Venue ── */

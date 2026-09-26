@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/sheet";
 
 const { header: headerContent } = navigationContent;
-const [screenServices, productionServices] = headerContent.serviceGroups;
+const serviceGroups = headerContent.serviceGroups;
 const NAV_ITEMS = headerContent.links;
 
 export default function SiteHeader() {
@@ -158,61 +158,36 @@ export default function SiteHeader() {
               {servicesOpen && (
                 <div
                   id="desktop-services-navigation"
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] max-h-[calc(100dvh-110px)] overflow-y-auto bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[820px] max-h-[calc(100dvh-110px)] overflow-y-auto bg-lsh-charcoal border border-[var(--lsh-border-dark)] rounded-[4px] shadow-xl z-50 p-5"
                 >
                   <Link href={headerContent.allServicesHref} data-service-link
                     onClick={() => setServicesOpen(false)}
                     className="block px-2 py-2 mb-3 text-sm font-semibold text-lsh-gold hover:text-white">
                     {headerContent.allServicesLabel}
                   </Link>
-                  <div className="grid grid-cols-2 gap-x-6">
-                    {/* ── LED Screens group ── */}
-                    <div>
-                      <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                        {screenServices.label}
-                      </p>
-                      {services
-                        .filter((s) =>
-                          screenServices.slugs.includes(s.slug),
-                        )
-                        .map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/${service.slug}`}
-                            data-service-link
-                            onClick={() => setServicesOpen(false)}
-                            className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
-                          >
-                            <span className="text-[0.8125rem] font-medium text-lsh-grey-300 group-hover:text-white transition-colors duration-200">
-                              {service.navLabel}
-                            </span>
-                          </Link>
-                        ))}
-                    </div>
-
-                    {/* ── Event Production group ── */}
-                    <div>
-                      <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                        {productionServices.label}
-                      </p>
-                      {services
-                        .filter((s) =>
-                          productionServices.slugs.includes(s.slug),
-                        )
-                        .map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={`/${service.slug}`}
-                            data-service-link
-                            onClick={() => setServicesOpen(false)}
-                            className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
-                          >
-                            <span className="text-[0.8125rem] font-medium text-lsh-grey-300 group-hover:text-white transition-colors duration-200">
-                              {service.navLabel}
-                            </span>
-                          </Link>
-                        ))}
-                    </div>
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4">
+                    {serviceGroups.map((group) => (
+                      <div key={group.label}>
+                        <p className="mb-2 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
+                          {group.label}
+                        </p>
+                        {services
+                          .filter((s) => group.slugs.includes(s.slug))
+                          .map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={`/${service.slug}`}
+                              data-service-link
+                              onClick={() => setServicesOpen(false)}
+                              className="flex flex-col px-2 py-2 rounded-[3px] hover:bg-lsh-charcoal-light transition-colors duration-200 group"
+                            >
+                              <span className="text-[0.8125rem] font-medium text-lsh-grey-300 group-hover:text-white transition-colors duration-200">
+                                {service.navLabel}
+                              </span>
+                            </Link>
+                          ))}
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
@@ -320,43 +295,25 @@ export default function SiteHeader() {
                             className="flex py-3 px-2 text-sm font-semibold text-lsh-gold hover:text-white">
                             {headerContent.allServicesLabel}
                           </Link>
-                          {/* LED Screens group */}
-                          <p className="px-2 pt-2 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                            {screenServices.label}
-                          </p>
-                          {services
-                            .filter((s) =>
-                              screenServices.slugs.includes(s.slug),
-                            )
-                            .map((service) => (
-                              <Link
-                                key={service.slug}
-                                href={`/${service.slug}`}
-                                onClick={() => setMenuOpen(false)}
-                                className="flex items-center py-2 px-2 text-[0.875rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[3px] transition-colors duration-200"
-                              >
-                                {service.navLabel}
-                              </Link>
-                            ))}
-
-                          {/* Event Production group */}
-                          <p className="px-2 pt-3 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500">
-                            {productionServices.label}
-                          </p>
-                          {services
-                            .filter((s) =>
-                              productionServices.slugs.includes(s.slug),
-                            )
-                            .map((service) => (
-                              <Link
-                                key={service.slug}
-                                href={`/${service.slug}`}
-                                onClick={() => setMenuOpen(false)}
-                                className="flex items-center py-2 px-2 text-[0.875rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[3px] transition-colors duration-200"
-                              >
-                                {service.navLabel}
-                              </Link>
-                            ))}
+                          {serviceGroups.map((group, i) => (
+                            <div key={group.label}>
+                              <p className={`px-2 pb-1 text-[0.625rem] font-semibold uppercase tracking-[0.18em] text-lsh-grey-500 ${i === 0 ? "pt-2" : "pt-3"}`}>
+                                {group.label}
+                              </p>
+                              {services
+                                .filter((s) => group.slugs.includes(s.slug))
+                                .map((service) => (
+                                  <Link
+                                    key={service.slug}
+                                    href={`/${service.slug}`}
+                                    onClick={() => setMenuOpen(false)}
+                                    className="flex items-center py-2 px-2 text-[0.875rem] font-medium text-lsh-grey-300 hover:text-lsh-white hover:bg-lsh-charcoal-light rounded-[3px] transition-colors duration-200"
+                                  >
+                                    {service.navLabel}
+                                  </Link>
+                                ))}
+                            </div>
+                          ))}
                         </div>
                       )}
                     </div>

@@ -9,20 +9,41 @@
     "servicesLabel": "Services",
     "serviceGroups": [
       {
-        "label": "Screens & Displays",
+        "label": "LED Solutions",
+        "slugs": [
+          "led-screen-sales",
+          "permanent-led-installation",
+          "long-term-led-screen-rental",
+          "commercial-led-displays",
+          "led-video-wall-installation",
+          "led-maintenance-support"
+        ]
+      },
+      {
+        "label": "Hire Services",
         "slugs": [
           "led-screen-hire-london",
           "indoor-led-screen-hire",
           "outdoor-led-screen-hire",
-          "wedding-led-screen-hire",
           "conference-led-screen-hire",
-          "exhibition-led-screen-hire",
+          "wedding-led-screen-hire",
           "tv-hire-london",
           "projector-screen-hire-london"
         ]
       },
       {
-        "label": "Audio & Event Production",
+        "label": "Exhibition & Commercial",
+        "slugs": [
+          "exhibition-led-screen-hire",
+          "exhibition-stand-design-build",
+          "retail-led-displays",
+          "corporate-led-video-wall",
+          "outdoor-commercial-led-display",
+          "digital-advertising-screens"
+        ]
+      },
+      {
+        "label": "Audio & Production",
         "slugs": [
           "corporate-av-hire",
           "stage-hire",
@@ -63,7 +84,7 @@
   "footer": {
     "ariaLabel": "Site footer",
     "backgroundImage": "/images/footer/footer.png",
-    "summary": "Professional LED screen hire and AV production for corporate events, weddings, exhibitions, concerts and outdoor events in London, with UK-wide projects available by arrangement.",
+    "summary": "Complete LED display solutions across London and the UK. We supply, hire, permanently install and maintain LED screens for business, retail, exhibitions, corporate offices and events — short-term or long-term.",
     "location": "London & UK by arrangement",
     "quickLinksHeading": "Quick Links",
     "quickLinksAriaLabel": "Footer quick links",
@@ -81,7 +102,7 @@
         "href": "/blog"
       },
       {
-        "label": "Events",
+        "label": "Projects",
         "href": "/#projects"
       },
       {
@@ -105,20 +126,44 @@
         "href": "/led-screen-hire-london"
       },
       {
-        "label": "Indoor LED Screens",
-        "href": "/indoor-led-screen-hire"
+        "label": "LED Screen Sales",
+        "href": "/led-screen-sales"
       },
       {
-        "label": "Outdoor LED Screens",
-        "href": "/outdoor-led-screen-hire"
+        "label": "Permanent LED Installation",
+        "href": "/permanent-led-installation"
       },
       {
-        "label": "Wedding LED Screens",
-        "href": "/wedding-led-screen-hire"
+        "label": "Long-Term LED Rental",
+        "href": "/long-term-led-screen-rental"
       },
       {
-        "label": "Conference Screens",
-        "href": "/conference-led-screen-hire"
+        "label": "Commercial LED Displays",
+        "href": "/commercial-led-displays"
+      },
+      {
+        "label": "Exhibition Solutions",
+        "href": "/exhibition-led-screen-hire"
+      },
+      {
+        "label": "Exhibition Stand Design",
+        "href": "/exhibition-stand-design-build"
+      },
+      {
+        "label": "Retail LED Displays",
+        "href": "/retail-led-displays"
+      },
+      {
+        "label": "Corporate LED Video Wall",
+        "href": "/corporate-led-video-wall"
+      },
+      {
+        "label": "Outdoor LED Displays",
+        "href": "/outdoor-commercial-led-display"
+      },
+      {
+        "label": "Digital Advertising Screens",
+        "href": "/digital-advertising-screens"
       },
       {
         "label": "Corporate AV Hire",
@@ -129,24 +174,8 @@
         "href": "/stage-hire"
       },
       {
-        "label": "Lighting Hire",
-        "href": "/lighting-hire"
-      },
-      {
-        "label": "TV Hire",
-        "href": "/tv-hire-london"
-      },
-      {
-        "label": "Projector & Screen Hire",
-        "href": "/projector-screen-hire-london"
-      },
-      {
         "label": "Speaker Hire",
         "href": "/speaker-hire-london"
-      },
-      {
-        "label": "Wireless Microphone Hire",
-        "href": "/wireless-microphone-hire-london"
       },
       {
         "label": "Live Streaming",

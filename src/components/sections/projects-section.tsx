@@ -1,26 +1,73 @@
+"use client";
+
+import { useRef, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import homeContent from "@/content/home.json";
-import { projects } from "@/data/projects";
+import { services } from "@/data/services";
 import { FadeIn } from "@/components/shared/fade-in";
 
 export default function ProjectsSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLUListElement>(null);
+
+  // Auto-scroll logic
+  useEffect(() => {
+    const el = scrollRef.current;
+    const container = containerRef.current;
+    if (!el || !container) return;
+
+    let animationFrameId: number;
+    let isHovered = false;
+
+    const scrollStep = () => {
+      if (!isHovered && el) {
+        el.scrollLeft += 1;
+        // Reset scroll if reached the end (smooth looping can be complex, so we just reset)
+        if (el.scrollLeft >= el.scrollWidth - el.clientWidth) {
+          el.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+
+    const handleMouseEnter = () => (isHovered = true);
+    const handleMouseLeave = () => (isHovered = false);
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="projects"
-      /*
-       * Vertical padding - compact, image-led character
-       * Mobile:  pt-12 pb-14  (48px / 56px)
-       * md:      pt-16 pb-16  (64px / 64px)
-       * xl:      pt-20 pb-20  (80px / 80px)
-       */
       className="bg-lsh-off-white pt-8 pb-14 md:pt-10 md:pb-16 xl:pt-12 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="projects-heading"
     >
       <div className="lsh-container">
-        {/* Heading block */}
         <FadeIn>
           <div className="flex flex-col items-center mb-6 md:mb-8 xl:mb-10">
-            {/* Eyebrow */}
             <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
               {homeContent.projects.eyebrow}
             </p>
@@ -33,7 +80,6 @@ export default function ProjectsSection() {
               {homeContent.projects.heading}
             </h2>
 
-            {/* Gold underline accent */}
             <span
               className="block bg-lsh-gold rounded-sm"
               style={{ width: "38px", height: "2px" }}
@@ -42,23 +88,43 @@ export default function ProjectsSection() {
           </div>
         </FadeIn>
 
-        {/* One list changes from a mobile snap row to the desktop grid. Keeping
-         * one DOM copy avoids duplicate headings and image content for crawlers. */}
         <FadeIn>
-          <div className="-mx-4 overflow-x-auto px-4 pb-3 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0">
-            <ul
-              className="flex w-max snap-x snap-mandatory gap-3 pr-4 sm:grid sm:w-auto sm:grid-cols-2 sm:gap-4 sm:pr-0 md:grid-cols-3 xl:grid-cols-5"
-              role="list"
+          <div className="relative group" ref={containerRef}>
+            {/* Left Arrow */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-md hover:bg-white text-lsh-dark p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-lsh-gold"
+              aria-label="Scroll Left"
             >
-              {projects.map((project) => (
-                <li
-                  key={project.title}
-                  className="w-[78vw] shrink-0 snap-start sm:w-auto"
-                >
-                  <ProjectCard project={project} />
-                </li>
-              ))}
-            </ul>
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Scrollable Container */}
+            <div className="-mx-4 sm:mx-0 overflow-hidden">
+              <ul
+                ref={scrollRef}
+                className="flex w-full gap-4 px-4 sm:px-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                role="list"
+              >
+                {services.map((service) => (
+                  <li
+                    key={service.slug}
+                    className="w-[78vw] sm:w-[300px] md:w-[320px] shrink-0"
+                  >
+                    <ServiceCarouselCard service={service} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={scrollRight}
+              className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-md hover:bg-white text-lsh-dark p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-lsh-gold"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </FadeIn>
       </div>
@@ -66,24 +132,24 @@ export default function ProjectsSection() {
   );
 }
 
-function ProjectCard({ project }: { project: (typeof projects)[number] }) {
+function ServiceCarouselCard({ service }: { service: (typeof services)[number] }) {
   return (
-    <article>
-      {/* Image - 3:2 landscape ratio, wider and lighter than 4:3 */}
-      <div className="relative overflow-hidden rounded-[3px] aspect-[3/2]">
-        <Image
-          src={project.image}
-          alt={project.alt}
-          fill
-          sizes="(max-width: 639px) 78vw, (max-width: 767px) calc(50vw - 1.5rem), (max-width: 1279px) calc(33vw - 2rem), calc(20vw - 2rem)"
-          className="object-cover transition-transform duration-500 ease-out hover:scale-105"
-        />
-      </div>
-
-      {/* Event type label */}
-      <h3 className="font-heading font-bold uppercase text-[0.875rem] sm:text-[0.9375rem] leading-snug tracking-wide text-lsh-dark mt-2.5">
-        {project.title}
-      </h3>
-    </article>
+    <Link href={`/${service.slug}`} className="group block h-full">
+      <article className="h-full">
+        <div className="relative overflow-hidden rounded-[3px] aspect-[3/2]">
+          <Image
+            src={service.heroImage}
+            alt={service.heroAlt}
+            fill
+            sizes="(max-width: 639px) 78vw, 320px"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+        </div>
+        <h3 className="font-heading font-bold uppercase text-[0.875rem] sm:text-[0.9375rem] leading-snug tracking-wide text-lsh-dark mt-2.5 group-hover:text-lsh-gold-ink transition-colors duration-200">
+          {service.navLabel}
+        </h3>
+      </article>
+    </Link>
   );
 }

@@ -4,7 +4,8 @@ export interface Testimonial {
   quote: string;
   name: string;
   role: string;
-  initial: string;
+  initial?: string;
+  image?: string;
   placeholder?: boolean;
 }
 
