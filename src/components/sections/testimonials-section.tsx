@@ -1,33 +1,69 @@
-import { Quote } from "lucide-react";
+"use client";
+
+import { useRef, useEffect } from "react";
+import { Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import homeContent from "@/content/home.json";
 import { testimonials } from "@/data/testimonials";
 import { FadeIn } from "@/components/shared/fade-in";
 
-/**
- * TestimonialsSection - server component.
- *
- * Off-white section attaching directly beneath the gold statistics strip.
- * Desktop (lg+):  3-col grid, one row.
- * Tablet (sm–lg): 2-col grid, third card in col-1 of second row.
- * Mobile (<sm):   Native horizontal scroll with snap, ~86vw cards.
- * Pagination:     Decorative dots, first dot gold, rest grey. aria-hidden.
- */
 export default function TestimonialsSection() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLUListElement>(null);
+
+  // Auto-scroll logic
+  useEffect(() => {
+    const el = scrollRef.current;
+    const container = containerRef.current;
+    if (!el || !container) return;
+
+    let animationFrameId: number;
+    let isHovered = false;
+
+    const scrollStep = () => {
+      if (!isHovered && el) {
+        el.scrollLeft += 1;
+        // Reset scroll if reached the end
+        if (el.scrollLeft >= el.scrollWidth - el.clientWidth) {
+          el.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(scrollStep);
+    };
+
+    animationFrameId = requestAnimationFrame(scrollStep);
+
+    const handleMouseEnter = () => (isHovered = true);
+    const handleMouseLeave = () => (isHovered = false);
+
+    container.addEventListener("mouseenter", handleMouseEnter);
+    container.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      container.removeEventListener("mouseenter", handleMouseEnter);
+      container.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -300, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 300, behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="testimonials"
-      /*
-       * Bottom padding:
-       *   Mobile (<sm): pb-10 - space for dots beneath scroll row
-       *   sm+:          pb-14 - dots hidden, slightly tighter
-       *   md+:          pb-16
-       *   xl+:          pb-20
-       */
-      className="bg-lsh-off-white pt-14 pb-10 sm:pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
+      className="bg-lsh-off-white pt-14 pb-14 md:pt-16 md:pb-16 xl:pt-20 xl:pb-20 scroll-mt-[76px] xl:scroll-mt-[86px]"
       aria-labelledby="testimonials-heading"
     >
       <div className="lsh-container">
-        {/* ── Heading block ── */}
         <FadeIn>
           <div className="flex flex-col items-center mb-8 md:mb-10">
             <p className="mb-2 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] text-lsh-gold-ink">
@@ -50,36 +86,45 @@ export default function TestimonialsSection() {
           </div>
         </FadeIn>
 
-        {/* A single list becomes a snap row on mobile and a grid at sm+ so
-         * testimonial copy is not duplicated in the rendered document. */}
         <FadeIn>
-          <div className="-mx-4 overflow-x-auto px-4 pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:overflow-visible sm:px-0 sm:pb-0">
-            <ul className="flex w-max snap-x snap-mandatory gap-4 pr-4 sm:grid sm:w-auto sm:grid-cols-2 sm:gap-5 sm:pr-0 lg:grid-cols-3">
-              {testimonials.map((t) => (
-                <li
-                  key={t.name}
-                  className="w-[86vw] shrink-0 snap-start sm:w-auto"
-                >
-                  <TestimonialCard testimonial={t} />
-                </li>
-              ))}
-            </ul>
+          <div className="relative group" ref={containerRef}>
+            {/* Left Arrow */}
+            <button
+              onClick={scrollLeft}
+              className="absolute left-2 sm:-left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-md hover:bg-white text-lsh-dark p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-lsh-gold"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft size={24} />
+            </button>
+
+            {/* Scrollable Container */}
+            <div className="-mx-4 sm:mx-0 overflow-hidden px-4 pb-4 sm:px-0 sm:pb-0">
+              <ul
+                ref={scrollRef}
+                className="flex w-full gap-4 px-4 sm:px-0 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                role="list"
+              >
+                {testimonials.map((t, idx) => (
+                  <li
+                    key={t.name + idx}
+                    className="w-[86vw] sm:w-[350px] md:w-[380px] shrink-0"
+                  >
+                    <TestimonialCard testimonial={t} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={scrollRight}
+              className="absolute right-2 sm:-right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 shadow-md hover:bg-white text-lsh-dark p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 focus:outline-none focus:ring-2 focus:ring-lsh-gold"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
         </FadeIn>
-
-        {/*
-         * Pagination dots - decorative scroll cue, mobile only.
-         * Visible:  < sm (640px) where horizontal scroll is active.
-         * Hidden:   sm+ where all three cards are visible in the grid.
-         */}
-        <div
-          className="sm:hidden flex items-center justify-center gap-2 mt-6"
-          aria-hidden="true"
-        >
-          <span className="block w-2 h-2 rounded-full bg-lsh-gold" />
-          <span className="block w-2 h-2 rounded-full bg-lsh-grey-300" />
-          <span className="block w-2 h-2 rounded-full bg-lsh-grey-300" />
-        </div>
       </div>
     </section>
   );
@@ -91,8 +136,7 @@ function TestimonialCard({
   testimonial: (typeof testimonials)[number];
 }) {
   return (
-    <blockquote className="flex flex-col h-full bg-white border border-[var(--lsh-border-light)] rounded-[4px] shadow-[0_1px_4px_rgba(5,7,10,0.07)] p-6 xl:p-7">
-      {/* Opening quote icon */}
+    <blockquote className="flex flex-col h-full bg-white border border-[var(--lsh-border-light)] rounded-[4px] shadow-[0_1px_4px_rgba(5,7,10,0.07)] p-6 xl:p-7 transition-transform duration-300 hover:-translate-y-1">
       <Quote
         size={24}
         strokeWidth={1.5}
@@ -100,16 +144,13 @@ function TestimonialCard({
         aria-hidden="true"
       />
 
-      {/* Quote body - grows to push identity block down */}
       <p className="flex-1 text-[0.9rem] leading-[1.7] text-lsh-grey-700 mb-6">
         {testimonial.quote}
       </p>
 
-      {/* Identity block */}
-      <footer className="flex items-center gap-3">
-        {/* Avatar initial */}
+      <footer className="flex items-center gap-3 mt-auto">
         <div
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-lsh-dark text-white text-[0.875rem] font-bold shrink-0"
+          className="flex items-center justify-center w-11 h-11 rounded-full bg-lsh-dark text-white text-[0.875rem] font-bold shrink-0"
           aria-hidden="true"
         >
           {testimonial.initial}

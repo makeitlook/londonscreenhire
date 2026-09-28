@@ -11,6 +11,9 @@ import { cn } from "@/lib/utils";
 // ── Types ─────────────────────────────────────────────────────────────────────
 type FormState = "idle" | "loading" | "success";
 
+// Enquiry types that require event-specific fields
+const HIRE_TYPE = "Short-Term Hire (Events & Shows)";
+
 // ── Shared styles ─────────────────────────────────────────────────────────────
 const inputBase =
   "w-full h-[46px] px-3.5 bg-[var(--lsh-charcoal-light)] border border-[var(--lsh-border-dark)] " +
@@ -54,6 +57,7 @@ export default function QuoteForm() {
   const [formState, setFormState] = useState<FormState>("idle");
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<QuoteErrors>({});
+  const [enquiryType, setEnquiryType] = useState("");
   const [eventType, setEventType] = useState("");
   const [eventDate, setEventDate] = useState<Date | undefined>(undefined);
   const [screenSize, setScreenSize] = useState("");
@@ -62,6 +66,9 @@ export default function QuoteForm() {
 
   const nameRef = useRef<HTMLInputElement>(null);
   const submitErrorRef = useRef<HTMLDivElement>(null);
+
+  // Show event-specific fields only for short-term hire
+  const isHire = enquiryType === HIRE_TYPE;
 
   // Focus Full Name after reset
   useEffect(() => {
@@ -73,6 +80,7 @@ export default function QuoteForm() {
 
   // ── Reset ───────────────────────────────────────────────────────────────────
   function handleReset() {
+    setEnquiryType("");
     setEventType("");
     setEventDate(undefined);
     setScreenSize("");
@@ -97,11 +105,12 @@ export default function QuoteForm() {
     }
 
     const fields = {
+      enquiryType,
       name: raw.get("name")?.toString() ?? "",
       email: raw.get("email")?.toString() ?? "",
       phone: raw.get("phone")?.toString() ?? "",
-      eventType,
-      eventDate,
+      eventType: isHire ? eventType : "",
+      eventDate: isHire ? eventDate : undefined,
       venue: raw.get("venue")?.toString() ?? "",
       screenSize,
       message: raw.get("message")?.toString() ?? "",
@@ -146,14 +155,17 @@ export default function QuoteForm() {
     payload.set("access_key", accessKey);
     payload.set("subject", content.emailSubject);
     payload.set("from_name", content.emailFromName);
+    payload.set(content.emailFields.enquiryType, fields.enquiryType);
     payload.set(content.emailFields.name, fields.name.trim());
     payload.set(content.emailFields.email, fields.email.trim());
     payload.set(content.emailFields.phone, fields.phone.trim());
-    payload.set(content.emailFields.eventType, fields.eventType);
-    payload.set(
-      content.emailFields.eventDate,
-      fields.eventDate ? formatUK(fields.eventDate) : content.notSpecified,
-    );
+    if (isHire) {
+      payload.set(content.emailFields.eventType, fields.eventType);
+      payload.set(
+        content.emailFields.eventDate,
+        fields.eventDate ? formatUK(fields.eventDate) : content.notSpecified,
+      );
+    }
     payload.set(content.emailFields.venue, fields.venue.trim());
     payload.set(content.emailFields.screenSize, fields.screenSize);
     payload.set(content.emailFields.message, fields.message.trim());
@@ -225,6 +237,45 @@ export default function QuoteForm() {
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4">
+
+        {/* ── Enquiry Type - full width, first field ── */}
+        <div className="sm:col-span-2">
+          <FLabel htmlFor={`${id}-enquiry-type`} required>
+            {content.fields.enquiryType}
+          </FLabel>
+          <select
+            id={`${id}-enquiry-type`}
+            name="enquiryType"
+            value={enquiryType}
+            onChange={(e) => {
+              setEnquiryType(e.target.value);
+              // Reset event-specific fields when switching away from hire
+              if (e.target.value !== HIRE_TYPE) {
+                setEventType("");
+                setEventDate(undefined);
+              }
+            }}
+            aria-describedby={errors.enquiryType ? `${id}-et-type-e` : undefined}
+            aria-invalid={errors.enquiryType ? "true" : undefined}
+            className={cn(
+              inputBase,
+              "cursor-pointer [color-scheme:dark]",
+              !enquiryType && "text-[var(--lsh-grey-500)]",
+              errors.enquiryType && inputErr,
+            )}
+          >
+            <option value="" disabled>
+              {content.enquiryTypePlaceholder}
+            </option>
+            {content.enquiryTypes.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+          <FError id={`${id}-et-type-e`}>{errors.enquiryType}</FError>
+        </div>
+
         {/* ── Group: Your Details ── */}
         <p className={groupHeading}>{content.groups.details}</p>
 
@@ -264,7 +315,7 @@ export default function QuoteForm() {
         </div>
 
         {/* Phone */}
-        <div>
+        <div className="sm:col-span-2">
           <FLabel htmlFor={`${id}-phone`} required>
             {content.fields.phone}
           </FLabel>
@@ -280,67 +331,71 @@ export default function QuoteForm() {
           <FError id={`${id}-phone-e`}>{errors.phone}</FError>
         </div>
 
-        {/* Event Type */}
-        <div>
-          <FLabel htmlFor={`${id}-event-type`} required>
-            {content.fields.eventType}
-          </FLabel>
-          <select
-            id={`${id}-event-type`}
-            name="eventType"
-            value={eventType}
-            onChange={(event) => setEventType(event.target.value)}
-            aria-describedby={errors.eventType ? `${id}-et-e` : undefined}
-            aria-invalid={errors.eventType ? "true" : undefined}
-            className={cn(
-              inputBase,
-              "cursor-pointer [color-scheme:dark]",
-              !eventType && "text-[var(--lsh-grey-500)]",
-              errors.eventType && inputErr,
-            )}
-          >
-            <option value="" disabled>
-              {content.eventTypePlaceholder}
-            </option>
-            {content.eventTypes.map((option) => (
-              <option key={option} value={option}>
-                {option}
+        {/* ── Group: Enquiry Details ── */}
+        <p className={groupHeading}>{content.groups.enquiry}</p>
+
+        {/* Event Type - only shown for short-term hire */}
+        {isHire && (
+          <div>
+            <FLabel htmlFor={`${id}-event-type`} required>
+              {content.fields.eventType}
+            </FLabel>
+            <select
+              id={`${id}-event-type`}
+              name="eventType"
+              value={eventType}
+              onChange={(event) => setEventType(event.target.value)}
+              aria-describedby={errors.eventType ? `${id}-et-e` : undefined}
+              aria-invalid={errors.eventType ? "true" : undefined}
+              className={cn(
+                inputBase,
+                "cursor-pointer [color-scheme:dark]",
+                !eventType && "text-[var(--lsh-grey-500)]",
+                errors.eventType && inputErr,
+              )}
+            >
+              <option value="" disabled>
+                {content.eventTypePlaceholder}
               </option>
-            ))}
-          </select>
-          <FError id={`${id}-et-e`}>{errors.eventType}</FError>
-        </div>
+              {content.eventTypes.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <FError id={`${id}-et-e`}>{errors.eventType}</FError>
+          </div>
+        )}
 
-        {/* ── Group: Event Information ── */}
-        <p className={groupHeading}>{content.groups.event}</p>
+        {/* Event Date - only shown for short-term hire */}
+        {isHire && (
+          <div>
+            <FLabel htmlFor={`${id}-date`} required>
+              {content.fields.eventDate}
+            </FLabel>
+            <input
+              id={`${id}-date`}
+              name="eventDate"
+              type="date"
+              min={toDateInputValue(new Date())}
+              value={toDateInputValue(eventDate)}
+              onChange={(event) =>
+                setEventDate(fromDateInputValue(event.target.value))
+              }
+              aria-describedby={errors.eventDate ? `${id}-date-e` : undefined}
+              aria-invalid={errors.eventDate ? "true" : undefined}
+              className={cn(
+                inputBase,
+                "[color-scheme:dark]",
+                !eventDate && "text-[var(--lsh-grey-500)]",
+                errors.eventDate && inputErr,
+              )}
+            />
+            <FError id={`${id}-date-e`}>{errors.eventDate}</FError>
+          </div>
+        )}
 
-        {/* Event Date */}
-        <div>
-          <FLabel htmlFor={`${id}-date`} required>
-            {content.fields.eventDate}
-          </FLabel>
-          <input
-            id={`${id}-date`}
-            name="eventDate"
-            type="date"
-            min={toDateInputValue(new Date())}
-            value={toDateInputValue(eventDate)}
-            onChange={(event) =>
-              setEventDate(fromDateInputValue(event.target.value))
-            }
-            aria-describedby={errors.eventDate ? `${id}-date-e` : undefined}
-            aria-invalid={errors.eventDate ? "true" : undefined}
-            className={cn(
-              inputBase,
-              "[color-scheme:dark]",
-              !eventDate && "text-[var(--lsh-grey-500)]",
-              errors.eventDate && inputErr,
-            )}
-          />
-          <FError id={`${id}-date-e`}>{errors.eventDate}</FError>
-        </div>
-
-        {/* Venue */}
+        {/* Venue / Location */}
         <div>
           <FLabel htmlFor={`${id}-venue`} required>
             {content.fields.venue}
@@ -359,8 +414,8 @@ export default function QuoteForm() {
           <FError id={`${id}-venue-e`}>{errors.venue}</FError>
         </div>
 
-        {/* Screen Size - full width */}
-        <div className="sm:col-span-2">
+        {/* Screen Size */}
+        <div>
           <FLabel htmlFor={`${id}-screen-size`} required>
             {content.fields.screenSize}
           </FLabel>

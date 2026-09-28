@@ -5,6 +5,11 @@ import {
   Layers,
   Radio,
   Clapperboard,
+  ShoppingCart,
+  Building2,
+  CalendarCheck,
+  Store,
+  LayoutGrid,
   type LucideIcon,
 } from "lucide-react";
 import homeContent from "@/content/home.json";
@@ -16,6 +21,11 @@ const icons = {
   Layers,
   Radio,
   Clapperboard,
+  ShoppingCart,
+  Building2,
+  CalendarCheck,
+  Store,
+  LayoutGrid,
 } satisfies Record<string, LucideIcon>;
 
 export interface FeaturedService {

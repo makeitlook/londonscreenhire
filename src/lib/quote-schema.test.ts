@@ -5,6 +5,7 @@ import {
 } from "@/lib/quote-schema";
 
 const validFields = (): QuoteFields => ({
+  enquiryType: "Short-Term Hire (Events & Shows)",
   name: "Alex Morgan",
   email: "alex@example.com",
   phone: "+44 7946 123456",
@@ -32,6 +33,7 @@ describe("validateQuote", () => {
 
   it("reports every required field when the form is empty", () => {
     const errors = validateQuote({
+      enquiryType: "",
       name: " ",
       email: "",
       phone: "",
@@ -46,8 +48,7 @@ describe("validateQuote", () => {
     expect(Object.keys(errors).sort()).toEqual([
       "consent",
       "email",
-      "eventDate",
-      "eventType",
+      "enquiryType",
       "message",
       "name",
       "phone",

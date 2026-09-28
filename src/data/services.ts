@@ -31,6 +31,9 @@ import {
   ClipboardList,
   CheckCircle2,
   Lightbulb,
+  CalendarCheck,
+  PoundSterling,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 import servicesContent from "@/content/services.json";
@@ -68,6 +71,9 @@ const icons = {
   ClipboardList,
   CheckCircle2,
   Lightbulb,
+  CalendarCheck,
+  PoundSterling,
+  Store,
 } satisfies Record<string, LucideIcon>;
 
 export interface ServiceBenefit {
