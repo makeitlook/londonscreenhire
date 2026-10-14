@@ -92,26 +92,38 @@ export async function generateMetadata({
   if (!post) return {};
 
   const url = `${SITE_URL}/blog/${post.slug}`;
+  const title = post.metaTitle ?? `${post.title} | London Screen Hire Blog`;
+  const description = post.metaDescription ?? post.excerpt;
+  const imageUrl = `${SITE_URL}${post.coverImage}`;
 
   return {
-    title: `${post.title} | London Screen Hire Blog`,
-    description: post.excerpt,
+    title,
+    description,
+    keywords: post.tags,
     alternates: { canonical: url },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       url,
       siteName: "London Screen Hire",
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author.name],
-      images: [{ url: `${SITE_URL}${post.coverImage}` }],
+      tags: post.tags,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
-      images: [`${SITE_URL}${post.coverImage}`],
+      title,
+      description,
+      images: [imageUrl],
     },
   };
 }
@@ -127,33 +139,96 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
   const relatedPosts = getRelatedBlogPosts(post.slug, 3);
   const articleUrl = `${SITE_URL}/blog/${post.slug}`;
 
-  // Schema.org Article Structured Data
+  // Extract FAQs if present for Google FAQPage Rich Snippet schema
+  const faqSection = post.content.sections.find((s) =>
+    /faq|frequently asked/i.test(s.heading)
+  );
+
+  const faqEntities = faqSection
+    ? faqSection.paragraphs
+        .map((p) => {
+          const firstQ = p.indexOf("?");
+          if (firstQ === -1) return null;
+          const q = p.slice(0, firstQ + 1).trim();
+          const a = p
+            .slice(firstQ + 1)
+            .trim()
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1");
+          return {
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: a,
+            },
+          };
+        })
+        .filter(Boolean)
+    : [];
+
+  // Schema.org Article Structured Data with Breadcrumbs & FAQ
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.excerpt,
-    image: `${SITE_URL}${post.coverImage}`,
-    datePublished: post.publishedAt,
-    dateModified: post.publishedAt,
-    author: {
-      "@type": "Person",
-      name: post.author.name,
-      jobTitle: post.author.role,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}${siteContent.logo.image}`,
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.metaDescription ?? post.excerpt,
+        image: `${SITE_URL}${post.coverImage}`,
+        datePublished: post.publishedAt,
+        dateModified: post.publishedAt,
+        keywords: post.tags.join(", "),
+        author: {
+          "@type": "Person",
+          name: post.author.name,
+          jobTitle: post.author.role,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: SITE_NAME,
+          url: SITE_URL,
+          logo: {
+            "@type": "ImageObject",
+            url: `${SITE_URL}${siteContent.logo.image}`,
+          },
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": articleUrl,
+        },
       },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": articleUrl,
-    },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: `${SITE_URL}/blog`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: articleUrl,
+          },
+        ],
+      },
+      ...(faqEntities.length > 0
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: faqEntities,
+            },
+          ]
+        : []),
+    ],
   };
 
   return (
@@ -346,6 +421,41 @@ export default async function BlogPostDetailPage({ params }: PageProps) {
                       {renderFormattedText(p)}
                     </p>
                   ))}
+
+                  {section.table && (
+                    <div className="my-6 overflow-x-auto rounded-md border border-[var(--lsh-border-dark)] bg-lsh-charcoal shadow-md">
+                      <table className="w-full border-collapse text-left text-sm">
+                        <thead className="border-b border-[var(--lsh-border-dark)] bg-lsh-black/80 font-heading text-xs uppercase tracking-wider text-lsh-gold">
+                          <tr>
+                            {section.table.headers.map((h, i) => (
+                              <th key={i} className="px-5 py-3.5 font-bold">
+                                {h}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody className="divide-y divide-[var(--lsh-border-dark)] text-[var(--lsh-grey-300)]">
+                          {section.table.rows.map((row, rIdx) => (
+                            <tr
+                              key={rIdx}
+                              className="hover:bg-lsh-charcoal-light/60 transition-colors"
+                            >
+                              {row.map((cell, cIdx) => (
+                                <td
+                                  key={cIdx}
+                                  className={`px-5 py-3.5 text-xs md:text-sm ${
+                                    cIdx === 0 ? "font-semibold text-white" : ""
+                                  }`}
+                                >
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
 
                   {section.callout && (
                     <div className="my-6 rounded bg-lsh-black/80 border border-lsh-gold/30 p-5 text-sm leading-relaxed text-lsh-gold flex items-start gap-3">
