@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import { Search, X, SlidersHorizontal } from "lucide-react";
+import { useState, useMemo, useRef, useCallback, useEffect } from "react";
+import { Search, X, SlidersHorizontal, ChevronLeft, ChevronRight } from "lucide-react";
 import type { BlogPost } from "@/data/blog";
 import BlogCard from "./blog-card";
 
@@ -16,6 +16,34 @@ export default function BlogListClient({
 }: BlogListClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+  }, []);
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, [checkScroll, categories]);
+
+  const handleScroll = (direction: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const scrollAmount = 240;
+    el.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+    setTimeout(checkScroll, 320);
+  };
 
   const filteredPosts = useMemo(() => {
     return initialPosts.filter((post) => {
@@ -38,33 +66,73 @@ export default function BlogListClient({
     <div className="space-y-8">
       {/* Filters & Search Toolbar */}
       <div className="flex flex-col gap-4 rounded-md border border-[var(--lsh-border-dark)] bg-lsh-charcoal p-4 md:flex-row md:items-center md:justify-between md:p-6">
-        {/* Category Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+        {/* Category Pills with Left & Right Arrows */}
+        <div className="relative flex items-center gap-1.5 min-w-0 flex-1">
           <button
             type="button"
-            onClick={() => setSelectedCategory("All")}
-            className={`whitespace-nowrap rounded px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
-              selectedCategory === "All"
-                ? "bg-lsh-gold text-lsh-black shadow-md"
-                : "bg-lsh-dark text-[var(--lsh-grey-300)] hover:border-lsh-gold/40 hover:text-white border border-[var(--lsh-border-dark)]"
+            onClick={() => handleScroll("left")}
+            disabled={!canScrollLeft}
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded border transition-all duration-200 ${
+              canScrollLeft
+                ? "border-[var(--lsh-border-dark)] bg-lsh-dark text-white hover:border-lsh-gold hover:bg-lsh-gold hover:text-lsh-black active:scale-95 shadow-sm cursor-pointer"
+                : "border-[var(--lsh-border-dark)]/30 bg-lsh-dark/40 text-[var(--lsh-grey-700)] cursor-not-allowed opacity-30"
             }`}
+            aria-label="Previous categories"
           >
-            All Articles
+            <ChevronLeft className="h-4 w-4" />
           </button>
-          {categories.map((category) => (
+
+          <div
+            ref={scrollRef}
+            onScroll={checkScroll}
+            onWheel={(e) => {
+              if (e.deltaY !== 0) {
+                e.currentTarget.scrollLeft += e.deltaY;
+                checkScroll();
+              }
+            }}
+            className="flex items-center gap-2 overflow-x-auto py-1 scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden scrollbar-none flex-1 min-w-0"
+          >
             <button
-              key={category}
               type="button"
-              onClick={() => setSelectedCategory(category)}
-              className={`whitespace-nowrap rounded px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 ${
-                selectedCategory === category
-                  ? "bg-lsh-gold text-lsh-black shadow-md"
+              onClick={() => setSelectedCategory("All")}
+              className={`whitespace-nowrap rounded px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 shrink-0 ${
+                selectedCategory === "All"
+                  ? "bg-lsh-gold text-lsh-black shadow-md font-bold"
                   : "bg-lsh-dark text-[var(--lsh-grey-300)] hover:border-lsh-gold/40 hover:text-white border border-[var(--lsh-border-dark)]"
               }`}
             >
-              {category}
+              All Articles
             </button>
-          ))}
+            {categories.map((category) => (
+              <button
+                key={category}
+                type="button"
+                onClick={() => setSelectedCategory(category)}
+                className={`whitespace-nowrap rounded px-3.5 py-2 text-xs font-semibold uppercase tracking-wider transition-all duration-200 shrink-0 ${
+                  selectedCategory === category
+                    ? "bg-lsh-gold text-lsh-black shadow-md font-bold"
+                    : "bg-lsh-dark text-[var(--lsh-grey-300)] hover:border-lsh-gold/40 hover:text-white border border-[var(--lsh-border-dark)]"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => handleScroll("right")}
+            disabled={!canScrollRight}
+            className={`flex h-8 w-8 shrink-0 items-center justify-center rounded border transition-all duration-200 ${
+              canScrollRight
+                ? "border-[var(--lsh-border-dark)] bg-lsh-dark text-white hover:border-lsh-gold hover:bg-lsh-gold hover:text-lsh-black active:scale-95 shadow-sm cursor-pointer"
+                : "border-[var(--lsh-border-dark)]/30 bg-lsh-dark/40 text-[var(--lsh-grey-700)] cursor-not-allowed opacity-30"
+            }`}
+            aria-label="Next categories"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
         </div>
 
         {/* Search Input */}
