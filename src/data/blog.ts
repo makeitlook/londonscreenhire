@@ -1,13 +1,21 @@
+export interface BlogTable {
+  headers: string[];
+  rows: string[][];
+}
+
 export interface BlogSection {
   heading: string;
   paragraphs: string[];
   bullets?: string[];
   callout?: string;
+  table?: BlogTable;
 }
 
 export interface BlogPost {
   slug: string;
   title: string;
+  metaTitle?: string;
+  metaDescription?: string;
   excerpt: string;
   publishedAt: string;
   readTime: string;
