@@ -12,8 +12,11 @@ export default function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLUListElement>(null);
 
-  // Auto-scroll logic
+  // Auto-scroll logic — disabled when visitor prefers reduced motion
   useEffect(() => {
+    // Respect the OS/browser reduced-motion preference natively
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     const el = scrollRef.current;
     const container = containerRef.current;
     if (!el || !container) return;

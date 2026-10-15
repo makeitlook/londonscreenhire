@@ -16,8 +16,9 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import GoogleTracking from "@/components/shared/google-tracking";
 import uiContent from "@/content/ui.json";
-import { CONSENT_STORAGE_KEY, GA_MEASUREMENT_ID, GA_TRACKING_ID } from "@/lib/gtag";
+import { CONSENT_STORAGE_KEY, GA_MEASUREMENT_ID, GA_TRACKING_ID, GTM_ID } from "@/lib/gtag";
 
 type ConsentValue = "accepted" | "declined" | null;
 
@@ -83,11 +84,21 @@ export default function ConsentManager() {
 
   return (
     <>
-      {/* Load Vercel analytics and speed insights only when accepted */}
+      {/* Load Vercel analytics, speed insights, and Google tracking only when accepted */}
       {consent === "accepted" && (
         <>
           <Analytics />
           <SpeedInsights />
+          {/* Google Tag Manager noscript fallback — only when JS is disabled and consent was previously accepted */}
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+          <GoogleTracking />
         </>
       )}
 
@@ -132,21 +143,28 @@ export default function ConsentManager() {
               )}
             </div>
             <div className="flex items-center gap-2.5 shrink-0 flex-wrap sm:flex-nowrap">
-              <button
-                type="button"
-                onClick={() => decide("declined")}
-                className="px-4 py-2 text-[0.8125rem] font-semibold border border-white/20 rounded-sm hover:border-white/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lsh-gold"
-                style={{ color: "var(--lsh-grey-300)" }}
-              >
-                {uiContent.consent.decline}
-              </button>
-              <button
-                type="button"
-                onClick={() => decide("accepted")}
-                className="px-4 py-2 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-sm hover:bg-[var(--lsh-gold-hover)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              >
-                {uiContent.consent.accept}
-              </button>
+              {/* Show Decline only when not already declined */}
+              {consent !== "declined" && (
+                <button
+                  type="button"
+                  onClick={() => decide("declined")}
+                  className="px-4 py-2 text-[0.8125rem] font-semibold border border-white/20 rounded-sm hover:border-white/50 transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lsh-gold"
+                  style={{ color: "var(--lsh-grey-300)" }}
+                >
+                  {uiContent.consent.decline}
+                </button>
+              )}
+              {/* Show Accept only when not already accepted */}
+              {consent !== "accepted" && (
+                <button
+                  type="button"
+                  onClick={() => decide("accepted")}
+                  className="px-4 py-2 text-[0.8125rem] font-semibold text-lsh-black bg-lsh-gold rounded-sm hover:bg-[var(--lsh-gold-hover)] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                >
+                  {uiContent.consent.accept}
+                </button>
+              )}
+              {/* Close only available once a choice has been made */}
               {consent !== null && (
                 <button
                   type="button"
